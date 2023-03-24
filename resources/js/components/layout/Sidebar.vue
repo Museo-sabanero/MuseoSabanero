@@ -35,13 +35,13 @@
           </li>
           <li>
             <router-link
-              to="/home"
+              to="/donor"
               class="nav-link title-color font-sm"
             >
               <i class="iconly-Document icli"></i>
               <span>Donaciones</span>
             </router-link>
-            <router-link class="arrow" to="/home"
+            <router-link class="arrow" to="/donor"
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>

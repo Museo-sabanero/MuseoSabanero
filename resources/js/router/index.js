@@ -2,9 +2,14 @@ import { createWebHistory, createRouter } from 'vue-router'
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
+  },
+  {
+    path: '/donor',
+    name: 'Donor',
+    component: () => import(/* webpackChunkName: "home" */ '../views/Donor.vue'),
   },
 ]
 const router = createRouter({
