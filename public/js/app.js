@@ -23320,7 +23320,7 @@ __webpack_require__.r(__webpack_exports__);
       _router_index__WEBPACK_IMPORTED_MODULE_0__["default"].push('/home');
     },
     goDonors: function goDonors() {
-      _router_index__WEBPACK_IMPORTED_MODULE_0__["default"].push('/home');
+      _router_index__WEBPACK_IMPORTED_MODULE_0__["default"].push('/donor');
     },
     goIncome: function goIncome() {
       _router_index__WEBPACK_IMPORTED_MODULE_0__["default"].push('/home');
@@ -23739,7 +23739,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/home",
+    to: "/donor",
     "class": "nav-link title-color font-sm"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -23748,7 +23748,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": "arrow",
-    to: "/home"
+    to: "/donor"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_14];
@@ -23833,7 +23833,8 @@ try {
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.withCredentials = true;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.axios.defaults.baseURL = '/api/';
+//window.axios.defaults.baseURL = '/api/'
+//axios.defaults.baseURL = 'http://127.0.0.1:8001/api/';
 window.axios.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
@@ -23879,10 +23880,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.mjs");
 
 var routes = [{
-  path: '/',
+  path: '/home',
   name: 'Home',
   component: function component() {
     return __webpack_require__.e(/*! import() | home */ "home").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Home.vue */ "./resources/js/views/Home.vue"));
+  }
+}, {
+  path: '/donor',
+  name: 'Donor',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | home */ "home").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Donor.vue */ "./resources/js/views/Donor.vue"));
   }
 }];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createRouter)({
@@ -23904,7 +23911,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var apiUrl = '/logouts';
+var apiUrl = 'http://127.0.0.1:8000/api/logouts';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   getUser: function getUser() {
     return axios.get("".concat(apiUrl, "/userSession")).then(function (response) {
