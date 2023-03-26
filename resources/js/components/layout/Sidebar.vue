@@ -34,10 +34,7 @@
             ></router-link>
           </li>
           <li>
-            <router-link
-              to="/donor"
-              class="nav-link title-color font-sm"
-            >
+            <router-link to="/donor" class="nav-link title-color font-sm">
               <i class="iconly-Document icli"></i>
               <span>Donaciones</span>
             </router-link>
@@ -55,6 +52,15 @@
               <span>Historial</span>
             </router-link>
             <router-link class="arrow" to="/home"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+          <li>
+            <router-link to="/event" class="nav-link title-color font-sm">
+              <i class="iconly-Calendar icli"></i>
+              <span>Eventos</span>
+            </router-link>
+            <router-link class="arrow" to="/event"
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>
