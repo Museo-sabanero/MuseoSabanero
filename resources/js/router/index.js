@@ -27,10 +27,13 @@ const routes = [
       ),
   },
   {
-    path: '/eventUpdate',
+    path: '/eventUpdate/:id',
     name: 'EventUpdate',
     component: () =>
       import(/* webpackChunkName: "evendUpdate" */ '../views/EvendUpdate.vue'),
+    props: (route) => ({
+      id: route.params.id,
+    }),
   },
 ]
 const router = createRouter({

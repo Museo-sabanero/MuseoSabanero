@@ -42,16 +42,14 @@ __webpack_require__.r(__webpack_exports__);
         description: this.formData.description,
         maxPersons: this.formData.maxPersons
       };
-      // Aquí podrías enviar los datos a través de una petición HTTP o hacer algo más con ellos
       console.log(registro);
       _services_EventService__WEBPACK_IMPORTED_MODULE_0__["default"].createEvent(registro).then(function (data) {
         console.log(data);
         _this.$router.push('/event');
       });
-    },
-    togglePopup: function togglePopup() {
-      this.showPopup = !this.showPopup;
-    }
+    } // togglePopup() {
+    //   this.showPopup = !this.showPopup
+    // },
   }
 });
 
@@ -106,8 +104,7 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   type: "submit",
   "class": "btn-solid"
 }, "Guardar", -1 /* HOISTED */);
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"offcanvas-body small\"><div class=\"app-info\"><img src=\"assets/images/logo/logo48.png\" class=\"img-fluid\" alt=\"\"><div class=\"content\"><h3> Fastkart App <i data-feather=\"x\" data-bs-dismiss=\"offcanvas\"></i></h3><a href=\"#\">www.fastkart-app.com</a></div></div><button id=\"installApp\" class=\"btn-solid install-app\"> Add to home screen </button></div>", 1);
-var _hoisted_13 = [_hoisted_12];
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Section Start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Form Start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     "class": "custom-form",
@@ -174,14 +171,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "date",
     "class": "form-control",
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.dateEnd]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), _hoisted_11], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Form End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"togglePopup\">Mostrar/Ocultar Popup</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Section End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    id: "offcanvas",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-      'offcanvas offcanvas-bottom addtohome-popup show': $data.showPopup,
-      'offcanvas offcanvas-bottom addtohome-popup': !$data.showPopup
-    }),
-    tabindex: "-1"
-  }, _hoisted_13, 2 /* CLASS */)], 64 /* STABLE_FRAGMENT */);
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.dateEnd]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), _hoisted_11], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Form End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"togglePopup\">Mostrar/Ocultar Popup</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Section End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\n    id=\"offcanvas\"\n    :class=\"{\n      'offcanvas offcanvas-bottom addtohome-popup show': showPopup,\n      'offcanvas offcanvas-bottom addtohome-popup': !showPopup,\n    }\"\n    tabindex=\"-1\"\n  >\n    <div class=\"offcanvas-body small\">\n      <div class=\"app-info\">\n        <img src=\"assets/images/logo/logo48.png\" class=\"img-fluid\" alt=\"\" />\n        <div class=\"content\">\n          <h3>\n            Fastkart App <i data-feather=\"x\" data-bs-dismiss=\"offcanvas\"></i>\n          </h3>\n          <a href=\"#\">www.fastkart-app.com</a>\n        </div>\n      </div>\n      <button id=\"installApp\" class=\"btn-solid install-app\">\n        Add to home screen\n      </button>\n    </div>\n  </div> ")], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */);
 }
 
 /***/ }),
@@ -217,6 +207,20 @@ var apiUrl = 'http://127.0.0.1:8001/api/events';
   createEvent: function createEvent($data) {
     console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
+      return response.data;
+    });
+    //   .catch((error) => Promise.reject(error))
+  },
+  updateEvent: function updateEvent($data) {
+    console.log($data);
+    return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
+      return response.data;
+    });
+    //   .catch((error) => Promise.reject(error))
+  },
+  deleteEvent: function deleteEvent($data) {
+    console.log($data);
+    return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))

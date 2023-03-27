@@ -19,9 +19,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'EventUpdate',
+  props: {
+    id: {
+      type: Number,
+      required: true
+    }
+  },
   data: function data() {
     return {
       formData: {
+        id: '',
         dateStart: '',
         dateEnd: '',
         time: '',
@@ -30,26 +37,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         description: '',
         maxPersons: ''
       },
-      showPopup: false
+      list: []
     };
   },
   mounted: function mounted() {
     var _this = this;
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var data;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
-            data = {
-              id: '1'
-            };
-            _context.next = 3;
-            return _services_EventService__WEBPACK_IMPORTED_MODULE_0__["default"].getEvent('1').then(function (data) {
-              console.log(data);
-              _this.formData.dateStart = data.dateStart, _this.formData.dateEnd = data.dateEnd, _this.formData.time = data.time, _this.formData.name = data.name, _this.formData.cost = data.cost, _this.formData.description = data.description, _this.formData.maxPersons = data.maxPersons;
-              console.log(_this.formData);
+            _context.next = 2;
+            return _services_EventService__WEBPACK_IMPORTED_MODULE_0__["default"].getEvent(_this.id).then(function (data) {
+              _this.list = data;
+              var event = _this.list[0];
+              _this.formData.id = event.id, _this.formData.dateStart = event.dateStart, _this.formData.dateEnd = event.dateEnd, _this.formData.time = event.time, _this.formData.name = event.name, _this.formData.cost = event.costUpdate, _this.formData.description = event.description, _this.formData.maxPersons = event.maxPersons;
             });
-          case 3:
+          case 2:
           case "end":
             return _context.stop();
         }
@@ -59,8 +62,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     handleSubmit: function handleSubmit() {
       var _this2 = this;
-      console.log(this.formData);
       var registro = {
+        id: this.formData.id,
         dateStart: this.formData.dateStart,
         dateEnd: this.formData.dateEnd,
         time: this.formData.time,
@@ -69,15 +72,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         description: this.formData.description,
         maxPersons: this.formData.maxPersons
       };
-      // Aquí podrías enviar los datos a través de una petición HTTP o hacer algo más con ellos
       console.log(registro);
-      _services_EventService__WEBPACK_IMPORTED_MODULE_0__["default"].createEvent(registro).then(function (data) {
+      _services_EventService__WEBPACK_IMPORTED_MODULE_0__["default"].updateEvent(registro).then(function (data) {
         console.log(data);
         _this2.$router.push('/event');
       });
     },
-    togglePopup: function togglePopup() {
-      this.showPopup = !this.showPopup;
+    deleteEvent: function deleteEvent() {
+      var _this3 = this;
+      console.log(this.formData);
+      var registro = {
+        id: this.formData.id
+      };
+      console.log(registro);
+      _services_EventService__WEBPACK_IMPORTED_MODULE_0__["default"].deleteEvent(registro).then(function (data) {
+        console.log(data);
+        _this3.$router.push('/event');
+      });
     }
   }
 });
@@ -104,7 +115,7 @@ var _hoisted_2 = {
 };
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-md title-color fw-600"
-}, "Registrar Evento", -1 /* HOISTED */);
+}, "Editar Evento", -1 /* HOISTED */);
 var _hoisted_4 = {
   "class": "input-box"
 };
@@ -117,19 +128,22 @@ var _hoisted_6 = {
 var _hoisted_7 = {
   "class": "input-box"
 };
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_8 = {
+  "class": "input-box"
+};
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "dateStart",
   "class": "form-label"
 }, "Fecha de inicio:", -1 /* HOISTED */);
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "time",
   "class": "form-label"
 }, "Hora:", -1 /* HOISTED */);
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "dateEnd",
   "class": "form-label"
 }, "Fecha de finalización:", -1 /* HOISTED */);
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   type: "submit",
   "class": "btn-solid"
 }, "Guardar", -1 /* HOISTED */);
@@ -137,70 +151,89 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Section Start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Form Start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     "class": "custom-form",
-    onSubmit: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+    onSubmit: _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.handleSubmit && $options.handleSubmit.apply($options, arguments);
     }, ["prevent"]))
   }, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    id: "name",
+    id: "id",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.formData.id = $event;
+    }),
+    type: "text",
+    placeholder: "ID",
+    "class": "form-control",
+    required: "",
+    hidden: ""
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.id]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    id: "name",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.formData.name = $event;
     }),
     type: "text",
     placeholder: "Nombre",
     "class": "form-control",
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     id: "description",
-    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
       return $data.formData.description = $event;
     }),
     type: "text",
     placeholder: "Descripción",
     "class": "form-control",
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.description]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.description]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     id: "cost",
-    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $data.formData.cost = $event;
     }),
     type: "number",
     placeholder: "Costo",
     "class": "form-control",
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.cost]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.cost]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     id: "maxPersons",
-    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $data.formData.maxPersons = $event;
     }),
     type: "number",
     placeholder: "Máximo de Personas",
     "class": "form-control",
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.maxPersons]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.maxPersons]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     id: "dateStart",
-    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
       return $data.formData.dateStart = $event;
     }),
     type: "date",
     "class": "form-control",
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.dateStart]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.dateStart]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     id: "time",
-    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
       return $data.formData.time = $event;
     }),
     type: "time",
     "class": "form-control",
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.time]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.time]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     id: "dateEnd",
-    "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+    "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
       return $data.formData.dateEnd = $event;
     }),
     type: "date",
     "class": "form-control",
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.dateEnd]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), _hoisted_11], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Form End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"togglePopup\">Mostrar/Ocultar Popup</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Section End ")]);
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.dateEnd]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), _hoisted_12], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "submit",
+    "class": "btn btn-primary w-100",
+    style: {
+      "background-color": "red"
+    },
+    onClick: _cache[9] || (_cache[9] = function () {
+      return $options.deleteEvent && $options.deleteEvent.apply($options, arguments);
+    })
+  }, " Eliminar Evento ")])]);
 }
 
 /***/ }),
@@ -236,6 +269,20 @@ var apiUrl = 'http://127.0.0.1:8001/api/events';
   createEvent: function createEvent($data) {
     console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
+      return response.data;
+    });
+    //   .catch((error) => Promise.reject(error))
+  },
+  updateEvent: function updateEvent($data) {
+    console.log($data);
+    return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
+      return response.data;
+    });
+    //   .catch((error) => Promise.reject(error))
+  },
+  deleteEvent: function deleteEvent($data) {
+    console.log($data);
+    return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))

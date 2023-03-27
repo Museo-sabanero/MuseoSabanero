@@ -24,4 +24,20 @@ export default {
       .then((response) => response.data)
     //   .catch((error) => Promise.reject(error))
   },
+
+  updateEvent($data) {
+    console.log($data)
+    return axios
+      .post(`${apiUrl}/update`, $data)
+      .then((response) => response.data)
+    //   .catch((error) => Promise.reject(error))
+  },
+
+  deleteEvent($data) {
+    console.log($data)
+    return axios
+      .post(`${apiUrl}/delete`, $data)
+      .then((response) => response.data)
+    //   .catch((error) => Promise.reject(error))
+  },
 }

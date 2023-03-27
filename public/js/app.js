@@ -23927,10 +23927,15 @@ var routes = [{
     return __webpack_require__.e(/*! import() | eventRegister */ "eventRegister").then(__webpack_require__.bind(__webpack_require__, /*! ../views/EventRegister.vue */ "./resources/js/views/EventRegister.vue"));
   }
 }, {
-  path: '/eventUpdate',
+  path: '/eventUpdate/:id',
   name: 'EventUpdate',
   component: function component() {
     return __webpack_require__.e(/*! import() | evendUpdate */ "evendUpdate").then(__webpack_require__.bind(__webpack_require__, /*! ../views/EvendUpdate.vue */ "./resources/js/views/EvendUpdate.vue"));
+  },
+  props: function props(route) {
+    return {
+      id: route.params.id
+    };
   }
 }];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createRouter)({

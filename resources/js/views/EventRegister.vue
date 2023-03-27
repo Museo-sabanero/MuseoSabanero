@@ -95,7 +95,7 @@
     <!-- <button @click="togglePopup">Mostrar/Ocultar Popup</button> -->
     <!-- Login Section End -->
   </main>
-  <div
+  <!-- <div
     id="offcanvas"
     :class="{
       'offcanvas offcanvas-bottom addtohome-popup show': showPopup,
@@ -117,7 +117,7 @@
         Add to home screen
       </button>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -150,7 +150,6 @@ export default {
         description: this.formData.description,
         maxPersons: this.formData.maxPersons,
       }
-      // Aquí podrías enviar los datos a través de una petición HTTP o hacer algo más con ellos
       console.log(registro)
 
       Events.createEvent(registro).then((data) => {
@@ -158,9 +157,9 @@ export default {
         this.$router.push('/event')
       })
     },
-    togglePopup() {
-      this.showPopup = !this.showPopup
-    },
+    // togglePopup() {
+    //   this.showPopup = !this.showPopup
+    // },
   },
 }
 </script>
