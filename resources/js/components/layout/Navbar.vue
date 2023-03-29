@@ -47,7 +47,7 @@ export default {
     },
 
     goDonors() {
-      router.push('/donor')
+      router.push('/donor/index')
     },
     goIncome() {
       router.push('/home')
