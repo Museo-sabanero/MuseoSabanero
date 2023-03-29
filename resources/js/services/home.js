@@ -1,4 +1,3 @@
-
 const apiUrl = '/products'
 
 export default {
@@ -9,5 +8,4 @@ export default {
       .then((response) => response.data)
       .catch((error) => Promise.reject(error))
   },
-
 }

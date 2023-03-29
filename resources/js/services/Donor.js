@@ -1,4 +1,3 @@
-
 const apiUrl = 'http://127.0.0.1:8001/api/donores'
 
 export default {
@@ -34,5 +33,5 @@ export default {
         .then((response) => response.data)
         .catch((error) => Promise.reject(error))
     },
-  
+
 }
