@@ -34,21 +34,35 @@
             ></router-link>
           </li>
           <li>
-            <router-link to="/donor" class="nav-link title-color font-sm">
-              <i class="iconly-Document icli"></i>
-              <span>Donaciones</span>
+            <router-link
+              to="/donor/register"
+              class="nav-link title-color font-sm"
+            >
+              <i class="iconly-Add-User"></i>
+              <span>Registrar donador</span>
+            </router-link>
+            <router-link class="arrow" to="/donor/register"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+          <li>
+            <router-link
+              to="/donor/register"
+              class="nav-link title-color font-sm"
+            >
+              <i class="iconly-Calendar"></i>
+              <span>Registrar eventos</span>
             </router-link>
             <router-link class="arrow" to="/donor"
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>
-
           <li>
             <router-link
               to="/deliveryhistory"
               class="nav-link title-color font-sm"
             >
-              <i class="iconly-Calendar icli"></i>
+              <i class="iconly-Time-Circle"></i>
               <span>Historial</span>
             </router-link>
             <router-link class="arrow" to="/home"
@@ -66,8 +80,8 @@
           </li>
           <li>
             <a href="javascript:void(0)" class="nav-link title-color font-sm">
-              <i class="iconly-Graph icli"></i>
-              <span>Dark</span>
+              <i class="iconly-Show icli"></i>
+              <span>Tema oscuro</span>
             </a>
 
             <div class="dark-switch">

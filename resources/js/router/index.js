@@ -7,30 +7,22 @@ const routes = [
     component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
   },
   {
-    path: '/donor',
-    name: 'Donor',
-    component: () =>
-      import(/* webpackChunkName: "donor" */ '../views/Donor.vue'),
+    path: '/donor/index',
+    name: 'IndexDonor',
+    component: () => import(/* webpackChunkName: "donor" */ '../views/Donor/Index.vue'),
   },
   {
-    path: '/event',
-    name: 'Event',
-    component: () =>
-      import(/* webpackChunkName: "event" */ '../views/Event.vue'),
+    path: '/donor/register',
+    name: 'RegisterDonor',
+    component: () => import(/* webpackChunkName: "donor" */ '../views/Donor/Register.vue'),
   },
   {
-    path: '/eventRegister',
-    name: 'EventCreate',
+    path: '/donor/details/:id',
+    name: 'DetailsDonor',
     component: () =>
       import(
-        /* webpackChunkName: "eventRegister" */ '../views/EventRegister.vue'
+        /* webpackChunkName: "detailsDonor" */ '../views/Donor/Details.vue'
       ),
-  },
-  {
-    path: '/eventUpdate/:id',
-    name: 'EventUpdate',
-    component: () =>
-      import(/* webpackChunkName: "evendUpdate" */ '../views/EvendUpdate.vue'),
     props: (route) => ({
       id: route.params.id,
     }),
