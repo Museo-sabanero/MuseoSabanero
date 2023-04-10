@@ -15,7 +15,7 @@
           <div class="media-body">
             <a class="title-color font-sm"
               >{{ name }}
-              <span class="content-color font-xs">Nick: {{ nickName }}</span>
+              <span class="content-color font-xs">Rol: {{ role }}</span>
             </a>
           </div>
         </div>
@@ -30,6 +30,18 @@
               <span>Panel</span>
             </router-link>
             <router-link class="arrow" to="/home"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+          <li v-if="isAdmin">
+            <router-link
+              to="/user/register"
+              class="nav-link title-color font-sm"
+            >
+              <i class="iconly-User2"></i>
+              <span>Registrar usuarios</span>
+            </router-link>
+            <router-link class="arrow" to="/user/register"
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>
@@ -75,6 +87,15 @@
               <span>Eventos</span>
             </router-link>
             <router-link class="arrow" to="/event"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+           <li>
+            <router-link  to="/user/setting" class="nav-link title-color font-sm">
+              <i class="iconly-Setting icli"></i>
+              <span>Configuración</span>
+            </router-link>
+            <router-link class="arrow" to="/user/setting"
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>
@@ -155,7 +176,8 @@ export default {
       isDarkMode: localStorage.getItem('body') === 'dark',
       darkCSS: '/css/dark.css',
       name: null,
-      nickName: null,
+      role: null,
+      isAdmin: null,
     }
   },
   watch: {
@@ -171,8 +193,9 @@ export default {
   },
   async mounted() {
     await Logout.getUser().then((data) => {
-      this.nickName = data.user
+      this.role = data.role
       this.name = data.name
+      this.isAdmin = data.isAdmin
     })
   },
   beforeMount() {

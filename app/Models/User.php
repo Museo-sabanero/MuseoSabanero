@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -28,6 +29,8 @@ class User extends Authenticatable
         'email',
         'login',
         'contrasena',
+        'ROL_ID',
+        'remember_token',
     ];
 
     /**
@@ -55,7 +58,8 @@ class User extends Authenticatable
         'name' => 'nombre',
         'password' => 'contrasena',
         'remember_token' => 'token_recordarme',
-        'email_verified_at' => 'email_verificado'
+        'email_verified_at' => 'email_verificado',
+        'idRol' => 'ROL_ID'
     ];
 
     /**
@@ -93,16 +97,45 @@ class User extends Authenticatable
         return $this->attributes['iduser'];
     }
 
-    public function getNameAttribute(){
+    public function getNameAttribute()
+    {
         return $this->attributes['nombre'];
     }
 
-    public function getNicknameAttribute(){
+    public function getIdRoleAttribute()
+    {
+        return $this->attributes['ROL_ID'];
+    }
+
+    public function getNicknameAttribute()
+    {
         return trim($this->attributes["login"]);
     }
 
-    public function getEmailAttribute(){
+    public function getEmailAttribute()
+    {
         return $this->attributes["email"];
     }
-        
+
+    public function getIsAdminAttribute()
+    {
+        if ($this->idRole == 1) {
+            return true;
+        }
+    }
+
+    public function getRoleAttribute()
+    {
+
+
+        switch ($this->idRole) {
+            case '1':
+                return 'Administrador';
+                break;
+
+            case '2':
+                return 'Usuario';
+                break;
+        }
+    }
 }

@@ -31,7 +31,7 @@
             </div>
             <!-- Password Input End -->
 
-            <a href="forgot-password.html" class="content-color font-sm forgot mb-3">{{ __('Olvido su contraseña?') }}</a>
+            <!-- <a href="forgot-password.html" class="content-color font-sm forgot mb-3">{{ __('Olvido su contraseña?') }}</a> -->
             <button type="submit" class="btn-solid">Iniciar sesión</button>
         </form>
     </section>
