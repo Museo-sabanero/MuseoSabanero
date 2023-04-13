@@ -19,7 +19,7 @@
           <div>
             <h4 class="title-color">Eventos</h4>
           </div>
-          <router-link to="/eventRegister" class="font-theme">
+          <router-link to="/event/register" class="font-theme">
             Registrar
           </router-link>
         </div>
@@ -67,7 +67,7 @@
   </main>
 </template>
 <script>
-import Events from '../services/EventService'
+import Events from '../../services/EventService'
 
 export default {
   name: 'EventView',

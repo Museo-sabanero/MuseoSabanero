@@ -6,6 +6,10 @@
     "/js/event.js": "/js/event.js",
     "/js/eventRegister.js": "/js/eventRegister.js",
     "/js/evendUpdate.js": "/js/evendUpdate.js",
+    "/js/ArticleView.js": "/js/ArticleView.js",
+    "/js/articleRegister.js": "/js/articleRegister.js",
+    "/js/articleUpdate.js": "/js/articleUpdate.js",
+    "/js/restaurationRegister.js": "/js/restaurationRegister.js",
     "/css/dark.css": "/css/dark.css",
     "/css/app.css": "/css/app.css"
 }

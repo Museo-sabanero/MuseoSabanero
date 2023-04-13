@@ -3,10 +3,10 @@
     <div>
       <i class="iconly-Search icli search"></i>
       <input
+        v-model="searchTerm"
         class="form-control"
         type="search"
         placeholder="Buscar por nombre o cédula"
-        v-model="searchTerm"
         @input="filterData()"
       />
       <i class="iconly-Voice icli mic"></i>
@@ -26,10 +26,12 @@
             <a href="javascript:void(0)" class="content-box">
               <div class="d-flex justify-content-between mb-3">
                 <div>
-                  <h4 class="title-color font-sm ">Cédula: <span class="content-color font-theme"
-                    >{{ item.identification }}
-                  </span></h4>
-                 
+                  <h4 class="title-color font-sm">
+                    Cédula:
+                    <span class="content-color font-theme"
+                      >{{ item.identification }}
+                    </span>
+                  </h4>
                 </div>
                 <div>
                   <h4 class="title-color font-sm ms-3">
@@ -97,7 +99,7 @@
   </main>
   <br /><br /><br /><br />
 </template>
-    <script>
+<script>
 import Donors from '../../services/Donor'
 
 export default {
@@ -111,6 +113,13 @@ export default {
       originalList: [],
       searchTerm: '',
     }
+  },
+  async mounted() {
+    await Donors.getDonors().then((data) => {
+      console.log(data)
+      this.List = data
+      this.originalList = this.List
+    })
   },
   methods: {
     filterData() {
@@ -127,13 +136,5 @@ export default {
       }
     },
   },
-  async mounted() {
-    await Donors.getDonors().then((data) => {
-      console.log(data)
-      this.List = data
-      this.originalList = this.List
-    })
-  },
 }
 </script>
-    

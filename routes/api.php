@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\LogoutController;
 Route::group(['prefix' => 'logouts', 'as' => 'logouts', 'middleware' => ['auth:sanctum']], function () {
     Route::get('userSession', [LogoutController::class, 'userSession']);
 });
+
 Route::delete('/logout', [LogoutController::class, 'logout']);
 
 
