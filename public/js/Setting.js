@@ -209,7 +209,7 @@ var _hoisted_4 = {
 var _hoisted_5 = {
   "class": "media"
 };
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"avatar-wrap\"><a href=\"javascript:void(0)\"><img src=\"/images/avatar/avatar.jpg\" alt=\"avatar\"></a><span class=\"edit\"><i data-feather=\"edit-2\"></i></span></div>", 1);
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"avatar-wrap\"><a href=\"javascript:void(0)\"><img src=\"/images/avatar/avatar.jpg\" alt=\"avatar\"></a><span class=\"edit\"><i class=\"iconly-Camera icli\"></i></span></div>", 1);
 var _hoisted_7 = {
   "class": "media-body"
 };

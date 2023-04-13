@@ -15,7 +15,7 @@
           <a href="javascript:void(0)">
             <img src="/images/avatar/avatar.jpg" alt="avatar"
           /></a>
-          <span class="edit"> <i data-feather="edit-2"></i></span>
+          <span class="edit"> <i class="iconly-Camera icli"></i></span>
         </div>
         <div class="media-body">
           <h2 class="title-color">{{ item.name }}</h2>
