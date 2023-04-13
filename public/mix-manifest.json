@@ -9,5 +9,8 @@
     "/js/register.js": "/js/register.js",
     "/js/setting.js": "/js/setting.js",
     "/css/dark.css": "/css/dark.css",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/ArticleView.js": "/js/ArticleView.js",
+    "/js/articleRegister.js": "/js/articleRegister.js",
+    "/js/articleUpdate.js": "/js/articleUpdate.js"
 }
