@@ -59,13 +59,37 @@
           </li>
           <li>
             <router-link
-              to="/donor/register"
+              to="/event/register"
               class="nav-link title-color font-sm"
             >
               <i class="iconly-Calendar"></i>
               <span>Registrar eventos</span>
             </router-link>
-            <router-link class="arrow" to="/donor"
+            <router-link class="arrow" to="/event/register"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+          <li>
+            <router-link
+              to="/article/register"
+              class="nav-link title-color font-sm"
+            >
+              <i class="bx bx-layer-plus"></i>
+              <span>Registrar articulo</span>
+            </router-link>
+            <router-link class="arrow" to="/article/register"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+          <li>
+            <router-link
+              to="/restauration/register"
+              class="nav-link title-color font-sm"
+            >
+              <i class="bx bx-add-to-queue"></i>
+              <span>Registrar restauración</span>
+            </router-link>
+            <router-link class="arrow" to="/restauration/register"
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>
@@ -82,11 +106,11 @@
             ></router-link>
           </li>
           <li>
-            <router-link to="/event" class="nav-link title-color font-sm">
+            <router-link to="/event/index" class="nav-link title-color font-sm">
               <i class="iconly-Calendar icli"></i>
               <span>Eventos</span>
             </router-link>
-            <router-link class="arrow" to="/event"
+            <router-link class="arrow" to="/event/index"
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>

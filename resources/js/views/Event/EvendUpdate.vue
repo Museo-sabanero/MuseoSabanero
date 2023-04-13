@@ -1,11 +1,31 @@
 <template>
+  <header class="header">
+    <div class="logo-wrap">
+      <a href="#" @click="goBack()"
+        ><i class="iconly-Arrow-Left-Square icli"></i
+      ></a>
+      <h1 class="title-color font-md">Volver</h1>
+    </div>
+  </header>
   <main class="main-wrap login-page mb-xxl">
     <!-- Login Section Start -->
     <section class="login-section p-0">
       <!-- Login Form Start -->
+      <h3 class="font-theme font-md">Editar Evento</h3>
       <form class="custom-form" @submit.prevent="handleSubmit">
-        <h1 class="font-md title-color fw-600">Registrar Evento</h1>
-
+        <!-- Email Input start -->
+        <div class="input-box">
+          <input
+            id="id"
+            v-model="formData.id"
+            type="text"
+            placeholder="ID"
+            class="form-control"
+            required
+            hidden
+          />
+        </div>
+        <!-- Email Input End -->
         <!-- Email Input start -->
         <div class="input-box">
           <input
@@ -90,43 +110,35 @@
         <!-- Email Input End -->
         <button type="submit" class="btn-solid">Guardar</button>
       </form>
-      <!-- Login Form End -->
-    </section>
-    <!-- <button @click="togglePopup">Mostrar/Ocultar Popup</button> -->
-    <!-- Login Section End -->
-  </main>
-  <!-- <div
-    id="offcanvas"
-    :class="{
-      'offcanvas offcanvas-bottom addtohome-popup show': showPopup,
-      'offcanvas offcanvas-bottom addtohome-popup': !showPopup,
-    }"
-    tabindex="-1"
-  >
-    <div class="offcanvas-body small">
-      <div class="app-info">
-        <img src="assets/images/logo/logo48.png" class="img-fluid" alt="" />
-        <div class="content">
-          <h3>
-            Fastkart App <i data-feather="x" data-bs-dismiss="offcanvas"></i>
-          </h3>
-          <a href="#">www.fastkart-app.com</a>
-        </div>
-      </div>
-      <button id="installApp" class="btn-solid install-app">
-        Add to home screen
+      <button
+        type="submit"
+        class="btn btn-primary w-100"
+        style="background-color: red"
+        @click="deleteEvent"
+      >
+        Eliminar Evento
       </button>
-    </div>
-  </div> -->
+    </section>
+  </main>
 </template>
-
 <script>
-import Events from '../services/EventService'
+import Events from '../../services/EventService'
+import GoBack from '../../components/GoBack.vue'
 export default {
-  name: 'EventRegister',
+  name: 'EventUpdate',
+  components: {
+    GoBack,
+  },
+  props: {
+    id: {
+      type: Number,
+      required: true,
+    },
+  },
   data() {
     return {
       formData: {
+        id: '',
         dateStart: '',
         dateEnd: '',
         time: '',
@@ -135,13 +147,27 @@ export default {
         description: '',
         maxPersons: '',
       },
-      showPopup: false,
+      list: [],
     }
+  },
+  async mounted() {
+    await Events.getEvent(this.id).then((data) => {
+      this.list = data
+      var event = this.list[0]
+      ;(this.formData.id = event.id),
+        (this.formData.dateStart = event.dateStart),
+        (this.formData.dateEnd = event.dateEnd),
+        (this.formData.time = event.time),
+        (this.formData.name = event.name),
+        (this.formData.cost = event.costUpdate),
+        (this.formData.description = event.description),
+        (this.formData.maxPersons = event.maxPersons)
+    })
   },
   methods: {
     handleSubmit() {
-      console.log(this.formData)
       const registro = {
+        id: this.formData.id,
         dateStart: this.formData.dateStart,
         dateEnd: this.formData.dateEnd,
         time: this.formData.time,
@@ -152,14 +178,26 @@ export default {
       }
       console.log(registro)
 
-      Events.createEvent(registro).then((data) => {
+      Events.updateEvent(registro).then((data) => {
+        console.log(data)
+        this.$router.push('/event/index')
+      })
+    },
+    deleteEvent() {
+      console.log(this.formData)
+      const registro = {
+        id: this.formData.id,
+      }
+      console.log(registro)
+
+      Events.deleteEvent(registro).then((data) => {
         console.log(data)
         this.$router.push('/event')
       })
     },
-    // togglePopup() {
-    //   this.showPopup = !this.showPopup
-    // },
+    goBack() {
+      this.$router.push({ name: 'Event' })
+    },
   },
 }
 </script>

@@ -8,10 +8,10 @@
         </a>
       </li>
       <li class="footer-item">
-        <a class="footer-link" @click="goInventory()">
+        <a class="footer-link" @click="goArticles()">
           <i class="iconly-Bookmark icli"></i>
 
-          <span>Inventario</span>
+          <span>Articulos</span>
         </a>
       </li>
       <li class="footer-item">
@@ -42,8 +42,8 @@ export default {
       router.push('/home')
     },
 
-    goInventory() {
-      router.push('/home')
+    goArticles() {
+      router.push('/article/index')
     },
 
     goDonors() {

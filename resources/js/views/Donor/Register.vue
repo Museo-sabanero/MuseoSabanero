@@ -24,8 +24,8 @@
                   <h4 class="title-color font-sm">Nombre completo:</h4>
                   <div class="input-box mt-3">
                     <input
-                      maxlength="70"
                       v-model="name"
+                      maxlength="70"
                       type="text"
                       placeholder="Ingrese el nombre completo"
                       required
@@ -48,8 +48,8 @@
                   <h4 class="title-color font-sm">Cédula:</h4>
                   <div class="input-box mt-3">
                     <input
-                      maxlength="50"
                       v-model="identification"
+                      maxlength="50"
                       type="number"
                       placeholder="Ingrese la cédula sin guiones"
                       required
@@ -73,8 +73,8 @@
                   <h4 class="title-color font-sm">Télefono:</h4>
                   <div class="input-box mt-3">
                     <input
-                      maxlength="12"
                       v-model="phone"
+                      maxlength="12"
                       type="number"
                       placeholder="Ingrese el télefono"
                       required
@@ -97,8 +97,8 @@
                   <h4 class="title-color font-sm">Correo electrónico:</h4>
                   <div class="input-box mt-3">
                     <input
-                      maxlength="50"
                       v-model="email"
+                      maxlength="50"
                       type="email"
                       placeholder="Ingrese el email"
                       required
@@ -147,8 +147,8 @@
     <!-- How do I order? Section End -->
   </main>
 </template>
-  
-  <script>
+
+<script>
 import DonorService from '../../services/Donor'
 
 export default {
@@ -189,20 +189,20 @@ export default {
         .catch((error) => {
           const errorMessages = error.response.data.errorMessage
           for (let fieldName in errorMessages) {
-            if(fieldName === "name"){
-              this.showErrorMessageName = true;
+            if (fieldName === 'name') {
+              this.showErrorMessageName = true
             }
-            if(fieldName === "id"){
-              this.showErrorMessageId = true;
-
-            } if(fieldName === "phone"){
-              this.showErrorMessagePhone = true;
+            if (fieldName === 'id') {
+              this.showErrorMessageId = true
             }
-            if(fieldName === "email"){
-              this.showErrorMessageEmail = true;
+            if (fieldName === 'phone') {
+              this.showErrorMessagePhone = true
             }
-            if(fieldName === "ubication"){
-              this.showErrorMessageUbication = true;
+            if (fieldName === 'email') {
+              this.showErrorMessageEmail = true
+            }
+            if (fieldName === 'ubication') {
+              this.showErrorMessageUbication = true
             }
           }
         })
@@ -215,4 +215,3 @@ export default {
   },
 }
 </script>
-  
