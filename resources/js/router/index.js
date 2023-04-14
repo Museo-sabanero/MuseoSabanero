@@ -81,14 +81,6 @@ const routes = [
       id: route.params.id,
     }),
   },
-  {
-    path: '/restauration/register',
-    name: 'RestaurationRegister',
-    component: () =>
-      import(
-        /* webpackChunkName: "restaurationRegister" */ '../views/Restauration/RestaurationRegister.vue'
-      ),
-  },
 ]
 const router = createRouter({
   history: createWebHistory(),

@@ -28,10 +28,14 @@ class LogoutController extends Controller
     {
         $nickName = Auth::user()->nickname;
         $name =  Auth::user()->name;
+        $role=  Auth::user()->role;
+        $isAdmin=  Auth::user()->isAdmin;
         
         return response()->json([
             'user' => $nickName,
             'name'=>$name,
+            'role'=> $role,
+            'isAdmin' =>$isAdmin,
         ], 200);
     }
 }
