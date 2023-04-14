@@ -24097,6 +24097,18 @@ var routes = [{
       id: route.params.id
     };
   }
+}, {
+  path: '/user/register',
+  name: 'RegisterUser',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | register */ "register").then(__webpack_require__.bind(__webpack_require__, /*! ../views/User/Register.vue */ "./resources/js/views/User/Register.vue"));
+  }
+}, {
+  path: '/user/Setting',
+  name: 'SettingUser',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | setting */ "setting").then(__webpack_require__.bind(__webpack_require__, /*! ../views/User/Setting.vue */ "./resources/js/views/User/Setting.vue"));
+  }
 }];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createRouter)({
   history: (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createWebHistory)(),
@@ -52668,7 +52680,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
 /******/ 			if (chunkId === "home") return "js/home.js";
-/******/ 			if ({"donor":1,"detailsDonor":1,"event":1,"eventRegister":1,"evendUpdate":1,"ArticleView":1,"articleRegister":1,"articleUpdate":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"donor":1,"detailsDonor":1,"event":1,"eventRegister":1,"evendUpdate":1,"ArticleView":1,"articleRegister":1,"articleUpdate":1,"register":1,"setting":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

@@ -81,6 +81,16 @@ const routes = [
       id: route.params.id,
     }),
   },
+  {
+    path: '/user/register',
+    name: 'RegisterUser',
+    component: () => import(/* webpackChunkName: "register" */ '../views/User/Register.vue'),
+  },
+  {
+    path: '/user/Setting',
+    name: 'SettingUser',
+    component: () => import(/* webpackChunkName: "setting" */ '../views/User/Setting.vue'),
+  },
 ]
 const router = createRouter({
   history: createWebHistory(),
