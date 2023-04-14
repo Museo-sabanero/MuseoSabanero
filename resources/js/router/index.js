@@ -9,12 +9,14 @@ const routes = [
   {
     path: '/donor/index',
     name: 'IndexDonor',
-    component: () => import(/* webpackChunkName: "donor" */ '../views/Donor/Index.vue'),
+    component: () =>
+      import(/* webpackChunkName: "donor" */ '../views/Donor/Index.vue'),
   },
   {
     path: '/donor/register',
     name: 'RegisterDonor',
-    component: () => import(/* webpackChunkName: "donor" */ '../views/Donor/Register.vue'),
+    component: () =>
+      import(/* webpackChunkName: "donor" */ '../views/Donor/Register.vue'),
   },
   {
     path: '/donor/details/:id',
@@ -28,27 +30,64 @@ const routes = [
     }),
   },
   {
-    path: '/event',
+    path: '/event/index',
     name: 'Event',
     component: () =>
-      import(/* webpackChunkName: "event" */ '../views/Event.vue'),
+      import(/* webpackChunkName: "event" */ '../views/Event/Event.vue'),
   },
   {
-    path: '/eventRegister',
+    path: '/event/register',
     name: 'EventCreate',
     component: () =>
       import(
-        /* webpackChunkName: "eventRegister" */ '../views/EventRegister.vue'
+        /* webpackChunkName: "eventRegister" */ '../views/Event/EventRegister.vue'
       ),
   },
   {
-    path: '/eventUpdate/:id',
+    path: '/event/update/:id',
     name: 'EventUpdate',
     component: () =>
-      import(/* webpackChunkName: "evendUpdate" */ '../views/EvendUpdate.vue'),
+      import(
+        /* webpackChunkName: "evendUpdate" */ '../views/Event/EvendUpdate.vue'
+      ),
     props: (route) => ({
       id: route.params.id,
     }),
+  },
+  {
+    path: '/article/index',
+    name: 'ArticleView',
+    component: () =>
+      import(
+        /* webpackChunkName: "ArticleView" */ '../views/Article/Article.vue'
+      ),
+  },
+  {
+    path: '/article/register',
+    name: 'ArticleRegister',
+    component: () =>
+      import(
+        /* webpackChunkName: "articleRegister" */ '../views/Article/ArticleRegister.vue'
+      ),
+  },
+  {
+    path: '/article/update/:id',
+    name: 'ArticleUpdate',
+    component: () =>
+      import(
+        /* webpackChunkName: "articleUpdate" */ '../views/Article/ArticleUpdate.vue'
+      ),
+    props: (route) => ({
+      id: route.params.id,
+    }),
+  },
+  {
+    path: '/restauration/register',
+    name: 'RestaurationRegister',
+    component: () =>
+      import(
+        /* webpackChunkName: "restaurationRegister" */ '../views/Restauration/RestaurationRegister.vue'
+      ),
   },
 ]
 const router = createRouter({
