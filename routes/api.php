@@ -25,6 +25,7 @@ Route::group(['prefix' => 'users', 'as' => 'users', 'middleware' => ['auth:sanct
     Route::post('/register', [UserController::class, 'register']);
     Route::put('/update', [UserController::class, 'update']);
     Route::get('/detailsUser', [UserController::class, 'detailsUser']);
+    Route::get('/showUser', [UserController::class, 'showUser']);
 });
 
 

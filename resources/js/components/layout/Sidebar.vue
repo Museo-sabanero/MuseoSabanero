@@ -114,8 +114,23 @@
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>
-           <li>
-            <router-link  to="/user/setting" class="nav-link title-color font-sm">
+          <li>
+            <router-link
+              to="/restauration/index"
+              class="nav-link title-color font-sm"
+            >
+              <i class="iconly-Calendar icli"></i>
+              <span>Restauraciones</span>
+            </router-link>
+            <router-link class="arrow" to="/restauration/index"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+          <li>
+            <router-link
+              to="/user/setting"
+              class="nav-link title-color font-sm"
+            >
               <i class="iconly-Setting icli"></i>
               <span>Configuración</span>
             </router-link>

@@ -11,6 +11,9 @@
     "/js/articleUpdate.js": "/js/articleUpdate.js",
     "/js/register.js": "/js/register.js",
     "/js/setting.js": "/js/setting.js",
+    "/js/RestaurationView.js": "/js/RestaurationView.js",
+    "/js/restaurationRegister.js": "/js/restaurationRegister.js",
+    "/js/restaurationUpdate.js": "/js/restaurationUpdate.js",
     "/css/dark.css": "/css/dark.css",
     "/css/app.css": "/css/app.css"
 }
