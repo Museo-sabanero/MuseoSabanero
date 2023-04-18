@@ -23,7 +23,7 @@ Route::group([
     'as' => 'subject.',
     'namespace' => 'subject',
     'middleware' => ['auth:sanctum'],
-    'where' => ['subject' => 'home']
+    'where' => ['subject' => 'home|donor/index|donor/details|donor/register|event/index|event/register|event/update|article/register|article/update|article/index|restauration/register|user/register|user/setting']
 ], function () {
     Route::view('/{any?}', 'app')->name('subject')->where('any', '.*');
 });

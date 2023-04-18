@@ -15,7 +15,7 @@
           <div class="media-body">
             <a class="title-color font-sm"
               >{{ name }}
-              <span class="content-color font-xs">Nick: {{ nickName }}</span>
+              <span class="content-color font-xs">Rol: {{ role }}</span>
             </a>
           </div>
         </div>
@@ -33,25 +33,72 @@
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>
-          <li>
+          <li v-if="isAdmin">
             <router-link
-              to="/home"
+              to="/user/register"
               class="nav-link title-color font-sm"
             >
-              <i class="iconly-Document icli"></i>
-              <span>Donaciones</span>
+              <i class="iconly-User2"></i>
+              <span>Registrar usuarios</span>
             </router-link>
-            <router-link class="arrow" to="/home"
+            <router-link class="arrow" to="/user/register"
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>
-
+          <li>
+            <router-link
+              to="/donor/register"
+              class="nav-link title-color font-sm"
+            >
+              <i class="iconly-Add-User"></i>
+              <span>Registrar donador</span>
+            </router-link>
+            <router-link class="arrow" to="/donor/register"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+          <li>
+            <router-link
+              to="/event/register"
+              class="nav-link title-color font-sm"
+            >
+              <i class="iconly-Calendar"></i>
+              <span>Registrar eventos</span>
+            </router-link>
+            <router-link class="arrow" to="/event/register"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+          <li>
+            <router-link
+              to="/article/register"
+              class="nav-link title-color font-sm"
+            >
+              <i class="bx bx-layer-plus"></i>
+              <span>Registrar articulo</span>
+            </router-link>
+            <router-link class="arrow" to="/article/register"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+          <li>
+            <router-link
+              to="/restauration/register"
+              class="nav-link title-color font-sm"
+            >
+              <i class="bx bx-add-to-queue"></i>
+              <span>Registrar restauración</span>
+            </router-link>
+            <router-link class="arrow" to="/restauration/register"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
           <li>
             <router-link
               to="/deliveryhistory"
               class="nav-link title-color font-sm"
             >
-              <i class="iconly-Calendar icli"></i>
+              <i class="iconly-Time-Circle"></i>
               <span>Historial</span>
             </router-link>
             <router-link class="arrow" to="/home"
@@ -59,9 +106,27 @@
             ></router-link>
           </li>
           <li>
+            <router-link to="/event/index" class="nav-link title-color font-sm">
+              <i class="iconly-Calendar icli"></i>
+              <span>Eventos</span>
+            </router-link>
+            <router-link class="arrow" to="/event/index"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+           <li>
+            <router-link  to="/user/setting" class="nav-link title-color font-sm">
+              <i class="iconly-Setting icli"></i>
+              <span>Configuración</span>
+            </router-link>
+            <router-link class="arrow" to="/user/setting"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+          <li>
             <a href="javascript:void(0)" class="nav-link title-color font-sm">
-              <i class="iconly-Graph icli"></i>
-              <span>Dark</span>
+              <i class="iconly-Show icli"></i>
+              <span>Tema oscuro</span>
             </a>
 
             <div class="dark-switch">
@@ -135,7 +200,8 @@ export default {
       isDarkMode: localStorage.getItem('body') === 'dark',
       darkCSS: '/css/dark.css',
       name: null,
-      nickName: null,
+      role: null,
+      isAdmin: null,
     }
   },
   watch: {
@@ -151,8 +217,9 @@ export default {
   },
   async mounted() {
     await Logout.getUser().then((data) => {
-      this.nickName = data.user
+      this.role = data.role
       this.name = data.name
+      this.isAdmin = data.isAdmin
     })
   },
   beforeMount() {

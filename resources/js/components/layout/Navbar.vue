@@ -2,26 +2,26 @@
   <footer class="footer-wrap">
     <ul class="footer">
       <li class="footer-item active">
-        <a @click="goDashboard()" class="footer-link">
+        <a class="footer-link" @click="goDashboard()">
           <i class="iconly-Graph icli"></i>
           <span>Panel</span>
         </a>
       </li>
       <li class="footer-item">
-        <a @click="goInventory()" class="footer-link">
+        <a class="footer-link" @click="goArticles()">
           <i class="iconly-Bookmark icli"></i>
 
-          <span>Inventario</span>
+          <span>Articulos</span>
         </a>
       </li>
       <li class="footer-item">
-        <a @click="goDonors()" class="footer-link">
+        <a class="footer-link" @click="goDonors()">
           <i class="iconly-User3 icli"></i>
           <span>Donadores</span>
         </a>
       </li>
       <li class="footer-item">
-        <a @click="goIncome()" class="footer-link">
+        <a class="footer-link" @click="goIncome()">
           <i class="iconly-Chart icli"></i>
           <span class="offer">Ingresos</span>
         </a>
@@ -42,12 +42,12 @@ export default {
       router.push('/home')
     },
 
-    goInventory() {
-      router.push('/home')
+    goArticles() {
+      router.push('/article/index')
     },
 
     goDonors() {
-      router.push('/home')
+      router.push('/donor/index')
     },
     goIncome() {
       router.push('/home')

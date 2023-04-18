@@ -23,35 +23,42 @@
     <section class="tab-content ratio2_1">
       <div class="tab-pane fade show active">
         <div class="order-box">
-    <div class="media">
-      <a href="order-detail.html" class="content-box">
-        <h2 class="font-sm title-color">ID: #5151515 , Dt: 20 Dec, 2020</h2>
-        <p class="font-xs content-color">8857 Morris Rd. ,Charlottesville</p>
-        <span class="content-color font-xs"
-          >Paid: <span class="font-theme">$250.00</span>, Items:
-          <span class="font-theme">15</span></span
-        >
-      </a>
-      <div class="media-body">
-        <img src="/images/map/map.jpg" alt="map" />
-      </div>
-    </div>
-    <div class="bottom-content active">
-      <a href="address2.html" class="title-color font-sm fw-600">
-        Order Again
-      </a>
-      <a href="javascript:void(0)" class="give-rating content-color font-sm">
-        Rate & Review Product</a
-      >
-      <div class="rating">
-        <i data-feather="star"></i>
-        <i data-feather="star"></i>
-        <i data-feather="star"></i>
-        <i data-feather="star"></i>
-        <i data-feather="star"></i>
-      </div>
-    </div>
-  </div>
+          <div class="media">
+            <a href="order-detail.html" class="content-box">
+              <h2 class="font-sm title-color">
+                ID: #5151515 , Dt: 20 Dec, 2020
+              </h2>
+              <p class="font-xs content-color">
+                8857 Morris Rd. ,Charlottesville
+              </p>
+              <span class="content-color font-xs"
+                >Paid: <span class="font-theme">$250.00</span>, Items:
+                <span class="font-theme">15</span></span
+              >
+            </a>
+            <div class="media-body">
+              <img src="/images/map/map.jpg" alt="map" />
+            </div>
+          </div>
+          <div class="bottom-content active">
+            <a href="address2.html" class="title-color font-sm fw-600">
+              Order Again
+            </a>
+            <a
+              href="javascript:void(0)"
+              class="give-rating content-color font-sm"
+            >
+              Rate & Review Product</a
+            >
+            <div class="rating">
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -143,9 +150,7 @@
   </div>
 </template>
 <script>
-
 export default {
   name: 'Home',
-
 }
 </script>

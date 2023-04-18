@@ -2,14 +2,9 @@
 
 @section('content')
 <main class="main-wrap login-page mt-2">
-    <!-- <div class="brand login__brand">
-        <img class="brand__img" src="/assets/icon-package.png" alt="icon">
-        <span class="brand__name">SGM</span>
-    </div> -->
-
     <img class="logo" src="/images/logo/logo.png" alt="logo" />
-    <img class="logo logo-w" src="/images/logo/logo-w.png" alt="logo" />
-    <p class="font-sm content-color">Bienvenido al sistema administrativo del museo el sabanero.</p>
+    <img class="logo logo-w" src="/images/logo/logo-w.png" alt="logo" /> 
+    <img src="/images/museo/frontPage.png" class="d-block mx-auto rounded-circle my-3" style="width: 250px; height: 250px; object-fit: cover;" alt="Portada">
 
     @error('login')
     <div class="alert alert-danger" role="alert">
@@ -19,9 +14,8 @@
 
     <!-- Login Section Start -->
     <section class="login-section p-0">
+    <h2 class="fw-bold font-md title-color text-center">Bienvenidos al Museo el Sabanero</h2> 
         <form id="signin-form" class="custom-form" method="POST" action="login/authenticate" autocomplete="off">
-            <h1 class="font-md title-color fw-600">Iniciar sesión</h1>
-
             @csrf
             <!-- Email Input start -->
             <div class="input-box">
@@ -37,7 +31,7 @@
             </div>
             <!-- Password Input End -->
 
-            <a href="forgot-password.html" class="content-color font-sm forgot mb-3">{{ __('Olvido su contraseña?') }}</a>
+            <!-- <a href="forgot-password.html" class="content-color font-sm forgot mb-3">{{ __('Olvido su contraseña?') }}</a> -->
             <button type="submit" class="btn-solid">Iniciar sesión</button>
         </form>
     </section>
