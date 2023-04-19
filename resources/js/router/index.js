@@ -84,12 +84,41 @@ const routes = [
   {
     path: '/user/register',
     name: 'RegisterUser',
-    component: () => import(/* webpackChunkName: "register" */ '../views/User/Register.vue'),
+    component: () =>
+      import(/* webpackChunkName: "register" */ '../views/User/Register.vue'),
   },
   {
     path: '/user/Setting',
     name: 'SettingUser',
-    component: () => import(/* webpackChunkName: "setting" */ '../views/User/Setting.vue'),
+    component: () =>
+      import(/* webpackChunkName: "setting" */ '../views/User/Setting.vue'),
+  },
+  {
+    path: '/restauration/index',
+    name: 'RestaurationView',
+    component: () =>
+      import(
+        /* webpackChunkName: "RestaurationView" */ '../views/Restauration/Restauration.vue'
+      ),
+  },
+  {
+    path: '/restauration/register',
+    name: 'RestaurationRegister',
+    component: () =>
+      import(
+        /* webpackChunkName: "restaurationRegister" */ '../views/Restauration/Register.vue'
+      ),
+  },
+  {
+    path: '/restauration/update/:id',
+    name: 'RestaurationUpdate',
+    component: () =>
+      import(
+        /* webpackChunkName: "restaurationUpdate" */ '../views/Restauration/Update.vue'
+      ),
+    props: (route) => ({
+      id: route.params.id,
+    }),
   },
 ]
 const router = createRouter({

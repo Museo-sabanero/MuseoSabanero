@@ -29,8 +29,8 @@
       <div class="input-box">
         <i class="iconly-Profile icli"></i>
         <input
-          maxlength="70"
           v-model="name"
+          maxlength="70"
           type="text"
           placeholder="Ingrese el nombre completo"
           required
@@ -44,8 +44,8 @@
       <div class="input-box">
         <i class="iconly-Login icli"></i>
         <input
-          maxlength="70"
           v-model="nameUser"
+          maxlength="70"
           type="text"
           placeholder="Ingrese el nombre usuario"
           required
@@ -59,8 +59,8 @@
       <div class="input-box">
         <i class="iconly-Message icli"></i>
         <input
-          maxlength="50"
           v-model="email"
+          maxlength="50"
           type="email"
           placeholder="Ingrese el email"
           required
@@ -106,11 +106,11 @@
           <i
             class="iconly-Hide icli showHidePassword"
             :class="{ 'iconly-Show': passwordFieldType === 'text' }"
-            v-on:click="togglePasswordFieldType"
+            @click="togglePasswordFieldType"
           ></i>
           <input
-            maxlength="50"
             v-model="password"
+            maxlength="50"
             :type="passwordFieldType"
             placeholder="Ingrese una contraseña"
             required
@@ -130,7 +130,7 @@
   </main>
   <!-- Main End -->
 </template>
-  <script>
+<script>
 import UserService from '../../services/User'
 import GoBack from '../../components/GoBack.vue'
 export default {
@@ -162,6 +162,18 @@ export default {
       return this.showPassword ? 'text' : 'password'
     },
   },
+  async beforeMount() {
+    await UserService.getDetails().then((data) => {
+      this.item = data
+      this.name = this.item.name
+      this.id = this.item.id
+      this.nameUser = this.item.login
+      this.email = this.item.email
+      this.password = this.item.password
+      this.roleSelect = this.item.role
+      console.log(this.item)
+    })
+  },
   methods: {
     togglePasswordFieldType() {
       this.showPassword = !this.showPassword
@@ -189,8 +201,9 @@ export default {
           }
         })
         .catch((error) => {
-          const errorMessages = error.response?.data?.errorMessage ?? 'Indefinido';
-          if(errorMessages=='Indefinido'){
+          const errorMessages =
+            error.response?.data?.errorMessage ?? 'Indefinido'
+          if (errorMessages == 'Indefinido') {
             this.goBack()
           }
           for (let fieldName in errorMessages) {
@@ -218,18 +231,5 @@ export default {
       })
     },
   },
-  async beforeMount() {
-    await UserService.getDetails().then((data) => {
-      this.item = data
-      this.name = this.item.name
-      this.id = this.item.id
-      this.nameUser = this.item.login
-      this.email = this.item.email
-      this.password = this.item.password
-      this.roleSelect = this.item.role
-      console.log(this.item)
-    })
-  },
 }
 </script>
-  
