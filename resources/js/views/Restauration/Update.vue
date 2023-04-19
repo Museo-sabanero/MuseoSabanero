@@ -9,7 +9,7 @@
   </header>
   <main class="main-wrap login-page mb-xxl">
     <section class="login-section p-0">
-      <h3 class="font-theme font-md">Registrar Restauración</h3>
+      <h3 class="font-theme font-md">Editar Restauración</h3>
       <form class="custom-form" @submit.prevent="handleSubmit">
         <div style="text-align: left">
           <h4 class="title-color font-sm">Fecha de Entrega:</h4>
