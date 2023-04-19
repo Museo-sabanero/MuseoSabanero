@@ -110,6 +110,12 @@
                       <option value="T">Herramienta de trabajo</option>
                       <option value="C">Herramienta de cocina</option>
                     </select>
+                    <p
+                      v-if="showErrorObjectType && !formData.objectType"
+                      style="color: red"
+                    >
+                      Debe seleccionar tipo de objecto
+                    </p>
                   </div>
                 </div>
               </div>
@@ -131,6 +137,14 @@
                       <option value="R">Regalía</option>
                       <option value="D">Donativo</option>
                     </select>
+                    <p
+                      v-if="
+                        showErrorAcquisitionType && !formData.acquisitionType
+                      "
+                      style="color: red"
+                    >
+                      Debe seleccionar tipo de adquisición
+                    </p>
                   </div>
                 </div>
               </div>
@@ -255,6 +269,15 @@
                       <option value="R">Regular</option>
                       <option value="M">Malo</option>
                     </select>
+                    <p
+                      v-if="
+                        showErrorConservationStatus &&
+                        !formData.conservationStatus
+                      "
+                      style="color: red"
+                    >
+                      Debe seleccionar estado de conservación
+                    </p>
                   </div>
                 </div>
               </div>
@@ -277,6 +300,12 @@
                       <option value="D">Donado</option>
                       <option value="M">Propio del museo</option>
                     </select>
+                    <p
+                      v-if="showErrorLegalStatus && !formData.legalStatus"
+                      style="color: red"
+                    >
+                      Debe seleccionar estado legal
+                    </p>
                   </div>
                 </div>
               </div>
@@ -339,6 +368,12 @@
                       <option value="SI">Si</option>
                       <option value="NO">No</option>
                     </select>
+                    <p
+                      v-if="showErrorFragmented && !formData.fragmented"
+                      style="color: red"
+                    >
+                      Debe seleccionar fragmentado
+                    </p>
                   </div>
                 </div>
               </div>
@@ -360,6 +395,12 @@
                       <option value="SI">Si</option>
                       <option value="NO">No</option>
                     </select>
+                    <p
+                      v-if="showErrorReplica && !formData.replica"
+                      style="color: red"
+                    >
+                      Debe seleccionar réplica
+                    </p>
                   </div>
                 </div>
               </div>
@@ -372,14 +413,26 @@
                 <div class="content">
                   <h4 class="title-color font-sm">Donador:</h4>
                   <div class="input-box mt-3">
-                    <input
+                    <select
                       id="cedulaDonor"
                       v-model="formData.cedulaDonor"
-                      type="text"
-                      placeholder="Donador"
                       class="form-control"
-                      required
-                    />
+                    >
+                      <option value="">Seleccione el donador</option>
+                      <option
+                        v-for="donor in donors"
+                        :key="donor.identification"
+                        :value="donor.identification"
+                      >
+                        {{ donor.name }}
+                      </option>
+                    </select>
+                    <p
+                      v-if="showErrorDonor && !formData.cedulaDonor"
+                      style="color: red"
+                    >
+                      Debe seleccionar un donador
+                    </p>
                   </div>
                 </div>
               </div>
@@ -532,6 +585,7 @@
 <script>
 import Articles from '../../services/ArticleService'
 import Histors from '../../services/HistoryService'
+import Donors from '../../services/Donor'
 import GoBack from '../../components/GoBack.vue'
 export default {
   name: 'ArticleUpdate',
@@ -581,10 +635,21 @@ export default {
       showPopup: false,
       list: [],
       listHistory: [],
+      donors: [],
+      showErrorDonor: false,
+      showErrorObjectType: false,
+      showErrorAcquisitionType: false,
+      showErrorConservationStatus: false,
+      showErrorLegalStatus: false,
+      showErrorFragmented: false,
+      showErrorReplica: false,
     }
   },
   async mounted() {
-    console.log('Hola')
+    await Donors.getDonors().then((data) => {
+      console.log(data)
+      this.donors = data
+    })
     await Articles.getArticle(this.id).then((data) => {
       this.list = data
       var event = this.list[0]
@@ -613,7 +678,6 @@ export default {
     await Histors.getHistoryByArticle(this.formData.id).then((data) => {
       this.listHistory = data
       console.log(data)
-      console.log('dara')
       var event = this.listHistory[0]
       ;(this.history.id = event.id),
         (this.history.materials = event.materials),
@@ -626,6 +690,27 @@ export default {
   },
   methods: {
     handleSubmit() {
+      if (!this.formData.objectType) {
+        return (this.showErrorObjectType = true)
+      }
+      if (!this.formData.acquisitionType) {
+        return (this.showErrorAcquisitionType = true)
+      }
+      if (!this.formData.conservationStatus) {
+        return (this.showErrorConservationStatus = true)
+      }
+      if (!this.formData.legalStatus) {
+        return (this.showErrorLegalStatus = true)
+      }
+      if (!this.formData.fragmented) {
+        return (this.showErrorFragmented = true)
+      }
+      if (!this.formData.replica) {
+        return (this.showErrorReplica = true)
+      }
+      if (!this.formData.cedulaDonor) {
+        return (this.showErrorDonor = true)
+      }
       console.log(this.formData)
       const article = {
         id: this.formData.id,
@@ -668,7 +753,7 @@ export default {
       Histors.updateHistory(histo).then((dataHisto) => {
         console.log(dataHisto)
         console.log(histo)
-        this.$router.push('/event/index')
+        this.$router.push('/article/index')
       })
     },
     deleteArticle() {
@@ -680,7 +765,7 @@ export default {
 
       Articles.deleteArticle(registro).then((data) => {
         console.log(data)
-        // this.$router.push('/event')
+        this.$router.push('/article/index')
       })
     },
     goBack() {

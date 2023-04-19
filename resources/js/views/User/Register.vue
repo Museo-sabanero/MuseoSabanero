@@ -24,8 +24,8 @@
                   <h4 class="title-color font-sm">Nombre:</h4>
                   <div class="input-box mt-3">
                     <input
-                      maxlength="70"
                       v-model="name"
+                      maxlength="70"
                       type="text"
                       placeholder="Ingrese el nombre completo"
                       required
@@ -47,8 +47,8 @@
                   <h4 class="title-color font-sm">Nombre de usuario:</h4>
                   <div class="input-box mt-3">
                     <input
-                      maxlength="70"
                       v-model="nameUser"
+                      maxlength="70"
                       type="text"
                       placeholder="Ingrese un nombre de usuario"
                       required
@@ -70,8 +70,8 @@
                   <h4 class="title-color font-sm">Correo electrónico:</h4>
                   <div class="input-box mt-3">
                     <input
-                      maxlength="50"
                       v-model="email"
+                      maxlength="50"
                       type="email"
                       placeholder="Ingrese el email"
                       required
@@ -122,8 +122,8 @@
                   <h4 class="title-color font-sm">Contraseña:</h4>
                   <div class="input-box mt-3">
                     <input
-                      maxlength="50"
                       v-model="password"
+                      maxlength="50"
                       type="password"
                       placeholder="Ingrese una contraseña"
                       required
@@ -145,8 +145,8 @@
                   <h4 class="title-color font-sm">Confirmar contraseña:</h4>
                   <div class="input-box mt-3">
                     <input
-                      maxlength="12"
                       v-model="passwordConfirm"
+                      maxlength="12"
                       type="password"
                       placeholder="Confirme la contraseña"
                       required
@@ -177,8 +177,8 @@
     <!-- How do I order? Section End -->
   </main>
 </template>
-  
-  <script>
+
+<script>
 import UserService from '../../services/User'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -223,7 +223,7 @@ export default {
         role: this.roleSelect,
         token: token,
       }
-      this.errorMessage = '';
+      this.errorMessage = ''
       console.log(datos)
 
       UserService.register(datos)
@@ -260,4 +260,3 @@ export default {
   },
 }
 </script>
-  
