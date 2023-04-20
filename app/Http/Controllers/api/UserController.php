@@ -58,8 +58,11 @@ class UserController extends Controller
             'nameUser' => 'required|max:50',
             'password' => 'required|max:20',
             'role' => 'required',
-            'email' => 'required|max:50',
+            'email' => 'required|max:50|unique:usuarios,email',
             'token' => 'required',
+        ], [
+            'email.unique' => 'La dirección de correo electrónico ya está en uso',
+            'email.required' => 'El email es un campo requerido',
         ]);
 
         if ($validator->fails()) {
