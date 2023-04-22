@@ -56,7 +56,7 @@
                       class="form-control"
                     />
                     <p v-if="showErrorMessageId" class="text-danger">
-                      Cédula es requerido.
+                      {{messageId}}
                     </p>
                   </div>
                 </div>
@@ -106,7 +106,7 @@
                     />
                     <i data-feather="at-sign"></i>
                     <p v-if="showErrorMessageEmail" class="text-danger">
-                      Correo es requerido.
+                      {{message}}
                     </p>
                   </div>
                 </div>
@@ -162,6 +162,8 @@ export default {
       identification: null,
       phone: null,
       email: null,
+      message:null,
+      messageId:null,
       ubication: null,
       showErrorMessageName: false,
       showErrorMessageId: false,
@@ -191,18 +193,28 @@ export default {
           for (let fieldName in errorMessages) {
             if (fieldName === 'name') {
               this.showErrorMessageName = true
+              this.message= ''
+              this.messageId =''
             }
             if (fieldName === 'id') {
+              this.messageId =  error.response.data.errorMessage.id[0];
+              this.message= ''
               this.showErrorMessageId = true
             }
             if (fieldName === 'phone') {
               this.showErrorMessagePhone = true
+              this.message= ''
+              this.messageId =''
             }
             if (fieldName === 'email') {
+              this.message =  error.response.data.errorMessage.email[0];
+              this.messageId =''
               this.showErrorMessageEmail = true
             }
             if (fieldName === 'ubication') {
               this.showErrorMessageUbication = true
+              this.message= ''
+              this.messageId =''
             }
           }
         })

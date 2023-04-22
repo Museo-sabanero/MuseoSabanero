@@ -21,7 +21,8 @@ window.axios.interceptors.response.use(
     return response
   },
   function (error) {
-    if (error.response.status === 401 || error.response.status === 419) {
+    if (error.response.status === 401 //|| error.response.status === 419) {
+      ) {
       location.assign('/login')
     }
 
