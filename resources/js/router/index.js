@@ -82,6 +82,17 @@ const routes = [
     }),
   },
   {
+    path: '/article/details/:id',
+    name: 'ArticleDetails',
+    component: () =>
+      import(
+        /* webpackChunkName: "articleDetails" */ '../views/Article/ArticleDetails.vue'
+      ),
+    props: (route) => ({
+      id: route.params.id,
+    }),
+  },
+  {
     path: '/user/register',
     name: 'RegisterUser',
     component: () =>
