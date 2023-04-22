@@ -79,7 +79,7 @@
                     />
                     <i data-feather="at-sign"></i>
                     <p v-if="showErrorMessageEmail" class="text-danger">
-                      Correo es requerido.
+                      {{message}}
                     </p>
                   </div>
                 </div>
@@ -195,6 +195,7 @@ export default {
       password: null,
       passwordConfirm: null,
       email: null,
+      message:null,
       roleSelect: 0,
       showErrorMessageName: false,
       showErrorMessagePassword: false,
@@ -244,6 +245,7 @@ export default {
               this.showErrorMessagePassword = true
             }
             if (fieldName === 'email') {
+              this.message =  error.response.data.errorMessage.email[0];
               this.showErrorMessageEmail = true
             }
             if (fieldName === 'role') {
