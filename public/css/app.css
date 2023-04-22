@@ -13004,14 +13004,14 @@ input:-webkit-autofill:focus {
 }
 
 /*=====================
- 4.1 About Us Pages Css 
+ 4.1 About Us Pages Css
 ==========================*/
 .about-us-page .banner-box {
   background-color: #edf8f8;
   border-radius: calc(20px + 20 * (100vw - 320px) / 1600);
 }
 .about-us-page .banner-box img {
-  width: 100%;
+  width: 50%;
   margin-bottom: -10%;
 }
 .about-us-page .who-we-are {
@@ -15465,7 +15465,7 @@ input:-webkit-autofill:focus {
 }
 
 /*=====================
- 4.14 Onboarding Page Css 
+ 4.14 Onboarding Page Css
 ==========================*/
 .onboarding-page {
   text-align: center;

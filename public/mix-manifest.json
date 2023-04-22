@@ -9,6 +9,7 @@
     "/js/ArticleView.js": "/js/ArticleView.js",
     "/js/articleRegister.js": "/js/articleRegister.js",
     "/js/articleUpdate.js": "/js/articleUpdate.js",
+    "/js/articleDetails.js": "/js/articleDetails.js",
     "/js/register.js": "/js/register.js",
     "/js/setting.js": "/js/setting.js",
     "/js/RestaurationView.js": "/js/RestaurationView.js",

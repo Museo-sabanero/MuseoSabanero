@@ -1,12 +1,12 @@
 /*=====================
- 4.1 About Us Pages Css 
+ 4.1 About Us Pages Css
 ==========================*/
 .about-us-page {
   .banner-box {
     background-color: $theme-light-color;
     border-radius: calc(20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)));
     img {
-      width: 100%;
+      width: 50%;
       margin-bottom: -10%;
     }
   }

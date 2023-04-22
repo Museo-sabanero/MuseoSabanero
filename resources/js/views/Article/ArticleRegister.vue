@@ -676,7 +676,7 @@ export default {
   },
   methods: {
     handleSubmit() {
-        if (!this.formData.objectType) {
+      if (!this.formData.objectType) {
         return (this.showErrorObjectType = true)
       }
       if (!this.formData.acquisitionType) {

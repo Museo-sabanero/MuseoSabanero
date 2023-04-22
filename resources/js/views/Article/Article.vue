@@ -51,11 +51,15 @@
               <div class="text-center">
                 <router-link
                   class="btn-outline font-md text-center"
-                  :to="{
-                    name: 'ArticleUpdate',
-                    params: { id: item.id },
-                  }"
+                  :to="{ name: 'ArticleUpdate', params: { id: item.id } }"
+                  style="margin-right: 10px"
                   >Editar</router-link
+                >
+
+                <router-link
+                  class="btn-outline font-md text-center"
+                  :to="{ name: 'ArticleDetails', params: { id: item.id } }"
+                  >Detalles</router-link
                 >
               </div>
             </div>

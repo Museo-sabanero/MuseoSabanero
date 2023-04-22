@@ -24121,6 +24121,17 @@ var routes = [{
     };
   }
 }, {
+  path: '/article/details/:id',
+  name: 'ArticleDetails',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | articleDetails */ "articleDetails").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Article/ArticleDetails.vue */ "./resources/js/views/Article/ArticleDetails.vue"));
+  },
+  props: function props(route) {
+    return {
+      id: route.params.id
+    };
+  }
+}, {
   path: '/user/register',
   name: 'RegisterUser',
   component: function component() {
@@ -52726,7 +52737,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
 /******/ 			if (chunkId === "home") return "js/home.js";
-/******/ 			if ({"donor":1,"detailsDonor":1,"event":1,"eventRegister":1,"evendUpdate":1,"ArticleView":1,"articleRegister":1,"articleUpdate":1,"register":1,"setting":1,"RestaurationView":1,"restaurationRegister":1,"restaurationUpdate":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"donor":1,"detailsDonor":1,"event":1,"eventRegister":1,"evendUpdate":1,"ArticleView":1,"articleRegister":1,"articleUpdate":1,"articleDetails":1,"register":1,"setting":1,"RestaurationView":1,"restaurationRegister":1,"restaurationUpdate":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
