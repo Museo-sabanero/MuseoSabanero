@@ -165,7 +165,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "width": "36rem"
       }
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-      src: "/images/museo/frontPage.png",
+      src: "/images/museo/aperos.jpg",
       "class": "d-block mx-auto rounded my-3",
       style: {
         "width": "200px",

@@ -35,7 +35,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       List: [],
       searchTerm: '',
       originalList: [],
-      imageUrl: 'images/museo/frontPage.png',
+      imageUrl: 'images/museo/aperos.jpg',
       // Ruta relativa de la imagen desde la carpeta public
       imageAlt: 'Descripción de la imagen',
       qrCodeSrc: '',
@@ -446,13 +446,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _ArticleDetails_vue_vue_type_template_id_5b1ef424__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ArticleDetails.vue?vue&type=template&id=5b1ef424 */ "./resources/js/views/Article/ArticleDetails.vue?vue&type=template&id=5b1ef424");
 /* harmony import */ var _ArticleDetails_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ArticleDetails.vue?vue&type=script&lang=js */ "./resources/js/views/Article/ArticleDetails.vue?vue&type=script&lang=js");
-/* harmony import */ var C_Users_User_Documents_UTN_I_Cuatrimestre_TCU_Museo_el_sabanero_Front_End_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_Museo_el_sabanero_git_Jeank_DV_Front_End_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_User_Documents_UTN_I_Cuatrimestre_TCU_Museo_el_sabanero_Front_End_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_ArticleDetails_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ArticleDetails_vue_vue_type_template_id_5b1ef424__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Article/ArticleDetails.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Museo_el_sabanero_git_Jeank_DV_Front_End_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_ArticleDetails_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ArticleDetails_vue_vue_type_template_id_5b1ef424__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Article/ArticleDetails.vue"]])
 /* hot reload */
 if (false) {}
 
