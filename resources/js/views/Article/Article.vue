@@ -26,7 +26,7 @@
         <div v-for="item in List" :key="item.id" style="width: 36rem">
           <div class="card border border-info">
             <img
-              src="/images/museo/frontPage.png"
+              src="/images/museo/aperos.jpg"
               class="d-block mx-auto rounded my-3"
               style="
                 width: 200px;

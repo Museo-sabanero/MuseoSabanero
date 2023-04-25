@@ -169,3 +169,21 @@ $white: #ffffff;
   .request-approved {
     color: rgb(128, 221, 128);
   }
+
+  .font-theme {
+    color: #6976e3 !important;
+  }
+  .btn-outline {
+    padding: calc(10px + 4 * (100vw - 320px) / 1600) calc(28px + 6 * (100vw - 320px) / 1600);
+    background-color: #22282c;
+    color: #b9c3d7;
+    font-size: calc(16px + 2 * (100vw - 320px) / 1600);
+    border-radius: 5px;
+    font-weight: 600;
+    border: 1px solid #688ed9;
+    display: inline-block;
+    line-height: 21px;
+  }
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #688ed9;
+  }

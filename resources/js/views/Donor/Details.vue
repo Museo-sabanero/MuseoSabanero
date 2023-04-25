@@ -248,12 +248,12 @@
                       <td>{{ item.dateCreated }}</td>
                       <td>
                         <router-link
-                          class="content-color font-sm text-primary"
+                          class="content-color font-sm text-primary iconly-Show"
                           :to="{
-                            name: 'DetailsDonor',
+                            name: 'ArticleDetails',
                             params: { id: item.id },
                           }"
-                          >Ver</router-link
+                          ></router-link
                         >
                       </td>
                     </tr>
