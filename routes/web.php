@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 Route::get('/login', [LoginController::class, 'login'])->name("login");
+Route::get('/forgot', [LoginController::class, 'forgot'])->name("forgot");
 Route::post('login/authenticate', [LoginController::class, 'authenticate']);
 
 Route::group([
@@ -27,3 +28,5 @@ Route::group([
 ], function () {
     Route::view('/{any?}', 'app')->name('subject')->where('any', '.*');
 });
+
+
