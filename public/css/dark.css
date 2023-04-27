@@ -11063,6 +11063,48 @@ h6, .h6 {
   color: #f0f0f0;
 }
 
+.btn-green {
+  padding: calc(8px + 6 * (100vw - 320px) / 1600) calc(20px + 14 * (100vw - 320px) / 1600);
+  background-color: #2fbe00;
+  color: #22282c;
+  font-size: calc(16px + 2 * (100vw - 320px) / 1600);
+  border-radius: 5px;
+  font-weight: 600;
+  border: 1px solid #4d4e4d;
+  line-height: 21px;
+  display: inline-block;
+}
+[class=dark] .btn-green {
+  color: #f0f0f0;
+}
+.btn-green:hover {
+  color: #22282c;
+}
+[class=dark] .btn-green:hover {
+  color: #f0f0f0;
+}
+
+.btn-red {
+  padding: calc(8px + 6 * (100vw - 320px) / 1600) calc(20px + 14 * (100vw - 320px) / 1600);
+  background-color: #ff1433;
+  color: #22282c;
+  font-size: calc(16px + 2 * (100vw - 320px) / 1600);
+  border-radius: 5px;
+  font-weight: 600;
+  border: 1px solid #4d4e4d;
+  line-height: 21px;
+  display: inline-block;
+}
+[class=dark] .btn-red {
+  color: #f0f0f0;
+}
+.btn-red:hover {
+  color: #22282c;
+}
+[class=dark] .btn-red:hover {
+  color: #f0f0f0;
+}
+
 .btn-outline {
   padding: calc(10px + 4 * (100vw - 320px) / 1600) calc(28px + 6 * (100vw - 320px) / 1600);
   background-color: #22282c;

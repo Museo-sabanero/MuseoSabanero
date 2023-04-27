@@ -1244,6 +1244,13 @@ var apiUrl = 'http://127.0.0.1:8001/api/donores';
     })["catch"](function (error) {
       return Promise.reject(error);
     });
+  },
+  update: function update(requestOptions) {
+    return axios.put("".concat(apiUrl, "/update"), requestOptions).then(function (response) {
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
   }
 });
 

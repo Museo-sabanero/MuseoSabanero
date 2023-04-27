@@ -22,6 +22,48 @@
     }
   }
 }
+.btn-green {
+  padding: calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320)))
+    calc(20px + (34 - 20) * ((100vw - 320px) / (1920 - 320)));
+  background-color: #2fbe00;
+  color: $white;
+  font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)));
+  border-radius: 5px;
+  font-weight: 600;
+  border: $border2;
+  line-height: 21px;
+  display: inline-block;
+  [class='dark'] & {
+    color: $white-text-dark;
+  }
+  &:hover {
+    color: $white;
+    [class='dark'] & {
+      color: $white-text-dark;
+    }
+  }
+}
+.btn-red {
+  padding: calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320)))
+    calc(20px + (34 - 20) * ((100vw - 320px) / (1920 - 320)));
+  background-color:#ff1433;
+  color: $white;
+  font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)));
+  border-radius: 5px;
+  font-weight: 600;
+  border: $border2;
+  line-height: 21px;
+  display: inline-block;
+  [class='dark'] & {
+    color: $white-text-dark;
+  }
+  &:hover {
+    color: $white;
+    [class='dark'] & {
+      color: $white-text-dark;
+    }
+  }
+}
 .btn-outline {
   padding: calc(10px + (14 - 10) * ((100vw - 320px) / (1920 - 320)))
     calc(28px + (34 - 28) * ((100vw - 320px) / (1920 - 320)));
