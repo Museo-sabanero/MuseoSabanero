@@ -101,6 +101,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (this.roleSelect == '0') {
         return this.errorMessage = 'Error, ¡Debe seleccionar un rol!';
       }
+      this.clear();
       var datos = {
         name: this.name,
         password: this.password,
@@ -140,6 +141,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }
       });
+    },
+    clear: function clear() {
+      this.showErrorMessageName = '';
+      this.showErrorMessagePassword = '';
+      this.showErrorMessagePasswordConfirm = '';
+      this.showErrorMessageEmail = '';
+      this.showErrorMessageRole = '';
     },
     goBack: function goBack() {
       this.$router.push({
