@@ -256,14 +256,16 @@ export default {
       }
     },
     async logout() {
-      await axios.delete('/logout')
+      const csrfToken = document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute('content')
+      await axios.delete('/logout', {
+        headers: {
+          'X-CSRF-TOKEN': csrfToken,
+        },
+      })
       // redireccionar al login
       window.location.href = '/login'
-      // eliminar información de la base de datos local
-      const dbNames = await window.indexedDB.databases()
-      dbNames.forEach(({ name }) => {
-        window.indexedDB.deleteDatabase(name)
-      })
     },
   },
 }

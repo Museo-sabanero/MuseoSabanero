@@ -23415,25 +23415,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     logout: function logout() {
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var dbNames;
+        var csrfToken;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
-              _context2.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/logout');
-            case 2:
+              csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+              _context2.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/logout', {
+                headers: {
+                  'X-CSRF-TOKEN': csrfToken
+                }
+              });
+            case 3:
               // redireccionar al login
               window.location.href = '/login';
-              // eliminar información de la base de datos local
-              _context2.next = 5;
-              return window.indexedDB.databases();
-            case 5:
-              dbNames = _context2.sent;
-              dbNames.forEach(function (_ref) {
-                var name = _ref.name;
-                window.indexedDB.deleteDatabase(name);
-              });
-            case 7:
+            case 4:
             case "end":
               return _context2.stop();
           }
@@ -23519,17 +23515,17 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   src: "/images/logo/logo.png",
   alt: "logo"
 })], -1 /* HOISTED */);
-var _hoisted_5 = {
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "avatar-wrap"
-};
+}, null, -1 /* HOISTED */);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_NotificationIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("NotificationIcon");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "iconly-Category icli nav-bar",
     onClick: _cache[0] || (_cache[0] = function () {
       return _ctx.$emit('sidebar-show');
     })
-  }), _hoisted_3, _hoisted_4]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_NotificationIcon)])]);
+  }), _hoisted_3, _hoisted_4]), _hoisted_5]);
 }
 
 /***/ }),
@@ -23999,7 +23995,7 @@ try {
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.withCredentials = true;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-//window.axios.defaults.baseURL = '/api/'
+window.axios.defaults.baseURL = '/api';
 //axios.defaults.baseURL = 'http://127.0.0.1:8001/api/';
 window.axios.interceptors.response.use(function (response) {
   return response;
