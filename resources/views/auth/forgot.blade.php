@@ -19,6 +19,12 @@
     @enderror
     <!-- Main Start -->
     <div class="main-wrap login-page mb-xxl">
+        <div class="banner-section section-p-tb">
+            <div class="banner-wrap text-center">
+                <img src="/images/museo/logot.webp" alt="order-success" height="230" />
+            </div>
+        </div>
+        
         <p class="font-sm content-color">Para poder recuperar la contraseña necesitas tener el correo eléctronico con el que creo la cuenta.</p>
         <p class="font-sm content-color text-success">Recibiras la contraseña por medio de este correo.</p>
 
@@ -27,7 +33,7 @@
             <!-- Login Form Start -->
             <form action="forgot" class="custom-form">
                 @csrf
-                <h1 class="font-md title-color fw-600">Olvidado contraseña</h1>
+                <h1 class="font-md title-color fw-600">Olvidó contraseña</h1>
 
                 <!-- Email Input start -->
                 <div class="input-box">
@@ -36,7 +42,7 @@
                 </div>
                 <!-- Email Input End -->
 
-                <button type="submit" class="btn-solid">Enviar</button>
+                <button type="submit" class="btn-solid">Recuperar</button>
             </form>
             <!-- Login Form End -->
         </section>
