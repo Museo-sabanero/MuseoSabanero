@@ -26,7 +26,7 @@
         <div v-for="item in List" :key="item.id" style="width: 36rem">
           <div class="card border border-info">
             <img
-              src="/images/museo/frontPage.png"
+              src="/images/museo/aperos.jpg"
               class="d-block mx-auto rounded my-3"
               style="
                 width: 200px;
@@ -51,11 +51,15 @@
               <div class="text-center">
                 <router-link
                   class="btn-outline font-md text-center"
-                  :to="{
-                    name: 'ArticleUpdate',
-                    params: { id: item.id },
-                  }"
+                  :to="{ name: 'ArticleUpdate', params: { id: item.id } }"
+                  style="margin-right: 10px"
                   >Editar</router-link
+                >
+
+                <router-link
+                  class="btn-outline font-md text-center"
+                  :to="{ name: 'ArticleDetails', params: { id: item.id } }"
+                  >Detalles</router-link
                 >
               </div>
             </div>

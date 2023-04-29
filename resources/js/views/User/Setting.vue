@@ -182,6 +182,7 @@ export default {
       if (this.roleSelect == '0') {
         return (this.errorMessage = 'Error, ¡Debe seleccionar un rol!')
       }
+      this.clear();
       const datos = {
         name: this.name,
         password: this.password,
@@ -224,6 +225,13 @@ export default {
             }
           }
         })
+    },
+    clear() {
+      this.showErrorMessageName = ''
+      this.showErrorMessagePassword = ''
+      this.showErrorMessagePasswordConfirm = ''
+      this.showErrorMessageEmail = ''
+      this.showErrorMessageRole = ''
     },
     goBack() {
       this.$router.push({
