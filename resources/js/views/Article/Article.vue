@@ -23,87 +23,50 @@
             Registrar
           </router-link>
         </div>
-        <div v-for="item in List" :key="item.id" style="width: 36rem">
-          <div class="card border border-info">
-            <img
-              src="/images/museo/frontPage.png"
-              class="d-block mx-auto rounded my-3"
-              style="
-                width: 200px;
-                height: 200px;
-                object-fit: cover;
-                margin: 0 auto;
-              "
-              :alt="imageAlt"
-            />
-            <div class="card-body">
+        <div v-for="item in List" :key="item.id" class="offer-wrap">
+          <div class="product-list media">
+            <div class="media-body">
               <div class="text-center">
                 <h5 class="font-theme">{{ item.title }}</h5>
               </div>
+              <br /><br />
               <p class="card-text">Nombre: {{ item.name }}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
+              <a class="font-sm">
                 Número de referencia: {{ item.numRefInter }}
-              </li>
-            </ul>
-            <div class="card-body">
-              <div class="text-center">
+              </a>
+              <br /><br />
+              <div>
                 <router-link
-                  class="btn-outline font-md text-center"
+                  class="btn btn-outline font-md d-inline-block"
                   :to="{ name: 'ArticleUpdate', params: { id: item.id } }"
                   style="margin-right: 10px"
-                  >Editar</router-link
                 >
-
+                  Editar
+                </router-link>
                 <router-link
-                  class="btn-outline font-md text-center"
+                  class="btn btn-outline font-md d-inline-block"
                   :to="{ name: 'ArticleDetails', params: { id: item.id } }"
-                  >Detalles</router-link
                 >
+                  Detalles
+                </router-link>
               </div>
-            </div>
-          </div>
-          <br /><br />
-        </div>
-        <!-- <div v-for="item in List" :key="item.id" class="offer-wrap">
-          <div class="product-list media">
-            <div class="media-body">
-              <a class="font-sm">
-                {{ item.name }}
-              </a>
-              <br />
-              <span class="content-color font-xs"
-                >Inicia: {{ item.dateStart }} | Hora: {{ item.time }}
+              <span class="plus-minus">
+                <div
+                  class="text-center"
+                  style="max-width: 200px; margin: 0 auto"
+                >
+                  <img
+                    src="/images/museo/frontPage.png"
+                    class="d-block mx-auto rounded"
+                    style="max-width: 100%; height: auto; object-fit: cover"
+                    :alt="imageAlt"
+                  />
+                </div>
               </span>
-              <span class="content-color font-xs"
-                >Finaliza: {{ item.dateEnd }}</span
-              >
-              <span class="content-color font-xs"
-                >| Máximo: {{ item.maxPersons }} personas</span
-              >
-              <br /><br />
-              <span class="title-color font-sm"
-                >{{ item.cost }}
-                <span class="badges-round bg-theme-theme font-xs">{{
-                  item.description
-                }}</span>
-                <span class="plus-minus">
-                  <router-link
-                    class="btn-outline font-md text-center"
-                    :to="{
-                      name: 'EventUpdate',
-                      params: { id: item.id },
-                    }"
-                    >Editar</router-link
-                  >
-                </span>
-                <span class="plus-theme"><i data-feather="plus"></i> </span
-              ></span>
             </div>
           </div>
           <br />
-        </div> -->
+        </div>
       </div>
     </section>
   </main>

@@ -1,5 +1,13 @@
 <template>
   <!-- Main Start -->
+  <header class="header">
+    <div class="logo-wrap">
+      <a href="#" @click="goBack()"
+        ><i class="iconly-Arrow-Left-Square icli"></i
+      ></a>
+      <h1 class="title-color font-md">Volver</h1>
+    </div>
+  </header>
   <main class="main-wrap product-page mb-xxl">
     <!-- Banner Section Start -->
     <div class="banner-box product-banner">
@@ -43,32 +51,33 @@
           <div style="display: flex; flex-wrap: wrap">
             <div style="flex: 1">
               <p>
-                <strong>Número de referencia:</strong> {{ article.numRefInter }}
+                <strong>Número de referencia: </strong>
+                {{ article.numRefInter }}
               </p>
               <p>
-                <strong>Otra número de referencia:</strong>
+                <strong>Otra número de referencia: </strong>
                 {{ article.otherRef }}
               </p>
-              <p><strong>Tipo de objeto:</strong> {{ article.objectType }}</p>
+              <p><strong>Tipo de objeto: </strong> {{ article.objectType }}</p>
               <p>
-                <strong>Tipo de adquisición:</strong>
+                <strong>Tipo de adquisición: </strong>
                 {{ article.acquisitionType }}
               </p>
               <p>
-                <strong>Estado de conservación:</strong>
+                <strong>Estado de conservación: </strong>
                 {{ article.conservationStatus }}
               </p>
             </div>
             <div style="flex: 1">
-              <p><strong>Estado legal:</strong> {{ article.legalStatus }}</p>
-              <p><strong>Localización:</strong> {{ article.location }}</p>
-              <p><strong>Fragmentado:</strong> {{ article.fragmented }}</p>
-              <p><strong>Réplica:</strong> {{ article.replica }}</p>
-              <p><strong>Donador:</strong> {{ article.cedulaDonor }}</p>
+              <p><strong>Estado legal: </strong> {{ article.legalStatus }}</p>
+              <p><strong>Localización: </strong> {{ article.location }}</p>
+              <p><strong>Fragmentado: </strong> {{ article.fragmented }}</p>
+              <p><strong>Réplica: </strong> {{ article.replica }}</p>
+              <p><strong>Donador: </strong> {{ donor.name }}</p>
             </div>
           </div>
           <p>
-            <strong>Rasgos distintivos:</strong>
+            <strong>Rasgos distintivos: </strong>
             {{ article.distinguishingFeature }}
           </p>
         </div>
@@ -192,12 +201,29 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                <p class="content-color font-base">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-                  ullam iste aliquam, commodi voluptates doloremque. Autem
-                  exercitationem vel eaque in odit expedita non blanditiis,
-                  perspiciatis maiores cum tempora quo distinctio?
-                </p>
+                <br />
+                <div style="display: flex; flex-wrap: wrap">
+                  <div style="flex: 1">
+                    <p>
+                      <strong>Ancho: </strong>
+                      {{ article.width }} {{ article.measureWidth }}
+                    </p>
+                    <p>
+                      <strong>Alto: </strong>
+                      {{ article.height }} {{ article.measureHeight }}
+                    </p>
+                  </div>
+                  <div style="flex: 1">
+                    <p>
+                      <strong>Largo: </strong>
+                      {{ article.lenght }} {{ article.measureLenght }}
+                    </p>
+                    <p>
+                      <strong>Diámetro: </strong>
+                      {{ article.diameter }} {{ article.measureDiameter }}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -212,14 +238,23 @@
     <!-- Product Review Section Start -->
     <section class="product-review pb-0">
       <div class="top-content">
-        <h3 class="title-color">Product Review(15)</h3>
+        <h3 class="title-color">Donador</h3>
       </div>
       <div class="review-wrap">
         <div class="review-box">
           <div class="media">
-            <img src="assets/images/avatar/avatar.jpg" alt="avatar" />
+            <div v-if="donor.status == 'A'">
+              <span class="badge bg-success text-uppercase mb-2">{{
+                donor.statusDescription
+              }}</span>
+            </div>
+            <div v-if="donor.status == 'I'">
+              <span class="badge bg-danger text-uppercase mb-2">{{
+                donor.statusDescription
+              }}</span>
+            </div>
             <div class="media-body">
-              <h4 class="font-sm title-color">Andrea Joanne</h4>
+              <h4 class="font-sm title-color">{{ donor.name }}</h4>
               <div class="rating">
                 <i data-feather="star"></i>
                 <i data-feather="star"></i>
@@ -230,8 +265,20 @@
             </div>
           </div>
           <p class="font-sm content-color">
-            It's a really cute skirt! I didn't expect to feel so good in a
-            polyester material. The print is slightly
+            <strong>Cédula: </strong>
+            {{ donor.identification }}
+          </p>
+          <p class="font-sm content-color">
+            <strong>Correo electrónico: </strong>
+            {{ donor.email }}
+          </p>
+          <p class="font-sm content-color">
+            <strong>Teléfono: </strong>
+            {{ donor.phone }}
+          </p>
+          <p class="font-sm content-color">
+            <strong>Dirección: </strong>
+            {{ donor.description }}
           </p>
         </div>
       </div>
@@ -243,9 +290,14 @@
 <script>
 import Articles from '../../services/ArticleService'
 import Histors from '../../services/HistoryService'
+import Donors from '../../services/Donor'
+import GoBack from '../../components/GoBack.vue'
 import { saveAs } from 'file-saver'
 export default {
   name: 'ArticleDetails',
+  components: {
+    GoBack,
+  },
   props: {
     id: {
       type: Number,
@@ -269,10 +321,15 @@ export default {
         objectType: '',
         acquisitionType: '',
         width: '',
+        measureWidth: '',
         height: '',
+        measureHeight: '',
         lenght: '',
+        measureLenght: '',
         diameter: '',
+        measureDiameter: '',
         weight: '',
+        measureWeight: '',
         conservationStatus: '',
         legalStatus: '',
         value: '',
@@ -291,6 +348,7 @@ export default {
         history: '',
         itemId: '',
       },
+      donor: [],
     }
   },
   async mounted() {
@@ -313,15 +371,20 @@ export default {
         (this.article.otherRef = event.otherRef),
         (this.article.name = event.name),
         (this.article.title = event.title),
-        (this.article.objectType = event.objectType),
-        (this.article.acquisitionType = event.acquisitionType),
+        (this.article.objectType = event.objectTypeDescription),
+        (this.article.acquisitionType = event.acquisitionTypeDescription),
         (this.article.width = event.width),
+        (this.article.measureWidth = event.measureWidth),
         (this.article.height = event.height),
+        (this.article.measureHeight = event.measureHeight),
         (this.article.lenght = event.lenght),
+        (this.article.measureLenght = event.measureLenght),
         (this.article.diameter = event.diameter),
+        (this.article.measureDiameter = event.measureDiameter),
         (this.article.weight = event.weight),
-        (this.article.conservationStatus = event.conservationStatus),
-        (this.article.legalStatus = event.legalStatus),
+        (this.article.measureWeight = event.measureWeight),
+        (this.article.conservationStatus = event.conservationStatusDescription),
+        (this.article.legalStatus = event.legalStatusDescription),
         (this.article.value = event.value),
         (this.article.distinguishingFeature = event.distinguishingFeature),
         (this.article.location = event.location),
@@ -341,12 +404,22 @@ export default {
         (this.history.history = event.history),
         (this.history.itemId = event.itemId)
     })
+
+    console.log(this.article.cedulaDonor)
+    await Donors.getDetailsByCedula(this.article.cedulaDonor).then((data) => {
+      console.log(data)
+      this.donor = data
+    })
+    console.log(this.donor)
   },
   methods: {
     downloadQRCode() {
       fetch(this.qrCodeSrc)
         .then((res) => res.blob())
         .then((blob) => saveAs(blob, 'my-qr-code.png'))
+    },
+    goBack() {
+      this.$router.push({ name: 'ArticleView' })
     },
   },
 }

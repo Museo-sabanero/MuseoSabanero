@@ -16,6 +16,12 @@ export default {
       .then((response) => response.data)
       .catch((error) => Promise.reject(error))
   },
+  getDetailsByCedula(cedula) {
+    return axios
+      .get(`${apiUrl}/${cedula}/detailsDonorByCedula`)
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error))
+  },
 
   //Cambiar estado
   changeStatus(id) {

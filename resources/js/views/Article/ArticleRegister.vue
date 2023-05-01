@@ -175,6 +175,34 @@
               <div class="steps-box">
                 <span> <i class="bx bx-badge"></i></span>
                 <div class="content">
+                  <h4 class="title-color font-sm">Medida del ancho:</h4>
+                  <div class="input-box mt-3">
+                    <select id="measureWidth" v-model="formData.measureWidth">
+                      <option disabled value="">Elige una medida</option>
+                      <option
+                        v-for="(distance, index) in distances"
+                        :key="index"
+                        :value="distance"
+                      >
+                        {{ distance }}
+                      </option>
+                    </select>
+                    <p
+                      v-if="showErrorWidth && !formData.measureWidth"
+                      style="color: red"
+                    >
+                      Debe seleccionar una unidad de medida
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="steps-wrap">
+              <div class="steps-box">
+                <span> <i class="bx bx-badge"></i></span>
+                <div class="content">
                   <h4 class="title-color font-sm">Alto:</h4>
                   <div class="input-box mt-3">
                     <input
@@ -185,6 +213,34 @@
                       class="form-control"
                       required
                     />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="steps-wrap">
+              <div class="steps-box">
+                <span> <i class="bx bx-badge"></i></span>
+                <div class="content">
+                  <h4 class="title-color font-sm">Medida del alto:</h4>
+                  <div class="input-box mt-3">
+                    <select id="measureHeight" v-model="formData.measureHeight">
+                      <option disabled value="">Elige una medida</option>
+                      <option
+                        v-for="(distance, index) in distances"
+                        :key="index"
+                        :value="distance"
+                      >
+                        {{ distance }}
+                      </option>
+                    </select>
+                    <p
+                      v-if="showErrorHeight && !formData.measureHeight"
+                      style="color: red"
+                    >
+                      Debe seleccionar una unidad de medida
+                    </p>
                   </div>
                 </div>
               </div>
@@ -215,6 +271,34 @@
               <div class="steps-box">
                 <span> <i class="bx bx-badge"></i></span>
                 <div class="content">
+                  <h4 class="title-color font-sm">Medida del largo:</h4>
+                  <div class="input-box mt-3">
+                    <select id="measureLenght" v-model="formData.measureLenght">
+                      <option disabled value="">Elige una medida</option>
+                      <option
+                        v-for="(distance, index) in distances"
+                        :key="index"
+                        :value="distance"
+                      >
+                        {{ distance }}
+                      </option>
+                    </select>
+                    <p
+                      v-if="showErrorLenght && !formData.measureLenght"
+                      style="color: red"
+                    >
+                      Debe seleccionar una unidad de medida
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="steps-wrap">
+              <div class="steps-box">
+                <span> <i class="bx bx-badge"></i></span>
+                <div class="content">
                   <h4 class="title-color font-sm">Diámetro:</h4>
                   <div class="input-box mt-3">
                     <input
@@ -235,6 +319,37 @@
               <div class="steps-box">
                 <span> <i class="bx bx-badge"></i></span>
                 <div class="content">
+                  <h4 class="title-color font-sm">Medida del diámetro:</h4>
+                  <div class="input-box mt-3">
+                    <select
+                      id="measureDiameter"
+                      v-model="formData.measureDiameter"
+                    >
+                      <option disabled value="">Elige una medida</option>
+                      <option
+                        v-for="(distance, index) in distances"
+                        :key="index"
+                        :value="distance"
+                      >
+                        {{ distance }}
+                      </option>
+                    </select>
+                    <p
+                      v-if="showErrorDiameter && !formData.measureDiameter"
+                      style="color: red"
+                    >
+                      Debe seleccionar una unidad de medida
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="steps-wrap">
+              <div class="steps-box">
+                <span> <i class="bx bx-badge"></i></span>
+                <div class="content">
                   <h4 class="title-color font-sm">Peso:</h4>
                   <div class="input-box mt-3">
                     <input
@@ -245,6 +360,34 @@
                       class="form-control"
                       required
                     />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="steps-wrap">
+              <div class="steps-box">
+                <span> <i class="bx bx-badge"></i></span>
+                <div class="content">
+                  <h4 class="title-color font-sm">Medida del peso:</h4>
+                  <div class="input-box mt-3">
+                    <select id="measureWeight" v-model="formData.measureWeight">
+                      <option disabled value="">Elige una medida</option>
+                      <option
+                        v-for="(weight, index) in weights"
+                        :key="index"
+                        :value="weight"
+                      >
+                        {{ weight }}
+                      </option>
+                    </select>
+                    <p
+                      v-if="showErrorWeight && !formData.measureWeight"
+                      style="color: red"
+                    >
+                      Debe seleccionar una unidad de medida
+                    </p>
                   </div>
                 </div>
               </div>
@@ -406,34 +549,32 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="steps-wrap">
-              <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
-                <div class="content">
-                  <h4 class="title-color font-sm">Donador:</h4>
-                  <div class="input-box mt-3">
-                    <select
-                      id="cedulaDonor"
-                      v-model="formData.cedulaDonor"
-                      class="form-control"
+          <div class="steps-wrap">
+            <div class="steps-box">
+              <span> <i class="iconly-Location icli"></i></span>
+              <div class="content">
+                <h4 class="title-color font-sm">Donador:</h4>
+                <div class="input-box mt-3">
+                  <select
+                    id="cedulaDonor"
+                    v-model="formData.cedulaDonor"
+                    class="form-control"
+                  >
+                    <option value="">Seleccione el donador</option>
+                    <option
+                      v-for="donor in donors"
+                      :key="donor.identification"
+                      :value="donor.identification"
                     >
-                      <option value="">Seleccione el donador</option>
-                      <option
-                        v-for="donor in donors"
-                        :key="donor.identification"
-                        :value="donor.identification"
-                      >
-                        {{ donor.name }}
-                      </option>
-                    </select>
-                    <p
-                      v-if="showErrorDonor && !formData.cedulaDonor"
-                      style="color: red"
-                    >
-                      Debe seleccionar un donador
-                    </p>
-                  </div>
+                      {{ donor.name }}
+                    </option>
+                  </select>
+                  <p
+                    v-if="showErrorDonor && !formData.cedulaDonor"
+                    style="color: red"
+                  >
+                    Debe seleccionar un donador
+                  </p>
                 </div>
               </div>
             </div>
@@ -634,10 +775,15 @@ export default {
         objectType: '',
         acquisitionType: '',
         width: '',
+        measureWidth: '',
         height: '',
+        measureHeight: '',
         lenght: '',
+        measureLenght: '',
         diameter: '',
+        measureDiameter: '',
         weight: '',
+        measureWeight: '',
         conservationStatus: '',
         legalStatus: '',
         value: '',
@@ -666,6 +812,27 @@ export default {
       showErrorLegalStatus: false,
       showErrorFragmented: false,
       showErrorReplica: false,
+      showErrorWidth: false,
+      showErrorHeight: false,
+      showErrorLenght: false,
+      showErrorDiameter: false,
+      showErrorWeight: false,
+      weights: [
+        'Gramos (g)',
+        'Kilogramos (kg)',
+        'Onzas (oz)',
+        'Libras (lb)',
+        'Toneladas (t)',
+      ],
+      distances: [
+        'Milímetros (mm)',
+        'Centímetros (cm)',
+        'Metros (m)',
+        'Kilómetros (km)',
+        'Pulgadas (in)',
+        'Pies (ft)',
+        'Millas (mi)',
+      ],
     }
   },
   async mounted() {
@@ -697,6 +864,21 @@ export default {
       if (!this.formData.cedulaDonor) {
         return (this.showErrorDonor = true)
       }
+      if (!this.formData.measureWidth) {
+        return (this.showErrorWidth = true)
+      }
+      if (!this.formData.measureHeight) {
+        return (this.showErrorHeight = true)
+      }
+      if (!this.formData.measureLenght) {
+        return (this.showErrorLenght = true)
+      }
+      if (!this.formData.measureDiameter) {
+        return (this.showErrorDiameter = true)
+      }
+      if (!this.formData.measureWeight) {
+        return (this.showErrorWeight = true)
+      }
       console.log(this.formData)
       const article = {
         numRefInter: this.formData.numRefInter,
@@ -706,10 +888,15 @@ export default {
         objectType: this.formData.objectType,
         acquisitionType: this.formData.acquisitionType,
         width: this.formData.width,
+        measureWidth: this.formData.measureWidth,
         height: this.formData.height,
+        measureHeight: this.formData.measureHeight,
         lenght: this.formData.lenght,
+        measureLenght: this.formData.measureLenght,
         diameter: this.formData.diameter,
+        measureDiameter: this.formData.measureDiameter,
         weight: this.formData.weight,
+        measureWeight: this.formData.measureWeight,
         conservationStatus: this.formData.conservationStatus,
         legalStatus: this.formData.legalStatus,
         value: this.formData.value,

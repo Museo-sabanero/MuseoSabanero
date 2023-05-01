@@ -573,6 +573,13 @@ var apiUrl = 'http://127.0.0.1:8001/api/donores';
       return Promise.reject(error);
     });
   },
+  getDetailsByCedula: function getDetailsByCedula(cedula) {
+    return axios.get("".concat(apiUrl, "/").concat(cedula, "/detailsDonorByCedula")).then(function (response) {
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
   //Cambiar estado
   changeStatus: function changeStatus(id) {
     return axios.put("".concat(apiUrl, "/").concat(id, "/changeStatus")).then(function (response) {

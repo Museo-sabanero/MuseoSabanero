@@ -12,59 +12,7 @@
       <h3 class="font-theme font-md">Registrar Restauración</h3>
       <form class="custom-form" @submit.prevent="handleSubmit">
         <div style="text-align: left">
-          <h4 class="title-color font-sm">Fecha de Entrega:</h4>
-          <br />
-        </div>
-        <div>
-          <input
-            id="startDate"
-            v-model="formData.startDate"
-            type="date"
-            class="form-control"
-            required
-          />
-        </div>
-        <div style="text-align: left">
-          <br />
-          <h4 class="title-color font-sm">Fecha de Recibido:</h4>
-          <br />
-        </div>
-        <div>
-          <input
-            id="endDate"
-            v-model="formData.endDate"
-            type="date"
-            class="form-control"
-            required
-          />
-        </div>
-        <div style="text-align: left">
-          <br />
-          <h4 class="title-color font-sm">Autorizado por:</h4>
-          <br />
-        </div>
-        <div>
-          <select
-            id="userAuthorized"
-            v-model="formData.userAuthorized"
-            class="form-control"
-          >
-            <option value="">Seleccione el usuario que autoriza</option>
-            <option v-for="user in users" :key="user.id" :value="user.id">
-              {{ user.name }}
-            </option>
-          </select>
-          <p
-            v-if="showErrorUserAutorized && !formData.userAuthorized"
-            style="color: red"
-          >
-            Debe seleccionar un usuario
-          </p>
-        </div>
-        <div style="text-align: left">
-          <br />
           <h4 class="title-color font-sm">Articulo:</h4>
-          <br />
         </div>
         <div>
           <select
@@ -91,43 +39,133 @@
         <div style="text-align: left">
           <br />
           <h4 class="title-color font-sm">Tipo:</h4>
-          <br />
         </div>
         <div>
-          <select id="type" v-model="formData.type" class="form-control">
+          <select
+            id="typeArticle"
+            v-model="formData.typeArticle"
+            class="form-control"
+          >
             <option value="">Seleccione el tipo</option>
             <option value="A">Artesanía</option>
             <option value="T">Herramienta de trabajo</option>
             <option value="C">Herramienta de cocina</option>
           </select>
-          <p v-if="showErrorType && !formData.type" style="color: red">
+          <p
+            v-if="showErrorTypeArticle && !formData.typeArticle"
+            style="color: red"
+          >
             Debe seleccionar un tipo
           </p>
         </div>
         <div style="text-align: left">
           <br />
-          <h4 class="title-color font-sm">Estado de la restauración:</h4>
-          <br />
+          <h4 class="title-color font-sm">Autorizado por:</h4>
         </div>
         <div>
-          <select id="status" v-model="formData.status" class="form-control">
-            <option value="">Seleccione el estado de la restauración</option>
-            <option value="1">En proceso</option>
-            <option value="0">Finalizado</option>
+          <select
+            id="userAutorizedSend"
+            v-model="formData.userAutorizedSend"
+            class="form-control"
+          >
+            <option value="">Seleccione el usuario que autoriza</option>
+            <option v-for="user in users" :key="user.id" :value="user.id">
+              {{ user.name }}
+            </option>
           </select>
-          <p v-if="showErrorStatus && !formData.status" style="color: red">
-            Debe seleccionar un estado de restauración
+          <p
+            v-if="showErrorUserAutorizedSend && !formData.userAutorizedSend"
+            style="color: red"
+          >
+            Debe seleccionar un usuario
           </p>
         </div>
         <div style="text-align: left">
           <br />
-          <h4 class="title-color font-sm">Observaciones:</h4>
+          <h4 class="title-color font-sm">Fecha de envio a restauración:</h4>
+        </div>
+        <div>
+          <input
+            id="dateSend"
+            v-model="formData.dateSend"
+            type="date"
+            class="form-control"
+            required
+          />
+        </div>
+        <div style="text-align: left">
           <br />
+          <h4 class="title-color font-sm">
+            Fecha prevista de recibido de restauración:
+          </h4>
+        </div>
+        <div>
+          <input
+            id="datePrevReceived"
+            v-model="formData.datePrevReceived"
+            type="date"
+            class="form-control"
+            required
+          />
+        </div>
+        <div style="text-align: left">
+          <br />
+          <h4 class="title-color font-sm">
+            Encargado de realizar la restauración:
+          </h4>
+        </div>
+        <div>
+          <input
+            id="inChargeRestauration"
+            v-model="formData.inChargeRestauration"
+            maxlength="70"
+            type="text"
+            required
+            class="form-control"
+          />
+        </div>
+        <div style="text-align: left">
+          <br />
+          <h4 class="title-color font-sm">
+            Lugar donde se realiza la restauración:
+          </h4>
+        </div>
+        <div>
+          <input
+            id="placeRestauration"
+            v-model="formData.placeRestauration"
+            maxlength="70"
+            type="text"
+            required
+            class="form-control"
+          />
+        </div>
+        <div style="text-align: left">
+          <br />
+          <h4 class="title-color font-sm">
+            Coste de la restauración: (Si no tiene coste coloque un 0)
+          </h4>
+        </div>
+        <div>
+          <input
+            id="cost"
+            v-model="formData.cost"
+            maxlength="70"
+            type="text"
+            required
+            class="form-control"
+          />
+        </div>
+        <div style="text-align: left">
+          <br />
+          <h4 class="title-color font-sm">
+            Detalles del envío a restauración:
+          </h4>
         </div>
         <div>
           <textarea
-            id="observations"
-            v-model="formData.observations"
+            id="detailsSend"
+            v-model="formData.detailsSend"
             class="form-control"
             rows="3"
             required
@@ -153,18 +191,19 @@ export default {
       users: [],
       articles: [],
       formData: {
-        startDate: '',
-        endDate: '',
-        type: '',
+        userAutorizedSend: '',
+        typeArticle: '',
+        dateSend: '',
+        datePrevReceived: '',
+        inChargeRestauration: '',
+        placeRestauration: '',
+        cost: '',
         articleId: '',
-        observations: '',
-        status: '',
-        userAuthorized: '',
+        detailsSend: '',
       },
-      showErrorType: false,
+      showErrorTypeArticle: false,
       showErrorArticleId: false,
-      showErrorUserAutorized: false,
-      showErrorStatus: false,
+      showErrorUserAutorizedSend: false,
     }
   },
   async mounted() {
@@ -182,27 +221,26 @@ export default {
   },
   methods: {
     handleSubmit() {
-      if (!this.formData.userAuthorized) {
-        return (this.showErrorUserAutorized = true)
+      if (!this.formData.userAutorizedSend) {
+        return (this.showErrorUserAutorizedSend = true)
       }
       if (!this.formData.articleId) {
         return (this.showErrorArticleId = true)
       }
-      if (!this.formData.type) {
-        return (this.showErrorType = true)
-      }
-      if (!this.formData.status) {
-        return (this.showErrorStatus = true)
+      if (!this.formData.typeArticle) {
+        return (this.showErrorTypeArticle = true)
       }
       console.log(this.formData)
       const registro = {
-        startDate: this.formData.startDate,
-        endDate: this.formData.endDate,
-        type: this.formData.type,
+        userAutorizedSend: this.formData.userAutorizedSend,
+        typeArticle: this.formData.typeArticle,
+        dateSend: this.formData.dateSend,
+        datePrevReceived: this.formData.datePrevReceived,
+        inChargeRestauration: this.formData.inChargeRestauration,
+        placeRestauration: this.formData.placeRestauration,
         articleId: this.formData.articleId,
-        observations: this.formData.observations,
-        status: this.formData.status,
-        userAuthorized: this.formData.userAuthorized,
+        cost: this.formData.cost,
+        detailsSend: this.formData.detailsSend,
       }
       console.log(registro)
 
