@@ -38,4 +38,11 @@ export default {
       .then((response) => response.data)
       .catch((error) => Promise.reject(error))
   },
+  
+  update(requestOptions) {
+    return axios
+      .put(`${apiUrl}/update`, requestOptions)
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error))
+  },
 }

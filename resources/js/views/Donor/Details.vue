@@ -69,150 +69,117 @@
           </div>
           <!-- Item Section Start -->
           <div class="item-section p-0">
-            <h3 class="font-theme font-md">Información de contacto:</h3>
+            <h3 class="font-theme font-md">Información de donante:</h3>
+            <!-- Form Section Start -->
+            <br />
+            <form class="custom-form">
+              <div class="input-box">
+                <i class="iconly-Profile icli"></i>
+                <input
+                  v-model="name"
+                  maxlength="70"
+                  type="text"
+                  placeholder="Ingrese el nombre completo"
+                  required
+                  class="form-control"
+                />
+                <p v-if="showErrorMessageName" class="text-danger">
+                  Nombre es requerido.
+                </p>
+              </div>
 
-            <div class="item-wrap">
-              <!-- Item Start -->
-              <div class="media">
-                <div class="count">
-                  <!--<span class="font-sm">1</span>-->
-                  <div class="icon"></div>
-                </div>
-                <div class="media-body" style="width: 100%">
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <h4 class="title-color font-sm">Nombre:</h4>
-                      <div class="d-flex align-items-center">
-                        <div
-                          class="avatar-title rounded bg-transparent text-success fs-24 me-2"
-                        >
-                          <i
-                            v-if="item.status == 'A'"
-                            data-bs-target="#choosing-delivery"
-                            data-bs-toggle="offcanvas"
-                            aria-controls="choosing-delivery"
-                            class="ri-edit-2-fill"
-                          ></i>
-                        </div>
-                        <span
-                          class="content-color font-xs d-inline-block text-truncate"
-                          style="max-width: 190px; white-space: nowrap"
-                          >{{ item.name }}</span
-                        >
-                      </div>
-                    </div>
-                    <div>
-                      <h4 class="title-color font-sm">Correo electrónico:</h4>
-                      <div class="d-flex align-items-center">
-                        <div
-                          class="avatar-title rounded bg-transparent text-success fs-24 me-2"
-                        >
-                          <i
-                            v-if="item.status == 'A'"
-                            data-bs-target="#choosing-delivery"
-                            data-bs-toggle="offcanvas"
-                            aria-controls="choosing-delivery"
-                            class="ri-edit-2-fill"
-                          ></i>
-                        </div>
-                        <span
-                          class="content-color font-xs d-inline-block text-truncate"
-                          style="max-width: 190px; white-space: nowrap"
-                          >{{ item.email }}</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="input-box">
+                <i class="iconly-Document icli"></i>
+                <input
+                  v-model="identification"
+                  maxlength="70"
+                  type="text"
+                  placeholder="Ingrese la cédula"
+                  required
+                  class="form-control"
+                />
+                <p v-if="showErrorMessageId" class="text-danger">
+                  Cédula es requerido.
+                </p>
               </div>
-              <div class="media">
-                <div class="count">
-                  <div class="icon"></div>
-                </div>
-                <div class="media-body" style="width: 100%">
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <h4 class="title-color font-sm">Cédula:</h4>
-                      <div class="d-flex align-items-center">
-                        <div
-                          class="avatar-title rounded bg-transparent text-success fs-24 me-2"
-                        >
-                          <i
-                            v-if="item.status == 'A'"
-                            data-bs-target="#choosing-delivery"
-                            data-bs-toggle="offcanvas"
-                            aria-controls="choosing-delivery"
-                            class="ri-edit-2-fill"
-                          ></i>
-                        </div>
-                        <span class="content-color font-sm">{{
-                          item.identification
-                        }}</span>
-                      </div>
-                    </div>
-                    <div>
-                      <h4 class="title-color font-sm">Teléfono:</h4>
-                      <div class="d-flex align-items-center">
-                        <div
-                          class="avatar-title rounded bg-transparent text-success fs-24 me-2"
-                        >
-                          <i
-                            v-if="item.status == 'A'"
-                            data-bs-target="#choosing-delivery"
-                            data-bs-toggle="offcanvas"
-                            aria-controls="choosing-delivery"
-                            class="ri-edit-2-fill"
-                          ></i>
-                        </div>
-                        <span class="content-color font-sm">{{
-                          item.phone
-                        }}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+              <div class="input-box">
+                <i class="iconly-Message icli"></i>
+                <input
+                  v-model="email"
+                  maxlength="50"
+                  type="email"
+                  placeholder="Ingrese el email"
+                  required
+                  class="form-control"
+                />
+                <p v-if="showErrorMessageEmail" class="text-danger">
+                  Correo es requerido.
+                </p>
               </div>
-              <!-- Item Start -->
-              <div class="media">
-                <div class="count"></div>
-                <div class="media-body">
-                  <h4 class="title-color font-sm">Dirección:</h4>
-                  <div class="d-flex align-items-center">
-                    <div
-                      class="avatar-title rounded bg-transparent text-success fs-24 me-2"
-                    >
-                      <i
-                        v-if="item.status == 'A'"
-                        data-bs-target="#choosing-delivery"
-                        data-bs-toggle="offcanvas"
-                        aria-controls="choosing-delivery"
-                        class="ri-edit-2-fill"
-                      ></i>
-                    </div>
-                    <span class="content-color font-sm">{{
-                      item.description
-                    }}</span>
-                  </div>
-                </div>
+              <div class="input-box">
+                <i class="iconly-Call icli"></i>
+                <input
+                  v-model="phone"
+                  type="number"
+                  placeholder="9876543210"
+                  class="form-control"
+                  required
+                />
+                <p v-if="showErrorMessagePhone" class="text-danger">
+                  El télefono es requerido.
+                </p>
               </div>
-              <div
-                v-if="item.status == 'A'"
-                class="d-grid grap-2 text-end mt-5"
-              >
-                <a
-                  class="btn btn-danger text-center text-white"
-                  @click.prevent="change()"
-                  >Inactivar</a
+              <div class="type-password">
+                <label class="font-sm" for="password">Cambiar dirección:</label>
+                <div class="input-box mb-0">
+                  <i class="iconly-Location icli"></i>
+                  <textarea
+                    v-model="location"
+                    maxlength="200"
+                    :type="text"
+                    placeholder="Ingrese la  dirección exacta"
+                    required
+                    class="form-control"
+                  ></textarea>
+                  <p v-if="showErrorMessageLocation" class="text-danger">
+                    Dirección es requerido.
+                  </p>
+                </div>
+                <p v-if="errorMessage" class="text-danger">
+                  {{ errorMessage }}
+                </p>
+              </div>
+              <br />
+              <div class="d-flex justify-content-between align-items-center">
+                <button
+                  type="submit"
+                  class="btn-solid"
+                  @click.prevent="update()"
                 >
+                  Actualizar
+                </button>
+                <div v-if="item.status == 'A'">
+                  <button
+                    type="submit"
+                    class="btn-red"
+                    @click.prevent="change()"
+                  >
+                    Inactivar
+                  </button>
+                </div>
+                <div v-else>
+                  <button
+                    type="submit"
+                    class="btn-green"
+                    @click.prevent="change()"
+                  >
+                    Activar
+                  </button>
+                </div>
               </div>
-              <div v-else class="d-grid grap-2 text-end mt-5">
-                <a
-                  class="btn btn-success text-center text-white"
-                  @click.prevent="change()"
-                  >Activar</a
-                >
-              </div>
-            </div>
+            </form>
+            <!-- Form Section End -->
           </div>
         </div>
         <div id="Articulos" class="tab-pane" role="tabpanel">
@@ -248,13 +215,12 @@
                       <td>{{ item.dateCreated }}</td>
                       <td>
                         <router-link
-                          class="content-color font-sm text-primary"
+                          class="content-color font-sm text-primary iconly-Show"
                           :to="{
-                            name: 'DetailsDonor',
+                            name: 'ArticleDetails',
                             params: { id: item.id },
                           }"
-                          >Ver</router-link
-                        >
+                        ></router-link>
                       </td>
                     </tr>
                   </tbody>
@@ -287,62 +253,6 @@
       </div>
     </div>
   </main>
-  <!--start modal-->
-  <div
-    id="choosing-delivery"
-    class="shop-fillter order-history-filter offcanvas offcanvas-bottom"
-    tabindex="-1"
-    aria-modal="true"
-    aria-labelledby="choosing-delivery"
-    role="dialog"
-    :class="{ close: !showOffcanvas }"
-  >
-    <div class="">
-      <div class="">
-        <div class="offcanvas-header">
-          <h2 class="">
-            <img
-              src="/images/icons/payment.svg"
-              alt="map"
-              class="rounded-circle bg-success"
-              style="max-width: 120px; max-height: 120px"
-            />
-          </h2>
-          <button
-            type="button"
-            class="close btn-secondary btn-lg"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          >
-            X
-          </button>
-        </div>
-        <div class="offcanvas-body small d-flex">
-          <div class="flex-grow-1 steps-box">
-            <h4 id="save" class="mb-3">Teléfono:</h4>
-            <div class="input-box mt-3">
-              <input
-                v-model="phone"
-                type="text"
-                placeholder="Ingrese el teléfono"
-                required
-                class="form-control text-success"
-              />
-            </div>
-            <p class="text-start" :class="errorClass">{{ errorMessage }}</p>
-          </div>
-        </div>
-        <div class="offcanvas-footer">
-          <div class="btn-box">
-            <button class="btn-solid font-md" @click.prevent="updateCost()">
-              Actualizar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--End modal-->
 </template>
 
 <script>
@@ -363,11 +273,19 @@ export default {
   data() {
     return {
       phone: null,
+      email: null,
+      name: null,
+      identification: null,
+      location: null,
       item: null,
       articulo: null,
-      errorMessage: null,
-      showOffcanvas: true,
       errorClass: null,
+      showErrorMessageName: false,
+      showErrorMessagePhone: false,
+      showErrorMessageLocation: false,
+      showErrorMessageEmail: false,
+      showErrorMessageId: false,
+      errorMessage: null,
     }
   },
   async beforeMount() {
@@ -376,35 +294,55 @@ export default {
       this.item = data.Donante
       this.articulo = data.Articulo
       this.phone = this.item.phone
+      this.name = this.item.name
+      this.email = this.item.email
+      this.identification = this.item.identification
+      this.location = this.item.description
     })
   },
   methods: {
-    updateCost() {
-      const currentDate = new Date().toISOString()
-
+    update() {
+      this.clear();
       const datos = {
-        currentDate: currentDate,
-        cost: this.cost,
+        name: this.name,
+        location: this.location,
+        email: this.email,
+        phone: this.phone,
+        identification: this.identification,
+        id: this.id,
       }
+      this.errorMessage = ''
 
-      IncrementService.updateAmount(this.id, this.location, datos)
+      Donor.update(datos)
         .then((response) => {
-          console.log(response.data)
           this.errorMessage = ''
-          this.item.cost = this.cost
-          this.errorClass = 'text-success'
-          this.errorMessage = 'El monto ha sido actualizado'
+          console.log(response.data.status)
+          if (response.data.status === 201) {
+            this.goBack()
+          }
         })
         .catch((error) => {
-          console.log(error)
-          if (typeof error.response.data.errorMessage === 'string') {
-            this.errorClass = 'text-danger'
-            this.errorMessage = error.response.data.errorMessage
-          } else {
-            this.errorClass = 'text-danger'
-            this.errorMessage = Object.values(
-              error.response.data.errorMessage
-            )[0][0]
+          const errorMessages =
+            error.response?.data?.errorMessage ?? 'Indefinido'
+          if (errorMessages == 'Indefinido') {
+            this.goBack()
+          }
+          for (let fieldName in errorMessages) {
+            if (fieldName === 'name') {
+              this.showErrorMessageName = true
+            }
+            if (fieldName === 'phone') {
+              this.showErrorMessagePhone = true
+            }
+            if (fieldName === 'location') {
+              this.showErrorMessageLocation = true
+            }
+            if (fieldName === 'email') {
+              this.showErrorMessageEmail = true
+            }
+            if (fieldName === 'id') {
+              this.showErrorMessageId = true
+            }
           }
         })
     },
@@ -420,6 +358,13 @@ export default {
         .catch((error) => {
           this.errorMessage = error.response.data.errorMessage
         })
+    },
+    clear() {
+      this.showErrorMessageName = ''
+      this.showErrorMessagePhone = ''
+      this.showErrorMessageLocation = ''
+      this.showErrorMessageEmail = ''
+      this.showErrorMessageId = ''
     },
   },
 }

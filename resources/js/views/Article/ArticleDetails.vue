@@ -309,7 +309,7 @@ export default {
       List: [],
       searchTerm: '',
       originalList: [],
-      imageUrl: 'images/museo/frontPage.png', // Ruta relativa de la imagen desde la carpeta public
+      imageUrl: 'images/museo/aperos.jpg', // Ruta relativa de la imagen desde la carpeta public
       imageAlt: 'Descripción de la imagen',
       qrCodeSrc: '',
       article: {

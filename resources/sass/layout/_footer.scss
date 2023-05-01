@@ -2,6 +2,7 @@
   3.3 Footer Css 
 ==========================*/
 .footer-wrap {
+  $new-color: #ffffff; // Cambia "#f00" por el color que desees
   margin: 0 auto;
   max-width: 767px;
   position: fixed;
@@ -30,7 +31,7 @@
 
         i {
           font-size: 25px;
-          color: $white;
+          color: $new-color;
         }
         .icon {
           width: calc(30px + (32 - 30) * ((100vw - 320px) / (1920 - 320)));
@@ -41,7 +42,7 @@
           margin-top: 2px;
         }
         span {
-          color: $white;
+          color: $new-color;
           margin-bottom: -3px;
           font-size: calc(12px + (15 - 12) * ((100vw - 320px) / (1920 - 320)));
         }
@@ -53,7 +54,7 @@
           width: 4px;
           height: 4px;
           display: block;
-          background-color: $white;
+          background-color: $new-color;
           border-radius: 100%;
           top: -8px;
           opacity: 0;
@@ -93,14 +94,14 @@
         justify-content: center;
         flex-direction: column;
         > span {
-          color: $white;
+          color: $new-color;
           &:last-of-type {
             font-weight: 600;
           }
         }
         > a {
           font-weight: 600;
-          color: $white;
+          color: $new-color;
           line-height: 21px;
           margin-right: -7px;
           display: flex;
@@ -144,7 +145,7 @@
     a {
       width: 100%;
       display: block;
-      color: $white;
+      color: $new-color;
       font-weight: 600;
     }
   }

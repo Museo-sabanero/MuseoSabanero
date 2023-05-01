@@ -10,7 +10,6 @@
       ><a> <img class="logo" src="/images/logo/logo.png" alt="logo" /></a>
     </div>
     <div class="avatar-wrap">
-      <NotificationIcon></NotificationIcon>
     </div>
   </header>
 </template>

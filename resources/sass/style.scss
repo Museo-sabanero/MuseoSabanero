@@ -112,5 +112,8 @@
 /// Theme Scss ///
 @import 'themes/loader';
 
-
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #688ed9;
+  }
 
