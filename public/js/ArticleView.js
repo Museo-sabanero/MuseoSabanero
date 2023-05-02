@@ -108,35 +108,39 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "title-color"
 }, "Articulos")], -1 /* HOISTED */);
 var _hoisted_10 = {
-  "class": "card border border-info"
+  "class": "product-list media"
 };
-var _hoisted_11 = ["alt"];
+var _hoisted_11 = {
+  "class": "media-body"
+};
 var _hoisted_12 = {
-  "class": "card-body"
+  "class": "text-center"
 };
 var _hoisted_13 = {
-  "class": "text-center"
-};
-var _hoisted_14 = {
   "class": "font-theme"
 };
-var _hoisted_15 = {
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_16 = {
   "class": "card-text"
 };
-var _hoisted_16 = {
-  "class": "list-group list-group-flush"
-};
 var _hoisted_17 = {
-  "class": "list-group-item"
+  "class": "font-sm"
 };
-var _hoisted_18 = {
-  "class": "card-body"
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_20 = {
+  "class": "plus-minus"
 };
-var _hoisted_19 = {
-  "class": "text-center"
+var _hoisted_21 = {
+  "class": "text-center",
+  style: {
+    "max-width": "200px",
+    "margin": "0 auto"
+  }
 };
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_22 = ["alt"];
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
@@ -161,21 +165,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   })]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.List, function (item) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: item.id,
-      style: {
-        "width": "36rem"
-      }
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-      src: "/images/museo/aperos.jpg",
-      "class": "d-block mx-auto rounded my-3",
-      style: {
-        "width": "200px",
-        "height": "200px",
-        "object-fit": "cover",
-        "margin": "0 auto"
-      },
-      alt: $data.imageAlt
-    }, null, 8 /* PROPS */, _hoisted_11), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.title), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_15, "Nombre: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.name), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_17, " Número de referencia: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.numRefInter), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-      "class": "btn-outline font-md text-center",
+      "class": "offer-wrap"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.title), 1 /* TEXT */)]), _hoisted_14, _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_16, "Nombre: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_17, " Número de referencia: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.numRefInter), 1 /* TEXT */), _hoisted_18, _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      "class": "btn btn-outline font-md d-inline-block",
       to: {
         name: 'ArticleUpdate',
         params: {
@@ -187,11 +179,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Editar")];
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Editar ")];
       }),
       _: 2 /* DYNAMIC */
     }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-      "class": "btn-outline font-md text-center",
+      "class": "btn btn-outline font-md d-inline-block",
       to: {
         name: 'ArticleDetails',
         params: {
@@ -200,11 +192,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Detalles")];
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Detalles ")];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"])])])]), _hoisted_20, _hoisted_21]);
-  }), 128 /* KEYED_FRAGMENT */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div v-for=\"item in List\" :key=\"item.id\" class=\"offer-wrap\">\r\n          <div class=\"product-list media\">\r\n            <div class=\"media-body\">\r\n              <a class=\"font-sm\">\r\n                {{ item.name }}\r\n              </a>\r\n              <br />\r\n              <span class=\"content-color font-xs\"\r\n                >Inicia: {{ item.dateStart }} | Hora: {{ item.time }}\r\n              </span>\r\n              <span class=\"content-color font-xs\"\r\n                >Finaliza: {{ item.dateEnd }}</span\r\n              >\r\n              <span class=\"content-color font-xs\"\r\n                >| Máximo: {{ item.maxPersons }} personas</span\r\n              >\r\n              <br /><br />\r\n              <span class=\"title-color font-sm\"\r\n                >{{ item.cost }}\r\n                <span class=\"badges-round bg-theme-theme font-xs\">{{\r\n                  item.description\r\n                }}</span>\r\n                <span class=\"plus-minus\">\r\n                  <router-link\r\n                    class=\"btn-outline font-md text-center\"\r\n                    :to=\"{\r\n                      name: 'EventUpdate',\r\n                      params: { id: item.id },\r\n                    }\"\r\n                    >Editar</router-link\r\n                  >\r\n                </span>\r\n                <span class=\"plus-theme\"><i data-feather=\"plus\"></i> </span\r\n              ></span>\r\n            </div>\r\n          </div>\r\n          <br />\r\n        </div> ")])])]);
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: "/images/museo/frontPage.png",
+      "class": "d-block mx-auto rounded",
+      style: {
+        "max-width": "100%",
+        "height": "auto",
+        "object-fit": "cover"
+      },
+      alt: $data.imageAlt
+    }, null, 8 /* PROPS */, _hoisted_22)])])])]), _hoisted_23]);
+  }), 128 /* KEYED_FRAGMENT */))])])]);
 }
 
 /***/ }),
@@ -274,13 +275,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Article_vue_vue_type_template_id_34d25d6e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Article.vue?vue&type=template&id=34d25d6e */ "./resources/js/views/Article/Article.vue?vue&type=template&id=34d25d6e");
 /* harmony import */ var _Article_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Article.vue?vue&type=script&lang=js */ "./resources/js/views/Article/Article.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Museo_el_sabanero_git_Jeank_DV_Front_End_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_User_Documents_UTN_I_Cuatrimestre_TCU_Museo_el_sabanero_Front_End_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Museo_el_sabanero_git_Jeank_DV_Front_End_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Article_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Article_vue_vue_type_template_id_34d25d6e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Article/Article.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_User_Documents_UTN_I_Cuatrimestre_TCU_Museo_el_sabanero_Front_End_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Article_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Article_vue_vue_type_template_id_34d25d6e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Article/Article.vue"]])
 /* hot reload */
 if (false) {}
 

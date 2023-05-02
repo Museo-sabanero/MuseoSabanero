@@ -16,5 +16,6 @@
     "/js/restaurationRegister.js": "/js/restaurationRegister.js",
     "/js/restaurationUpdate.js": "/js/restaurationUpdate.js",
     "/css/dark.css": "/css/dark.css",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/restaurationApprove.js": "/js/restaurationApprove.js"
 }
