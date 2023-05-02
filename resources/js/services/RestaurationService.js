@@ -1,3 +1,4 @@
+import axios from 'axios'
 const apiUrl = 'http://127.0.0.1:8001/api/restaurations'
 
 export default {
@@ -28,6 +29,14 @@ export default {
     console.log($data)
     return axios
       .post(`${apiUrl}/update`, $data)
+      .then((response) => response.data)
+    //   .catch((error) => Promise.reject(error))
+  },
+
+  approveRestauration($data) {
+    console.log($data)
+    return axios
+      .post(`${apiUrl}/approve`, $data)
       .then((response) => response.data)
     //   .catch((error) => Promise.reject(error))
   },

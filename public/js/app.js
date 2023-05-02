@@ -24150,13 +24150,24 @@ var routes = [{
   path: '/restauration/register',
   name: 'RestaurationRegister',
   component: function component() {
-    return __webpack_require__.e(/*! import() | restaurationRegister */ "restaurationRegister").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Restauration/Register.vue */ "./resources/js/views/Restauration/Register.vue"));
+    return __webpack_require__.e(/*! import() | restaurationRegister */ "restaurationRegister").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Restauration/RestaurationRegister.vue */ "./resources/js/views/Restauration/RestaurationRegister.vue"));
   }
 }, {
   path: '/restauration/update/:id',
   name: 'RestaurationUpdate',
   component: function component() {
-    return __webpack_require__.e(/*! import() | restaurationUpdate */ "restaurationUpdate").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Restauration/Update.vue */ "./resources/js/views/Restauration/Update.vue"));
+    return __webpack_require__.e(/*! import() | restaurationUpdate */ "restaurationUpdate").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Restauration/RestaurationUpdate.vue */ "./resources/js/views/Restauration/RestaurationUpdate.vue"));
+  },
+  props: function props(route) {
+    return {
+      id: route.params.id
+    };
+  }
+}, {
+  path: '/restauration/aprrove/:id',
+  name: 'RestaurationApprove',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | restaurationApprove */ "restaurationApprove").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Restauration/RestaurationApprove.vue */ "./resources/js/views/Restauration/RestaurationApprove.vue"));
   },
   props: function props(route) {
     return {
@@ -52734,7 +52745,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
 /******/ 			if (chunkId === "home") return "js/home.js";
-/******/ 			if ({"donor":1,"detailsDonor":1,"event":1,"eventRegister":1,"evendUpdate":1,"ArticleView":1,"articleRegister":1,"articleUpdate":1,"articleDetails":1,"register":1,"setting":1,"RestaurationView":1,"restaurationRegister":1,"restaurationUpdate":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"donor":1,"detailsDonor":1,"event":1,"eventRegister":1,"evendUpdate":1,"ArticleView":1,"articleRegister":1,"articleUpdate":1,"articleDetails":1,"register":1,"setting":1,"RestaurationView":1,"restaurationRegister":1,"restaurationUpdate":1,"restaurationApprove":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

@@ -177,15 +177,11 @@
   </main>
 </template>
 <script>
-import Restaurations from '../../services/Restauration'
+import Restaurations from '../../services/RestaurationService'
 import Articles from '../../services/ArticleService'
 import Users from '../../services/User'
-import GoBack from '../../components/GoBack.vue'
 export default {
   name: 'RestaurationRegister',
-  components: {
-    GoBack,
-  },
   data() {
     return {
       users: [],
@@ -204,6 +200,7 @@ export default {
       showErrorTypeArticle: false,
       showErrorArticleId: false,
       showErrorUserAutorizedSend: false,
+      errorMessage: null,
     }
   },
   async mounted() {
@@ -246,11 +243,13 @@ export default {
 
       Restaurations.createRestauration(registro).then((data) => {
         console.log(data)
-        // this.$router.push('/event/index')
+        this.$router.push('/restauration/index')
       })
     },
     goBack() {
-      this.$router.push({ name: 'Event' })
+      this.$router.push({
+        name: 'RestaurationView',
+      })
     },
   },
 }

@@ -117,7 +117,7 @@ const routes = [
     name: 'RestaurationRegister',
     component: () =>
       import(
-        /* webpackChunkName: "restaurationRegister" */ '../views/Restauration/Register.vue'
+        /* webpackChunkName: "restaurationRegister" */ '../views/Restauration/RestaurationRegister.vue'
       ),
   },
   {
@@ -125,7 +125,18 @@ const routes = [
     name: 'RestaurationUpdate',
     component: () =>
       import(
-        /* webpackChunkName: "restaurationUpdate" */ '../views/Restauration/Update.vue'
+        /* webpackChunkName: "restaurationUpdate" */ '../views/Restauration/RestaurationUpdate.vue'
+      ),
+    props: (route) => ({
+      id: route.params.id,
+    }),
+  },
+  {
+    path: '/restauration/aprrove/:id',
+    name: 'RestaurationApprove',
+    component: () =>
+      import(
+        /* webpackChunkName: "restaurationApprove" */ '../views/Restauration/RestaurationApprove.vue'
       ),
     props: (route) => ({
       id: route.params.id,
