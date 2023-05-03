@@ -14,8 +14,7 @@ try {
 window.axios = require('axios')
 window.axios.defaults.withCredentials = true
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
-window.axios.defaults.baseURL = '/api'
-//axios.defaults.baseURL = 'http://127.0.0.1:8001/api/';
+window.axios.defaults.baseURL = '/api/'
 window.axios.interceptors.response.use(
   function (response) {
     return response
