@@ -7,7 +7,7 @@
         v-model="searchTerm"
         class="form-control"
         type="search"
-        placeholder="Buscar por nombre o descripción"
+        placeholder="Buscar por nombre de artículo o detalle de restauración"
         @input="filterData()"
       />
     </div>
@@ -30,30 +30,51 @@
               <a class="font-sm"> Artículo: {{ item.articles[0].name }} </a>
               <br />
               <span class="content-color font-xs"
-                >Enviado: {{ item.startDate }}
+                >Enviado a restauración: {{ item.dateSend }}
               </span>
+              <br />
               <span class="content-color font-xs"
-                >Recibido: {{ item.endDate }}</span
+                >Encargado de realizar la restauración:
+                {{ item.inChargeRestauration }}</span
               >
               <br />
               <span class="content-color font-xs"
-                >Usuario que autorizó: {{ item.userAuthorized }}</span
+                >Lugar donde se realiza la restauración:
+                {{ item.placeRestauration }}</span
+              >
+              <br />
+              <span class="content-color font-xs">Costo: {{ item.cost }}</span>
+              <br />
+              <span class="content-color font-xs"
+                >Usuario que autorizó: {{ item.userAutorizedSend }}</span
               >
               <br /><br />
               <span class="title-color font-sm"
                 >{{ item.statusDescription }}
                 <span class="badges-round bg-theme-theme font-xs">{{
-                  item.observations
+                  item.detailsSend
                 }}</span>
                 <span class="plus-minus">
-                  <router-link
-                    class="btn-outline font-md text-center"
-                    :to="{
-                      name: 'RestaurationUpdate',
-                      params: { id: item.id },
-                    }"
-                    >Editar</router-link
-                  >
+                  <div>
+                    <router-link
+                      class="btn-outline font-md text-center"
+                      :to="{
+                        name: 'RestaurationUpdate',
+                        params: { id: item.id },
+                      }"
+                      >Editar</router-link
+                    >
+                    <br />
+                    <router-link
+                      class="btn btn-outline font-md d-inline-block"
+                      :to="{
+                        name: 'RestaurationApprove',
+                        params: { id: item.id },
+                      }"
+                    >
+                      Recibir
+                    </router-link>
+                  </div>
                 </span>
                 <span class="plus-theme"><i data-feather="plus"></i> </span
               ></span>
@@ -66,7 +87,7 @@
   </main>
 </template>
 <script>
-import Restaurations from '../../services/Restauration'
+import Restaurations from '../../services/RestaurationService'
 
 export default {
   name: 'RestaurationView',
@@ -93,7 +114,8 @@ export default {
         const expression = new RegExp(searchTerm, 'i')
         this.List = this.originalList.filter(
           (item) =>
-            expression.test(item.name) || expression.test(item.description)
+            expression.test(item.articles[0].name) ||
+            expression.test(item.detailsSend)
         )
       }
     },

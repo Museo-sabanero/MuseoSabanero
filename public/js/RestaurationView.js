@@ -11,7 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _services_Restauration__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/Restauration */ "./resources/js/services/Restauration.js");
+/* harmony import */ var _services_RestaurationService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/RestaurationService */ "./resources/js/services/RestaurationService.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -39,7 +39,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _services_Restauration__WEBPACK_IMPORTED_MODULE_0__["default"].getRestaurations().then(function (data) {
+            return _services_RestaurationService__WEBPACK_IMPORTED_MODULE_0__["default"].getRestaurations().then(function (data) {
               console.log(data);
               _this.List = data;
               _this.originalList = _this.List;
@@ -59,7 +59,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       } else {
         var expression = new RegExp(searchTerm, 'i');
         this.List = this.originalList.filter(function (item) {
-          return expression.test(item.name) || expression.test(item.description);
+          return expression.test(item.articles[0].name) || expression.test(item.detailsSend);
         });
       }
     }
@@ -116,30 +116,40 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_14 = {
   "class": "content-color font-xs"
 };
-var _hoisted_15 = {
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_16 = {
   "class": "content-color font-xs"
 };
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_17 = {
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_18 = {
   "class": "content-color font-xs"
 };
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 var _hoisted_20 = {
+  "class": "content-color font-xs"
+};
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_22 = {
+  "class": "content-color font-xs"
+};
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_25 = {
   "class": "title-color font-sm"
 };
-var _hoisted_21 = {
+var _hoisted_26 = {
   "class": "badges-round bg-theme-theme font-xs"
 };
-var _hoisted_22 = {
+var _hoisted_27 = {
   "class": "plus-minus"
 };
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "plus-theme"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "data-feather": "plus"
 })], -1 /* HOISTED */);
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
@@ -149,7 +159,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     "class": "form-control",
     type: "search",
-    placeholder: "Buscar por nombre o descripción",
+    placeholder: "Buscar por nombre de artículo o detalle de restauración",
     onInput: _cache[1] || (_cache[1] = function ($event) {
       return $options.filterData();
     })
@@ -165,7 +175,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: item.id,
       "class": "offer-wrap"
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_12, " Artículo: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.articles[0].name), 1 /* TEXT */), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, "Enviado: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.startDate), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_15, "Recibido: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.endDate), 1 /* TEXT */), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, "Usuario que autorizó: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.userAuthorized), 1 /* TEXT */), _hoisted_18, _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.statusDescription) + " ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.observations), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_12, " Artículo: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.articles[0].name), 1 /* TEXT */), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, "Enviado a restauración: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.dateSend), 1 /* TEXT */), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_16, "Encargado de realizar la restauración: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.inChargeRestauration), 1 /* TEXT */), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_18, "Lugar donde se realiza la restauración: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.placeRestauration), 1 /* TEXT */), _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_20, "Costo: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.cost), 1 /* TEXT */), _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_22, "Usuario que autorizó: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.userAutorizedSend), 1 /* TEXT */), _hoisted_23, _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.statusDescription) + " ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.detailsSend), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
       "class": "btn-outline font-md text-center",
       to: {
         name: 'RestaurationUpdate',
@@ -178,26 +188,42 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Editar")];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"])]), _hoisted_23])])]), _hoisted_24]);
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"]), _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      "class": "btn btn-outline font-md d-inline-block",
+      to: {
+        name: 'RestaurationApprove',
+        params: {
+          id: item.id
+        }
+      }
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Recibir ")];
+      }),
+      _: 2 /* DYNAMIC */
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"])])]), _hoisted_29])])]), _hoisted_30]);
   }), 128 /* KEYED_FRAGMENT */))])])]);
 }
 
 /***/ }),
 
-/***/ "./resources/js/services/Restauration.js":
-/*!***********************************************!*\
-  !*** ./resources/js/services/Restauration.js ***!
-  \***********************************************/
+/***/ "./resources/js/services/RestaurationService.js":
+/*!******************************************************!*\
+  !*** ./resources/js/services/RestaurationService.js ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 var apiUrl = 'http://127.0.0.1:8001/api/restaurations';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   getRestaurations: function getRestaurations() {
-    return axios.get("".concat(apiUrl, "/getRestaurations")).then(function (response) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestaurations")).then(function (response) {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error);
@@ -205,7 +231,7 @@ var apiUrl = 'http://127.0.0.1:8001/api/restaurations';
   },
   getRestauration: function getRestauration($id) {
     console.log($id);
-    return axios.get("".concat(apiUrl, "/getRestauration?id=") + $id).then(function (response) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestauration?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error);
@@ -213,14 +239,21 @@ var apiUrl = 'http://127.0.0.1:8001/api/restaurations';
   },
   createRestauration: function createRestauration($data) {
     console.log($data);
-    return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //.catch((error) => Promise.reject(error))
   },
   updateRestauration: function updateRestauration($data) {
     console.log($data);
-    return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/update"), $data).then(function (response) {
+      return response.data;
+    });
+    //   .catch((error) => Promise.reject(error))
+  },
+  approveRestauration: function approveRestauration($data) {
+    console.log($data);
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/approve"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))

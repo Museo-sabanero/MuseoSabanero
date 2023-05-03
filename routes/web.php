@@ -24,7 +24,7 @@ Route::group([
     'as' => 'subject.',
     'namespace' => 'subject',
     'middleware' => ['auth:sanctum'],
-    'where' => ['subject' => 'home|donor/index|donor/details|donor/register|event/index|event/register|event/update|article/register|article/update|article/index|article/details|restauration/register|restauration/update|restauration/index|user/register|user/setting']
+    'where' => ['subject' => 'home|donor/index|donor/details|donor/register|event/index|event/register|event/update|article/register|article/update|article/index|article/details|restauration/register|restauration/update|restauration/index|restauration/aprrove|user/register|user/setting']
 ], function () {
     Route::view('/{any?}', 'app')->name('subject')->where('any', '.*');
 });

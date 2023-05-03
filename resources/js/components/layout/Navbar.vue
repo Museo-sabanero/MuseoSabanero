@@ -2,9 +2,9 @@
   <footer class="footer-wrap">
     <ul class="footer">
       <li class="footer-item active">
-        <a class="footer-link" @click="goDashboard()">
-          <i class="iconly-Graph icli"></i>
-          <span>Panel</span>
+        <a class="footer-link" @click="goEvents()">
+          <i class="iconly-Calendar icli"></i>
+          <span>Eventos</span>
         </a>
       </li>
       <li class="footer-item">
@@ -21,9 +21,9 @@
         </a>
       </li>
       <li class="footer-item">
-        <a class="footer-link" @click="goIncome()">
-          <i class="iconly-Chart icli"></i>
-          <span class="offer">Ingresos</span>
+        <a class="footer-link" @click="goRestore()">
+          <i class="iconly-Shield-Done icli"></i>
+          <span class="offer">Restauraciones</span>
         </a>
       </li>
     </ul>
@@ -38,8 +38,8 @@ export default {
     router,
   },
   methods: {
-    goDashboard() {
-      router.push('/home')
+    goEvents() {
+      router.push('/event/index')
     },
 
     goArticles() {
@@ -49,8 +49,8 @@ export default {
     goDonors() {
       router.push('/donor/index')
     },
-    goIncome() {
-      router.push('/home')
+    goRestore() {
+      router.push('/restauration/index')
     },
   },
 }

@@ -105,7 +105,7 @@
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>
-          <li>
+          <!-- <li>
             <router-link to="/event/index" class="nav-link title-color font-sm">
               <i class="iconly-Calendar icli"></i>
               <span>Eventos</span>
@@ -113,8 +113,8 @@
             <router-link class="arrow" to="/event/index"
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
-          </li>
-          <li>
+          </li> -->
+          <!-- <li>
             <router-link
               to="/restauration/index"
               class="nav-link title-color font-sm"
@@ -125,7 +125,7 @@
             <router-link class="arrow" to="/restauration/index"
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
-          </li>
+          </li> -->
           <li>
             <router-link
               to="/user/setting"
