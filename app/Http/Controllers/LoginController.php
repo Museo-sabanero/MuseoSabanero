@@ -27,7 +27,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('home');
+            return redirect()->intended('/event/index');
         }
 
         return back()->withErrors([
@@ -38,7 +38,7 @@ class LoginController extends Controller
     public function login()
     {
         if (Auth::check()) {
-            return redirect('/home');
+            return redirect('/event/index');
         }
 
         return view('auth.login');
@@ -74,9 +74,11 @@ class LoginController extends Controller
         
         $subject = "Envio de contraseña";
         $emailBody = "<h3>Estimado: {$user->nombre}</h3>"
-            . "<p>Su contraseña es: {$user->contrasena}</p>"
-            . "<p>Te invitamos a restaurarla en la configuración de su perfil: <a href=\"{$url}\">MUSEO SABANERO</a></p>"
-            . "<h4>¡Saludos!</h4>";
+        . "<p>Su usuario es: <strong>{$user->login}</strong></p>"
+        . "<p>Su contraseña es: <strong>{$user->contrasena}</strong></p>"
+        . "<p>Te invitamos a iniciar sesión.</p>"
+        . "<p><a href=\"{$url}\">MUSEO SABANERO</a></p>"
+        . "<h4>¡Saludos!</h4>";
         
         Mail::to($email)->send(new EmailNotification($subject, $emailBody));
         
