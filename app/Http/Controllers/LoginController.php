@@ -73,10 +73,10 @@ class LoginController extends Controller
             ->first();
         
         $subject = "Envio de contraseña";
-        $emailBody = "<h3>Estimado: {$user->nombre}</h3>"
+        $emailBody = "<h4>Estimado/a {$user->nombre},</h4>"
         . "<p>Su usuario es: <strong>{$user->login}</strong></p>"
         . "<p>Su contraseña es: <strong>{$user->contrasena}</strong></p>"
-        . "<p>Te invitamos a iniciar sesión.</p>"
+        . "<p>Le invitamos a iniciar sesión.</p>"
         . "<p><a href=\"{$url}\">MUSEO SABANERO</a></p>"
         . "<h4>¡Saludos!</h4>";
         
