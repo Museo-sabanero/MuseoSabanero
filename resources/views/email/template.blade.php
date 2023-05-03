@@ -38,7 +38,7 @@
                                                                             <tr>
                                                                                 <td align="left" style="font-size: 0px;" width="50%">
                                                                                     <a target="_blank">
-                                                                                        <img src="https://campusvirtual.utn.ac.cr/pluginfile.php/1/core_admin/logocompact/300x300/1683028960/logocompacto.png" alt style="display: block;" width="60">
+                                                                                        <img src="" alt style="display: block;" width="60">
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>
@@ -95,21 +95,21 @@
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td align="left">
-                                                                                    <p style="margin: 5px 0;">Guanacaste, Liberia, Costa Rica</p>
+                                                                                    <p style="margin: 5px 0;">Liberia, Guanacaste, Costa Rica</p>
                                                                                     <p style="margin: 5px 0;">museosabaneroliberia@gmail.com</p>
-                                                                                    <p style="margin: 5px 0;">(506)8449 0177</p>
-                                                                                    <p style="margin: 5px 0;">Museo Sabanero</p>
+                                                                                    <p style="margin: 5px 0;">(506) 8449 0177</p>
+                                                                                    <p style="margin: 5px 0;">Museo Sabanero, Casa de la Cultura</p>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td align="center">
-                                                                                    <p>TODOS LOS DERECHOS RESERVADOS | Copyright @2023 MUSEO SABANERO</p>
+                                                                                    <p>Desarrollado por estudiantes TCU-UTN | Copyright @2023</p>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td align="left" style="font-size: 0px; padding-top:16px">
                                                                                     <a target="_blank">
-                                                                                        <img src="https://campusvirtual.utn.ac.cr/pluginfile.php/1/core_admin/logo/0x200/1683028960/logoutn.png" alt style="display: block;" width="60">
+                                                                                        <img src="" alt style="display: block;" width="60">
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>
