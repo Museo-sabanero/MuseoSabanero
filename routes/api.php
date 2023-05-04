@@ -3,6 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LogoutController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\ImageController;
+use Illuminate\Http\Request;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EventoController;
+use App\Http\Controllers\RestauracionController;
+use App\Http\Controllers\Api\DonanteController;
+use App\Http\Controllers\Api\EventController;
+use App\Http\Controllers\Api\ArticleController;
+use App\Http\Controllers\Api\HistoryController;
+use App\Http\Controllers\Api\FileController;
+use App\Http\Controllers\Api\RestaurationController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,6 +37,54 @@ Route::group(['prefix' => 'users', 'as' => 'users', 'middleware' => ['auth:sanct
     Route::put('/update', [UserController::class, 'update']);
     Route::get('/detailsUser', [UserController::class, 'detailsUser']);
     Route::get('/showUser', [UserController::class, 'showUser']);
+});
+
+Route::group(['prefix' => 'donores', 'as' => 'donores'], function () {
+    Route::get('showDonor', [DonanteController::class, 'showDonor']);
+    Route::get('/{id}/detailsDonor', [DonanteController::class, 'detailsDonor']);
+    Route::get('/{cedula}/detailsDonorByCedula', [DonanteController::class, 'detailsDonorByCedula']);
+    Route::put('/{id}/changeStatus', [DonanteController::class, 'changeStatus']);
+    Route::put('/update', [DonanteController::class, 'update']);
+    Route::post('/register', [DonanteController::class, 'register']);
+});
+
+Route::group(['prefix' => 'events', 'as' => 'events'], function () {
+    Route::get('getEvents', [EventController::class, 'getEvents']);
+    Route::get('getEvent', [EventController::class, 'getEvent']);
+    Route::post('store', [EventController::class, 'store']);
+    Route::post('update', [EventController::class, 'update']);
+    Route::post('delete', [EventController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'restaurations', 'as' => 'restaurations'], function () {
+    Route::get('getRestauration', [RestaurationController::class, 'getRestauration']);
+    Route::get('getRestaurations', [RestaurationController::class, 'getRestaurations']);
+    Route::post('store', [RestaurationController::class, 'store']);
+    Route::post('update', [RestaurationController::class, 'update']);
+    Route::post('approve', [RestaurationController::class, 'approve']);
+});
+
+
+Route::group(['prefix' => 'articles', 'as' => 'articles'], function () {
+    Route::get('getArticles', [ArticleController::class, 'getArticles']);
+    Route::get('getArticle', [ArticleController::class, 'getArticle']);
+    Route::post('store', [ArticleController::class, 'store']);
+    Route::post('update', [ArticleController::class, 'update']);
+    Route::post('delete', [ArticleController::class, 'delete']);
+});
+
+
+Route::group(['prefix' => 'histories', 'as' => 'histories'], function () {
+    Route::get('getHistories', [HistoryController::class, 'getHistories']);
+    Route::get('getHistory', [HistoryController::class, 'getHistory']);
+    Route::get('getHistoryByArticle', [HistoryController::class, 'getHistoryByArticle']);
+    Route::post('store', [HistoryController::class, 'store']);
+    Route::post('update', [HistoryController::class, 'update']);
+    Route::post('delete', [HistoryController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'files', 'as' => 'files'], function () {
+    Route::post('store', [FileController::class, 'store']);
 });
 
 

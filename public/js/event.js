@@ -193,7 +193,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var apiUrl = 'http://127.0.0.1:8001/api/events';
+var apiUrl = 'http://127.0.0.1:8000/api/events';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Obtener todos los donantes
   getEvents: function getEvents() {

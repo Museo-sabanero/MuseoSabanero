@@ -1,4 +1,4 @@
-const apiUrl = 'http://127.0.0.1:8001/api/donores'
+const apiUrl = 'http://127.0.0.1:8000/api/donores'
 
 export default {
   // Obtener todos los donantes
@@ -38,7 +38,7 @@ export default {
       .then((response) => response.data)
       .catch((error) => Promise.reject(error))
   },
-  
+
   update(requestOptions) {
     return axios
       .put(`${apiUrl}/update`, requestOptions)

@@ -1,5 +1,5 @@
 import axios from 'axios'
-const apiUrl = 'http://127.0.0.1:8001/api/restaurations'
+const apiUrl = 'http://127.0.0.1:8000/api/restaurations'
 
 export default {
   getRestaurations() {
