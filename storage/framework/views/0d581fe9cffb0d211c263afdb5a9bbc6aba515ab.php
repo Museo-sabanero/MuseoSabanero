@@ -43,4 +43,4 @@
             console.log('Laravel PWA: ServiceWorker registration failed: ', err);
         });
     }
-</script><?php /**PATH C:\Users\User\Documents\Museo\Front_End_MuseoSabanero\vendor\silviolleite\laravelpwa\Providers/../resources/views/meta.blade.php ENDPATH**/ ?>
+</script><?php /**PATH D:\Museo el sabanero\git-Jeank-DV\MuseoSabanero\vendor\silviolleite\laravelpwa\Providers/../resources/views/meta.blade.php ENDPATH**/ ?>

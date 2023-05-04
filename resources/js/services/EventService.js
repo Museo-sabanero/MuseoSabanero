@@ -1,4 +1,4 @@
-const apiUrl = 'http://127.0.0.1:8000/api/events'
+const apiUrl = 'events'
 
 export default {
   // Obtener todos los donantes
