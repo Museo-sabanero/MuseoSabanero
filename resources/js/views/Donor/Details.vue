@@ -28,7 +28,7 @@
                   href="#Articulos"
                   role="tab"
                 >
-                  Articulos
+                  Artículos
                 </a>
               </li>
             </ul>
@@ -204,9 +204,9 @@
                 <table class="table custom-table">
                   <thead>
                     <tr>
-                      <th>Nombre del artículo</th>
+                      <th>Artículo</th>
                       <th>Fecha de registro</th>
-                      <th>Acciones</th>
+                      <th>Ver</th>
                     </tr>
                   </thead>
                   <tbody v-for="item in articulo" :key="item.id">
