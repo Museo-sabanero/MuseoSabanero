@@ -411,11 +411,25 @@ var apiUrl = 'http://127.0.0.1:8000/api/articles';
       return Promise.reject(error);
     });
   },
+  getArticleById: function getArticleById($id) {
+    console.log($id);
+    return axios.get("".concat(apiUrl, "/getArticleById?id=") + $id).then(function (response) {
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
   createArticle: function createArticle($data) {
     console.log($data);
-    return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
-      return response.data;
+    var response = axios.post("".concat(apiUrl, "/store"), $data, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
     });
+    return response.data;
+    // return axios
+    //   .post(`${apiUrl}/store`, $data)
+    //   .then((response) => response.data)
     //   .catch((error) => Promise.reject(error))
   },
   updateArticle: function updateArticle($data) {
@@ -461,6 +475,14 @@ var apiUrl = 'http://127.0.0.1:8000/api/restaurations';
   getRestauration: function getRestauration($id) {
     console.log($id);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestauration?id=") + $id).then(function (response) {
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
+  getRestaurationsByArticle: function getRestaurationsByArticle($id) {
+    console.log($id);
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestaurationsByArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error);
@@ -556,13 +578,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _RestaurationUpdate_vue_vue_type_template_id_c6688aee__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RestaurationUpdate.vue?vue&type=template&id=c6688aee */ "./resources/js/views/Restauration/RestaurationUpdate.vue?vue&type=template&id=c6688aee");
 /* harmony import */ var _RestaurationUpdate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RestaurationUpdate.vue?vue&type=script&lang=js */ "./resources/js/views/Restauration/RestaurationUpdate.vue?vue&type=script&lang=js");
-/* harmony import */ var C_Users_User_Documents_Museo_Front_End_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_User_Documents_Museo_MuseoSabaneroJuan_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_User_Documents_Museo_Front_End_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_RestaurationUpdate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_RestaurationUpdate_vue_vue_type_template_id_c6688aee__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Restauration/RestaurationUpdate.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_User_Documents_Museo_MuseoSabaneroJuan_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_RestaurationUpdate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_RestaurationUpdate_vue_vue_type_template_id_c6688aee__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Restauration/RestaurationUpdate.vue"]])
 /* hot reload */
 if (false) {}
 

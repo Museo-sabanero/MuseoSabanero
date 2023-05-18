@@ -143,13 +143,17 @@ var _hoisted_26 = {
 var _hoisted_27 = {
   "class": "plus-minus"
 };
-var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_28 = {
+  key: 0
+};
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "plus-theme"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "data-feather": "plus"
 })], -1 /* HOISTED */);
-var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
@@ -175,7 +179,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: item.id,
       "class": "offer-wrap"
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_12, " Artículo: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.articles[0].name), 1 /* TEXT */), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, "Enviado a restauración: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.dateSend), 1 /* TEXT */), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_16, "Encargado de realizar la restauración: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.inChargeRestauration), 1 /* TEXT */), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_18, "Lugar donde se realiza la restauración: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.placeRestauration), 1 /* TEXT */), _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_20, "Costo: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.cost), 1 /* TEXT */), _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_22, "Usuario que autorizó: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.userAutorizedSend), 1 /* TEXT */), _hoisted_23, _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.statusDescription) + " ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.detailsSend), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_12, " Artículo: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.articles.name), 1 /* TEXT */), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, "Enviado a restauración: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.dateSend), 1 /* TEXT */), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_16, "Encargado de realizar la restauración: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.inChargeRestauration), 1 /* TEXT */), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_18, "Lugar donde se realiza la restauración: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.placeRestauration), 1 /* TEXT */), _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_20, "Costo: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.cost), 1 /* TEXT */), _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_22, "Usuario que autorizó: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.userAutorizedSend), 1 /* TEXT */), _hoisted_23, _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.statusDescription) + " ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.detailsSend), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
       "class": "btn-outline font-md text-center",
       to: {
         name: 'RestaurationUpdate',
@@ -188,7 +192,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Editar")];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"]), _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"]), item.status === 'E' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
       "class": "btn btn-outline font-md d-inline-block",
       to: {
         name: 'RestaurationApprove',
@@ -201,7 +205,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Recibir ")];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"])])]), _hoisted_29])])]), _hoisted_30]);
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      "class": "btn btn-outline font-md d-inline-block",
+      to: {
+        name: 'RestaurationDetails',
+        params: {
+          id: item.id
+        }
+      }
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Detalles ")];
+      }),
+      _: 2 /* DYNAMIC */
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"])])]), _hoisted_31])])]), _hoisted_32]);
   }), 128 /* KEYED_FRAGMENT */))])])]);
 }
 
@@ -232,6 +249,14 @@ var apiUrl = 'http://127.0.0.1:8000/api/restaurations';
   getRestauration: function getRestauration($id) {
     console.log($id);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestauration?id=") + $id).then(function (response) {
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
+  getRestaurationsByArticle: function getRestaurationsByArticle($id) {
+    console.log($id);
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestaurationsByArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error);
@@ -280,13 +305,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Restauration_vue_vue_type_template_id_3e5d7820__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Restauration.vue?vue&type=template&id=3e5d7820 */ "./resources/js/views/Restauration/Restauration.vue?vue&type=template&id=3e5d7820");
 /* harmony import */ var _Restauration_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Restauration.vue?vue&type=script&lang=js */ "./resources/js/views/Restauration/Restauration.vue?vue&type=script&lang=js");
-/* harmony import */ var C_Users_User_Documents_Museo_Front_End_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_User_Documents_Museo_MuseoSabaneroJuan_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_User_Documents_Museo_Front_End_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Restauration_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Restauration_vue_vue_type_template_id_3e5d7820__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Restauration/Restauration.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_User_Documents_Museo_MuseoSabaneroJuan_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Restauration_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Restauration_vue_vue_type_template_id_3e5d7820__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Restauration/Restauration.vue"]])
 /* hot reload */
 if (false) {}
 

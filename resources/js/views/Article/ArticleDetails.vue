@@ -228,6 +228,105 @@
             </div>
           </div>
           <!-- Accordion End -->
+          <div class="accordion-item">
+            <h2 id="headingThree" class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                Restauraciones del artículo
+              </button>
+            </h2>
+            <div
+              id="collapseFour"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <br />
+                <div
+                  style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                  "
+                >
+                  <div
+                    v-if="ListRestauration.length !== 0"
+                    class="offer-section pt-0"
+                  >
+                    <div class="offer">
+                      <div
+                        v-for="item in ListRestauration"
+                        :key="item.id"
+                        class="offer-wrap"
+                      >
+                        <div class="product-list media">
+                          <div class="media-body">
+                            <a class="font-sm">
+                              Artículo: {{ item.articles.name }}
+                            </a>
+                            <br />
+                            <span class="content-color font-xs"
+                              >Enviado a restauración: {{ item.dateSend }}
+                            </span>
+                            <br />
+                            <span class="content-color font-xs"
+                              >Encargado de realizar la restauración:
+                              {{ item.inChargeRestauration }}</span
+                            >
+                            <br />
+                            <span class="content-color font-xs"
+                              >Lugar donde se realiza la restauración:
+                              {{ item.placeRestauration }}</span
+                            >
+                            <br />
+                            <span class="content-color font-xs"
+                              >Costo: {{ item.cost }}</span
+                            >
+                            <br />
+                            <span class="content-color font-xs"
+                              >Usuario que autorizó:
+                              {{ item.userAutorizedSend }}</span
+                            >
+                            <br /><br />
+                            <span class="title-color font-sm"
+                              >{{ item.statusDescription }}
+                              <span
+                                class="badges-round bg-theme-theme font-xs"
+                                >{{ item.detailsSend }}</span
+                              >
+                              <span class="plus-minus">
+                                <div>
+                                  <router-link
+                                    class="btn-outline font-md text-center"
+                                    :to="{
+                                      name: 'RestaurationDetails',
+                                      params: { id: item.id },
+                                    }"
+                                    >Detalle</router-link
+                                  >
+                                </div>
+                              </span>
+                              <span class="plus-theme"
+                                ><i data-feather="plus"></i> </span
+                            ></span>
+                          </div>
+                        </div>
+                        <br />
+                      </div>
+                    </div>
+                  </div>
+                  <p v-else><strong>No posee restauraciones.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- Product Detail Accordian End -->
       </div>
@@ -292,6 +391,7 @@ import Articles from '../../services/ArticleService'
 import Histors from '../../services/HistoryService'
 import Donors from '../../services/Donor'
 import GoBack from '../../components/GoBack.vue'
+import Restaurations from '../../services/RestaurationService'
 import { saveAs } from 'file-saver'
 export default {
   name: 'ArticleDetails',
@@ -349,6 +449,7 @@ export default {
         itemId: '',
       },
       donor: [],
+      ListRestauration: [],
     }
   },
   async mounted() {
@@ -411,6 +512,12 @@ export default {
       this.donor = data
     })
     console.log(this.donor)
+
+    await Restaurations.getRestaurationsByArticle(this.id).then((data) => {
+      console.log('rest')
+      console.log(data)
+      this.ListRestauration = data
+    })
   },
   methods: {
     downloadQRCode() {

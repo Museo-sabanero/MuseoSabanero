@@ -27,7 +27,7 @@
         <div v-for="item in List" :key="item.id" class="offer-wrap">
           <div class="product-list media">
             <div class="media-body">
-              <a class="font-sm"> Artículo: {{ item.articles[0].name }} </a>
+              <a class="font-sm"> Artículo: {{ item.articles.name }} </a>
               <br />
               <span class="content-color font-xs"
                 >Enviado a restauración: {{ item.dateSend }}
@@ -64,15 +64,27 @@
                       }"
                       >Editar</router-link
                     >
+                    <div v-if="item.status === 'E'">
+                      <br />
+                      <router-link
+                        class="btn btn-outline font-md d-inline-block"
+                        :to="{
+                          name: 'RestaurationApprove',
+                          params: { id: item.id },
+                        }"
+                      >
+                        Recibir
+                      </router-link>
+                    </div>
                     <br />
                     <router-link
                       class="btn btn-outline font-md d-inline-block"
                       :to="{
-                        name: 'RestaurationApprove',
+                        name: 'RestaurationDetails',
                         params: { id: item.id },
                       }"
                     >
-                      Recibir
+                      Detalles
                     </router-link>
                   </div>
                 </span>

@@ -13,10 +13,10 @@
       <h3 class="font-theme font-md">Registrar articulo:</h3>
       <form class="custom-form" @submit.prevent="handleSubmit">
         <div class="row">
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bxs-spreadsheet"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Número de referencia:</h4>
                   <div class="input-box mt-3">
@@ -36,7 +36,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-expand-alt"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Otra referencia:</h4>
                   <div class="input-box mt-3">
@@ -56,7 +56,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bxs-rename"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Nombre:</h4>
                   <div class="input-box mt-3">
@@ -76,7 +76,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bxs-pen"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Título:</h4>
                   <div class="input-box mt-3">
@@ -96,7 +96,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bxs-objects-horizontal-center"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Tipo de objeto:</h4>
                   <div class="input-box mt-3">
@@ -124,7 +124,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bxs-message-square-add"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Tipo de adquisición:</h4>
                   <div class="input-box mt-3">
@@ -153,7 +153,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-move-horizontal"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Ancho:</h4>
                   <div class="input-box mt-3">
@@ -173,7 +173,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-ruler"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Medida del ancho:</h4>
                   <div class="input-box mt-3">
@@ -201,7 +201,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-move-vertical"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Alto:</h4>
                   <div class="input-box mt-3">
@@ -221,7 +221,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-ruler"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Medida del alto:</h4>
                   <div class="input-box mt-3">
@@ -249,7 +249,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-horizontal-right"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Largo:</h4>
                   <div class="input-box mt-3">
@@ -269,7 +269,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-ruler"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Medida del largo:</h4>
                   <div class="input-box mt-3">
@@ -297,7 +297,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-expand-horizontal"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Diámetro:</h4>
                   <div class="input-box mt-3">
@@ -317,7 +317,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-ruler"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Medida del diámetro:</h4>
                   <div class="input-box mt-3">
@@ -348,7 +348,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-math"></i>></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Peso:</h4>
                   <div class="input-box mt-3">
@@ -368,7 +368,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-ruler"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Medida del peso:</h4>
                   <div class="input-box mt-3">
@@ -396,7 +396,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-question-mark"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Estado de conservación:</h4>
                   <div class="input-box mt-3">
@@ -429,7 +429,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span><i class="bx bx-question-mark"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Estado legal:</h4>
                   <div class="input-box mt-3">
@@ -457,7 +457,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-money"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Valor:</h4>
                   <div class="input-box mt-3">
@@ -478,7 +478,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-location-plus"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Localización:</h4>
                   <div class="input-box mt-3">
@@ -551,7 +551,7 @@
           </div>
           <div class="steps-wrap">
             <div class="steps-box">
-              <span> <i class="iconly-Location icli"></i></span>
+              <span> <i class="bx bx-user"></i></span>
               <div class="content">
                 <h4 class="title-color font-sm">Donador:</h4>
                 <div class="input-box mt-3">
@@ -578,10 +578,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="steps-wrap">
             <div class="steps-box">
-              <span> <i class="iconly-Location icli"></i></span>
+              <span> <i class="bx bx-image"></i></span>
               <div class="content">
                 <h4 class="title-color font-sm">Imagen del articulo:</h4>
                 <div class="input-box mt-3">
@@ -615,13 +615,20 @@
                     />
                   </div>
                 </div>
+                <button
+                  class="btn-solid"
+                  style="display: block; margin: 0 auto"
+                  @click="saveFile"
+                >
+                  Guardar imagen
+                </button>
               </div>
             </div>
           </div>
         </div>
-        <div class="steps-wrap">
+        <!-- <div class="steps-wrap">
           <div class="steps-box">
-            <span> <i class="iconly-Location icli"></i></span>
+            <span> <i class="bx bx-unite"></i></span>
             <div class="content">
               <h4 class="title-color font-sm">Rasgos distintivos:</h4>
               <div class="input-box mt-3">
@@ -643,7 +650,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bxs-customize"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Materiales:</h4>
                   <div class="input-box mt-3">
@@ -663,7 +670,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-list-minus"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Técnicas de manufactura:</h4>
                   <div class="input-box mt-3">
@@ -683,7 +690,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-bookmark-plus"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Inscripción de marcas:</h4>
                   <div class="input-box mt-3">
@@ -703,7 +710,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-history"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Antigüedad:</h4>
                   <div class="input-box mt-3">
@@ -723,7 +730,7 @@
         </div>
         <div class="steps-wrap">
           <div class="steps-box">
-            <span> <i class="iconly-Location icli"></i></span>
+            <span> <i class="bx bx-library"></i></span>
             <div class="content">
               <h4 class="title-color font-sm">Historia:</h4>
               <div class="input-box mt-3">
@@ -738,7 +745,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="col-md-12">
           <button
             type="submit"
@@ -940,6 +947,20 @@ export default {
         // })
       })
     },
+    saveFile() {
+      const fileData = new FormData()
+      fileData.append('file', this.file)
+      fileData.append('elementId', '1')
+
+      console.log('data')
+      console.log(fileData)
+      Files.registerFile(fileData).then((dataFile) => {
+        console.log(dataFile)
+        console.log(fileData)
+        //this.$router.push('/event/index')
+      })
+    },
+
     goBack() {
       this.$router.push({ name: 'Event' })
     },

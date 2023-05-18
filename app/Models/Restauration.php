@@ -40,13 +40,32 @@ class Restauration extends Model
     public function getStatus($status)
     {
         switch ($status) {
-            case 0:
+            case 'E':
                 return 'Enviado';
                 break;
 
-            case 1:
+            case 'A':
                 return 'Aprobado';
                 break;
+
+            default:
+                return 'No definido';
+        }
+    }
+
+    public function getObjectType($objectType)
+    {
+        switch ($objectType) {
+            case 'A':
+                return 'Artesanía';
+                break;
+
+            case 'T':
+                return 'Herramienta de trabajo';
+                break;
+            case 'C':
+                return 'Herramienta de cocina';
+                 break;
         }
     }
 

@@ -35,7 +35,7 @@ class FileController extends Controller
 
          $file->ELEMENTO_ID = $request->input('elementId');
          $file->FILENAME = time() . '_' . $request->file('file')->getClientOriginalName();
-         $file->URI = Str::uuid()->toString() . '.' . $file->getClientOriginalExtension();
+         $file->URI = Str::uuid()->toString() . '.' . $request->file('file')->getClientOriginalExtension();
          $file->ESTADO = Estado::ACTIVO;
          $file->TIPO = TypeFile::IMAGEN;
          $file->USUARIO = 'Juan';
