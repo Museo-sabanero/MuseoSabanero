@@ -46,7 +46,7 @@
               <span class="content-color font-xs">Costo: {{ item.cost }}</span>
               <br />
               <span class="content-color font-xs"
-                >Usuario que autorizó: {{ item.userAutorizedSend }}</span
+                >Usuario que autorizó: {{ item.userAutorizedSendName }}</span
               >
               <br /><br />
               <span class="title-color font-sm"
@@ -100,6 +100,7 @@
 </template>
 <script>
 import Restaurations from '../../services/RestaurationService'
+import User from '../../services/User'
 
 export default {
   name: 'RestaurationView',
@@ -111,9 +112,20 @@ export default {
     }
   },
   async mounted() {
-    await Restaurations.getRestaurations().then((data) => {
+    await Restaurations.getRestaurations().then(async (data) => {
       console.log(data)
       this.List = data
+      this.List = data.map((item) => {
+        return {
+          ...item,
+          userAutorizedSendName: null,
+        }
+      })
+      for (const item of this.List) {
+        await User.getUserbyId(item.userAutorizedSend).then((data) => {
+          item.userAutorizedSendName = data.name
+        })
+      }
       this.originalList = this.List
     })
   },

@@ -421,16 +421,10 @@ var apiUrl = 'http://127.0.0.1:8000/api/articles';
   },
   createArticle: function createArticle($data) {
     console.log($data);
-    var response = axios.post("".concat(apiUrl, "/store"), $data, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
+    return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
+      return response.data;
     });
-    return response.data;
-    // return axios
-    //   .post(`${apiUrl}/store`, $data)
-    //   .then((response) => response.data)
-    //   .catch((error) => Promise.reject(error))
+    // .catch((error) => Promise.reject(error))
   },
   updateArticle: function updateArticle($data) {
     console.log($data);
@@ -534,6 +528,13 @@ var apiUrl = 'http://127.0.0.1:8000/api/users';
   // Obtener todos los usuarios
   getUser: function getUser() {
     return axios.get("".concat(apiUrl, "/showUser")).then(function (response) {
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
+  getUserbyId: function getUserbyId($id) {
+    return axios.get("".concat(apiUrl, "/detailsUserById?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error);

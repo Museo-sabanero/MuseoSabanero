@@ -14,8 +14,8 @@
       <div class="banner" style="display: flex; justify-content: center">
         <div>
           <img
-            src="/images/museo/frontPage.png"
-            alt="veg"
+            :src="imageUrl"
+            :alt="imageAlt"
             style="
               display: block;
               max-width: 50%;
@@ -390,6 +390,7 @@
 import Articles from '../../services/ArticleService'
 import Histors from '../../services/HistoryService'
 import Donors from '../../services/Donor'
+import Files from '../../services/FileService'
 import GoBack from '../../components/GoBack.vue'
 import Restaurations from '../../services/RestaurationService'
 import { saveAs } from 'file-saver'
@@ -409,8 +410,8 @@ export default {
       List: [],
       searchTerm: '',
       originalList: [],
-      imageUrl: 'images/museo/aperos.jpg', // Ruta relativa de la imagen desde la carpeta public
-      imageAlt: 'Descripción de la imagen',
+      imageUrl: '', // Ruta relativa de la imagen desde la carpeta public
+      imageAlt: '',
       qrCodeSrc: '',
       article: {
         id: '',
@@ -517,6 +518,20 @@ export default {
       console.log('rest')
       console.log(data)
       this.ListRestauration = data
+    })
+
+    await Files.getImageByIdArticle(this.id).then((data) => {
+      console.log('image')
+      console.log(data)
+      if (data == 'null') {
+        ;(this.imageUrl = '/images/museo/frontPage.png'), // Ruta relativa de la imagen desde la carpeta public
+          (this.imageAlt = 'Imagen de muestra')
+      } else {
+        ;(this.imageUrl = '/storage/' + data.filePath),
+          (this.imageAlt = data.fileName)
+      }
+
+      console.log(this.imageUrl)
     })
   },
   methods: {

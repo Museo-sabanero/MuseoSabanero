@@ -142,23 +142,9 @@ class RestaurationController extends Controller
 
     public function store(Request $request)
     {
-        // $validator = Validator::make($request->all(), [
-        //     'startDate' => 'required',
-        //     'endDate' => 'required',
-        //     'type' => 'required',
-        //     'articleId' => 'required',
-        //     'observations' => 'required',
-        //     'status' => 'required',
-        //     'userAuthorized' => 'required'
-        // ]);
-
-        // if ($validator->fails()) {
-        //     return response()->json('Los campos son requeridos!', 400);
-        // }
-
-
+   
         $restauration = new Restauration();
-        $restauration->USUARIO_REGISTRA_ENVIO = 1;
+        $restauration->USUARIO_REGISTRA_ENVIO = Auth::user()->name;
         $restauration->USUARIO_AUTORIZA_ENVIO = $request->input('userAutorizedSend');
         $restauration->TIPO_ARTICULO = $request->input('typeArticle');
         $restauration->FECHA_ENVIO = $request->input('dateSend');
@@ -197,7 +183,7 @@ class RestaurationController extends Controller
             return response()->json(['errorMessage' => $error], 404);
         }
 
-        $restauration->USUARIO_REGISTRA_ENVIO = 1;
+        $restauration->USUARIO_REGISTRA_ENVIO = Auth::user()->name;
         $restauration->USUARIO_AUTORIZA_ENVIO = $request->input('userAutorizedSend');
         $restauration->TIPO_ARTICULO = $request->input('typeArticle');
         $restauration->FECHA_ENVIO = $request->input('dateSend');
@@ -235,7 +221,7 @@ class RestaurationController extends Controller
 
         $restauration->DETALLE_RECIBIDO = $request->input('detailsReceived');
         $restauration->FECHA_RECIBIDO = $request->input('dateReceived');
-        $restauration->USUARIO_RECIBE = 1;
+        $restauration->USUARIO_RECIBE = Auth::user()->name;
         $restauration->USUARIO_AUTORIZA_RECIBIDO = $request->input('userAutorizedReceived');
         $restauration->ESTADO = 'A';
         $restauration->save();

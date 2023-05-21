@@ -9,6 +9,13 @@ export default {
       .catch((error) => Promise.reject(error))
   },
 
+  getUserbyId($id) {
+    return axios
+      .get(`${apiUrl}/detailsUserById?id=` + $id)
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error))
+  },
+
   //Obtener los detalles de un usuario
   getDetails() {
     return axios

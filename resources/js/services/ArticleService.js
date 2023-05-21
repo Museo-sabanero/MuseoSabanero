@@ -27,16 +27,10 @@ export default {
 
   createArticle($data) {
     console.log($data)
-    const response = axios.post(`${apiUrl}/store`, $data, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-    return response.data
-    // return axios
-    //   .post(`${apiUrl}/store`, $data)
-    //   .then((response) => response.data)
-    //   .catch((error) => Promise.reject(error))
+    return axios
+      .post(`${apiUrl}/store`, $data)
+      .then((response) => response.data)
+    // .catch((error) => Promise.reject(error))
   },
 
   updateArticle($data) {

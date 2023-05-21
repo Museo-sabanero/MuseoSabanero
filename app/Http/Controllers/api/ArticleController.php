@@ -78,21 +78,6 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
-        //     $validator = Validator::make($request->all(),[
-        //         'dateStart' => 'required',
-        //         'dateEnd' => 'required',
-        //         'time' => 'required',
-        //         'name' => 'required',
-        //         'cost' => 'required',
-        //         'description'=> 'required',
-        //         'maxPersons' => 'required'
-        //    ]);
-
-        //     if ($validator->fails()) {
-        //         return response()->json('Los campos son requeridos!', 400);
-        //     }
-
-
         $article = new Article();
         $article->NUM_REF_INTER = $request->input('numRefInter');
         $article->OTRA_REF = $request->input('otherRef');
@@ -120,7 +105,7 @@ class ArticleController extends Controller
         $article->REPLICA = $request->input('replica');
         $article->CEDULA_DONANTE = $request->input('cedulaDonor');
         $article->COD_QR = 'No tiene';
-        $article->USUARIO = 'Juan';
+        $article->USUARIO = Auth::user()->name;
 
         $article->save();
 

@@ -385,6 +385,13 @@ var apiUrl = 'http://127.0.0.1:8000/api/users';
       return Promise.reject(error);
     });
   },
+  getUserbyId: function getUserbyId($id) {
+    return axios.get("".concat(apiUrl, "/detailsUserById?id=") + $id).then(function (response) {
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
   //Obtener los detalles de un usuario
   getDetails: function getDetails() {
     return axios.get("".concat(apiUrl, "/detailsUser")).then(function (response) {

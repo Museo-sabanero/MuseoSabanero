@@ -13,7 +13,7 @@
       <h3 class="font-theme font-md">Registrar articulo:</h3>
       <form class="custom-form" @submit.prevent="handleSubmit">
         <div class="row">
-          <!-- <div class="col-md-6">
+          <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
                 <span> <i class="bx bxs-spreadsheet"></i></span>
@@ -96,7 +96,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bxs-objects-horizontal-center"></i></span>
+                <span> <i class="bx bxs-color"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Tipo de objeto:</h4>
                   <div class="input-box mt-3">
@@ -249,7 +249,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-horizontal-right"></i></span>
+                <span> <i class="bx bx-expand-horizontal"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Largo:</h4>
                   <div class="input-box mt-3">
@@ -297,7 +297,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-expand-horizontal"></i></span>
+                <span> <i class="bx bx-cross"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Diámetro:</h4>
                   <div class="input-box mt-3">
@@ -578,7 +578,7 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
           <div class="steps-wrap">
             <div class="steps-box">
               <span> <i class="bx bx-image"></i></span>
@@ -594,6 +594,7 @@
                       ref="fileInput"
                       type="file"
                       style="display: none"
+                      accept=".png, .jpg, .jpeg"
                       @change="handleFileInput"
                     />
                     <br />
@@ -611,24 +612,18 @@
                       ref="fileInput"
                       type="file"
                       class="form-control"
+                      accept=".png, .jpg, .jpeg"
                       @change="handleFileInput"
                     />
                   </div>
                 </div>
-                <button
-                  class="btn-solid"
-                  style="display: block; margin: 0 auto"
-                  @click="saveFile"
-                >
-                  Guardar imagen
-                </button>
               </div>
             </div>
           </div>
         </div>
-        <!-- <div class="steps-wrap">
+        <div class="steps-wrap">
           <div class="steps-box">
-            <span> <i class="bx bx-unite"></i></span>
+            <span> <i class="bx bxs-registered"></i></span>
             <div class="content">
               <h4 class="title-color font-sm">Rasgos distintivos:</h4>
               <div class="input-box mt-3">
@@ -745,7 +740,7 @@
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
         <div class="col-md-12">
           <button
             type="submit"
@@ -933,34 +928,24 @@ export default {
         Histors.createHistory(histo).then((dataHisto) => {
           console.log(dataHisto)
           console.log(histo)
-          this.$router.push('/article/index')
+          //this.$router.push('/article/index')
         })
 
-        // const fileData = {
-        //   elementId: this.itemId,
-        //   file: this.file,
-        // }
-        // Files.registerFile(fileData).then((dataFile) => {
-        //   console.log(dataFile)
-        //   console.log(fileData)
-        //   //this.$router.push('/event/index')
-        // })
+        if (this.file != null) {
+          const fileData = new FormData()
+          fileData.append('file', this.file)
+          fileData.append('elementId', this.itemId)
+
+          console.log('data')
+          console.log(fileData)
+          Files.registerFile(fileData).then((dataFile) => {
+            console.log(dataFile)
+            console.log(fileData)
+          })
+        }
+        this.$router.push('/article/index')
       })
     },
-    saveFile() {
-      const fileData = new FormData()
-      fileData.append('file', this.file)
-      fileData.append('elementId', '1')
-
-      console.log('data')
-      console.log(fileData)
-      Files.registerFile(fileData).then((dataFile) => {
-        console.log(dataFile)
-        console.log(fileData)
-        //this.$router.push('/event/index')
-      })
-    },
-
     goBack() {
       this.$router.push({ name: 'Event' })
     },

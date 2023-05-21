@@ -38,6 +38,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       formData: {
         id: 1,
         userAutorizedSend: '',
+        userAutorizedSendName: '',
         typeArticle: '',
         dateSend: '',
         datePrevReceived: '',
@@ -50,6 +51,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         statusDescription: '',
         objectTypeDescription: '',
         userAutorizedReceived: '',
+        userAutorizedReceivedName: '',
         dateReceived: '',
         detailsReceived: ''
       },
@@ -62,36 +64,78 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   mounted: function mounted() {
     var _this = this;
-    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      return _regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) switch (_context2.prev = _context2.next) {
           case 0:
-            _context.next = 2;
+            _context2.next = 2;
             return _services_User__WEBPACK_IMPORTED_MODULE_2__["default"].getUser().then(function (data) {
               console.log(data);
               _this.users = data;
               console.log(_this.users);
             });
           case 2:
-            _context.next = 4;
-            return _services_RestaurationService__WEBPACK_IMPORTED_MODULE_0__["default"].getRestauration(_this.id).then(function (data) {
-              _this.list = data;
-              console.log('entro');
-              console.log(_this.list);
-              var rest = _this.list[0];
-              _this.formData.id = rest.id, _this.formData.userAutorizedSend = rest.userAutorizedSend, _this.formData.typeArticle = rest.typeArticle, _this.formData.dateSend = rest.dateSend, _this.formData.datePrevReceived = rest.datePrevReceived, _this.formData.inChargeRestauration = rest.inChargeRestauration, _this.formData.placeRestauration = rest.placeRestauration, _this.formData.cost = rest.cost, _this.formData.articleId = rest.articles[0].id, _this.formData.detailsSend = rest.detailsSend, _this.formData.status = rest.status, _this.formData.statusDescription = rest.statusDescription, _this.formData.objectTypeDescription = rest.objectTypeDescription, _this.formData.userAutorizedReceived = rest.userAutorizedReceived, _this.formData.dateReceived = rest.dateReceived, _this.formData.detailsReceived = rest.detailsReceived;
-            });
+            _context2.next = 4;
+            return _services_RestaurationService__WEBPACK_IMPORTED_MODULE_0__["default"].getRestauration(_this.id).then( /*#__PURE__*/function () {
+              var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(data) {
+                var rest;
+                return _regeneratorRuntime().wrap(function _callee$(_context) {
+                  while (1) switch (_context.prev = _context.next) {
+                    case 0:
+                      _this.list = data;
+                      console.log('entro');
+                      console.log(_this.list);
+                      rest = _this.list[0];
+                      _this.formData.id = rest.id;
+                      _this.formData.userAutorizedSend = rest.userAutorizedSend;
+                      _this.formData.typeArticle = rest.typeArticle;
+                      _this.formData.dateSend = rest.dateSend;
+                      _this.formData.datePrevReceived = rest.datePrevReceived;
+                      _this.formData.inChargeRestauration = rest.inChargeRestauration;
+                      _this.formData.placeRestauration = rest.placeRestauration;
+                      _this.formData.cost = rest.cost;
+                      _this.formData.articleId = rest.articles[0].id;
+                      _this.formData.detailsSend = rest.detailsSend;
+                      _this.formData.status = rest.status;
+                      _this.formData.statusDescription = rest.statusDescription;
+                      _this.formData.objectTypeDescription = rest.objectTypeDescription;
+                      _this.formData.userAutorizedReceived = rest.userAutorizedReceived;
+                      _this.formData.dateReceived = rest.dateReceived;
+                      _this.formData.detailsReceived = rest.detailsReceived;
+                      _context.next = 22;
+                      return _services_User__WEBPACK_IMPORTED_MODULE_2__["default"].getUserbyId(_this.formData.userAutorizedSend).then(function (userData) {
+                        _this.formData.userAutorizedSendName = userData.name;
+                      });
+                    case 22:
+                      if (!(_this.formData.status == 'A')) {
+                        _context.next = 25;
+                        break;
+                      }
+                      _context.next = 25;
+                      return _services_User__WEBPACK_IMPORTED_MODULE_2__["default"].getUserbyId(_this.formData.userAutorizedReceived).then(function (userDataRece) {
+                        _this.formData.userAutorizedReceivedName = userDataRece.name;
+                      });
+                    case 25:
+                    case "end":
+                      return _context.stop();
+                  }
+                }, _callee);
+              }));
+              return function (_x) {
+                return _ref.apply(this, arguments);
+              };
+            }());
           case 4:
-            _context.next = 6;
+            _context2.next = 6;
             return _services_ArticleService__WEBPACK_IMPORTED_MODULE_1__["default"].getArticleById(_this.formData.articleId).then(function (data) {
               _this.article = data;
               _this.articleName = data[0].name;
             });
           case 6:
           case "end":
-            return _context.stop();
+            return _context2.stop();
         }
-      }, _callee);
+      }, _callee2);
     }))();
   },
   methods: {
@@ -319,7 +363,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $options.goBack();
     })
-  }, _hoisted_4), _hoisted_5])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Product Review Section Start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.statusDescription), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_15, "Artículo: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.articleName), 1 /* TEXT */), _hoisted_16])]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_18, " Detalle: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.detailsSend), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.objectTypeDescription), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.inChargeRestauration), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.placeRestauration), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.userAutorizedSend), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_27, [_hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.dateSend), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_29, [_hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.datePrevReceived), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_31, [_hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.cost), 1 /* TEXT */)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Product Review Section End "), $data.formData.status == 'A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_33, [_hoisted_34, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_38, " Detalle: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.detailsReceived), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_39, [_hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.userAutorizedReceived), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_41, [_hoisted_42, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.dateReceived), 1 /* TEXT */)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Product Review Section End ")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.formData.status == 'E' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_43, _hoisted_45)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64 /* STABLE_FRAGMENT */);
+  }, _hoisted_4), _hoisted_5])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Product Review Section Start "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.statusDescription), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_15, "Artículo: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.articleName), 1 /* TEXT */), _hoisted_16])]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_18, " Detalle: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.detailsSend), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.objectTypeDescription), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.inChargeRestauration), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.placeRestauration), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.userAutorizedSendName), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_27, [_hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.dateSend), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_29, [_hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.datePrevReceived), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_31, [_hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.cost), 1 /* TEXT */)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Product Review Section End "), $data.formData.status == 'A' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_33, [_hoisted_34, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_38, " Detalle: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.detailsReceived), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_39, [_hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.userAutorizedReceivedName), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_41, [_hoisted_42, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.formData.dateReceived), 1 /* TEXT */)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Product Review Section End ")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.formData.status == 'E' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_43, _hoisted_45)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -362,16 +406,10 @@ var apiUrl = 'http://127.0.0.1:8000/api/articles';
   },
   createArticle: function createArticle($data) {
     console.log($data);
-    var response = axios.post("".concat(apiUrl, "/store"), $data, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
+    return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
+      return response.data;
     });
-    return response.data;
-    // return axios
-    //   .post(`${apiUrl}/store`, $data)
-    //   .then((response) => response.data)
-    //   .catch((error) => Promise.reject(error))
+    // .catch((error) => Promise.reject(error))
   },
   updateArticle: function updateArticle($data) {
     console.log($data);
@@ -475,6 +513,13 @@ var apiUrl = 'http://127.0.0.1:8000/api/users';
   // Obtener todos los usuarios
   getUser: function getUser() {
     return axios.get("".concat(apiUrl, "/showUser")).then(function (response) {
+      return response.data;
+    })["catch"](function (error) {
+      return Promise.reject(error);
+    });
+  },
+  getUserbyId: function getUserbyId($id) {
+    return axios.get("".concat(apiUrl, "/detailsUserById?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error);

@@ -37,6 +37,7 @@ Route::group(['prefix' => 'users', 'as' => 'users', 'middleware' => ['auth:sanct
     Route::put('/update', [UserController::class, 'update']);
     Route::get('/detailsUser', [UserController::class, 'detailsUser']);
     Route::get('/showUser', [UserController::class, 'showUser']);
+    Route::get('/detailsUserById', [UserController::class, 'detailsUserById']);
 });
 
 Route::group(['prefix' => 'donores', 'as' => 'donores'], function () {
@@ -87,6 +88,8 @@ Route::group(['prefix' => 'histories', 'as' => 'histories'], function () {
 
 Route::group(['prefix' => 'files', 'as' => 'files'], function () {
     Route::post('store', [FileController::class, 'store']);
+    Route::post('update', [FileController::class, 'update']);
+    Route::get('getImageByIdArticle', [FileController::class, 'getImageByIdArticle']);
 });
 
 

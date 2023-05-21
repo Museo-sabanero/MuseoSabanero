@@ -65,7 +65,7 @@
           </p>
           <p class="font-sm content-color">
             <strong>Usuario que autorizó: </strong>
-            {{ formData.userAutorizedSend }}
+            {{ formData.userAutorizedSendName }}
           </p>
           <p class="font-sm content-color">
             <strong>Fecha de envio a restauración: </strong>
@@ -113,7 +113,7 @@
             </h4>
             <p class="font-sm content-color">
               <strong>Recepción de la restauración autorizado por: </strong>
-              {{ formData.userAutorizedReceived }}
+              {{ formData.userAutorizedReceivedName }}
             </p>
             <p class="font-sm content-color">
               <strong>Fecha de recibido de restauración:</strong>
@@ -170,6 +170,7 @@ export default {
       formData: {
         id: 1,
         userAutorizedSend: '',
+        userAutorizedSendName: '',
         typeArticle: '',
         dateSend: '',
         datePrevReceived: '',
@@ -182,6 +183,7 @@ export default {
         statusDescription: '',
         objectTypeDescription: '',
         userAutorizedReceived: '',
+        userAutorizedReceivedName: '',
         dateReceived: '',
         detailsReceived: '',
       },
@@ -199,7 +201,7 @@ export default {
       console.log(this.users)
     })
 
-    await Restaurations.getRestauration(this.id).then((data) => {
+    await Restaurations.getRestauration(this.id).then(async (data) => {
       this.list = data
       console.log('entro')
       console.log(this.list)
@@ -219,7 +221,19 @@ export default {
         (this.formData.objectTypeDescription = rest.objectTypeDescription),
         (this.formData.userAutorizedReceived = rest.userAutorizedReceived),
         (this.formData.dateReceived = rest.dateReceived),
-        (this.formData.detailsReceived = rest.detailsReceived)
+        (this.formData.detailsReceived = rest.detailsReceived),
+        await Users.getUserbyId(this.formData.userAutorizedSend).then(
+          (userData) => {
+            this.formData.userAutorizedSendName = userData.name
+          }
+        )
+      if (this.formData.status == 'A') {
+        await Users.getUserbyId(this.formData.userAutorizedReceived).then(
+          (userDataRece) => {
+            this.formData.userAutorizedReceivedName = userDataRece.name
+          }
+        )
+      }
     })
 
     await Articles.getArticleById(this.formData.articleId).then((data) => {
