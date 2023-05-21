@@ -37,6 +37,7 @@ Route::group(['prefix' => 'users', 'as' => 'users', 'middleware' => ['auth:sanct
     Route::put('/update', [UserController::class, 'update']);
     Route::get('/detailsUser', [UserController::class, 'detailsUser']);
     Route::get('/showUser', [UserController::class, 'showUser']);
+    Route::get('/detailsUserById', [UserController::class, 'detailsUserById']);
 });
 
 Route::group(['prefix' => 'donores', 'as' => 'donores'], function () {
@@ -58,6 +59,7 @@ Route::group(['prefix' => 'events', 'as' => 'events'], function () {
 
 Route::group(['prefix' => 'restaurations', 'as' => 'restaurations'], function () {
     Route::get('getRestauration', [RestaurationController::class, 'getRestauration']);
+    Route::get('getRestaurationsByArticle', [RestaurationController::class, 'getRestaurationsByArticle']);
     Route::get('getRestaurations', [RestaurationController::class, 'getRestaurations']);
     Route::post('store', [RestaurationController::class, 'store']);
     Route::post('update', [RestaurationController::class, 'update']);
@@ -68,6 +70,7 @@ Route::group(['prefix' => 'restaurations', 'as' => 'restaurations'], function ()
 Route::group(['prefix' => 'articles', 'as' => 'articles'], function () {
     Route::get('getArticles', [ArticleController::class, 'getArticles']);
     Route::get('getArticle', [ArticleController::class, 'getArticle']);
+    Route::get('getArticleById', [ArticleController::class, 'getArticleById']);
     Route::post('store', [ArticleController::class, 'store']);
     Route::post('update', [ArticleController::class, 'update']);
     Route::post('delete', [ArticleController::class, 'delete']);
@@ -85,6 +88,8 @@ Route::group(['prefix' => 'histories', 'as' => 'histories'], function () {
 
 Route::group(['prefix' => 'files', 'as' => 'files'], function () {
     Route::post('store', [FileController::class, 'store']);
+    Route::post('update', [FileController::class, 'update']);
+    Route::get('getImageByIdArticle', [FileController::class, 'getImageByIdArticle']);
 });
 
 

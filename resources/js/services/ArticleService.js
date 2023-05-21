@@ -17,12 +17,20 @@ export default {
       .catch((error) => Promise.reject(error))
   },
 
+  getArticleById($id) {
+    console.log($id)
+    return axios
+      .get(`${apiUrl}/getArticleById?id=` + $id)
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error))
+  },
+
   createArticle($data) {
     console.log($data)
     return axios
       .post(`${apiUrl}/store`, $data)
       .then((response) => response.data)
-    //   .catch((error) => Promise.reject(error))
+    // .catch((error) => Promise.reject(error))
   },
 
   updateArticle($data) {

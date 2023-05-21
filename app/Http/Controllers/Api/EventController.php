@@ -44,11 +44,6 @@ class EventController extends Controller
         $identification = $request->input('id');
         $id = (int) $identification ;
 
-        //$events = new Collection();
-
-        // $event = Event::on('mysql')
-        //     ->where("MS_EVENTO.ID", $id)
-        //     ->first();
 
             $event = Event::on('mysql')
                 ->where("MS_EVENTO.id", $id)
@@ -59,29 +54,11 @@ class EventController extends Controller
                 return response()->json(['errorMessage' => $error], 404);
             }
 
-           // $events = $events->concat($event);
-
-
         return response()->json(EventResource::collection($event), 200);
-        //return response()->json($identification, 200);
     }
 
     public function store(Request $request)
     {
-    //     $validator = Validator::make($request->all(),[
-    //         'dateStart' => 'required',
-    //         'dateEnd' => 'required',
-    //         'time' => 'required',
-    //         'name' => 'required',
-    //         'cost' => 'required',
-    //         'description'=> 'required',
-    //         'maxPersons' => 'required'
-    //    ]);
-
-    //     if ($validator->fails()) {
-    //         return response()->json('Los campos son requeridos!', 400);
-    //     }
-
 
         $event = new Event();
         $event->FECHA_INICIO = $request->input('dateStart');

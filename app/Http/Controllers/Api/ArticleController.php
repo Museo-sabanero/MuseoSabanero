@@ -46,11 +46,23 @@ class ArticleController extends Controller
         $identification = $request->input('id');
         $id = (int) $identification;
 
-        //$events = new Collection();
+        $article = Article::on('mysql')
+            ->where("MS_ARTICULO.id", $id)
+            ->get();
 
-        // $event = Event::on('mysql')
-        //     ->where("MS_EVENTO.ID", $id)
-        //     ->first();
+        if ($article == null) {
+            $error = "No existe este artículo";
+            return response()->json(['errorMessage' => $error], 404);
+        }
+
+        return response()->json(ArticleResource::collection($article), 200);
+    }
+
+    public function getArticleById(Request $request)
+    {
+
+        $identification = $request->input('id');
+        $id = (int) $identification;
 
         $article = Article::on('mysql')
             ->where("MS_ARTICULO.id", $id)
@@ -61,30 +73,11 @@ class ArticleController extends Controller
             return response()->json(['errorMessage' => $error], 404);
         }
 
-        // $events = $events->concat($event);
-
-
         return response()->json(ArticleResource::collection($article), 200);
-        //return response()->json($identification, 200);
     }
 
     public function store(Request $request)
     {
-        //     $validator = Validator::make($request->all(),[
-        //         'dateStart' => 'required',
-        //         'dateEnd' => 'required',
-        //         'time' => 'required',
-        //         'name' => 'required',
-        //         'cost' => 'required',
-        //         'description'=> 'required',
-        //         'maxPersons' => 'required'
-        //    ]);
-
-        //     if ($validator->fails()) {
-        //         return response()->json('Los campos son requeridos!', 400);
-        //     }
-
-
         $article = new Article();
         $article->NUM_REF_INTER = $request->input('numRefInter');
         $article->OTRA_REF = $request->input('otherRef');
@@ -112,7 +105,7 @@ class ArticleController extends Controller
         $article->REPLICA = $request->input('replica');
         $article->CEDULA_DONANTE = $request->input('cedulaDonor');
         $article->COD_QR = 'No tiene';
-        $article->USUARIO = 'Juan';
+        $article->USUARIO = Auth::user()->name;
 
         $article->save();
 

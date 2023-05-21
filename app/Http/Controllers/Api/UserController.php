@@ -53,6 +53,22 @@ class UserController extends Controller
         return response()->json(UserResources::make($user), 200);
     }
 
+    public function detailsUserById(Request $request)
+    {
+        $identification = $request->input('id');
+        $id = (int) $identification;
+
+        $user = User::on('mysql')
+            ->where("usuarios.iduser", $id)
+            ->first();
+        if ($user == null) {
+            $error = "No existe este usuario";
+            return response()->json(['errorMessage' => $error], 404);
+        }
+
+        return response()->json(UserResources::make($user), 200);
+    }
+
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -103,7 +119,7 @@ class UserController extends Controller
             . "<p>Le invitamos a iniciar sesión.</p>"
             . "<p><a href=\"{$url}\">MUSEO SABANERO</a></p>"
             . "<h4>¡Saludos!</h4>";
-            
+
             Mail::to($email)->send(new EmailNotification($subject, $emailBody));
 
             DB::connection('mysql')->commit();

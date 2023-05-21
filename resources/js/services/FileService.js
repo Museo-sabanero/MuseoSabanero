@@ -10,6 +10,21 @@ export default {
       .then((response) => response.data)
     //   .catch((error) => Promise.reject(error))
   },
+
+  updateFile($data) {
+    console.log($data)
+    return axios
+      .post(`${apiUrl}/update`, $data)
+      .then((response) => response.data)
+    //   .catch((error) => Promise.reject(error))
+  },
+
+  getImageByIdArticle($id) {
+    return axios
+      .get(`${apiUrl}/getImageByIdArticle?id=` + $id)
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error))
+  },
 }
 
 // import axios from 'axios'

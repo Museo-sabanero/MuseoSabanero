@@ -302,7 +302,7 @@ export default {
   },
   methods: {
     update() {
-      this.clear();
+      this.clear()
       const datos = {
         name: this.name,
         location: this.location,

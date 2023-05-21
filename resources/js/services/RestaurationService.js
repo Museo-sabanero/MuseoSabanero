@@ -17,6 +17,14 @@ export default {
       .catch((error) => Promise.reject(error))
   },
 
+  getRestaurationsByArticle($id) {
+    console.log($id)
+    return axios
+      .get(`${apiUrl}/getRestaurationsByArticle?id=` + $id)
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error))
+  },
+
   createRestauration($data) {
     console.log($data)
     return axios

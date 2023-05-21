@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('MS_RESTAURACIONES', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('USUARIO_REGISTRA_ENVIO')->unsigned();
+            $table->string('USUARIO_REGISTRA_ENVIO',150)->unsigned();
             $table->bigInteger('USUARIO_AUTORIZA_ENVIO')->unsigned();
             $table->string('TIPO_ARTICULO',20);
             $table->string('FECHA_ENVIO',20);
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('ESTADO',5);
             $table->string('DETALLE_RECIBIDO',200)->nullable();
             $table->string('FECHA_RECIBIDO',20)->nullable();
-            $table->bigInteger('USUARIO_RECIBE')->unsigned()->nullable();
+            $table->string('USUARIO_RECIBE',150)->nullable();
             $table->bigInteger('USUARIO_AUTORIZA_RECIBIDO')->unsigned()->nullable();
             $table->timestamps();
         });
