@@ -36,4 +36,4 @@
         </div>
     </body>
 </html>
-<?php /**PATH C:\Users\User\Documents\Museo\Front_End_MuseoSabanero\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions/views/minimal.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Museo el sabanero\git-Jeank-DV\Main\MuseoSabanero\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions/views/minimal.blade.php ENDPATH**/ ?>

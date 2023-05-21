@@ -1,4 +1,4 @@
-const apiUrl = 'http://127.0.0.1:8000/api/logouts'
+const apiUrl = 'logouts'
 
 export default {
   getUser() {

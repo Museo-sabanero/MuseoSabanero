@@ -1,4 +1,4 @@
-const apiUrl = 'http://127.0.0.1:8000/api/files'
+const apiUrl = 'files'
 
 export default {
   // Obtener todos los donantes

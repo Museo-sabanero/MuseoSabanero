@@ -375,18 +375,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var apiUrl = 'http://127.0.0.1:8000/api/users';
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var apiUrl = 'users';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Obtener todos los usuarios
   getUser: function getUser() {
-    return axios.get("".concat(apiUrl, "/showUser")).then(function (response) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/showUser")).then(function (response) {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error);
     });
   },
   getUserbyId: function getUserbyId($id) {
-    return axios.get("".concat(apiUrl, "/detailsUserById?id=") + $id).then(function (response) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/detailsUserById?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error);
@@ -394,7 +397,7 @@ var apiUrl = 'http://127.0.0.1:8000/api/users';
   },
   //Obtener los detalles de un usuario
   getDetails: function getDetails() {
-    return axios.get("".concat(apiUrl, "/detailsUser")).then(function (response) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/detailsUser")).then(function (response) {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error);
@@ -402,14 +405,14 @@ var apiUrl = 'http://127.0.0.1:8000/api/users';
   },
   //Registrar usuarios
   register: function register(requestOptions) {
-    return axios.post("".concat(apiUrl, "/register"), requestOptions).then(function (response) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/register"), requestOptions).then(function (response) {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error);
     });
   },
   update: function update(requestOptions) {
-    return axios.put("".concat(apiUrl, "/update"), requestOptions).then(function (response) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().put("".concat(apiUrl, "/update"), requestOptions).then(function (response) {
       return response.data;
     })["catch"](function (error) {
       return Promise.reject(error);

@@ -64,4 +64,4 @@ unset($__errorArgs, $__bag); ?>
 
 <script src="<?php echo e(url('/js/lib/script.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.public', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\User\Documents\Museo\Front_End_MuseoSabanero\resources\views/auth/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.public', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Museo el sabanero\git-Jeank-DV\Main\MuseoSabanero\resources\views\auth\login.blade.php ENDPATH**/ ?>

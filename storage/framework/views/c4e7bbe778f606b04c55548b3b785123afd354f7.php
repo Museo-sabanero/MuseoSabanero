@@ -28,4 +28,4 @@
 </body>
 
 </html>
-<?php /**PATH C:\Users\User\Documents\Museo\Front_End_MuseoSabanero\resources\views/layouts/app.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Museo el sabanero\git-Jeank-DV\Main\MuseoSabanero\resources\views/layouts/app.blade.php ENDPATH**/ ?>
