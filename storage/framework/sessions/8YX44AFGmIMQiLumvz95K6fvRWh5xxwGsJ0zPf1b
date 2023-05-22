@@ -1,5 +1,0 @@
-<<<<<<<< HEAD:storage/framework/sessions/8YX44AFGmIMQiLumvz95K6fvRWh5xxwGsJ0zPf1b
-a:3:{s:6:"_token";s:40:"OykCGuRufsO0G8eWKsbZeKgzFSydTdbF3TBKnv7g";s:9:"_previous";a:1:{s:3:"url";s:35:"http://127.0.0.1:8000/manifest.json";}s:6:"_flash";a:2:{s:3:"old";a:0:{}s:3:"new";a:0:{}}}
-========
-a:3:{s:6:"_token";s:40:"2ROxvZscfTCfWeGATLVHn3WAvgzz2RiMM25LHRXo";s:9:"_previous";a:1:{s:3:"url";s:35:"http://127.0.0.1:8000/manifest.json";}s:6:"_flash";a:2:{s:3:"old";a:0:{}s:3:"new";a:0:{}}}
->>>>>>>> 79e088028fc10e7f16edd89963f61b99f76b340c:storage/framework/sessions/Me0rD3yxOBdrVNWHOtPZWvv5mmODF5YfAUabyHyM
