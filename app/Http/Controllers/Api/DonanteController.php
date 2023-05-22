@@ -30,6 +30,7 @@ class DonanteController extends Controller
         $donores = new Collection();
         $donor = Donante::on('mysql')
             ->selectRaw("MS_DONANTE.*",)
+            ->orderByDesc('ID')
             ->get();
 
         $donores = $donores->concat($donor);

@@ -98,7 +98,7 @@
                                                                                     <p style="margin: 5px 0;">Liberia, Guanacaste, Costa Rica</p>
                                                                                     <p style="margin: 5px 0;">museosabaneroliberia@gmail.com</p>
                                                                                     <p style="margin: 5px 0;">(506) 8449 0177</p>
-                                                                                    <p style="margin: 5px 0;">Museo Sabanero, Casa de la Cultura</p>
+                                                                                    <p style="margin: 5px 0;">Museo del Sabanero, Casa de la Cultura</p>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>

@@ -129,7 +129,8 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "font-theme font-md"
 }, "Registrar usuarios:", -1 /* HOISTED */);
 var _hoisted_9 = {
-  ref: "myForm"
+  ref: "myForm",
+  "class": "custom-form"
 };
 var _hoisted_10 = {
   "class": "row"
