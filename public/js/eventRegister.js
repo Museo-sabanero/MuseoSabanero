@@ -252,7 +252,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "date",
     "class": "form-control",
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.dateEnd]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), _hoisted_16], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Form End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"togglePopup\">Mostrar/Ocultar Popup</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Section End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\r\n    id=\"offcanvas\"\r\n    :class=\"{\r\n      'offcanvas offcanvas-bottom addtohome-popup show': showPopup,\r\n      'offcanvas offcanvas-bottom addtohome-popup': !showPopup,\r\n    }\"\r\n    tabindex=\"-1\"\r\n  >\r\n    <div class=\"offcanvas-body small\">\r\n      <div class=\"app-info\">\r\n        <img src=\"assets/images/logo/logo48.png\" class=\"img-fluid\" alt=\"\" />\r\n        <div class=\"content\">\r\n          <h3>\r\n            Fastkart App <i data-feather=\"x\" data-bs-dismiss=\"offcanvas\"></i>\r\n          </h3>\r\n          <a href=\"#\">www.fastkart-app.com</a>\r\n        </div>\r\n      </div>\r\n      <button id=\"installApp\" class=\"btn-solid install-app\">\r\n        Add to home screen\r\n      </button>\r\n    </div>\r\n  </div> ")], 64 /* STABLE_FRAGMENT */);
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.dateEnd]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), _hoisted_16], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Form End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"togglePopup\">Mostrar/Ocultar Popup</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Section End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\n    id=\"offcanvas\"\n    :class=\"{\n      'offcanvas offcanvas-bottom addtohome-popup show': showPopup,\n      'offcanvas offcanvas-bottom addtohome-popup': !showPopup,\n    }\"\n    tabindex=\"-1\"\n  >\n    <div class=\"offcanvas-body small\">\n      <div class=\"app-info\">\n        <img src=\"assets/images/logo/logo48.png\" class=\"img-fluid\" alt=\"\" />\n        <div class=\"content\">\n          <h3>\n            Fastkart App <i data-feather=\"x\" data-bs-dismiss=\"offcanvas\"></i>\n          </h3>\n          <a href=\"#\">www.fastkart-app.com</a>\n        </div>\n      </div>\n      <button id=\"installApp\" class=\"btn-solid install-app\">\n        Add to home screen\n      </button>\n    </div>\n  </div> ")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -322,13 +322,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GoBack.vue?vue&type=template&id=e0041ecc */ "./resources/js/components/GoBack.vue?vue&type=template&id=e0041ecc");
 /* harmony import */ var _GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GoBack.vue?vue&type=script&lang=js */ "./resources/js/components/GoBack.vue?vue&type=script&lang=js");
-/* harmony import */ var C_Users_jpere_Documents_Museo_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_User_Documents_Museo_MuseoSabaneroJuan_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_jpere_Documents_Museo_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/GoBack.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_User_Documents_Museo_MuseoSabaneroJuan_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/GoBack.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -349,13 +349,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _EventRegister_vue_vue_type_template_id_d901618e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventRegister.vue?vue&type=template&id=d901618e */ "./resources/js/views/Event/EventRegister.vue?vue&type=template&id=d901618e");
 /* harmony import */ var _EventRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EventRegister.vue?vue&type=script&lang=js */ "./resources/js/views/Event/EventRegister.vue?vue&type=script&lang=js");
-/* harmony import */ var C_Users_jpere_Documents_Museo_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_User_Documents_Museo_MuseoSabaneroJuan_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_jpere_Documents_Museo_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EventRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EventRegister_vue_vue_type_template_id_d901618e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Event/EventRegister.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_User_Documents_Museo_MuseoSabaneroJuan_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EventRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EventRegister_vue_vue_type_template_id_d901618e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Event/EventRegister.vue"]])
 /* hot reload */
 if (false) {}
 

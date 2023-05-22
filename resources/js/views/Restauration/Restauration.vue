@@ -135,10 +135,12 @@ export default {
       if (searchTerm === '') {
         this.List = [...this.originalList]
       } else {
+        console.log('entra a buscador ')
+        console.log(this.originalList)
         const expression = new RegExp(searchTerm, 'i')
         this.List = this.originalList.filter(
           (item) =>
-            expression.test(item.articles[0].name) ||
+            expression.test(item.articles.name) ||
             expression.test(item.detailsSend)
         )
       }
