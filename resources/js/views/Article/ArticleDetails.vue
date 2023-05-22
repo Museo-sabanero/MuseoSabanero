@@ -527,7 +527,7 @@ export default {
         ;(this.imageUrl = '/images/museo/frontPage.png'), // Ruta relativa de la imagen desde la carpeta public
           (this.imageAlt = 'Imagen de muestra')
       } else {
-        ;(this.imageUrl = '/storage/' + data.filePath),
+        ;(this.imageUrl = '/' + data.filePath),
           (this.imageAlt = data.fileName)
       }
 

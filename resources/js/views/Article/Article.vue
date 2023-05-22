@@ -100,7 +100,7 @@ export default {
             ;(item.imageUrl = '/images/museo/frontPage.png'), // Ruta relativa de la imagen desde la carpeta public
               (item.imageAlt = 'Imagen de muestra')
           } else {
-            ;(item.imageUrl = '/storage/' + data.filePath),
+            ;(item.imageUrl = '/' + data.filePath),
               (item.imageAlt = data.fileName)
           }
         })
