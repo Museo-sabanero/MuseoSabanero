@@ -14,7 +14,7 @@
 
     <!-- Login Section Start -->
     <section class="login-section p-0">
-    <h2 class="fw-bold font-md title-color text-center">Bienvenidos al Museo el Sabanero</h2> 
+    <h2 class="fw-bold font-md title-color text-center">Bienvenidos al Museo del Sabanero</h2> 
         <form id="signin-form" class="custom-form" method="POST" action="login/authenticate" autocomplete="off">
             @csrf
             <!-- Email Input start -->
