@@ -9,10 +9,24 @@ export default {
       .catch((error) => Promise.reject(error))
   },
 
+  getTypeObjects() {
+    return axios
+      .get(`${apiUrl}/getTypeObjects`)
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error))
+  },
+
   getArticle($id) {
     console.log($id)
     return axios
       .get(`${apiUrl}/getArticle?id=` + $id)
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error))
+  },
+  getTypeObject($id) {
+    console.log($id)
+    return axios
+      .get(`${apiUrl}/getTypeObject?id=` + $id)
       .then((response) => response.data)
       .catch((error) => Promise.reject(error))
   },

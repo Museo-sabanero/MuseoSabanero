@@ -45,13 +45,15 @@ class FileController extends Controller
 
         $elementoIdFolder = $file->ELEMENTO_ID;
 
+        $file->URI = Str::uuid()->toString() . '.' . $request->file('file')->getClientOriginalExtension();
+
+        $originalUri = $file->URI;
         // Almacenar el archivo en la carpeta "public/articulos/{ELEMENTO_ID}"
         $filePath = $request->file('file')->storeAs("articulos/{$elementoIdFolder}",
-            $originalFileName,
+            $originalUri,
             'public'
         );
 
-        $file->URI = Str::uuid()->toString() . '.' . $request->file('file')->getClientOriginalExtension();
         $file->FILEPATH = $filePath;
         $file->save();
 
@@ -84,14 +86,17 @@ class FileController extends Controller
 
             $elementoIdFolder = $file->ELEMENTO_ID;
 
+            $file->URI = Str::uuid()->toString() . '.' . $request->file('file')->getClientOriginalExtension();
+
+            $originalUri = $file->URI;
+
             // Almacenar el archivo en la carpeta "public/articulos/{ELEMENTO_ID}"
             $filePath = $request->file('file')->storeAs(
                 "articulos/{$elementoIdFolder}",
-                $originalFileName,
+                $originalUri,
                 'public'
             );
 
-            $file->URI = Str::uuid()->toString() . '.' . $request->file('file')->getClientOriginalExtension();
             $file->FILEPATH = $filePath;
             $file->save();
         } else {
@@ -111,14 +116,17 @@ class FileController extends Controller
 
                 $elementoIdFolder = $file->ELEMENTO_ID;
 
+                $file->URI = Str::uuid()->toString() . '.' . $request->file('file')->getClientOriginalExtension();
+
+                $originalUri = $file->URI;
+
                 // Almacenar el archivo en la carpeta "public/articulos/{ELEMENTO_ID}"
                 $filePath = $request->file('file')->storeAs(
                     "articulos/{$elementoIdFolder}",
-                    $originalFileName,
+                    $originalUri,
                     'public'
                 );
 
-                $file->URI = Str::uuid()->toString() . '.' . $request->file('file')->getClientOriginalExtension();
                 $file->FILEPATH = $filePath;
                 $file->save();
         }

@@ -48,7 +48,11 @@
                   </h4>
                 </div>
               </div>
-              <span class="font-sm color-title d-inline-block text-truncate mb-2" style="max-width: 250px; white-space: nowrap">Fecha registro: {{ item.dateCreated }}</span>
+              <span
+                class="font-sm color-title d-inline-block text-truncate mb-2"
+                style="max-width: 250px; white-space: nowrap"
+                >Fecha registro: {{ item.dateCreated }}</span
+              >
               <p class="font-xs content-color mb-2">Nombre: {{ item.name }}</p>
               <span
                 class="content-color font-xs d-inline-block text-truncate mb-2"
