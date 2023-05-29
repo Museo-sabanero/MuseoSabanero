@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('ESTADO_CONSERVACION',20);
             $table->string('ESTATUS_LEGAL',20);
             $table->float('VALOR', 10,2);
+            $table->string('TIPO_MONEDA',50);
             $table->string('RASGO_DISTINTIVO',50);
             $table->string('LOCALIZACION',50);
             $table->string('FRAGMENTADO',40)->nullable();

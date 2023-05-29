@@ -1,10 +1,7 @@
 <template>
   <header class="header">
     <div class="logo-wrap">
-      <a href="#" @click="goBack()"
-        ><i class="iconly-Arrow-Left-Square icli"></i
-      ></a>
-      <h1 class="title-color font-md">Volver</h1>
+      <GoBack></GoBack>
     </div>
   </header>
   <main class="main-wrap about-us-page mb-xxl">
@@ -106,9 +103,13 @@
                       class="form-control"
                     >
                       <option value="">Seleccione tipo de objeto</option>
-                      <option value="A">Artesanía</option>
-                      <option value="T">Herramienta de trabajo</option>
-                      <option value="C">Herramienta de cocina</option>
+                      <option
+                        v-for="object in objects"
+                        :key="object.id"
+                        :value="object.id"
+                      >
+                        {{ object.name }}
+                      </option>
                     </select>
                     <p
                       v-if="showErrorObjectType && !formData.objectType"
@@ -459,7 +460,9 @@
               <div class="steps-box">
                 <span> <i class="bx bx-money"></i></span>
                 <div class="content">
-                  <h4 class="title-color font-sm">Valor:</h4>
+                  <h4 class="title-color font-sm">
+                    Valor: (Si no tiene un valor coloque un 0)
+                  </h4>
                   <div class="input-box mt-3">
                     <input
                       id="value"
@@ -474,23 +477,51 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-location-plus"></i></span>
+                <span> <i class="bx bx-coin"></i></span>
                 <div class="content">
-                  <h4 class="title-color font-sm">Localización:</h4>
+                  <h4 class="title-color font-sm">Tipo de moneda:</h4>
                   <div class="input-box mt-3">
-                    <input
-                      id="location"
-                      v-model="formData.location"
-                      type="text"
-                      placeholder="Localización"
-                      class="form-control"
-                      required
-                    />
+                    <select id="typeCoin" v-model="formData.typeCoin">
+                      <option disabled value="">Elige una moneda</option>
+                      <option
+                        v-for="currency in currencies"
+                        :key="currency.value"
+                        :value="currency.value"
+                        class="form-control"
+                      >
+                        {{ currency.label }}
+                      </option>
+                    </select>
+                    <p
+                      v-if="showErrorCurrency && !formData.typeCoin"
+                      style="color: red"
+                    >
+                      Debe seleccionar un tipo de moneda, si no tiene valor
+                      seleccione "No aplica"
+                    </p>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="steps-wrap">
+            <div class="steps-box">
+              <span> <i class="bx bx-location-plus"></i></span>
+              <div class="content">
+                <h4 class="title-color font-sm">Localización:</h4>
+                <div class="input-box mt-3">
+                  <input
+                    id="location"
+                    v-model="formData.location"
+                    type="text"
+                    placeholder="Localización"
+                    class="form-control"
+                    required
+                  />
                 </div>
               </div>
             </div>
@@ -789,6 +820,7 @@ export default {
         conservationStatus: '',
         legalStatus: '',
         value: '',
+        typeCoin: '',
         distinguishingFeature: '',
         location: '',
         fragmented: '',
@@ -807,6 +839,7 @@ export default {
       file: null,
       imageUrl: null,
       donors: [],
+      objects: [],
       showErrorDonor: false,
       showErrorObjectType: false,
       showErrorAcquisitionType: false,
@@ -819,6 +852,7 @@ export default {
       showErrorLenght: false,
       showErrorDiameter: false,
       showErrorWeight: false,
+      showErrorCurrency: false,
       weights: [
         'Gramos (g)',
         'Kilogramos (kg)',
@@ -830,10 +864,16 @@ export default {
         'Milímetros (mm)',
         'Centímetros (cm)',
         'Metros (m)',
-        'Kilómetros (km)',
         'Pulgadas (in)',
         'Pies (ft)',
-        'Millas (mi)',
+      ],
+      currencies: [
+        { label: 'Colón costarricense', value: 'CRC' },
+        { label: 'Dólar estadounidense', value: 'USD' },
+        { label: 'Euro', value: 'EUR' },
+        { label: 'Dólar canadiense', value: 'CAD' },
+        { label: 'Peso mexicano', value: 'MXN' },
+        { label: 'No aplica', value: 'N/A' },
       ],
     }
   },
@@ -841,6 +881,11 @@ export default {
     await Donors.getDonors().then((data) => {
       console.log(data)
       this.donors = data
+    })
+
+    await Articles.getTypeObjects().then((data) => {
+      console.log(data)
+      this.objects = data
     })
   },
   methods: {
@@ -881,6 +926,9 @@ export default {
       if (!this.formData.measureWeight) {
         return (this.showErrorWeight = true)
       }
+      if (!this.formData.typeCoin) {
+        return (this.showErrorCurrency = true)
+      }
       console.log(this.formData)
       const article = {
         numRefInter: this.formData.numRefInter,
@@ -902,6 +950,7 @@ export default {
         conservationStatus: this.formData.conservationStatus,
         legalStatus: this.formData.legalStatus,
         value: this.formData.value,
+        typeCoin: this.formData.typeCoin,
         distinguishingFeature: this.formData.distinguishingFeature,
         location: this.formData.location,
         fragmented: this.formData.fragmented,

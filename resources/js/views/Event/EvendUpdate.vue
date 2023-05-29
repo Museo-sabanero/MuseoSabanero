@@ -1,10 +1,7 @@
 <template>
   <header class="header">
     <div class="logo-wrap">
-      <a href="#" @click="goBack()"
-        ><i class="iconly-Arrow-Left-Square icli"></i
-      ></a>
-      <h1 class="title-color font-md">Volver</h1>
+      <GoBack></GoBack>
     </div>
   </header>
   <main class="main-wrap login-page mb-xxl">
@@ -192,7 +189,7 @@ export default {
 
       Events.deleteEvent(registro).then((data) => {
         console.log(data)
-        this.$router.push('/event')
+        this.$router.push('/event/index')
       })
     },
     goBack() {

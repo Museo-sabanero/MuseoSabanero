@@ -69,8 +69,10 @@ Route::group(['prefix' => 'restaurations', 'as' => 'restaurations'], function ()
 
 Route::group(['prefix' => 'articles', 'as' => 'articles'], function () {
     Route::get('getArticles', [ArticleController::class, 'getArticles']);
+    Route::get('getTypeObjects', [ArticleController::class, 'getTypeObjects']);
     Route::get('getArticle', [ArticleController::class, 'getArticle']);
     Route::get('getArticleById', [ArticleController::class, 'getArticleById']);
+    Route::get('getTypeObject', [ArticleController::class, 'getTypeObject']);
     Route::post('store', [ArticleController::class, 'store']);
     Route::post('update', [ArticleController::class, 'update']);
     Route::post('delete', [ArticleController::class, 'delete']);

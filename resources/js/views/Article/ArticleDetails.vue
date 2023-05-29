@@ -2,10 +2,7 @@
   <!-- Main Start -->
   <header class="header">
     <div class="logo-wrap">
-      <a href="#" @click="goBack()"
-        ><i class="iconly-Arrow-Left-Square icli"></i
-      ></a>
-      <h1 class="title-color font-md">Volver</h1>
+      <GoBack></GoBack>
     </div>
   </header>
   <main class="main-wrap product-page mb-xxl">
@@ -58,7 +55,7 @@
                 <strong>Otra número de referencia: </strong>
                 {{ article.otherRef }}
               </p>
-              <p><strong>Tipo de objeto: </strong> {{ article.objectType }}</p>
+              <p><strong>Tipo de objeto: </strong> {{ object.name }}</p>
               <p>
                 <strong>Tipo de adquisición: </strong>
                 {{ article.acquisitionType }}
@@ -66,6 +63,10 @@
               <p>
                 <strong>Estado de conservación: </strong>
                 {{ article.conservationStatus }}
+              </p>
+              <p>
+                <strong>Valor: </strong> {{ article.value }}
+                {{ article.typeCoin }}
               </p>
             </div>
             <div style="flex: 1">
@@ -434,6 +435,7 @@ export default {
         conservationStatus: '',
         legalStatus: '',
         value: '',
+        typeCoin: '',
         distinguishingFeature: '',
         location: '',
         fragmented: '',
@@ -451,6 +453,7 @@ export default {
       },
       donor: [],
       ListRestauration: [],
+      object: [],
     }
   },
   async mounted() {
@@ -473,7 +476,7 @@ export default {
         (this.article.otherRef = event.otherRef),
         (this.article.name = event.name),
         (this.article.title = event.title),
-        (this.article.objectType = event.objectTypeDescription),
+        (this.article.objectType = event.objectType),
         (this.article.acquisitionType = event.acquisitionTypeDescription),
         (this.article.width = event.width),
         (this.article.measureWidth = event.measureWidth),
@@ -488,6 +491,7 @@ export default {
         (this.article.conservationStatus = event.conservationStatusDescription),
         (this.article.legalStatus = event.legalStatusDescription),
         (this.article.value = event.value),
+        (this.article.typeCoin = event.typeCoin),
         (this.article.distinguishingFeature = event.distinguishingFeature),
         (this.article.location = event.location),
         (this.article.fragmented = event.fragmented),
@@ -514,6 +518,12 @@ export default {
     })
     console.log(this.donor)
 
+    await Articles.getTypeObject(this.article.objectType).then((data) => {
+      console.log(data)
+      this.object = data
+    })
+    console.log(this.object)
+
     await Restaurations.getRestaurationsByArticle(this.id).then((data) => {
       console.log('rest')
       console.log(data)
@@ -527,8 +537,7 @@ export default {
         ;(this.imageUrl = '/images/museo/frontPage.png'), // Ruta relativa de la imagen desde la carpeta public
           (this.imageAlt = 'Imagen de muestra')
       } else {
-        ;(this.imageUrl = '/' + data.filePath),
-          (this.imageAlt = data.fileName)
+        ;(this.imageUrl = '/' + data.filePath), (this.imageAlt = data.fileName)
       }
 
       console.log(this.imageUrl)

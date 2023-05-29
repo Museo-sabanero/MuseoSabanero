@@ -1,10 +1,7 @@
 <template>
   <header class="header">
     <div class="logo-wrap">
-      <a href="#" @click="goBack()"
-        ><i class="iconly-Arrow-Left-Square icli"></i
-      ></a>
-      <h1 class="title-color font-md">Volver</h1>
+      <GoBack></GoBack>
     </div>
   </header>
   <main class="main-wrap product-page mb-xxl">
@@ -53,7 +50,7 @@
           </h4>
           <p class="font-sm content-color">
             <strong>Tipo de artículo: </strong>
-            {{ formData.objectTypeDescription }}
+            {{ object.name }}
           </p>
           <p class="font-sm content-color">
             <strong>Encargado de realizar la restauración: </strong>
@@ -76,7 +73,7 @@
             {{ formData.datePrevReceived }}
           </p>
           <p class="font-sm content-color">
-            <strong> Coste de la restauración: </strong>
+            <strong> Costo de la restauración: </strong>
             {{ formData.cost }}
           </p>
         </div>
@@ -152,9 +149,13 @@
 <script>
 import Restaurations from '../../services/RestaurationService'
 import Articles from '../../services/ArticleService'
+import GoBack from '../../components/GoBack.vue'
 import Users from '../../services/User'
 export default {
   name: 'RestaurationDetails',
+  components: {
+    GoBack,
+  },
   props: {
     id: {
       type: Number,
@@ -192,6 +193,7 @@ export default {
       showErrorUserAutorized: false,
       showErrorStatus: false,
       list: [],
+      object: [],
     }
   },
   async mounted() {
@@ -240,6 +242,12 @@ export default {
       this.article = data
       this.articleName = data[0].name
     })
+
+    await Articles.getTypeObject(this.formData.typeArticle).then((data) => {
+      console.log(data)
+      this.object = data
+    })
+    console.log(this.object)
   },
   methods: {
     handleSubmit() {

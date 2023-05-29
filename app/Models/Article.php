@@ -38,6 +38,7 @@ class Article extends Model
         'ESTADO_CONSERVACION',
         'ESTATUS_LEGAL',
         'VALOR',
+        'TIPO_MONEDA',
         'RASGO_DISTINTIVO',
         'LOCALIZACION',
         'FRAGMENTADO',
@@ -65,21 +66,6 @@ class Article extends Model
         }
     }
 
-    public function getObjectType($objectType)
-    {
-        switch ($objectType) {
-            case 'A':
-                return 'Artesanía';
-                break;
-
-            case 'T':
-                return 'Herramienta de trabajo';
-                break;
-            case 'C':
-                return 'Herramienta de cocina';
-                 break;
-        }
-    }
 
     public function getAdquisitionType($acquisitionType)
     {
