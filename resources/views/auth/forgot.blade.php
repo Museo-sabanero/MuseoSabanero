@@ -21,7 +21,7 @@
     <div class="main-wrap login-page mb-xxl">
         <div class="banner-section section-p-tb">
             <div class="banner-wrap text-center">
-                <img src="/images/museo/logot.webp" alt="order-success" height="230" />
+                <img src="{{ asset('/images/museo/logot.webp')}}" alt="order-success" height="230" />
             </div>
         </div>
         
