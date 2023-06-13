@@ -49,26 +49,14 @@
           <h4 class="title-color font-sm">Tipo:</h4>
         </div>
         <div>
-          <select
+          <input
             id="typeArticle"
             v-model="formData.typeArticle"
+            maxlength="70"
+            type="text"
+            required
             class="form-control"
-          >
-            <option value="">Seleccione tipo de objeto</option>
-            <option
-              v-for="object in objects"
-              :key="object.id"
-              :value="object.id"
-            >
-              {{ object.name }}
-            </option>
-          </select>
-          <p
-            v-if="showErrorTypeArticle && !formData.typeArticle"
-            style="color: red"
-          >
-            Debe seleccionar un tipo
-          </p>
+          />
         </div>
         <div style="text-align: left">
           <br />
@@ -215,7 +203,6 @@ export default {
         articleId: '',
         detailsSend: '',
       },
-      showErrorTypeArticle: false,
       showErrorArticleId: false,
       showErrorUserAutorizedSend: false,
       errorMessage: null,
@@ -253,9 +240,6 @@ export default {
       }
       if (!this.formData.articleId) {
         return (this.showErrorArticleId = true)
-      }
-      if (!this.formData.typeArticle) {
-        return (this.showErrorTypeArticle = true)
       }
       console.log(this.formData)
       const registro = {

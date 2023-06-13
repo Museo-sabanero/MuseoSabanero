@@ -97,26 +97,14 @@
                 <div class="content">
                   <h4 class="title-color font-sm">Tipo de objeto:</h4>
                   <div class="input-box mt-3">
-                    <select
+                    <input
                       id="objectType"
                       v-model="formData.objectType"
+                      maxlength="200"
+                      type="text"
+                      required
                       class="form-control"
-                    >
-                      <option value="">Seleccione tipo de objeto</option>
-                      <option
-                        v-for="object in objects"
-                        :key="object.id"
-                        :value="object.id"
-                      >
-                        {{ object.name }}
-                      </option>
-                    </select>
-                    <p
-                      v-if="showErrorObjectType && !formData.objectType"
-                      style="color: red"
-                    >
-                      Debe seleccionar tipo de objecto
-                    </p>
+                    />
                   </div>
                 </div>
               </div>
@@ -859,9 +847,7 @@ export default {
       list: [],
       listHistory: [],
       donors: [],
-      objects: [],
       showErrorDonor: false,
-      showErrorObjectType: false,
       showErrorAcquisitionType: false,
       showErrorConservationStatus: false,
       showErrorLegalStatus: false,
@@ -901,11 +887,6 @@ export default {
     await Donors.getDonors().then((data) => {
       console.log(data)
       this.donors = data
-    })
-
-    await Articles.getTypeObjects().then((data) => {
-      console.log(data)
-      this.objects = data
     })
 
     await Articles.getArticle(this.id).then((data) => {
@@ -954,9 +935,6 @@ export default {
   },
   methods: {
     handleSubmit() {
-      if (!this.formData.objectType) {
-        return (this.showErrorObjectType = true)
-      }
       if (!this.formData.acquisitionType) {
         return (this.showErrorAcquisitionType = true)
       }

@@ -50,7 +50,7 @@
           </h4>
           <p class="font-sm content-color">
             <strong>Tipo de artículo: </strong>
-            {{ object.name }}
+            {{ formData.typeArticle }}
           </p>
           <p class="font-sm content-color">
             <strong>Encargado de realizar la restauración: </strong>
@@ -193,7 +193,6 @@ export default {
       showErrorUserAutorized: false,
       showErrorStatus: false,
       list: [],
-      object: [],
     }
   },
   async mounted() {
@@ -242,44 +241,8 @@ export default {
       this.article = data
       this.articleName = data[0].name
     })
-
-    await Articles.getTypeObject(this.formData.typeArticle).then((data) => {
-      console.log(data)
-      this.object = data
-    })
-    console.log(this.object)
   },
   methods: {
-    handleSubmit() {
-      if (!this.formData.userAutorizedSend) {
-        return (this.showErrorUserAutorizedSend = true)
-      }
-      if (!this.formData.articleId) {
-        return (this.showErrorArticleId = true)
-      }
-      if (!this.formData.typeArticle) {
-        return (this.showErrorTypeArticle = true)
-      }
-      console.log(this.formData)
-      const registro = {
-        id: this.formData.id,
-        userAutorizedSend: this.formData.userAutorizedSend,
-        typeArticle: this.formData.typeArticle,
-        dateSend: this.formData.dateSend,
-        datePrevReceived: this.formData.datePrevReceived,
-        inChargeRestauration: this.formData.inChargeRestauration,
-        placeRestauration: this.formData.placeRestauration,
-        articleId: this.formData.articleId,
-        cost: this.formData.cost,
-        detailsSend: this.formData.detailsSend,
-      }
-      console.log(registro)
-
-      Restaurations.updateRestauration(registro).then((data) => {
-        console.log(data)
-        this.$router.push('/restauration/index')
-      })
-    },
     goBack() {
       this.$router.push({ name: 'RestaurationView' })
     },
