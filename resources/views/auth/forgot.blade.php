@@ -2,8 +2,8 @@
 
 @section('content')
 <main class="main-wrap login-page mt-2">
-    <img class="logo" src="/images/logo/logo.png" alt="logo" />
-    <img class="logo logo-w" src="/images/logo/logo-w.png" alt="logo" />
+    <img class="logo" src="{{ asset('/images/logo/logo.png')}}" alt="logo" />
+    <img class="logo logo-w" src="{{ asset('/images/logo/logo-w.png')}}" alt="logo" />
     <header class="header">
         <div class="logo-wrap">
             <a href="login"><i class="iconly-Arrow-Left-Square icli"></i></a>
@@ -52,20 +52,20 @@
 </main>
 
 {{-- jquery 3.6.0 --}}
-<script src="{{url('/js/lib/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('/js/lib/jquery-3.6.0.min.js')}}"></script>
 
 {{-- Bootstrap Js --}}
-<script src="{{url('/js/lib/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('/js/lib/bootstrap.bundle.min.js')}}"></script>
 
 {{-- Lord Icon --}}
-<script src="{{url('/js/lib/lord-icon-2.1.0.js')}}"></script>
+<script src="{{asset('/js/lib/lord-icon-2.1.0.js')}}"></script>
 
 {{-- Feather Icon --}}
-<script src="{{url('/js/lib/feather.min.js')}}"></script>
+<script src="{{asset('/js/lib/feather.min.js')}}"></script>
 
 {{-- Theme Setting js --}}
-<script src="{{url('/js/lib/theme-setting.js')}}"></script>
+<script src="{{asset('/js/lib/theme-setting.js')}}"></script>
 
 {{-- Script js --}}
-<script src="{{url('/js/lib/script.js')}}"></script>
+<script src="{{asset('/js/lib/script.js')}}"></script>
 @endsection
