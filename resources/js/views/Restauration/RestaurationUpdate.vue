@@ -6,7 +6,7 @@
   </header>
   <main class="main-wrap login-page mb-xxl">
     <section class="login-section p-0">
-      <h3 class="font-theme font-md">Registrar Restauración</h3>
+      <h3 class="font-theme font-md">Actualizar Restauración</h3>
       <form class="custom-form" @submit.prevent="handleSubmit">
         <div style="text-align: left">
           <h4 class="title-color font-sm">Articulo:</h4>
@@ -46,29 +46,17 @@
         </div>
         <div style="text-align: left">
           <br />
-          <h4 class="title-color font-sm">Tipo:</h4>
+          <h4 class="title-color font-sm">Tipo de artículo:</h4>
         </div>
         <div>
-          <select
+          <input
             id="typeArticle"
             v-model="formData.typeArticle"
+            maxlength="200"
+            type="text"
+            required
             class="form-control"
-          >
-            <option value="">Seleccione tipo de objeto</option>
-            <option
-              v-for="object in objects"
-              :key="object.id"
-              :value="object.id"
-            >
-              {{ object.name }}
-            </option>
-          </select>
-          <p
-            v-if="showErrorTypeArticle && !formData.typeArticle"
-            style="color: red"
-          >
-            Debe seleccionar un tipo
-          </p>
+          />
         </div>
         <div style="text-align: left">
           <br />
@@ -287,9 +275,6 @@ export default {
       }
       if (!this.formData.articleId) {
         return (this.showErrorArticleId = true)
-      }
-      if (!this.formData.typeArticle) {
-        return (this.showErrorTypeArticle = true)
       }
       console.log(this.formData)
       const registro = {

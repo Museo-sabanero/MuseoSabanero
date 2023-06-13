@@ -55,7 +55,7 @@
                 <strong>Otra número de referencia: </strong>
                 {{ article.otherRef }}
               </p>
-              <p><strong>Tipo de objeto: </strong> {{ object.name }}</p>
+              <p><strong>Tipo de objeto: </strong> {{ article.objectType }}</p>
               <p>
                 <strong>Tipo de adquisición: </strong>
                 {{ article.acquisitionType }}
@@ -453,7 +453,6 @@ export default {
       },
       donor: [],
       ListRestauration: [],
-      object: [],
     }
   },
   async mounted() {
@@ -517,12 +516,6 @@ export default {
       this.donor = data
     })
     console.log(this.donor)
-
-    await Articles.getTypeObject(this.article.objectType).then((data) => {
-      console.log(data)
-      this.object = data
-    })
-    console.log(this.object)
 
     await Restaurations.getRestaurationsByArticle(this.id).then((data) => {
       console.log('rest')

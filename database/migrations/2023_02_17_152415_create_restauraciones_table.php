@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('USUARIO_REGISTRA_ENVIO',150)->unsigned();
             $table->bigInteger('USUARIO_AUTORIZA_ENVIO')->unsigned();
-            $table->string('TIPO_ARTICULO',20);
+            $table->string('TIPO_ARTICULO',250);
             $table->string('FECHA_ENVIO',20);
             $table->string('FECHA_PREV_RECIBIDO_RESTAU',20)->nullable();
             $table->string('ENCARGADO_RESTAURACION',200)->nullable();
