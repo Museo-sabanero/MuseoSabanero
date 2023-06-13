@@ -2,9 +2,9 @@
 
 <?php $__env->startSection('content'); ?>
 <main class="main-wrap login-page mt-2">
-    <img class="logo" src="/images/logo/logo.png" alt="logo" />
-    <img class="logo logo-w" src="/images/logo/logo-w.png" alt="logo" /> 
-    <img src="/images/museo/frontPage.png" class="d-block mx-auto rounded-circle my-3" style="width: 250px; height: 250px; object-fit: cover;" alt="Portada">
+    <img class="logo" src="<?php echo e(asset('/images/logo/logo.png')); ?>" alt="logo" />
+    <img class="logo logo-w" src="<?php echo e(asset('/images/logo/logo-w.png')); ?>" alt="logo" />
+    <img src="<?php echo e(asset('/images/museo/frontPage.png')); ?>" class="d-block mx-auto rounded-circle my-3" style="width: 250px; height: 250px; object-fit: cover;" alt="Portada">
 
     <?php $__errorArgs = ['login'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -22,7 +22,7 @@ unset($__errorArgs, $__bag); ?>
 
     <!-- Login Section Start -->
     <section class="login-section p-0">
-    <h2 class="fw-bold font-md title-color text-center">Bienvenidos al Museo del Sabanero</h2> 
+        <h2 class="fw-bold font-md title-color text-center">Bienvenidos al Museo del Sabanero</h2>
         <form id="signin-form" class="custom-form" method="POST" action="login/authenticate" autocomplete="off">
             <?php echo csrf_field(); ?>
             <!-- Email Input start -->
@@ -47,21 +47,21 @@ unset($__errorArgs, $__bag); ?>
 </main>
 
 
-<script src="<?php echo e(url('/js/lib/jquery-3.6.0.min.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/jquery-3.6.0.min.js')); ?>"></script>
 
 
-<script src="<?php echo e(url('/js/lib/bootstrap.bundle.min.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/bootstrap.bundle.min.js')); ?>"></script>
 
 
-<script src="<?php echo e(url('/js/lib/lord-icon-2.1.0.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/lord-icon-2.1.0.js')); ?>"></script>
 
 
-<script src="<?php echo e(url('/js/lib/feather.min.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/feather.min.js')); ?>"></script>
 
 
-<script src="<?php echo e(url('/js/lib/theme-setting.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/theme-setting.js')); ?>"></script>
 
 
-<script src="<?php echo e(url('/js/lib/script.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/script.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.public', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Museo el sabanero\git-Jeank-DV\MuseoSabanero\resources\views/auth/login.blade.php ENDPATH**/ ?>

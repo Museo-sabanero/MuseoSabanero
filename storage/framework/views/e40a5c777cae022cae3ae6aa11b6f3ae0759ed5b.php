@@ -7,30 +7,30 @@
 <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
 
 
-<script src="<?php echo e(url('/js/lib/jquery-3.6.0.min.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/jquery-3.6.0.min.js')); ?>"></script>
 
 
-<script src="<?php echo e(url('/js/lib/bootstrap.bundle.min.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/bootstrap.bundle.min.js')); ?>"></script>
 
 
-<script src="<?php echo e(url('/js/lib/lord-icon-2.1.0.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/lord-icon-2.1.0.js')); ?>"></script>
 
 
-<script src="<?php echo e(url('/js/lib/feather.min.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/feather.min.js')); ?>"></script>
 
 
-<script src="<?php echo e(url('/js/lib/slick.js')); ?>"></script>
-<script src="<?php echo e(url('/js/lib/slick.min.js')); ?>"></script>
-<script src="<?php echo e(url('/js/lib/slick-custom.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/slick.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/slick.min.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/slick-custom.js')); ?>"></script>
 
 
 <!-- <script src="<?php echo e(url('/js/lib/homescreen-popup.js')); ?>"></script> -->
 
 
-<script src="<?php echo e(url('/js/lib/theme-setting.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/theme-setting.js')); ?>"></script>
 
 
-<script src="<?php echo e(url('/js/lib/script.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/lib/script.js')); ?>"></script>
 <script src="<?php echo e(mix('js/app.js')); ?>" type="text/javascript" charset="utf-8"></script>
 <?php $__env->stopSection(); ?>
 
