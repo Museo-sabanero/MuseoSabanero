@@ -9,8 +9,8 @@
     <div class="wrap">
       <div class="user-panel">
         <div class="media">
-          <a href="account.html">
-            <img src="/images/avatar/avatar.jpg" alt="avatar"
+          <a href="#">
+            <img src="public/images/avatar/avatar.jpg" alt="avatar"
           /></a>
           <div class="media-body">
             <a class="title-color font-sm"
