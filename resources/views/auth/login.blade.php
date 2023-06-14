@@ -2,9 +2,9 @@
 
 @section('content')
 <main class="main-wrap login-page mt-2">
-    <img class="logo" src="{{ asset('/images/logo/logo.png')}}" alt="logo" />
-    <img class="logo logo-w" src="{{ asset('/images/logo/logo-w.png')}}" alt="logo" />
-    <img src="{{ asset('/images/museo/frontPage.png')}}" class="d-block mx-auto rounded-circle my-3" style="width: 250px; height: 250px; object-fit: cover;" alt="Portada">
+    <img class="logo" src="{{ asset('public/images/logo/logo.png')}}" alt="logo" />
+    <img class="logo logo-w" src="{{ asset('public/images/logo/logo-w.png')}}" alt="logo" />
+    <img src="{{ asset('public/images/museo/frontPage.png')}}" class="d-block mx-auto rounded-circle my-3" style="width: 250px; height: 250px; object-fit: cover;" alt="Portada">
 
     @error('login')
     <div class="alert alert-danger" role="alert">
@@ -39,20 +39,20 @@
 </main>
 
 {{-- jquery 3.6.0 --}}
-<script src="{{asset('/js/lib/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('public/js/lib/jquery-3.6.0.min.js')}}"></script>
 
 {{-- Bootstrap Js --}}
-<script src="{{asset('/js/lib/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('public/js/lib/bootstrap.bundle.min.js')}}"></script>
 
 {{-- Lord Icon --}}
-<script src="{{asset('/js/lib/lord-icon-2.1.0.js')}}"></script>
+<script src="{{asset('public/js/lib/lord-icon-2.1.0.js')}}"></script>
 
 {{-- Feather Icon --}}
-<script src="{{asset('/js/lib/feather.min.js')}}"></script>
+<script src="{{asset('public/js/lib/feather.min.js')}}"></script>
 
 {{-- Theme Setting js --}}
-<script src="{{asset('/js/lib/theme-setting.js')}}"></script>
+<script src="{{asset('public/js/lib/theme-setting.js')}}"></script>
 
 {{-- Script js --}}
-<script src="{{asset('/js/lib/script.js')}}"></script>
+<script src="{{asset('public/js/lib/script.js')}}"></script>
 @endsection
