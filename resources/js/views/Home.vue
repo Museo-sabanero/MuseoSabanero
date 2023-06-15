@@ -37,7 +37,7 @@
               >
             </a>
             <div class="media-body">
-              <img src="/images/map/map.jpg" alt="map" />
+              <img src="public/images/map/map.jpg" alt="map" />
             </div>
           </div>
           <div class="bottom-content active">

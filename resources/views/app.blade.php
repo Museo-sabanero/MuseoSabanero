@@ -31,5 +31,5 @@
 
 {{-- Script js --}}
 <script src="{{asset('public/js/lib/script.js')}}"></script>
-<script src="{{ mix('js/app.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{asset('public/js/app.js') }}" type="text/javascript" charset="utf-8"></script>
 @endsection

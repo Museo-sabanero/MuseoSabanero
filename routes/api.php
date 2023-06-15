@@ -40,7 +40,7 @@ Route::group(['prefix' => 'users', 'as' => 'users', 'middleware' => ['auth:sanct
     Route::get('/detailsUserById', [UserController::class, 'detailsUserById']);
 });
 
-Route::group(['prefix' => 'donores', 'as' => 'donores'], function () {
+Route::group(['prefix' => 'donores', 'as' => 'donores', 'middleware' => ['auth:sanctum']], function () {
     Route::get('showDonor', [DonanteController::class, 'showDonor']);
     Route::get('/{id}/detailsDonor', [DonanteController::class, 'detailsDonor']);
     Route::get('/{cedula}/detailsDonorByCedula', [DonanteController::class, 'detailsDonorByCedula']);
@@ -49,7 +49,7 @@ Route::group(['prefix' => 'donores', 'as' => 'donores'], function () {
     Route::post('/register', [DonanteController::class, 'register']);
 });
 
-Route::group(['prefix' => 'events', 'as' => 'events'], function () {
+Route::group(['prefix' => 'events', 'as' => 'events', 'middleware' => ['auth:sanctum']], function () {
     Route::get('getEvents', [EventController::class, 'getEvents']);
     Route::get('getEvent', [EventController::class, 'getEvent']);
     Route::post('store', [EventController::class, 'store']);
@@ -57,7 +57,7 @@ Route::group(['prefix' => 'events', 'as' => 'events'], function () {
     Route::post('delete', [EventController::class, 'delete']);
 });
 
-Route::group(['prefix' => 'restaurations', 'as' => 'restaurations'], function () {
+Route::group(['prefix' => 'restaurations', 'as' => 'restaurations', 'middleware' => ['auth:sanctum']], function () {
     Route::get('getRestauration', [RestaurationController::class, 'getRestauration']);
     Route::get('getRestaurationsByArticle', [RestaurationController::class, 'getRestaurationsByArticle']);
     Route::get('getRestaurations', [RestaurationController::class, 'getRestaurations']);
@@ -67,7 +67,7 @@ Route::group(['prefix' => 'restaurations', 'as' => 'restaurations'], function ()
 });
 
 
-Route::group(['prefix' => 'articles', 'as' => 'articles'], function () {
+Route::group(['prefix' => 'articles', 'as' => 'articles', 'middleware' => ['auth:sanctum']], function () {
     Route::get('getArticles', [ArticleController::class, 'getArticles']);
     Route::get('getTypeObjects', [ArticleController::class, 'getTypeObjects']);
     Route::get('getArticle', [ArticleController::class, 'getArticle']);
@@ -79,7 +79,7 @@ Route::group(['prefix' => 'articles', 'as' => 'articles'], function () {
 });
 
 
-Route::group(['prefix' => 'histories', 'as' => 'histories'], function () {
+Route::group(['prefix' => 'histories', 'as' => 'histories', 'middleware' => ['auth:sanctum']], function () {
     Route::get('getHistories', [HistoryController::class, 'getHistories']);
     Route::get('getHistory', [HistoryController::class, 'getHistory']);
     Route::get('getHistoryByArticle', [HistoryController::class, 'getHistoryByArticle']);
@@ -88,7 +88,7 @@ Route::group(['prefix' => 'histories', 'as' => 'histories'], function () {
     Route::post('delete', [HistoryController::class, 'delete']);
 });
 
-Route::group(['prefix' => 'files', 'as' => 'files'], function () {
+Route::group(['prefix' => 'files', 'as' => 'files', 'middleware' => ['auth:sanctum']], function () {
     Route::post('store', [FileController::class, 'store']);
     Route::post('update', [FileController::class, 'update']);
     Route::get('getImageByIdArticle', [FileController::class, 'getImageByIdArticle']);
