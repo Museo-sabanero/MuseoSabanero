@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class History extends Model
 {
-    protected $table = 'MS_HISTORIA';
+    protected $table = 'historia';
     protected $primaryKey = 'id'; // change to whatever your primary key is
 
       /**

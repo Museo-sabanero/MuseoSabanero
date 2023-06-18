@@ -29,7 +29,7 @@ class DonanteController extends Controller
     {
         $donores = new Collection();
         $donor = Donante::on('mysql')
-            ->selectRaw("MS_DONANTE.*",)
+            ->selectRaw("donante.*",)
             ->orderByDesc('ID')
             ->get();
 
@@ -43,8 +43,8 @@ class DonanteController extends Controller
     public function detailsDonor($id)
     {
         $donor = Donante::on('mysql')
-            ->selectRaw("MS_DONANTE.*",)
-            ->where("MS_DONANTE.ID", $id)
+            ->selectRaw("donante.*",)
+            ->where("donante.ID", $id)
             ->first();
         if ($donor == null) {
             $error = "No existe este donante";
@@ -52,8 +52,8 @@ class DonanteController extends Controller
         }
 
         $article = Article::on('mysql')
-            ->selectRaw("MS_ARTICULO.*",)
-            ->where("MS_ARTICULO.CEDULA_DONANTE", $donor->CEDULA)
+            ->selectRaw("articulo.*",)
+            ->where("articulo.CEDULA_DONANTE", $donor->CEDULA)
             ->get();
 
         return response()->json([
@@ -66,8 +66,8 @@ class DonanteController extends Controller
     public function detailsDonorByCedula($cedula)
     {
         $donor = Donante::on('mysql')
-            ->selectRaw("MS_DONANTE.*",)
-            ->where("MS_DONANTE.CEDULA", $cedula)
+            ->selectRaw("donante.*",)
+            ->where("donante.CEDULA", $cedula)
             ->first();
         if ($donor == null) {
             $error = "No existe este donante";
@@ -153,10 +153,10 @@ class DonanteController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:70',
-            'id' => 'required|max:50|unique:MS_DONANTE,CEDULA',
+            'id' => 'required|max:50|unique:donante,CEDULA',
             'phone' => 'required|max:12',
             'ubication' => 'required|max:500',
-            'email' => 'required|max:50|unique:MS_DONANTE,email',
+            'email' => 'required|max:50|unique:donante,email',
         ], [
             'email.unique' => 'La dirección de correo electrónico ya está en uso',
             'id.unique' => 'Esta cédula ya esta en uso',

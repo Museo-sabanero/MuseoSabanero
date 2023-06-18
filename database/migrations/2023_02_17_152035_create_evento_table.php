@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         //Diferentes atributos de la tabla Eventos
-        Schema::create('MS_EVENTO', function (Blueprint $table) {
+        Schema::create('evento', function (Blueprint $table) {
             $table->id();
             $table->string('FECHA_INICIO',20);
             $table->string('FECHA_FIN',20);
