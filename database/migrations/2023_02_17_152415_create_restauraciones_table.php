@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('MS_RESTAURACIONES', function (Blueprint $table) {
+        Schema::create('ms_restauraciones', function (Blueprint $table) {
             $table->id();
             $table->string('USUARIO_REGISTRA_ENVIO',150)->unsigned();
             $table->bigInteger('USUARIO_AUTORIZA_ENVIO')->unsigned();
@@ -40,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('MS_RESTAURACIONES');
+        Schema::dropIfExists('ms_restauraciones');
     }
 };

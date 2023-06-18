@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class Event extends Model
 {
-    protected $table = 'MS_EVENTO';
+    protected $table = 'ms_evento';
     protected $primaryKey = 'id'; // change to whatever your primary key is
 
       /**

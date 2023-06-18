@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         //Diferentes atributos de la tabla Artículos, correspondientes a las piezas de inventario
-        Schema::create('MS_ARTICULO', function (Blueprint $table) {
+        Schema::create('ms_articulo', function (Blueprint $table) {
             $table->id();
             $table->string('NUM_REF_INTER',20);
             $table->string('OTRA_REF',20)->nullable();
@@ -55,6 +55,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articulos');
+        Schema::dropIfExists('ms_articulo');
     }
 };
