@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         //Diferentes atributos de la tabla Historia
-        Schema::create('ms_historia', function (Blueprint $table) {
+        Schema::create('MS_HISTORIA', function (Blueprint $table) {
             $table->id();
             $table->string('MATERIAS',100);
             $table->string('MANUFACTURACION',200)->nullable();
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ms_historia');
+        Schema::dropIfExists('historia');
     }
 };

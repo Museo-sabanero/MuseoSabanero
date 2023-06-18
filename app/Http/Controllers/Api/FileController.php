@@ -67,7 +67,7 @@ class FileController extends Controller
         $id = (int) $identification;
 
         $image = File::on('mysql')
-        ->where("ms_archivos.ELEMENTO_ID", $id)
+        ->where("MS_ARCHIVOS.ELEMENTO_ID", $id)
             ->get();
 
         $file = new File();
@@ -141,8 +141,8 @@ class FileController extends Controller
         $id = (int) $identification;
 
         $image = File::on('mysql')
-            ->where("ms_archivos.ELEMENTO_ID", $id)
-            ->where("ms_archivos.ESTADO", Estado::ACTIVO)
+            ->where("MS_ARCHIVOS.ELEMENTO_ID", $id)
+            ->where("MS_ARCHIVOS.ESTADO", Estado::ACTIVO)
             ->first();
 
         if ($image == null) {

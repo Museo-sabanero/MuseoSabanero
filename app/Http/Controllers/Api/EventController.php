@@ -28,8 +28,8 @@ class EventController extends Controller
         $events = new Collection();
 
             $event = Event::on('mysql')
-                ->selectRaw( "ms_evento.*",)
-                ->where("ms_evento.ESTADO", "A")
+                ->selectRaw( "MS_EVENTO.*",)
+                ->where("MS_EVENTO.ESTADO", "A")
                 ->orderByDesc('id')
                 ->get();
 
@@ -46,7 +46,7 @@ class EventController extends Controller
 
 
             $event = Event::on('mysql')
-                ->where("ms_evento.id", $id)
+                ->where("MS_EVENTO.id", $id)
                 ->get();
 
             if ($event == null) {

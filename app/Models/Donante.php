@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class Donante extends Model
 {
-    protected $table = 'ms_donante';
+    protected $table = 'MS_DONANTE';
     protected $primaryKey = 'ID'; // change to whatever your primary key is
 
       /**

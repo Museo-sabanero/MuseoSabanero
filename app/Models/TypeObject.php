@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class TypeObject extends Model
 {
-    protected $table = 'ms_tipo_objeto';
+    protected $table = 'MS_TIPO_OBJETO';
     protected $primaryKey = 'id'; // change to whatever your primary key is
 
       /**

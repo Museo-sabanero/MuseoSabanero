@@ -29,7 +29,7 @@ class DonanteController extends Controller
     {
         $donores = new Collection();
         $donor = Donante::on('mysql')
-            ->selectRaw("ms_donante.*",)
+            ->selectRaw("MS_DONANTE.*",)
             ->orderByDesc('ID')
             ->get();
 
@@ -43,8 +43,8 @@ class DonanteController extends Controller
     public function detailsDonor($id)
     {
         $donor = Donante::on('mysql')
-            ->selectRaw("ms_donante.*",)
-            ->where("ms_donante.ID", $id)
+            ->selectRaw("MS_DONANTE.*",)
+            ->where("MS_DONANTE.ID", $id)
             ->first();
         if ($donor == null) {
             $error = "No existe este donante";
@@ -52,8 +52,8 @@ class DonanteController extends Controller
         }
 
         $article = Article::on('mysql')
-            ->selectRaw("ms_articulo.*",)
-            ->where("ms_articulo.CEDULA_DONANTE", $donor->CEDULA)
+            ->selectRaw("MS_ARTICULO.*",)
+            ->where("MS_ARTICULO.CEDULA_DONANTE", $donor->CEDULA)
             ->get();
 
         return response()->json([
@@ -66,8 +66,8 @@ class DonanteController extends Controller
     public function detailsDonorByCedula($cedula)
     {
         $donor = Donante::on('mysql')
-            ->selectRaw("ms_donante.*",)
-            ->where("ms_donante.CEDULA", $cedula)
+            ->selectRaw("MS_DONANTE.*",)
+            ->where("MS_DONANTE.CEDULA", $cedula)
             ->first();
         if ($donor == null) {
             $error = "No existe este donante";
@@ -153,10 +153,10 @@ class DonanteController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:70',
-            'id' => 'required|max:50|unique:ms_donante,CEDULA',
+            'id' => 'required|max:50|unique:MS_DONANTE,CEDULA',
             'phone' => 'required|max:12',
             'ubication' => 'required|max:500',
-            'email' => 'required|max:50|unique:ms_donante,email',
+            'email' => 'required|max:50|unique:MS_DONANTE,email',
         ], [
             'email.unique' => 'La dirección de correo electrónico ya está en uso',
             'id.unique' => 'Esta cédula ya esta en uso',

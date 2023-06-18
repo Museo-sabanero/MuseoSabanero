@@ -39,11 +39,11 @@ class RestaurationController extends Controller
         foreach ($artRestauration as $art){
 
             $restaurations = Restauration::on('mysql')
-            ->where('ms_restauraciones.id', $art->ID_RESTAURACION)
+            ->where('MS_RESTAURACIONES.id', $art->ID_RESTAURACION)
             ->first();
 
             $article = Article::on('mysql')
-                ->where("ms_articulo.id", $art->ID_ARTICULO)
+                ->where("MS_ARTICULO.id", $art->ID_ARTICULO)
                 ->first();
 
             $articlesResource = new ArticleResource($article);
@@ -67,17 +67,17 @@ class RestaurationController extends Controller
         $restaurationsWithArticles = collect();
 
         $artRestauration = ArtRestauration::on('mysql')
-        ->where('ms_art_restauracion.ID_ARTICULO', $id)
+        ->where('MS_ART_RESTAURACION.ID_ARTICULO', $id)
         ->get();
 
         foreach ($artRestauration as $art){
 
             $restaurations = Restauration::on('mysql')
-            ->where('ms_restauraciones.id', $art->ID_RESTAURACION)
+            ->where('MS_RESTAURACIONES.id', $art->ID_RESTAURACION)
             ->first();
 
             $article = Article::on('mysql')
-                ->where("ms_articulo.id", $art->ID_ARTICULO)
+                ->where("MS_ARTICULO.id", $art->ID_ARTICULO)
                 ->first();
 
             $articlesResource = new ArticleResource($article);
@@ -100,7 +100,7 @@ class RestaurationController extends Controller
         $id = (int) $identification;
 
         $restaurations = Restauration::on('mysql')
-            ->where("ms_restauraciones.id", $id)
+            ->where("MS_RESTAURACIONES.id", $id)
             ->get();
 
         if ($restaurations == null) {
@@ -113,7 +113,7 @@ class RestaurationController extends Controller
 
         foreach ($restaurations as $restauration) {
             $artRestauration = ArtRestauration::on('mysql')
-                ->where("ms_art_restauracion.ID_RESTAURACION", $restauration->id)
+                ->where("MS_ART_RESTAURACION.ID_RESTAURACION", $restauration->id)
                 ->get();
 
 
@@ -122,7 +122,7 @@ class RestaurationController extends Controller
 
             foreach ($artRestauration as $art) {
                 $article = Article::on('mysql')
-                    ->where("ms_articulo.id", $art->ID_ARTICULO)
+                    ->where("MS_ARTICULO.id", $art->ID_ARTICULO)
                     ->first();
                 $articles->push($article);
             }
@@ -196,7 +196,7 @@ class RestaurationController extends Controller
         $restauration->save();
 
         $artRestauration = ArtRestauration::on('mysql')
-            ->where("ms_art_restauracion.id", $id)
+            ->where("MS_ART_RESTAURACION.id", $id)
             ->first();
         $artRestauration->ID_ARTICULO = $request->input('articleId');
         $artRestauration->save();

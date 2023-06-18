@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class File extends Model
 {
-    protected $table = 'ms_archivos';
+    protected $table = 'MS_ARCHIVOS';
     protected $primaryKey = 'id'; // change to whatever your primary key is
 
       /**

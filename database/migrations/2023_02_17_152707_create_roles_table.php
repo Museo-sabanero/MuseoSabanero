@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         //Diferentes atributos de la tabla Roles
-        Schema::create('ms_roles', function (Blueprint $table) {
+        Schema::create('MS_ROLES', function (Blueprint $table) {
             $table->id('ID');
             $table->string('NOMBRE', 100);
             $table->timestamps();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ms_roles');
+        Schema::dropIfExists('ROLES');
     }
 };
