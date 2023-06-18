@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         //Diferentes atributos de la tabla Donantes
-        Schema::create('MS_DONANTE', function (Blueprint $table) {
+        Schema::create('ms_donante', function (Blueprint $table) {
             $table->id('ID');
             $table->string('NOMBRE',70);
             $table->string('TELEFONO',12);
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('MS_DONANTE');
+        Schema::dropIfExists('ms_donante');
     }
 };

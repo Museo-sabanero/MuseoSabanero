@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class Restauration extends Model
 {
-    protected $table = 'MS_RESTAURACIONES';
+    protected $table = 'ms_restauraciones';
     protected $primaryKey = 'id'; // change to whatever your primary key is
 
       /**
