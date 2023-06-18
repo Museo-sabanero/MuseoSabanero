@@ -619,13 +619,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Register_vue_vue_type_template_id_0ddbbe78__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Register.vue?vue&type=template&id=0ddbbe78 */ "./resources/js/views/User/Register.vue?vue&type=template&id=0ddbbe78");
 /* harmony import */ var _Register_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Register.vue?vue&type=script&lang=js */ "./resources/js/views/User/Register.vue?vue&type=script&lang=js");
+<<<<<<< HEAD
 /* harmony import */ var D_Museo_el_sabanero_git_jose_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+=======
+/* harmony import */ var D_Museo_el_sabanero_git_developer_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+>>>>>>> 440be7618bab32579cbcc4ac5a8ecb60aa23203d
 
 
 
 
 ;
+<<<<<<< HEAD
 const __exports__ = /*#__PURE__*/(0,D_Museo_el_sabanero_git_jose_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Register_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Register_vue_vue_type_template_id_0ddbbe78__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/User/Register.vue"]])
+=======
+const __exports__ = /*#__PURE__*/(0,D_Museo_el_sabanero_git_developer_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Register_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Register_vue_vue_type_template_id_0ddbbe78__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/User/Register.vue"]])
+>>>>>>> 440be7618bab32579cbcc4ac5a8ecb60aa23203d
 /* hot reload */
 if (false) {}
 
