@@ -28,7 +28,7 @@ class HistoryController extends Controller
     {
         $histories = new Collection();
         $history = History::on('mysql')
-            ->selectRaw( "MS_HISTORIA.*",)
+            ->selectRaw( "ms_historia.*",)
             ->orderByDesc('id')
             ->get();
 
@@ -45,7 +45,7 @@ class HistoryController extends Controller
 
 
             $histories = History::on('mysql')
-                ->where("MS_HISTORIA.id", $id)
+                ->where("ms_historia.id", $id)
                 ->get();
 
             if ($histories == null) {
@@ -65,7 +65,7 @@ class HistoryController extends Controller
 
 
             $histories = History::on('mysql')
-                ->where("MS_HISTORIA.ID_ARTICULO", $id)
+                ->where("ms_historia.ID_ARTICULO", $id)
                 ->get();
 
             if ($histories == null) {
