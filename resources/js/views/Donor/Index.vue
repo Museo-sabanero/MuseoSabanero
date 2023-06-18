@@ -48,6 +48,11 @@
                   </h4>
                 </div>
               </div>
+              <span
+                class="font-sm color-title d-inline-block text-truncate mb-2"
+                style="max-width: 250px; white-space: nowrap"
+                >Fecha registro: {{ item.dateCreated }}</span
+              >
               <p class="font-xs content-color mb-2">Nombre: {{ item.name }}</p>
               <span
                 class="content-color font-xs d-inline-block text-truncate mb-2"
@@ -55,21 +60,6 @@
                 >Dirección: {{ item.description }}</span
               >
             </a>
-            <div class="order-id-section section-p-tb">
-              <div class="media mt-4">
-                <div class="media-body">
-                  <h2 class="font-sm color-title">Fecha registro:</h2>
-                </div>
-              </div>
-              <div class="media mt-2">
-                <span><i class="iconly-Calendar icli"></i></span>
-                <div class="media-body">
-                  <span class="content-color font-theme"
-                    >{{ item.dateCreated }}
-                  </span>
-                </div>
-              </div>
-            </div>
             <div class="media-body">
               <!-- <img
                   src="/images/avatar/avatar.jpg"

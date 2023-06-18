@@ -27,13 +27,15 @@ class RestaurationResource extends JsonResource
             'detailsSend'=> $this->DETALLE_ENVIO,
             'cost'=> $this->COSTE,
             'status'=> $this->ESTADO,
-            "statusDescription" => $this->getStatus($this->status),
+            "statusDescription" => $this->getStatus($this->ESTADO),
             'detailsReceived'=> $this->DETALLE_RECIBIDO,
             'dateReceived'=> $this->FECHA_RECIBIDO,
             'userReceived'=> $this->USUARIO_RECIBE,
             'userAutorizedReceived'=> $this->USUARIO_AUTORIZA_RECIBIDO,
             "dateCreated" => $this->getFormatDate(),
             "articles" => $this->articles,
+            "objectTypeDescription" => $this->getObjectType($this->TIPO_ARTICULO),
+
         ];
     }
 }

@@ -9,8 +9,8 @@
     <div class="wrap">
       <div class="user-panel">
         <div class="media">
-          <a href="account.html">
-            <img src="/images/avatar/avatar.jpg" alt="avatar"
+          <a href="#">
+            <img src="public/images/avatar/avatar.jpg" alt="avatar"
           /></a>
           <div class="media-body">
             <a class="title-color font-sm"
@@ -126,6 +126,15 @@
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li> -->
+          <li v-if="showInstallButton">
+            <button
+              class="log-out nav-link title-color font-sm"
+              @click="installPWA"
+            >
+              <i class="iconly-Download icli"></i
+              ><span>Instalar aplicación</span>
+            </button>
+          </li>
           <li>
             <router-link
               to="/user/setting"
@@ -217,6 +226,8 @@ export default {
       name: null,
       role: null,
       isAdmin: null,
+      showInstallButton: false,
+      deferredPrompt: null,
     }
   },
   watch: {
@@ -229,6 +240,20 @@ export default {
         document.body.classList.remove('bluer')
       }
     },
+  },
+  created() {
+    // Validar el navegador y establecer showInstallButton en false si es Firefox o Safari
+    const isFirefox = navigator.userAgent.indexOf('Firefox') !== -1
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+    if (isFirefox || isSafari) {
+      this.showInstallButton = false
+    } else {
+      window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault()
+        this.deferredPrompt = event
+        this.showInstallButton = true
+      })
+    }
   },
   async mounted() {
     await Logout.getUser().then((data) => {
@@ -244,6 +269,26 @@ export default {
     document.body.className = this.isDarkMode ? 'dark' : ''
   },
   methods: {
+    installPWA() {
+      try {
+        if (this.deferredPrompt) {
+          this.deferredPrompt.prompt()
+          this.deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('La aplicación ha sido instalada como PWA')
+            } else {
+              console.log(
+                'El usuario ha cancelado la instalación de la aplicación como PWA'
+              )
+            }
+            this.deferredPrompt = null
+            this.showInstallButton = false
+          })
+        }
+      } catch (error) {
+        alert('Error: ' + error)
+      }
+    },
     toggleDarkMode() {
       if (this.isDarkMode) {
         document.querySelector('.dark-mode-styles').href = this.darkCSS

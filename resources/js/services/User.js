@@ -1,10 +1,18 @@
-const apiUrl = 'http://127.0.0.1:8000/api/users'
+import axios from 'axios'
+const apiUrl = 'users'
 
 export default {
   // Obtener todos los usuarios
   getUser() {
     return axios
       .get(`${apiUrl}/showUser`)
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error))
+  },
+
+  getUserbyId($id) {
+    return axios
+      .get(`${apiUrl}/detailsUserById?id=` + $id)
       .then((response) => response.data)
       .catch((error) => Promise.reject(error))
   },

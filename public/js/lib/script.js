@@ -28,7 +28,7 @@
   $(window).on('load', function () {
     'use strict'
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('serviceworker.js')
+      navigator.serviceWorker.register('public/serviceworker.js')
     }
   })
 

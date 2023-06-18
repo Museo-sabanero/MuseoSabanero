@@ -27,7 +27,7 @@
         <div v-for="item in List" :key="item.id" class="offer-wrap">
           <div class="product-list media">
             <div class="media-body">
-              <a class="font-sm"> Artículo: {{ item.articles[0].name }} </a>
+              <a class="font-sm"> Artículo: {{ item.articles.name }} </a>
               <br />
               <span class="content-color font-xs"
                 >Enviado a restauración: {{ item.dateSend }}
@@ -46,7 +46,7 @@
               <span class="content-color font-xs">Costo: {{ item.cost }}</span>
               <br />
               <span class="content-color font-xs"
-                >Usuario que autorizó: {{ item.userAutorizedSend }}</span
+                >Usuario que autorizó: {{ item.userAutorizedSendName }}</span
               >
               <br /><br />
               <span class="title-color font-sm"
@@ -64,15 +64,27 @@
                       }"
                       >Editar</router-link
                     >
+                    <div v-if="item.status === 'E'">
+                      <br />
+                      <router-link
+                        class="btn btn-outline font-md d-inline-block"
+                        :to="{
+                          name: 'RestaurationApprove',
+                          params: { id: item.id },
+                        }"
+                      >
+                        Recibir
+                      </router-link>
+                    </div>
                     <br />
                     <router-link
                       class="btn btn-outline font-md d-inline-block"
                       :to="{
-                        name: 'RestaurationApprove',
+                        name: 'RestaurationDetails',
                         params: { id: item.id },
                       }"
                     >
-                      Recibir
+                      Detalles
                     </router-link>
                   </div>
                 </span>
@@ -88,6 +100,7 @@
 </template>
 <script>
 import Restaurations from '../../services/RestaurationService'
+import User from '../../services/User'
 
 export default {
   name: 'RestaurationView',
@@ -99,9 +112,20 @@ export default {
     }
   },
   async mounted() {
-    await Restaurations.getRestaurations().then((data) => {
+    await Restaurations.getRestaurations().then(async (data) => {
       console.log(data)
       this.List = data
+      this.List = data.map((item) => {
+        return {
+          ...item,
+          userAutorizedSendName: null,
+        }
+      })
+      for (const item of this.List) {
+        await User.getUserbyId(item.userAutorizedSend).then((data) => {
+          item.userAutorizedSendName = data.name
+        })
+      }
       this.originalList = this.List
     })
   },
@@ -111,10 +135,12 @@ export default {
       if (searchTerm === '') {
         this.List = [...this.originalList]
       } else {
+        console.log('entra a buscador ')
+        console.log(this.originalList)
         const expression = new RegExp(searchTerm, 'i')
         this.List = this.originalList.filter(
           (item) =>
-            expression.test(item.articles[0].name) ||
+            expression.test(item.articles.name) ||
             expression.test(item.detailsSend)
         )
       }

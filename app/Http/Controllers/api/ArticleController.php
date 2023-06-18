@@ -9,9 +9,12 @@ use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\EventResource;
 use App\Http\Resources\ArticleResource;
+use App\Http\Resources\TypeObjectResource;
 use App\Models\Estado;
 use App\Models\Article;
 use App\Models\History;
+use App\Models\TypeObject;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Collection;
@@ -40,17 +43,42 @@ class ArticleController extends Controller
 
         return response()->json(ArticleResource::collection($articles), 200);
     }
+
+    public function getTypeObjects()
+    {
+        $object = new Collection();
+
+        $objects = TypeObject::on('mysql')
+            ->selectRaw("MS_TIPO_OBJETO.*",)
+            ->get();
+
+        $objects = $objects->concat($object);
+
+
+        return response()->json(TypeObjectResource::collection($objects), 200);
+    }
+
+    public function getTypeObject(Request $request)
+    {
+        $identification = $request->input('id');
+        $id = (int) $identification ;
+
+            $objects = TypeObject::on('mysql')
+                ->where("MS_TIPO_OBJETO.id", $id)
+                ->first();
+
+            if ($objects == null) {
+                $error = "No existe este tipo de objecto";
+                return response()->json(['errorMessage' => $error], 404);
+            }
+
+        return response()->json(new TypeObjectResource($objects), 200);
+    }
     public function getArticle(Request $request)
     {
 
         $identification = $request->input('id');
         $id = (int) $identification;
-
-        //$events = new Collection();
-
-        // $event = Event::on('mysql')
-        //     ->where("MS_EVENTO.ID", $id)
-        //     ->first();
 
         $article = Article::on('mysql')
             ->where("MS_ARTICULO.id", $id)
@@ -61,30 +89,30 @@ class ArticleController extends Controller
             return response()->json(['errorMessage' => $error], 404);
         }
 
-        // $events = $events->concat($event);
+        return response()->json(ArticleResource::collection($article), 200);
+    }
 
+
+    public function getArticleById(Request $request)
+    {
+
+        $identification = $request->input('id');
+        $id = (int) $identification;
+
+        $article = Article::on('mysql')
+            ->where("MS_ARTICULO.id", $id)
+            ->get();
+
+        if ($article == null) {
+            $error = "No existe este artículo";
+            return response()->json(['errorMessage' => $error], 404);
+        }
 
         return response()->json(ArticleResource::collection($article), 200);
-        //return response()->json($identification, 200);
     }
 
     public function store(Request $request)
     {
-        //     $validator = Validator::make($request->all(),[
-        //         'dateStart' => 'required',
-        //         'dateEnd' => 'required',
-        //         'time' => 'required',
-        //         'name' => 'required',
-        //         'cost' => 'required',
-        //         'description'=> 'required',
-        //         'maxPersons' => 'required'
-        //    ]);
-
-        //     if ($validator->fails()) {
-        //         return response()->json('Los campos son requeridos!', 400);
-        //     }
-
-
         $article = new Article();
         $article->NUM_REF_INTER = $request->input('numRefInter');
         $article->OTRA_REF = $request->input('otherRef');
@@ -106,13 +134,14 @@ class ArticleController extends Controller
         $article->ESTADO_CONSERVACION = $request->input('conservationStatus');
         $article->ESTATUS_LEGAL = $request->input('legalStatus');
         $article->VALOR = $request->input('value');
+        $article->TIPO_MONEDA = $request->input('typeCoin');
         $article->RASGO_DISTINTIVO = $request->input('distinguishingFeature');
         $article->LOCALIZACION = $request->input('location');
         $article->FRAGMENTADO = $request->input('fragmented');
         $article->REPLICA = $request->input('replica');
         $article->CEDULA_DONANTE = $request->input('cedulaDonor');
         $article->COD_QR = 'No tiene';
-        $article->USUARIO = 'Juan';
+        $article->USUARIO = Auth::user()->name;
 
         $article->save();
 
@@ -151,6 +180,7 @@ class ArticleController extends Controller
         $article->ESTADO_CONSERVACION = $request->input('conservationStatus');
         $article->ESTATUS_LEGAL = $request->input('legalStatus');
         $article->VALOR = $request->input('value');
+        $article->TIPO_MONEDA = $request->input('typeCoin');
         $article->RASGO_DISTINTIVO = $request->input('distinguishingFeature');
         $article->LOCALIZACION = $request->input('location');
         $article->FRAGMENTADO = $request->input('fragmented');

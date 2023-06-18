@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('OTRA_REF',20)->nullable();
             $table->string('NOMBRE',30);
             $table->string('TITULO',20);
-            $table->string('TIPO_OBJETO',20);
+            $table->string('TIPO_OBJETO',250);
             $table->string('TIPO_ADQUISICION',20);
             $table->float('ANCHO',8,2)->nullable();
             $table->string('MEDIDA_ANCHO',20);
@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('ESTADO_CONSERVACION',20);
             $table->string('ESTATUS_LEGAL',20);
             $table->float('VALOR', 10,2);
+            $table->string('TIPO_MONEDA',50);
             $table->string('RASGO_DISTINTIVO',50);
             $table->string('LOCALIZACION',50);
             $table->string('FRAGMENTADO',40)->nullable();

@@ -1,5 +1,5 @@
 import axios from 'axios'
-const apiUrl = 'http://127.0.0.1:8000/api/restaurations'
+const apiUrl = 'restaurations'
 
 export default {
   getRestaurations() {
@@ -13,6 +13,14 @@ export default {
     console.log($id)
     return axios
       .get(`${apiUrl}/getRestauration?id=` + $id)
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error))
+  },
+
+  getRestaurationsByArticle($id) {
+    console.log($id)
+    return axios
+      .get(`${apiUrl}/getRestaurationsByArticle?id=` + $id)
       .then((response) => response.data)
       .catch((error) => Promise.reject(error))
   },

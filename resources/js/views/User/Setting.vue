@@ -182,7 +182,7 @@ export default {
       if (this.roleSelect == '0') {
         return (this.errorMessage = 'Error, ¡Debe seleccionar un rol!')
       }
-      this.clear();
+      this.clear()
       const datos = {
         name: this.name,
         password: this.password,

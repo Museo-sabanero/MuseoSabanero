@@ -29,79 +29,69 @@ class RestaurationController extends Controller
      */
     public function getRestaurations()
     {
-        $restaurations = Restauration::on('mysql')
-            ->orderByDesc('id')
-            ->get();
 
         $restaurationsWithArticles = collect();
-        $articles = collect();
 
-        foreach ($restaurations as $restauration) {
-            $artRestauration = ArtRestauration::on('mysql')
-                ->where("MS_ART_RESTAURACION.id", $restauration->id)
-                ->get();
+        $artRestauration = ArtRestauration::on('mysql')
+        ->orderByDesc('id')
+        ->get();
 
-            foreach ($artRestauration as $art) {
-                $article = Article::on('mysql')
-                    ->where("MS_ARTICULO.id", $art->ID_ARTICULO)
-                    ->first();
-                $articles->push($article);
-            }
+        foreach ($artRestauration as $art){
 
-            $articlesResource = $articles->map(function ($article) {
-                return new ArticleResource($article);
-            });
+            $restaurations = Restauration::on('mysql')
+            ->where('MS_RESTAURACIONES.id', $art->ID_RESTAURACION)
+            ->first();
 
-            $restaurationWithArticles = new RestaurationResource($restauration);
+            $article = Article::on('mysql')
+                ->where("MS_ARTICULO.id", $art->ID_ARTICULO)
+                ->first();
+
+            $articlesResource = new ArticleResource($article);
+
+            $restaurationWithArticles = new RestaurationResource($restaurations);
             $restaurationWithArticles->articles = $articlesResource;
 
             $restaurationsWithArticles->push($restaurationWithArticles);
+
         }
 
         return response()->json($restaurationsWithArticles, 200);
     }
-    // public function getRestaurations()
-    // {
-    //     $restaurations = new Collection();
-    //     $restaurationsList = Restauration::on('mysql')
-    //         ->selectRaw("MS_RESTAURACION.*",)
-    //         ->orderByDesc('id')
-    //         ->get();
 
-    //     $restaurations = $restaurations->concat($restaurationsList);
+    public function getRestaurationsByArticle(Request $request)
+    {
 
+        $identification = $request->input('id');
+        $id = (int) $identification;
 
+        $restaurationsWithArticles = collect();
 
-    //     foreach ($restaurations as $restauration) {
+        $artRestauration = ArtRestauration::on('mysql')
+        ->where('MS_ART_RESTAURACION.ID_ARTICULO', $id)
+        ->get();
 
-    //         // Obtener la información de las art restauraciones
-    // $artRestauration = ArtRestauration::on('mysql')
-    // ->where("MS_ART_RESTAURACION.id", $id)
-    // ->get();
-    // // Crear una lista vacía para los artículos
-    // $articles = [];
+        foreach ($artRestauration as $art){
 
-    // // Obtener la información de los artículos
-    // foreach ($artRestauration as $restauration) {
-    //     $article = Article::on('mysql')
-    //         ->where("MS_ARTICULO.id", $restauration->ID_ARTICULO)
-    //         ->get();
-    //     $articles[] = $article;
-    // }
+            $restaurations = Restauration::on('mysql')
+            ->where('MS_RESTAURACIONES.id', $art->ID_RESTAURACION)
+            ->first();
 
-    // // Pasar la información de las restauraciones y los artículos al recurso
-    // $restaurationResource = new RestaurationResource($restaurations);
-    // $restaurationResource->additional([
-    //     'articles' => $articles
-    // ]);
-    //     }
+            $article = Article::on('mysql')
+                ->where("MS_ARTICULO.id", $art->ID_ARTICULO)
+                ->first();
 
+            $articlesResource = new ArticleResource($article);
 
+            $restaurationWithArticles = new RestaurationResource($restaurations);
+            $restaurationWithArticles->articles = $articlesResource;
 
+            $restaurationsWithArticles->push($restaurationWithArticles);
 
-    // return response()->json($restaurationResource, 200);
-    // //return response()->json($identification, 200);
-    // }
+        }
+
+        return response()->json($restaurationsWithArticles, 200);
+    }
+
 
     public function getRestauration(Request $request)
     {
@@ -152,23 +142,9 @@ class RestaurationController extends Controller
 
     public function store(Request $request)
     {
-        // $validator = Validator::make($request->all(), [
-        //     'startDate' => 'required',
-        //     'endDate' => 'required',
-        //     'type' => 'required',
-        //     'articleId' => 'required',
-        //     'observations' => 'required',
-        //     'status' => 'required',
-        //     'userAuthorized' => 'required'
-        // ]);
-
-        // if ($validator->fails()) {
-        //     return response()->json('Los campos son requeridos!', 400);
-        // }
-
-
+   
         $restauration = new Restauration();
-        $restauration->USUARIO_REGISTRA_ENVIO = 1;
+        $restauration->USUARIO_REGISTRA_ENVIO = Auth::user()->name;
         $restauration->USUARIO_AUTORIZA_ENVIO = $request->input('userAutorizedSend');
         $restauration->TIPO_ARTICULO = $request->input('typeArticle');
         $restauration->FECHA_ENVIO = $request->input('dateSend');
@@ -177,7 +153,7 @@ class RestaurationController extends Controller
         $restauration->LUGAR_RESTAURACION = $request->input('placeRestauration');
         $restauration->DETALLE_ENVIO = $request->input('detailsSend');
         $restauration->COSTE = $request->input('cost');
-        $restauration->ESTADO = '0';
+        $restauration->ESTADO = 'E';
         $restauration->save();
 
         $findRestauration = Restauration::latest()->first();
@@ -207,7 +183,7 @@ class RestaurationController extends Controller
             return response()->json(['errorMessage' => $error], 404);
         }
 
-        $restauration->USUARIO_REGISTRA_ENVIO = 1;
+        $restauration->USUARIO_REGISTRA_ENVIO = Auth::user()->name;
         $restauration->USUARIO_AUTORIZA_ENVIO = $request->input('userAutorizedSend');
         $restauration->TIPO_ARTICULO = $request->input('typeArticle');
         $restauration->FECHA_ENVIO = $request->input('dateSend');
@@ -216,7 +192,7 @@ class RestaurationController extends Controller
         $restauration->LUGAR_RESTAURACION = $request->input('placeRestauration');
         $restauration->DETALLE_ENVIO = $request->input('detailsSend');
         $restauration->COSTE = $request->input('cost');
-        $restauration->ESTADO = '0';
+        //$restauration->ESTADO = 'E';
         $restauration->save();
 
         $artRestauration = ArtRestauration::on('mysql')
@@ -245,9 +221,9 @@ class RestaurationController extends Controller
 
         $restauration->DETALLE_RECIBIDO = $request->input('detailsReceived');
         $restauration->FECHA_RECIBIDO = $request->input('dateReceived');
-        $restauration->USUARIO_RECIBE = 1;
+        $restauration->USUARIO_RECIBE = Auth::user()->name;
         $restauration->USUARIO_AUTORIZA_RECIBIDO = $request->input('userAutorizedReceived');
-        $restauration->ESTADO = '1';
+        $restauration->ESTADO = 'A';
         $restauration->save();
 
         $data = [

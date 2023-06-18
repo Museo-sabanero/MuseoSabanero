@@ -43,11 +43,6 @@ class HistoryController extends Controller
         $identification = $request->input('id');
         $id = (int) $identification ;
 
-        //$events = new Collection();
-
-        // $event = Event::on('mysql')
-        //     ->where("MS_EVENTO.ID", $id)
-        //     ->first();
 
             $histories = History::on('mysql')
                 ->where("MS_HISTORIA.id", $id)
@@ -58,11 +53,8 @@ class HistoryController extends Controller
                 return response()->json(['errorMessage' => $error], 404);
             }
 
-           // $events = $events->concat($event);
-
 
         return response()->json(HistoryResource::collection($histories), 200);
-        //return response()->json($identification, 200);
     }
 
     public function getHistoryByArticle(Request $request)
@@ -71,11 +63,6 @@ class HistoryController extends Controller
         $identification = $request->input('id');
         $id = (int) $identification ;
 
-        //$events = new Collection();
-
-        // $event = Event::on('mysql')
-        //     ->where("MS_EVENTO.ID", $id)
-        //     ->first();
 
             $histories = History::on('mysql')
                 ->where("MS_HISTORIA.ID_ARTICULO", $id)
@@ -86,29 +73,11 @@ class HistoryController extends Controller
                 return response()->json(['errorMessage' => $error], 404);
             }
 
-           // $events = $events->concat($event);
-
-
         return response()->json(HistoryResource::collection($histories), 200);
-        //return response()->json($identification, 200);
     }
 
     public function store(Request $request)
     {
-        //     $validator = Validator::make($request->all(),[
-    //         'dateStart' => 'required',
-    //         'dateEnd' => 'required',
-    //         'time' => 'required',
-    //         'name' => 'required',
-    //         'cost' => 'required',
-    //         'description'=> 'required',
-    //         'maxPersons' => 'required'
-    //    ]);
-
-    //     if ($validator->fails()) {
-    //         return response()->json('Los campos son requeridos!', 400);
-    //     }
-
 
     $history = new History();
     $history->MATERIAS = $request->input('materials');

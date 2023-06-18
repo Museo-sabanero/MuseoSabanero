@@ -14,7 +14,7 @@
     <!-- How do I order? Section Start -->
     <section class="how-do-section pt-0">
       <h3 class="font-theme font-md">Registrar usuarios:</h3>
-      <form ref="myForm">
+      <form ref="myForm" class="custom-form">
         <div class="row">
           <div class="col-md-12">
             <div class="steps-wrap">

@@ -1,19 +1,26 @@
 <template>
   <header class="header">
     <div class="logo-wrap">
-      <a href="#" @click="goBack()"
-        ><i class="iconly-Arrow-Left-Square icli"></i
-      ></a>
-      <h1 class="title-color font-md">Volver</h1>
+      <GoBack></GoBack>
     </div>
   </header>
   <main class="main-wrap login-page mb-xxl">
     <section class="login-section p-0">
-      <h3 class="font-theme font-md">Registrar Restauración</h3>
+      <h3 class="font-theme font-md">Actualizar Restauración</h3>
       <form class="custom-form" @submit.prevent="handleSubmit">
         <div style="text-align: left">
           <h4 class="title-color font-sm">Articulo:</h4>
         </div>
+        <div class="search-box">
+          <input
+            v-model="searchTerm"
+            class="form-control"
+            type="search"
+            placeholder="Buscar artículo por nombre o N° referencia, después despliega la selección."
+            @input="filterData()"
+          />
+        </div>
+        <br />
         <div>
           <select
             id="articleId"
@@ -26,7 +33,8 @@
               :key="articulo.id"
               :value="articulo.id"
             >
-              {{ articulo.name }}
+              Nombre: {{ articulo.name }}, Número de referencia:
+              {{ articulo.numRefInter }}
             </option>
           </select>
           <p
@@ -38,25 +46,17 @@
         </div>
         <div style="text-align: left">
           <br />
-          <h4 class="title-color font-sm">Tipo:</h4>
+          <h4 class="title-color font-sm">Tipo de artículo:</h4>
         </div>
         <div>
-          <select
+          <input
             id="typeArticle"
             v-model="formData.typeArticle"
+            maxlength="200"
+            type="text"
+            required
             class="form-control"
-          >
-            <option value="">Seleccione el tipo</option>
-            <option value="A">Artesanía</option>
-            <option value="T">Herramienta de trabajo</option>
-            <option value="C">Herramienta de cocina</option>
-          </select>
-          <p
-            v-if="showErrorTypeArticle && !formData.typeArticle"
-            style="color: red"
-          >
-            Debe seleccionar un tipo
-          </p>
+          />
         </div>
         <div style="text-align: left">
           <br />
@@ -143,7 +143,7 @@
         <div style="text-align: left">
           <br />
           <h4 class="title-color font-sm">
-            Coste de la restauración: (Si no tiene coste coloque un 0)
+            Costo de la restauración: (Si no tiene costo coloque un 0)
           </h4>
         </div>
         <div>
@@ -189,8 +189,12 @@
 import Restaurations from '../../services/RestaurationService'
 import Articles from '../../services/ArticleService'
 import Users from '../../services/User'
+import GoBack from '../../components/GoBack.vue'
 export default {
   name: 'RestaurationUpdate',
+  components: {
+    GoBack,
+  },
   props: {
     id: {
       type: Number,
@@ -201,6 +205,7 @@ export default {
     return {
       users: [],
       articles: [],
+      articlesFilter: [],
       formData: {
         id: 1,
         userAutorizedSend: '',
@@ -218,6 +223,7 @@ export default {
       showErrorUserAutorized: false,
       showErrorStatus: false,
       list: [],
+      objects: [],
     }
   },
   async mounted() {
@@ -227,10 +233,22 @@ export default {
       console.log(this.articles)
     })
 
+    this.articles.sort((a, b) => {
+      // Compara los títulos de los artículos en orden alfabético
+      return a.name.localeCompare(b.name)
+    })
+
+    this.articlesFilter = this.articles
+
     await Users.getUser().then((data) => {
       console.log(data)
       this.users = data
       console.log(this.users)
+    })
+
+    await Articles.getTypeObjects().then((data) => {
+      console.log(data)
+      this.objects = data
     })
 
     await Restaurations.getRestauration(this.id).then((data) => {
@@ -258,9 +276,6 @@ export default {
       if (!this.formData.articleId) {
         return (this.showErrorArticleId = true)
       }
-      if (!this.formData.typeArticle) {
-        return (this.showErrorTypeArticle = true)
-      }
       console.log(this.formData)
       const registro = {
         id: this.formData.id,
@@ -283,6 +298,20 @@ export default {
     },
     goBack() {
       this.$router.push({ name: 'RestaurationView' })
+    },
+    filterData() {
+      const searchTerm = this.searchTerm.toLowerCase()
+      if (searchTerm === '') {
+        this.articles = [...this.articlesFilter]
+      } else {
+        console.log('entra a buscador ')
+        console.log(this.articlesFilter)
+        const expression = new RegExp(searchTerm, 'i')
+        this.articles = this.articlesFilter.filter(
+          (item) =>
+            expression.test(item.name) || expression.test(item.numRefInter)
+        )
+      }
     },
   },
 }

@@ -10,7 +10,7 @@
 export default {
   methods: {
     goBack() {
-      return this.$router.go(-1)
+      history.back()
     },
   },
 }

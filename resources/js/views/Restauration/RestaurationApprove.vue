@@ -1,10 +1,7 @@
 <template>
   <header class="header">
     <div class="logo-wrap">
-      <a href="#" @click="goBack()"
-        ><i class="iconly-Arrow-Left-Square icli"></i
-      ></a>
-      <h1 class="title-color font-md">Volver</h1>
+      <GoBack></GoBack>
     </div>
   </header>
   <main class="main-wrap login-page mb-xxl">
@@ -77,9 +74,13 @@
 <script>
 import Restaurations from '../../services/RestaurationService'
 import Articles from '../../services/ArticleService'
+import GoBack from '../../components/GoBack.vue'
 import Users from '../../services/User'
 export default {
   name: 'RestaurationApprove',
+  components: {
+    GoBack,
+  },
   props: {
     id: {
       type: Number,

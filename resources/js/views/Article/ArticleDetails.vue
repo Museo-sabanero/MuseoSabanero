@@ -2,10 +2,7 @@
   <!-- Main Start -->
   <header class="header">
     <div class="logo-wrap">
-      <a href="#" @click="goBack()"
-        ><i class="iconly-Arrow-Left-Square icli"></i
-      ></a>
-      <h1 class="title-color font-md">Volver</h1>
+      <GoBack></GoBack>
     </div>
   </header>
   <main class="main-wrap product-page mb-xxl">
@@ -14,8 +11,8 @@
       <div class="banner" style="display: flex; justify-content: center">
         <div>
           <img
-            src="/images/museo/frontPage.png"
-            alt="veg"
+            :src="imageUrl"
+            :alt="imageAlt"
             style="
               display: block;
               max-width: 50%;
@@ -66,6 +63,10 @@
               <p>
                 <strong>Estado de conservación: </strong>
                 {{ article.conservationStatus }}
+              </p>
+              <p>
+                <strong>Valor: </strong> {{ article.value }}
+                {{ article.typeCoin }}
               </p>
             </div>
             <div style="flex: 1">
@@ -228,6 +229,105 @@
             </div>
           </div>
           <!-- Accordion End -->
+          <div class="accordion-item">
+            <h2 id="headingThree" class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                Restauraciones del artículo
+              </button>
+            </h2>
+            <div
+              id="collapseFour"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <br />
+                <div
+                  style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                  "
+                >
+                  <div
+                    v-if="ListRestauration.length !== 0"
+                    class="offer-section pt-0"
+                  >
+                    <div class="offer">
+                      <div
+                        v-for="item in ListRestauration"
+                        :key="item.id"
+                        class="offer-wrap"
+                      >
+                        <div class="product-list media">
+                          <div class="media-body">
+                            <a class="font-sm">
+                              Artículo: {{ item.articles.name }}
+                            </a>
+                            <br />
+                            <span class="content-color font-xs"
+                              >Enviado a restauración: {{ item.dateSend }}
+                            </span>
+                            <br />
+                            <span class="content-color font-xs"
+                              >Encargado de realizar la restauración:
+                              {{ item.inChargeRestauration }}</span
+                            >
+                            <br />
+                            <span class="content-color font-xs"
+                              >Lugar donde se realiza la restauración:
+                              {{ item.placeRestauration }}</span
+                            >
+                            <br />
+                            <span class="content-color font-xs"
+                              >Costo: {{ item.cost }}</span
+                            >
+                            <br />
+                            <span class="content-color font-xs"
+                              >Usuario que autorizó:
+                              {{ item.userAutorizedSend }}</span
+                            >
+                            <br /><br />
+                            <span class="title-color font-sm"
+                              >{{ item.statusDescription }}
+                              <span
+                                class="badges-round bg-theme-theme font-xs"
+                                >{{ item.detailsSend }}</span
+                              >
+                              <span class="plus-minus">
+                                <div>
+                                  <router-link
+                                    class="btn-outline font-md text-center"
+                                    :to="{
+                                      name: 'RestaurationDetails',
+                                      params: { id: item.id },
+                                    }"
+                                    >Detalle</router-link
+                                  >
+                                </div>
+                              </span>
+                              <span class="plus-theme"
+                                ><i data-feather="plus"></i> </span
+                            ></span>
+                          </div>
+                        </div>
+                        <br />
+                      </div>
+                    </div>
+                  </div>
+                  <p v-else><strong>No posee restauraciones.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- Product Detail Accordian End -->
       </div>
@@ -291,7 +391,9 @@
 import Articles from '../../services/ArticleService'
 import Histors from '../../services/HistoryService'
 import Donors from '../../services/Donor'
+import Files from '../../services/FileService'
 import GoBack from '../../components/GoBack.vue'
+import Restaurations from '../../services/RestaurationService'
 import { saveAs } from 'file-saver'
 export default {
   name: 'ArticleDetails',
@@ -309,8 +411,8 @@ export default {
       List: [],
       searchTerm: '',
       originalList: [],
-      imageUrl: 'images/museo/aperos.jpg', // Ruta relativa de la imagen desde la carpeta public
-      imageAlt: 'Descripción de la imagen',
+      imageUrl: '', // Ruta relativa de la imagen desde la carpeta public
+      imageAlt: '',
       qrCodeSrc: '',
       article: {
         id: '',
@@ -333,6 +435,7 @@ export default {
         conservationStatus: '',
         legalStatus: '',
         value: '',
+        typeCoin: '',
         distinguishingFeature: '',
         location: '',
         fragmented: '',
@@ -349,6 +452,7 @@ export default {
         itemId: '',
       },
       donor: [],
+      ListRestauration: [],
     }
   },
   async mounted() {
@@ -371,7 +475,7 @@ export default {
         (this.article.otherRef = event.otherRef),
         (this.article.name = event.name),
         (this.article.title = event.title),
-        (this.article.objectType = event.objectTypeDescription),
+        (this.article.objectType = event.objectType),
         (this.article.acquisitionType = event.acquisitionTypeDescription),
         (this.article.width = event.width),
         (this.article.measureWidth = event.measureWidth),
@@ -386,6 +490,7 @@ export default {
         (this.article.conservationStatus = event.conservationStatusDescription),
         (this.article.legalStatus = event.legalStatusDescription),
         (this.article.value = event.value),
+        (this.article.typeCoin = event.typeCoin),
         (this.article.distinguishingFeature = event.distinguishingFeature),
         (this.article.location = event.location),
         (this.article.fragmented = event.fragmented),
@@ -411,6 +516,25 @@ export default {
       this.donor = data
     })
     console.log(this.donor)
+
+    await Restaurations.getRestaurationsByArticle(this.id).then((data) => {
+      console.log('rest')
+      console.log(data)
+      this.ListRestauration = data
+    })
+
+    await Files.getImageByIdArticle(this.id).then((data) => {
+      console.log('image')
+      console.log(data)
+      if (data == 'null') {
+        ;(this.imageUrl = '/images/museo/frontPage.png'), // Ruta relativa de la imagen desde la carpeta public
+          (this.imageAlt = 'Imagen de muestra')
+      } else {
+        ;(this.imageUrl = '/' + data.filePath), (this.imageAlt = data.fileName)
+      }
+
+      console.log(this.imageUrl)
+    })
   },
   methods: {
     downloadQRCode() {

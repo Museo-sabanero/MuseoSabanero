@@ -132,6 +132,17 @@ const routes = [
     }),
   },
   {
+    path: '/restauration/details/:id',
+    name: 'RestaurationDetails',
+    component: () =>
+      import(
+        /* webpackChunkName: "restaurationDetails" */ '../views/Restauration/RestaurationDetails.vue'
+      ),
+    props: (route) => ({
+      id: route.params.id,
+    }),
+  },
+  {
     path: '/restauration/aprrove/:id',
     name: 'RestaurationApprove',
     component: () =>

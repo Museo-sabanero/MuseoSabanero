@@ -56,10 +56,10 @@
                   style="max-width: 200px; margin: 0 auto"
                 >
                   <img
-                    src="/images/museo/frontPage.png"
+                    :src="item.imageUrl"
                     class="d-block mx-auto rounded"
                     style="max-width: 100%; height: auto; object-fit: cover"
-                    :alt="imageAlt"
+                    :alt="item.imageAlt"
                   />
                 </div>
               </span>
@@ -73,6 +73,7 @@
 </template>
 <script>
 import Articles from '../../services/ArticleService'
+import Files from '../../services/FileService'
 
 export default {
   name: 'ArticleView',
@@ -81,16 +82,30 @@ export default {
       List: [],
       searchTerm: '',
       originalList: [],
-      imageUrl: 'images/museo/frontPage.png', // Ruta relativa de la imagen desde la carpeta public
-      imageAlt: 'Descripción de la imagen',
     }
   },
   async mounted() {
-    await Articles.getArticles().then((data) => {
+    await Articles.getArticles().then(async (data) => {
       console.log(data)
-      this.List = data
+      this.List = data.map((item) => {
+        return {
+          ...item,
+          imageUrl: null,
+          imageAlt: null,
+        }
+      })
+      for (const item of this.List) {
+        await Files.getImageByIdArticle(item.id).then((data) => {
+          if (data == 'null') {
+            ;(item.imageUrl = '/images/museo/frontPage.png'), // Ruta relativa de la imagen desde la carpeta public
+              (item.imageAlt = 'Imagen de muestra')
+          } else {
+            ;(item.imageUrl = '/' + data.filePath),
+              (item.imageAlt = data.fileName)
+          }
+        })
+      }
       this.originalList = this.List
-      console.log(this.originalList)
     })
   },
   methods: {

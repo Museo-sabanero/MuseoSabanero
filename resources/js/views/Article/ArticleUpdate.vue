@@ -1,10 +1,7 @@
 <template>
   <header class="header">
     <div class="logo-wrap">
-      <a href="#" @click="goBack()"
-        ><i class="iconly-Arrow-Left-Square icli"></i
-      ></a>
-      <h1 class="title-color font-md">Volver</h1>
+      <GoBack></GoBack>
     </div>
   </header>
   <main class="main-wrap about-us-page mb-xxl">
@@ -16,7 +13,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bxs-spreadsheet"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Número de referencia:</h4>
                   <div class="input-box mt-3">
@@ -36,7 +33,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-expand-alt"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Otra referencia:</h4>
                   <div class="input-box mt-3">
@@ -56,7 +53,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bxs-rename"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Nombre:</h4>
                   <div class="input-box mt-3">
@@ -76,7 +73,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bxs-pen"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Título:</h4>
                   <div class="input-box mt-3">
@@ -96,26 +93,18 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bxs-color"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Tipo de objeto:</h4>
                   <div class="input-box mt-3">
-                    <select
+                    <input
                       id="objectType"
                       v-model="formData.objectType"
+                      maxlength="200"
+                      type="text"
+                      required
                       class="form-control"
-                    >
-                      <option value="">Seleccione tipo de objeto</option>
-                      <option value="A">Artesanía</option>
-                      <option value="T">Herramienta de trabajo</option>
-                      <option value="C">Herramienta de cocina</option>
-                    </select>
-                    <p
-                      v-if="showErrorObjectType && !formData.objectType"
-                      style="color: red"
-                    >
-                      Debe seleccionar tipo de objecto
-                    </p>
+                    />
                   </div>
                 </div>
               </div>
@@ -124,7 +113,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bxs-message-square-add"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Tipo de adquisición:</h4>
                   <div class="input-box mt-3">
@@ -153,7 +142,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-move-horizontal"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Ancho:</h4>
                   <div class="input-box mt-3">
@@ -173,7 +162,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-ruler"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Medida del ancho:</h4>
                   <div class="input-box mt-3">
@@ -201,7 +190,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-move-vertical"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Alto:</h4>
                   <div class="input-box mt-3">
@@ -221,7 +210,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-ruler"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Medida del alto:</h4>
                   <div class="input-box mt-3">
@@ -249,7 +238,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-expand-horizontal"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Largo:</h4>
                   <div class="input-box mt-3">
@@ -269,7 +258,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-ruler"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Medida del largo:</h4>
                   <div class="input-box mt-3">
@@ -297,7 +286,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-cross"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Diámetro:</h4>
                   <div class="input-box mt-3">
@@ -317,7 +306,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-ruler"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Medida del diámetro:</h4>
                   <div class="input-box mt-3">
@@ -348,7 +337,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-math"></i>></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Peso:</h4>
                   <div class="input-box mt-3">
@@ -368,7 +357,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-ruler"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Medida del peso:</h4>
                   <div class="input-box mt-3">
@@ -396,7 +385,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-question-mark"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Estado de conservación:</h4>
                   <div class="input-box mt-3">
@@ -429,7 +418,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span><i class="bx bx-question-mark"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Estado legal:</h4>
                   <div class="input-box mt-3">
@@ -457,9 +446,11 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-money"></i></span>
                 <div class="content">
-                  <h4 class="title-color font-sm">Valor:</h4>
+                  <h4 class="title-color font-sm">
+                    Valor: (Si no tiene un valor coloque un 0)
+                  </h4>
                   <div class="input-box mt-3">
                     <input
                       id="value"
@@ -478,19 +469,48 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-coin"></i></span>
                 <div class="content">
-                  <h4 class="title-color font-sm">Localización:</h4>
+                  <h4 class="title-color font-sm">Tipo de moneda:</h4>
                   <div class="input-box mt-3">
-                    <input
-                      id="location"
-                      v-model="formData.location"
-                      type="text"
-                      placeholder="Localización"
-                      class="form-control"
-                      required
-                    />
+                    <select id="typeCoin" v-model="formData.typeCoin">
+                      <option disabled value="">Elige una moneda</option>
+                      <option
+                        v-for="currency in currencies"
+                        :key="currency.value"
+                        :value="currency.value"
+                        class="form-control"
+                      >
+                        {{ currency.label }}
+                      </option>
+                    </select>
+                    <p
+                      v-if="showErrorCurrency && !formData.typeCoin"
+                      style="color: red"
+                    >
+                      Debe seleccionar un tipo de moneda, si no tiene valor
+                      seleccione "No aplica"
+                    </p>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="steps-wrap">
+            <div class="steps-box">
+              <span> <i class="bx bx-location-plus"></i></span>
+              <div class="content">
+                <h4 class="title-color font-sm">Localización:</h4>
+                <div class="input-box mt-3">
+                  <input
+                    id="location"
+                    v-model="formData.location"
+                    type="text"
+                    placeholder="Localización"
+                    class="form-control"
+                    required
+                  />
                 </div>
               </div>
             </div>
@@ -549,33 +569,72 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="steps-wrap">
-              <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
-                <div class="content">
-                  <h4 class="title-color font-sm">Donador:</h4>
-                  <div class="input-box mt-3">
-                    <select
-                      id="cedulaDonor"
-                      v-model="formData.cedulaDonor"
+          <div class="steps-wrap">
+            <div class="steps-box">
+              <span> <i class="bx bx-user"></i></span>
+              <div class="content">
+                <h4 class="title-color font-sm">Donador:</h4>
+                <div class="input-box mt-3">
+                  <select
+                    id="cedulaDonor"
+                    v-model="formData.cedulaDonor"
+                    class="form-control"
+                  >
+                    <option value="">Seleccione el donador</option>
+                    <option
+                      v-for="donor in donors"
+                      :key="donor.identification"
+                      :value="donor.identification"
+                    >
+                      {{ donor.name }}
+                    </option>
+                  </select>
+                  <p
+                    v-if="showErrorDonor && !formData.cedulaDonor"
+                    style="color: red"
+                  >
+                    Debe seleccionar un donador
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="steps-wrap">
+            <div class="steps-box">
+              <span> <i class="bx bx-image"></i></span>
+              <div class="content">
+                <h4 class="title-color font-sm">Imagen del articulo:</h4>
+                <div class="input-box mt-3">
+                  <div v-if="imageUrl">
+                    <img
+                      :src="imageUrl"
+                      style="max-width: 500px; max-height: 500px"
+                    />
+                    <input
+                      ref="fileInput"
+                      type="file"
+                      style="display: none"
+                      accept=".png, .jpg, .jpeg"
+                      @change="handleFileInput"
+                    />
+                    <br />
+                    <br />
+                    <button
+                      class="btn-solid"
+                      style="display: block; margin: 0 auto"
+                      @click="openFileInput"
+                    >
+                      Eliminar imagen
+                    </button>
+                  </div>
+                  <div v-else>
+                    <input
+                      ref="fileInput"
+                      type="file"
                       class="form-control"
-                    >
-                      <option value="">Seleccione el donador</option>
-                      <option
-                        v-for="donor in donors"
-                        :key="donor.identification"
-                        :value="donor.identification"
-                      >
-                        {{ donor.name }}
-                      </option>
-                    </select>
-                    <p
-                      v-if="showErrorDonor && !formData.cedulaDonor"
-                      style="color: red"
-                    >
-                      Debe seleccionar un donador
-                    </p>
+                      accept=".png, .jpg, .jpeg"
+                      @change="handleFileInput"
+                    />
                   </div>
                 </div>
               </div>
@@ -584,7 +643,7 @@
         </div>
         <div class="steps-wrap">
           <div class="steps-box">
-            <span> <i class="iconly-Location icli"></i></span>
+            <span> <i class="bx bxs-registered"></i></span>
             <div class="content">
               <h4 class="title-color font-sm">Rasgos distintivos:</h4>
               <div class="input-box mt-3">
@@ -606,7 +665,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bxs-customize"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Materiales:</h4>
                   <div class="input-box mt-3">
@@ -626,7 +685,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-list-minus"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Técnicas de manufactura:</h4>
                   <div class="input-box mt-3">
@@ -646,7 +705,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-bookmark-plus"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Inscripción de marcas:</h4>
                   <div class="input-box mt-3">
@@ -666,7 +725,7 @@
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
-                <span> <i class="bx bx-badge"></i></span>
+                <span> <i class="bx bx-history"></i></span>
                 <div class="content">
                   <h4 class="title-color font-sm">Antigüedad:</h4>
                   <div class="input-box mt-3">
@@ -686,7 +745,7 @@
         </div>
         <div class="steps-wrap">
           <div class="steps-box">
-            <span> <i class="iconly-Location icli"></i></span>
+            <span> <i class="bx bx-library"></i></span>
             <div class="content">
               <h4 class="title-color font-sm">Historia:</h4>
               <div class="input-box mt-3">
@@ -728,6 +787,7 @@
 <script>
 import Articles from '../../services/ArticleService'
 import Histors from '../../services/HistoryService'
+import Files from '../../services/FileService'
 import Donors from '../../services/Donor'
 import GoBack from '../../components/GoBack.vue'
 export default {
@@ -764,6 +824,7 @@ export default {
         conservationStatus: '',
         legalStatus: '',
         value: '',
+        typeCoin: '',
         distinguishingFeature: '',
         location: '',
         fragmented: '',
@@ -781,11 +842,12 @@ export default {
       },
       itemId: '',
       showPopup: false,
+      file: null,
+      imageUrl: null,
       list: [],
       listHistory: [],
       donors: [],
       showErrorDonor: false,
-      showErrorObjectType: false,
       showErrorAcquisitionType: false,
       showErrorConservationStatus: false,
       showErrorLegalStatus: false,
@@ -796,6 +858,7 @@ export default {
       showErrorLenght: false,
       showErrorDiameter: false,
       showErrorWeight: false,
+      showErrorCurrency: false,
       weights: [
         'Gramos (g)',
         'Kilogramos (kg)',
@@ -807,10 +870,16 @@ export default {
         'Milímetros (mm)',
         'Centímetros (cm)',
         'Metros (m)',
-        'Kilómetros (km)',
         'Pulgadas (in)',
         'Pies (ft)',
-        'Millas (mi)',
+      ],
+      currencies: [
+        { label: 'Colón costarricense', value: 'CRC' },
+        { label: 'Dólar estadounidense', value: 'USD' },
+        { label: 'Euro', value: 'EUR' },
+        { label: 'Dólar canadiense', value: 'CAD' },
+        { label: 'Peso mexicano', value: 'MXN' },
+        { label: 'No aplica', value: 'N/A' },
       ],
     }
   },
@@ -819,6 +888,7 @@ export default {
       console.log(data)
       this.donors = data
     })
+
     await Articles.getArticle(this.id).then((data) => {
       this.list = data
       var event = this.list[0]
@@ -843,6 +913,7 @@ export default {
         (this.formData.conservationStatus = event.conservationStatus),
         (this.formData.legalStatus = event.legalStatus),
         (this.formData.value = event.value),
+        (this.formData.typeCoin = event.typeCoin),
         (this.formData.distinguishingFeature = event.distinguishingFeature),
         (this.formData.location = event.location),
         (this.formData.fragmented = event.fragmented),
@@ -864,9 +935,6 @@ export default {
   },
   methods: {
     handleSubmit() {
-      if (!this.formData.objectType) {
-        return (this.showErrorObjectType = true)
-      }
       if (!this.formData.acquisitionType) {
         return (this.showErrorAcquisitionType = true)
       }
@@ -900,6 +968,9 @@ export default {
       if (!this.formData.measureWeight) {
         return (this.showErrorWeight = true)
       }
+      if (!this.formData.typeCoin) {
+        return (this.showErrorCurrency = true)
+      }
       console.log(this.formData)
       const article = {
         id: this.formData.id,
@@ -922,6 +993,7 @@ export default {
         conservationStatus: this.formData.conservationStatus,
         legalStatus: this.formData.legalStatus,
         value: this.formData.value,
+        typeCoin: this.formData.typeCoin,
         distinguishingFeature: this.formData.distinguishingFeature,
         location: this.formData.location,
         fragmented: this.formData.fragmented,
@@ -947,8 +1019,22 @@ export default {
       Histors.updateHistory(histo).then((dataHisto) => {
         console.log(dataHisto)
         console.log(histo)
-        this.$router.push('/article/index')
+        // this.$router.push('/article/index')
       })
+
+      if (this.file != null) {
+        const fileData = new FormData()
+        fileData.append('file', this.file)
+        fileData.append('elementId', this.formData.id)
+
+        console.log('data')
+        console.log(fileData)
+        Files.updateFile(fileData).then((dataFile) => {
+          console.log(dataFile)
+          console.log(fileData)
+        })
+      }
+      this.$router.push('/article/index')
     },
     deleteArticle() {
       console.log(this.formData)
@@ -963,7 +1049,30 @@ export default {
       })
     },
     goBack() {
-      this.$router.push({ name: 'Event' })
+      this.$router.push({
+        name: 'ArticleView',
+      })
+    },
+    handleDrop(e) {
+      e.preventDefault()
+      this.file = e.dataTransfer.files[0]
+      this.previewImage()
+    },
+    handleFileInput() {
+      this.file = this.$refs.fileInput.files[0]
+      this.previewImage()
+    },
+    openFileInput() {
+      //this.$refs.fileInput.click()
+      ;(this.file = null), (this.imageUrl = null)
+    },
+    previewImage() {
+      if (!this.file) return
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        this.imageUrl = e.target.result
+      }
+      reader.readAsDataURL(this.file)
     },
   },
 }
