@@ -33,8 +33,8 @@ class ArticleController extends Controller
         $articles = new Collection();
 
         $article = Article::on('mysql')
-            ->selectRaw("MS_ARTICULO.*",)
-            ->where("MS_ARTICULO.ESTADO", "A")
+            ->selectRaw("articulo.*",)
+            ->where("articulo.ESTADO", "A")
             ->orderByDesc('id')
             ->get();
 
@@ -49,7 +49,7 @@ class ArticleController extends Controller
         $object = new Collection();
 
         $objects = TypeObject::on('mysql')
-            ->selectRaw("MS_TIPO_OBJETO.*",)
+            ->selectRaw("objeto.*",)
             ->get();
 
         $objects = $objects->concat($object);
@@ -64,7 +64,7 @@ class ArticleController extends Controller
         $id = (int) $identification ;
 
             $objects = TypeObject::on('mysql')
-                ->where("MS_TIPO_OBJETO.id", $id)
+                ->where("objeto.id", $id)
                 ->first();
 
             if ($objects == null) {
@@ -81,7 +81,7 @@ class ArticleController extends Controller
         $id = (int) $identification;
 
         $article = Article::on('mysql')
-            ->where("MS_ARTICULO.id", $id)
+            ->where("articulo.id", $id)
             ->get();
 
         if ($article == null) {
@@ -100,7 +100,7 @@ class ArticleController extends Controller
         $id = (int) $identification;
 
         $article = Article::on('mysql')
-            ->where("MS_ARTICULO.id", $id)
+            ->where("articulo.id", $id)
             ->get();
 
         if ($article == null) {

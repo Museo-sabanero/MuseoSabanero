@@ -13,7 +13,7 @@ class CreateMsArchivosTable extends Migration
      */
     public function up()
     {
-        Schema::create('MS_ARCHIVOS', function (Blueprint $table) {
+        Schema::create('archivos', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('ELEMENTO_ID');
             $table->string('FILENAME',150);
@@ -33,6 +33,6 @@ class CreateMsArchivosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('MS_ARCHIVOS');
+        Schema::dropIfExists('archivos');
     }
 }

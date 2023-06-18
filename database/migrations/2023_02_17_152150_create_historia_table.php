@@ -9,12 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      *
-     * @return void 
+     * @return void
      */
     public function up()
     {
         //Diferentes atributos de la tabla Historia
-        Schema::create('MS_HISTORIA', function (Blueprint $table) {
+        Schema::create('historia', function (Blueprint $table) {
             $table->id();
             $table->string('MATERIAS',100);
             $table->string('MANUFACTURACION',200)->nullable();

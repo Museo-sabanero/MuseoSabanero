@@ -13,7 +13,7 @@ class CreateTipoObjetoTable extends Migration
      */
     public function up()
     {
-        Schema::create('MS_TIPO_OBJETO', function (Blueprint $table) {
+        Schema::create('objeto', function (Blueprint $table) {
             $table->id();
             $table->string('NOMBRE',100);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateTipoObjetoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('MS_TIPO_OBJETO');
+        Schema::dropIfExists('objeto');
     }
 }

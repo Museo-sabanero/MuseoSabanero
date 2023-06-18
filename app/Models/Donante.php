@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class Donante extends Model
 {
-    protected $table = 'MS_DONANTE';
+    protected $table = 'donante';
     protected $primaryKey = 'ID'; // change to whatever your primary key is
 
       /**
@@ -34,11 +34,11 @@ class Donante extends Model
     public function getStatusAttribute(){
         return trim($this->attributes['ESTADO']);
     }
-    
+
     public function getDateAttribute(){
         return trim($this->attributes['created_at']);
     }
-    
+
     public function getStatus()
     {
 
@@ -54,7 +54,7 @@ class Donante extends Model
         }
     }
 
-    
+
     public function getFormatDate()
     {
         $formatted_date = Carbon::parse($this->date)->format('Y-m-d H:i:s');

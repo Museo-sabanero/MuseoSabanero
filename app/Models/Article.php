@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class Article extends Model
 {
-    protected $table = 'MS_ARTICULO';
+    protected $table = 'articulo';
     protected $primaryKey = 'id'; // change to whatever your primary key is
 
       /**
