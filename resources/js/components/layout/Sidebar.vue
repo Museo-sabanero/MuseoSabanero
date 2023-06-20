@@ -10,7 +10,7 @@
       <div class="user-panel">
         <div class="media">
           <a href="#">
-            <img src="public/images/avatar/avatar.jpg" alt="avatar"
+            <img src="/public/images/avatar/avatar.jpg" alt="avatar"
           /></a>
           <div class="media-body">
             <a class="title-color font-sm"
