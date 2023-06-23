@@ -359,7 +359,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
       return $data.passwordConfirm = $event;
     }),
-    maxlength: "12",
+    maxlength: "50",
     type: "password",
     placeholder: "Confirme la contraseña",
     required: "",

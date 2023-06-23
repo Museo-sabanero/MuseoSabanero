@@ -2,8 +2,8 @@ import { createWebHistory, createRouter } from 'vue-router'
 
 const routes = [
   {
-    path: '/home',
-    name: 'Home',
+    path: '/',
+    name: 'App',
     component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
   },
   {
@@ -103,6 +103,12 @@ const routes = [
     name: 'SettingUser',
     component: () =>
       import(/* webpackChunkName: "setting" */ '../views/User/Setting.vue'),
+  },
+  {
+    path: '/resources/index',
+    name: 'Resources',
+    component: () =>
+      import(/* webpackChunkName: "setting" */ '../views/Resources/Resources.vue'),
   },
   {
     path: '/restauration/index',

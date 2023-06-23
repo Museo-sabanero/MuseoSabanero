@@ -2,9 +2,9 @@
   <footer class="footer-wrap">
     <ul class="footer">
       <li class="footer-item active">
-        <a class="footer-link" @click="goEvents()">
-          <i class="iconly-Calendar icli"></i>
-          <span>Eventos</span>
+        <a class="footer-link" @click="goToHome()">
+          <i class="iconly-Home icli"></i>
+          <span>Home</span>
         </a>
       </li>
       <li class="footer-item">
@@ -38,12 +38,12 @@ export default {
     router,
   },
   methods: {
-    goEvents() {
-      router.push('/event/index')
-    },
-
     goArticles() {
       router.push('/article/index')
+    },
+
+    goToHome() {
+      router.push('/home')
     },
 
     goDonors() {
