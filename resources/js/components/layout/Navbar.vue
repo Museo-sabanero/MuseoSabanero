@@ -4,7 +4,7 @@
       <li class="footer-item active">
         <a class="footer-link" @click="goToHome()">
           <i class="iconly-Home icli"></i>
-          <span>Home</span>
+          <span>Inicio</span>
         </a>
       </li>
       <li class="footer-item">

@@ -23591,7 +23591,7 @@ var _hoisted_3 = {
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "iconly-Home icli"
 }, null, -1 /* HOISTED */);
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Home", -1 /* HOISTED */);
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Inicio", -1 /* HOISTED */);
 var _hoisted_6 = [_hoisted_4, _hoisted_5];
 var _hoisted_7 = {
   "class": "footer-item"
@@ -24053,6 +24053,12 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [{
   path: '/',
   name: 'App',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | home */ "home").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Home.vue */ "./resources/js/views/Home.vue"));
+  }
+}, {
+  path: '/home',
+  name: 'Home',
   component: function component() {
     return __webpack_require__.e(/*! import() | home */ "home").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Home.vue */ "./resources/js/views/Home.vue"));
   }
