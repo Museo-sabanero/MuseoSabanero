@@ -26,8 +26,8 @@
         <ul>
           <li>
             <router-link to="/home" class="nav-link title-color font-sm">
-              <i class="iconly-Graph icli"></i>
-              <span>Panel</span>
+              <i class="iconly-Home icli"></i>
+              <span>Inicio</span>
             </router-link>
             <router-link class="arrow" to="/home"
               ><i class="bx bxs-chevron-right"></i
@@ -102,6 +102,18 @@
               <span>Historial</span>
             </router-link>
             <router-link class="arrow" to="/home"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+          <li>
+            <router-link
+              to="/resources/index"
+              class="nav-link title-color font-sm"
+            >
+              <i class="iconly-Info-Circle"></i>
+              <span>Recursos</span>
+            </router-link>
+            <router-link class="arrow" to="/resources/index"
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>
