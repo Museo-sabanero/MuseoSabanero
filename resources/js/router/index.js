@@ -2,6 +2,11 @@ import { createWebHistory, createRouter } from 'vue-router'
 
 const routes = [
   {
+    path: '/',
+    name: 'App',
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
+  },
+  {
     path: '/home',
     name: 'Home',
     component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
@@ -152,6 +157,14 @@ const routes = [
     props: (route) => ({
       id: route.params.id,
     }),
+  },
+  {
+    path: '/resources/index',
+    name: 'ResourcesView',
+    component: () =>
+      import(
+        /* webpackChunkName: "ResourcesView" */ '../views/Resources/Resources.vue'
+      ),
   },
 ]
 const router = createRouter({
