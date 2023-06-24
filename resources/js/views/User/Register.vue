@@ -146,7 +146,7 @@
                   <div class="input-box mt-3">
                     <input
                       v-model="passwordConfirm"
-                      maxlength="12"
+                      maxlength="50"
                       type="password"
                       placeholder="Confirme la contraseña"
                       required

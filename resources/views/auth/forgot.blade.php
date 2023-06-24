@@ -2,8 +2,6 @@
 
 @section('content')
 <main class="main-wrap login-page mt-2">
-    <img class="logo" src="{{ asset('public/images/logo/logo.png')}}" alt="logo" />
-    <img class="logo logo-w" src="{{ asset('public/images/logo/logo-w.png')}}" alt="logo" />
     <header class="header">
         <div class="logo-wrap">
             <a href="login"><i class="iconly-Arrow-Left-Square icli"></i></a>
@@ -33,7 +31,7 @@
             <!-- Login Form Start -->
             <form action="forgot" class="custom-form">
                 @csrf
-                <h1 class="font-md title-color fw-600">Olvidó contraseña</h1>
+                <h1 class="font-md title-color fw-600">Recuperamiento</h1>
 
                 <!-- Email Input start -->
                 <div class="input-box">
