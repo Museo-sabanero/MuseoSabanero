@@ -798,7 +798,7 @@ export default {
   props: {
     id: {
       type: Number,
-        : true,
+      required : true,
     },
   },
   data() {
