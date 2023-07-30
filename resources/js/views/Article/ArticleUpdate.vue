@@ -23,7 +23,7 @@
                       type="text"
                       placeholder="Número de referencia"
                       class="form-control"
-
+                     required
                     />
                   </div>
                 </div>
@@ -43,7 +43,7 @@
                       type="text"
                       placeholder="Otra Referencia"
                       class="form-control"
-
+                      required
                     />
                   </div>
                 </div>
