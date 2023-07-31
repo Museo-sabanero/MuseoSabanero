@@ -60,6 +60,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       mostrar: false,
       nota: '',
+      mostrarErrorNota: false,
       tipoModal: 0,
       formData: {
         id: '',
@@ -216,6 +217,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (!this.formData.typeCoin) {
         return this.showErrorCurrency = true;
       }
+      if (this.nota.trim() === '') {
+        return this.mostrarErrorNota = true;
+      }
       console.log(this.formData);
       var article = {
         id: this.formData.id,
@@ -292,6 +296,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     deleteArticle: function deleteArticle() {
       var _this2 = this;
+      if (this.nota.trim() === '') {
+        return this.mostrarErrorNota = true;
+      }
       console.log(this.formData);
       var registro = {
         id: this.formData.id
@@ -1249,10 +1256,21 @@ var _hoisted_282 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElemen
   type: "submit",
   "class": "btn-solid w-100"
 }, "Listo", -1 /* HOISTED */);
-var _hoisted_283 = [_hoisted_282];
+var _hoisted_283 = {
+  key: 0,
+  style: {
+    "color": "red"
+  }
+};
 var _hoisted_284 = {
   key: 1,
   "class": "card-footer text-center"
+};
+var _hoisted_285 = {
+  key: 0,
+  style: {
+    "color": "red"
+  }
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_GoBack = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("GoBack");
@@ -1559,7 +1577,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     rows: "15",
     cols: "40",
     placeholder: "Escriba aquí..."
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.nota]])]), $data.tipoModal === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_281, _hoisted_283)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.tipoModal === 2 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_284, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.nota]])]), $data.tipoModal === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_281, [_hoisted_282, $data.mostrarErrorNota ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_283, "¡El campo Nota es requerido!")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.tipoModal === 2 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_284, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[35] || (_cache[35] = function () {
       return $options.deleteArticle && $options.deleteArticle.apply($options, arguments);
     }),
@@ -1567,7 +1585,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     style: {
       "background-color": "red"
     }
-  }, "Listo")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  }, "Listo"), $data.mostrarErrorNota ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_285, "¡El campo Nota es requerido!")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     type: "button",
     "class": "btn btn-primary w-100",
     style: {

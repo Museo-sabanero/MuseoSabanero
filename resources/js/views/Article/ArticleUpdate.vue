@@ -783,9 +783,11 @@
                 </div>
                 <div v-if="tipoModal === 1" class="card-footer text-center">
                    <button type="submit" class="btn-solid w-100">Listo</button>                
+                   <div v-if="mostrarErrorNota" style="color: red">¡El campo Nota es requerido!</div>
                 </div>
                 <div v-if="tipoModal === 2" class="card-footer text-center">
-                   <button @click="deleteArticle" class="btn-solid w-100" style="background-color: red;">Listo</button>                
+                   <button @click="deleteArticle" class="btn-solid w-100" style="background-color: red;">Listo</button> 
+                   <div v-if="mostrarErrorNota" style="color: red">¡El campo Nota es requerido!</div>           
                 </div>
               </div>
             </div>
@@ -827,6 +829,7 @@ export default {
     return {
       mostrar: false,
       nota: '',
+      mostrarErrorNota: false,
       tipoModal: 0,
       formData: {
         id: '',
@@ -1000,6 +1003,9 @@ export default {
       if (!this.formData.typeCoin) {
         return (this.showErrorCurrency = true)
       }
+      if (this.nota.trim() === '') {
+        return (this.mostrarErrorNota = true)
+      }
       console.log(this.formData)
       const article = {
         id: this.formData.id,
@@ -1080,6 +1086,9 @@ export default {
       this.$router.push('/article/index')
     },
     deleteArticle() {
+      if (this.nota.trim() === '') {
+        return (this.mostrarErrorNota = true)
+      }
       console.log(this.formData)
       const registro = {
         id: this.formData.id,
