@@ -630,13 +630,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GoBack.vue?vue&type=template&id=e0041ecc */ "./resources/js/components/GoBack.vue?vue&type=template&id=e0041ecc");
 /* harmony import */ var _GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GoBack.vue?vue&type=script&lang=js */ "./resources/js/components/GoBack.vue?vue&type=script&lang=js");
+<<<<<<< HEAD
 /* harmony import */ var D_Museo_el_sabanero_git_Jeank_DV_Jeank_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+=======
+/* harmony import */ var C_xampp_htdocs2_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+>>>>>>> 2cdc28075d23e1464813ddfa31c3f72c3e02f5b9
 
 
 
 
 ;
+<<<<<<< HEAD
 const __exports__ = /*#__PURE__*/(0,D_Museo_el_sabanero_git_Jeank_DV_Jeank_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/GoBack.vue"]])
+=======
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs2_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/GoBack.vue"]])
+>>>>>>> 2cdc28075d23e1464813ddfa31c3f72c3e02f5b9
 /* hot reload */
 if (false) {}
 
@@ -657,13 +665,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _RestaurationRegister_vue_vue_type_template_id_ac062d3a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RestaurationRegister.vue?vue&type=template&id=ac062d3a */ "./resources/js/views/Restauration/RestaurationRegister.vue?vue&type=template&id=ac062d3a");
 /* harmony import */ var _RestaurationRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RestaurationRegister.vue?vue&type=script&lang=js */ "./resources/js/views/Restauration/RestaurationRegister.vue?vue&type=script&lang=js");
+<<<<<<< HEAD
 /* harmony import */ var D_Museo_el_sabanero_git_Jeank_DV_Jeank_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+=======
+/* harmony import */ var C_xampp_htdocs2_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+>>>>>>> 2cdc28075d23e1464813ddfa31c3f72c3e02f5b9
 
 
 
 
 ;
+<<<<<<< HEAD
 const __exports__ = /*#__PURE__*/(0,D_Museo_el_sabanero_git_Jeank_DV_Jeank_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_RestaurationRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_RestaurationRegister_vue_vue_type_template_id_ac062d3a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Restauration/RestaurationRegister.vue"]])
+=======
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs2_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_RestaurationRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_RestaurationRegister_vue_vue_type_template_id_ac062d3a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Restauration/RestaurationRegister.vue"]])
+>>>>>>> 2cdc28075d23e1464813ddfa31c3f72c3e02f5b9
 /* hot reload */
 if (false) {}
 

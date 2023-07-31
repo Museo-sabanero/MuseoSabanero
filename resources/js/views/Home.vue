@@ -24,6 +24,44 @@
     </div>
   </main>
 </template>
+  <style>
+      .centrar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .contenedor {
+        position: relative;
+        width: 100vw;
+        height: 80vh;
+        overflow: hidden;
+        background-image: url('../../../public/images/museo/fondo2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        /* background-attachment: fixed;  */
+      }
+      .botones {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
+
+      .boton {
+        display: block;
+        padding:1rem;
+        background-color: #0d2d6d;
+        color: #f0f0f0;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+  </style>
+  
+
 <script>
 export default {
   name: 'Home',

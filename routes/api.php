@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\ArticleController;
 use App\Http\Controllers\Api\HistoryController;
 use App\Http\Controllers\Api\FileController;
 use App\Http\Controllers\Api\RestaurationController;
+use App\Http\Controllers\Api\BitacoraController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -86,6 +87,13 @@ Route::group(['prefix' => 'histories', 'as' => 'histories', 'middleware' => ['au
     Route::post('store', [HistoryController::class, 'store']);
     Route::post('update', [HistoryController::class, 'update']);
     Route::post('delete', [HistoryController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'bitacora', 'as' => 'bitacora', 'middleware' => ['auth:sanctum']], function () {
+    Route::get('/showBitacora', [BitacoraController::class, 'showBitacora']);
+    Route::get('/{id}/detailsBitacora', [BitacoraController::class, 'detailsBitacora']);
+    Route::get('/{id_articulo}/bitacoraByIdArticulo', [BitacoraController::class, 'bitacoraByIdArticulo']);
+    Route::post('/store', [BitacoraController::class, 'store']);
 });
 
 Route::group(['prefix' => 'files', 'as' => 'files', 'middleware' => ['auth:sanctum']], function () {

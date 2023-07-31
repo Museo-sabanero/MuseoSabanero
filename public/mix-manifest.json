@@ -18,5 +18,8 @@
     "/js/restaurationDetails.js": "/js/restaurationDetails.js",
     "/js/restaurationApprove.js": "/js/restaurationApprove.js",
     "/css/dark.css": "/css/dark.css",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/BitacoraView.js": "/js/BitacoraView.js",
+    "/js/detailsBitacora.js": "/js/detailsBitacora.js",
+    "/js/ResourcesView.js": "/js/ResourcesView.js"
 }

@@ -762,23 +762,45 @@
           </div>
         </div>
         <div class="col-md-12">
-          <button
-            type="submit"
-            class="btn-solid"
-            style="margin-top: 20px; width: 100%"
-          >
-            Guardar
-          </button>
+          <div>
+             <a class="btn-solid text-center" 
+              type="button" 
+              @click="mostrarModal(1)"
+              style="margin-top: 20px; width: 100%;">
+              Guardar
+            </a>                
+          </div>
+        </div>
+        <!-- Modal -->
+        <div v-if="mostrar == true">
+            <div class="modalNota">
+              <div class="card text-center">
+                <div class="card-header">
+                  <p class="font-theme font-lg">Nota para Bitacora</p>
+                </div>
+                <div class="card-content">
+                  <textarea v-model="nota" rows="15" cols="40" placeholder="Escriba aquí..."></textarea>
+                </div>
+                <div v-if="tipoModal === 1" class="card-footer text-center">
+                   <button type="submit" class="btn-solid w-100">Listo</button>                
+                </div>
+                <div v-if="tipoModal === 2" class="card-footer text-center">
+                   <button @click="deleteArticle" class="btn-solid w-100" style="background-color: red;">Listo</button>                
+                </div>
+              </div>
+            </div>
         </div>
       </form>
-      <button
-        type="submit"
-        class="btn btn-primary w-100"
-        style="background-color: red; margin-top: 20px"
-        @click="deleteArticle"
-      >
-        Inactivar Articulo
-      </button>
+      <div>
+        <a
+          type="button"
+          class="btn btn-primary w-100"
+          style="background-color: red; margin-top: 20px"
+          @click="mostrarModal(2)"
+          >
+          Inactivar Articulo
+        </a>
+      </div>
     </section>
     <!-- How do I order? Section End -->
   </main>
@@ -803,6 +825,9 @@ export default {
   },
   data() {
     return {
+      mostrar: false,
+      nota: '',
+      tipoModal: 0,
       formData: {
         id: '',
         numRefInter: '',
@@ -934,6 +959,10 @@ export default {
     })
   },
   methods: {
+    mostrarModal(tipo) {
+      this.tipoModal = tipo;
+      this.mostrar = true;
+    },
     handleSubmit() {
       if (!this.formData.acquisitionType) {
         return (this.showErrorAcquisitionType = true)
@@ -1022,6 +1051,18 @@ export default {
         // this.$router.push('/article/index')
       })
 
+      const bitacora = {
+        name: this.formData.name,
+        nota: this.nota,
+        status: 'A',
+        id_articulo: this.formData.id,
+      }
+
+      Bitacora.createBitacora(bitacora).then((dataBitacora) => {
+          console.log(dataBitacora)
+          console.log(bitacora)
+      })
+
       if (this.file != null) {
         const fileData = new FormData()
         fileData.append('file', this.file)
@@ -1034,6 +1075,8 @@ export default {
           console.log(fileData)
         })
       }
+      this.tipoModal = 0;
+      this.mostrar = false;
       this.$router.push('/article/index')
     },
     deleteArticle() {
@@ -1041,12 +1084,24 @@ export default {
       const registro = {
         id: this.formData.id,
       }
+      const bitacora = {
+        name: this.formData.name,
+        status: 'I',
+        nota: this.nota,
+        id_articulo: this.formData.id,
+      }
+      Bitacora.createBitacora(bitacora).then((dataBitacora) => {
+          console.log(dataBitacora)
+          console.log(bitacora)
+      })
       console.log(registro)
 
       Articles.deleteArticle(registro).then((data) => {
         console.log(data)
         this.$router.push('/article/index')
       })
+      this.mostrar = false
+      this.tipoModal = 0
     },
     goBack() {
       this.$router.push({
@@ -1077,3 +1132,17 @@ export default {
   },
 }
 </script>
+<style>
+.modalNota {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+

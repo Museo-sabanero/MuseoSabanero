@@ -164,6 +164,33 @@ const routes = [
       id: route.params.id,
     }),
   },
+  {
+    path: '/bitacora/index',
+    name: 'BitacoraView',
+    component: () =>
+      import(
+        /* webpackChunkName: "BitacoraView" */ '../views/Bitacora/Bitacora.vue'
+      ),
+  },
+  {
+    path: '/bitacora/details/:id',
+    name: 'DetailsBitacora',
+    component: () =>
+      import(
+        /* webpackChunkName: "detailsBitacora" */ '../views/Bitacora/Details.vue'
+      ),
+    props: (route) => ({
+      id: route.params.id,
+    }),
+  },
+  {
+    path: '/resources/index',
+    name: 'ResourcesView',
+    component: () =>
+      import(
+        /* webpackChunkName: "ResourcesView" */ '../views/Resources/Resources.vue'
+      ),
+  },
 ]
 const router = createRouter({
   history: createWebHistory(),

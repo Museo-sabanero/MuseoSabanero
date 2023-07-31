@@ -23731,9 +23731,9 @@ var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "bx bxs-chevron-right"
 }, null, -1 /* HOISTED */);
 var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "iconly-Time-Circle"
+  "class": "iconly-Document"
 }, null, -1 /* HOISTED */);
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Historial", -1 /* HOISTED */);
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Bitácora", -1 /* HOISTED */);
 var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "bx bxs-chevron-right"
 }, null, -1 /* HOISTED */);
@@ -23906,7 +23906,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/deliveryhistory",
+    to: "/bitacora/index",
     "class": "nav-link title-color font-sm"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -23915,7 +23915,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": "arrow",
-    to: "/home"
+    to: "/bitacora/index"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_30];
@@ -24204,6 +24204,29 @@ var routes = [{
     return {
       id: route.params.id
     };
+  }
+}, {
+  path: '/bitacora/index',
+  name: 'BitacoraView',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | BitacoraView */ "BitacoraView").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Bitacora/Bitacora.vue */ "./resources/js/views/Bitacora/Bitacora.vue"));
+  }
+}, {
+  path: '/bitacora/details/:id',
+  name: 'DetailsBitacora',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | detailsBitacora */ "detailsBitacora").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Bitacora/Details.vue */ "./resources/js/views/Bitacora/Details.vue"));
+  },
+  props: function props(route) {
+    return {
+      id: route.params.id
+    };
+  }
+}, {
+  path: '/resources/index',
+  name: 'ResourcesView',
+  component: function component() {
+    return __webpack_require__.e(/*! import() | ResourcesView */ "ResourcesView").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Resources/Resources.vue */ "./resources/js/views/Resources/Resources.vue"));
   }
 }];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createRouter)({
@@ -52776,7 +52799,7 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\Museo el sabanero\
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
 /******/ 			if (chunkId === "home") return "js/home.js";
-/******/ 			if ({"donor":1,"detailsDonor":1,"event":1,"eventRegister":1,"evendUpdate":1,"ArticleView":1,"articleRegister":1,"articleUpdate":1,"articleDetails":1,"register":1,"setting":1,"RestaurationView":1,"restaurationRegister":1,"restaurationUpdate":1,"restaurationDetails":1,"restaurationApprove":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"donor":1,"detailsDonor":1,"event":1,"eventRegister":1,"evendUpdate":1,"ArticleView":1,"articleRegister":1,"articleUpdate":1,"articleDetails":1,"register":1,"setting":1,"RestaurationView":1,"restaurationRegister":1,"restaurationUpdate":1,"restaurationDetails":1,"restaurationApprove":1,"BitacoraView":1,"detailsBitacora":1,"ResourcesView":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
