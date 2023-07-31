@@ -95,13 +95,13 @@
           </li>
           <li>
             <router-link
-              to="/deliveryhistory"
+              to="/bitacora/index"
               class="nav-link title-color font-sm"
             >
-              <i class="iconly-Time-Circle"></i>
-              <span>Historial</span>
+              <i class="iconly-Document"></i>
+              <span>Bitácora</span>
             </router-link>
-            <router-link class="arrow" to="/home"
+            <router-link class="arrow" to="/bitacora/index"
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>

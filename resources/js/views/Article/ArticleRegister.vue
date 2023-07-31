@@ -778,6 +778,7 @@
 <script>
 import Articles from '../../services/ArticleService'
 import Histors from '../../services/HistoryService'
+import Bitacora from '../../services/BitacoraService'
 import Files from '../../services/FileService'
 import Donors from '../../services/Donor'
 import GoBack from '../../components/GoBack.vue'
@@ -950,12 +951,23 @@ export default {
           history: this.history.history,
           itemId: this.itemId,
         }
+        const bitacora = {
+          name: data.name,
+          status: "A",
+          nota: "Se creó por nuevo Artículo",
+          id_articulo: data.id,
+        }
 
         console.log(histo)
         Histors.createHistory(histo).then((dataHisto) => {
           console.log(dataHisto)
           console.log(histo)
           //this.$router.push('/article/index')
+        })
+        
+        Bitacora.createBitacora(bitacora).then((dataBitacora) => {
+          console.log(dataBitacora)
+          console.log(bitacora)
         })
 
         if (this.file != null) {
