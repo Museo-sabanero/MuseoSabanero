@@ -32,7 +32,7 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "centrar"
 };
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"contenedor\"><div class=\"contenido\"><div class=\"botones\"><a href=\"https://drive.google.com/file/d/10eurJLBvl5MIcNvsXHMYAE8XITYYPHsh/view?usp=sharing\" target=\"_self\" class=\"boton\"><i class=\"iconly-User2 icli\"></i> | Manual de Usuario </a><a href=\"https://drive.google.com/file/d/10f_ecLa_0Kakz4ifhCygO4GsNla_AbPn/view?usp=sharing\" target=\"_blank\" class=\"boton\"><i class=\"iconly-Setting icli\"></i> | Manual Técnico </a></div></div></div>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"contenedor\"><div class=\"contenido\"><div class=\"botones\"><a href=\"https://drive.google.com/file/d/1fgFhqS0hZ2_fEqIq_63Wp67Xjy3WXeSW/view?usp=sharing\" target=\"_self\" class=\"boton\"><i class=\"iconly-User2 icli\"></i> | Manual de Usuario </a><a href=\"https://drive.google.com/file/d/1tnoJnJ_1ouhl4U-jCpmpNhFwV5svQxCJ/view?usp=sharing\" target=\"_blank\" class=\"boton\"><i class=\"iconly-Setting icli\"></i> | Manual Técnico </a></div></div></div>", 1);
 var _hoisted_3 = [_hoisted_2];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, _hoisted_3);

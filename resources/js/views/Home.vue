@@ -4,7 +4,7 @@
       <div class="contenido">
         <div class="botones">
           <a
-            href="https://drive.google.com/file/d/10eurJLBvl5MIcNvsXHMYAE8XITYYPHsh/view?usp=sharing"
+            href="https://drive.google.com/file/d/1fgFhqS0hZ2_fEqIq_63Wp67Xjy3WXeSW/view?usp=sharing"
             target="_self"
             class="boton"
           >
@@ -12,7 +12,7 @@
             | Manual de Usuario
           </a>
           <a
-            href="https://drive.google.com/file/d/10f_ecLa_0Kakz4ifhCygO4GsNla_AbPn/view?usp=sharing"
+            href="https://drive.google.com/file/d/1tnoJnJ_1ouhl4U-jCpmpNhFwV5svQxCJ/view?usp=sharing"
             target="_blank"
             class="boton"
           >

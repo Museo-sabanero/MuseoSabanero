@@ -71,8 +71,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      manualUsuario: 'https://drive.google.com/file/d/10eurJLBvl5MIcNvsXHMYAE8XITYYPHsh/view?usp=sharing',
-      manualTecnico: 'https://drive.google.com/file/d/10f_ecLa_0Kakz4ifhCygO4GsNla_AbPn/view?usp=sharing'
+      manualUsuario: 'https://drive.google.com/file/d/1fgFhqS0hZ2_fEqIq_63Wp67Xjy3WXeSW/view?usp=sharing',
+      manualTecnico: 'https://drive.google.com/file/d/1tnoJnJ_1ouhl4U-jCpmpNhFwV5svQxCJ/view?usp=sharing'
     };
   }
 });
@@ -985,21 +985,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GoBack.vue?vue&type=template&id=e0041ecc */ "./resources/js/components/GoBack.vue?vue&type=template&id=e0041ecc");
 /* harmony import */ var _GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GoBack.vue?vue&type=script&lang=js */ "./resources/js/components/GoBack.vue?vue&type=script&lang=js");
-<<<<<<< HEAD
 /* harmony import */ var D_Museo_el_sabanero_git_Jeank_DV_Jeank_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-=======
-/* harmony import */ var C_xampp_htdocs2_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
->>>>>>> 2cdc28075d23e1464813ddfa31c3f72c3e02f5b9
 
 
 
 
 ;
-<<<<<<< HEAD
 const __exports__ = /*#__PURE__*/(0,D_Museo_el_sabanero_git_Jeank_DV_Jeank_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/GoBack.vue"]])
-=======
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs2_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/GoBack.vue"]])
->>>>>>> 2cdc28075d23e1464813ddfa31c3f72c3e02f5b9
 /* hot reload */
 if (false) {}
 
@@ -1020,21 +1012,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _DescargarGoogleDrive_vue_vue_type_template_id_846777f8__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DescargarGoogleDrive.vue?vue&type=template&id=846777f8 */ "./resources/js/views/Resources/DescargarGoogleDrive.vue?vue&type=template&id=846777f8");
 /* harmony import */ var _DescargarGoogleDrive_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DescargarGoogleDrive.vue?vue&type=script&lang=js */ "./resources/js/views/Resources/DescargarGoogleDrive.vue?vue&type=script&lang=js");
-<<<<<<< HEAD
 /* harmony import */ var D_Museo_el_sabanero_git_Jeank_DV_Jeank_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-=======
-/* harmony import */ var C_xampp_htdocs2_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
->>>>>>> 2cdc28075d23e1464813ddfa31c3f72c3e02f5b9
 
 
 
 
 ;
-<<<<<<< HEAD
 const __exports__ = /*#__PURE__*/(0,D_Museo_el_sabanero_git_Jeank_DV_Jeank_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_DescargarGoogleDrive_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DescargarGoogleDrive_vue_vue_type_template_id_846777f8__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Resources/DescargarGoogleDrive.vue"]])
-=======
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs2_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_DescargarGoogleDrive_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DescargarGoogleDrive_vue_vue_type_template_id_846777f8__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Resources/DescargarGoogleDrive.vue"]])
->>>>>>> 2cdc28075d23e1464813ddfa31c3f72c3e02f5b9
 /* hot reload */
 if (false) {}
 
@@ -1056,11 +1040,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Resources_vue_vue_type_template_id_7b683068__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Resources.vue?vue&type=template&id=7b683068 */ "./resources/js/views/Resources/Resources.vue?vue&type=template&id=7b683068");
 /* harmony import */ var _Resources_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Resources.vue?vue&type=script&lang=js */ "./resources/js/views/Resources/Resources.vue?vue&type=script&lang=js");
 /* harmony import */ var _Resources_vue_vue_type_style_index_0_id_7b683068_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Resources.vue?vue&type=style&index=0&id=7b683068&lang=css */ "./resources/js/views/Resources/Resources.vue?vue&type=style&index=0&id=7b683068&lang=css");
-<<<<<<< HEAD
 /* harmony import */ var D_Museo_el_sabanero_git_Jeank_DV_Jeank_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-=======
-/* harmony import */ var C_xampp_htdocs2_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
->>>>>>> 2cdc28075d23e1464813ddfa31c3f72c3e02f5b9
 
 
 
@@ -1068,11 +1048,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-<<<<<<< HEAD
 const __exports__ = /*#__PURE__*/(0,D_Museo_el_sabanero_git_Jeank_DV_Jeank_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Resources_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Resources_vue_vue_type_template_id_7b683068__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Resources/Resources.vue"]])
-=======
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs2_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Resources_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Resources_vue_vue_type_template_id_7b683068__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Resources/Resources.vue"]])
->>>>>>> 2cdc28075d23e1464813ddfa31c3f72c3e02f5b9
 /* hot reload */
 if (false) {}
 
@@ -1093,21 +1069,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Setting_vue_vue_type_template_id_cd6e32ea__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Setting.vue?vue&type=template&id=cd6e32ea */ "./resources/js/views/User/Setting.vue?vue&type=template&id=cd6e32ea");
 /* harmony import */ var _Setting_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Setting.vue?vue&type=script&lang=js */ "./resources/js/views/User/Setting.vue?vue&type=script&lang=js");
-<<<<<<< HEAD
 /* harmony import */ var D_Museo_el_sabanero_git_Jeank_DV_Jeank_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-=======
-/* harmony import */ var C_xampp_htdocs2_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
->>>>>>> 2cdc28075d23e1464813ddfa31c3f72c3e02f5b9
 
 
 
 
 ;
-<<<<<<< HEAD
 const __exports__ = /*#__PURE__*/(0,D_Museo_el_sabanero_git_Jeank_DV_Jeank_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Setting_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Setting_vue_vue_type_template_id_cd6e32ea__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/User/Setting.vue"]])
-=======
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs2_MuseoSabanero_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Setting_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Setting_vue_vue_type_template_id_cd6e32ea__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/User/Setting.vue"]])
->>>>>>> 2cdc28075d23e1464813ddfa31c3f72c3e02f5b9
 /* hot reload */
 if (false) {}
 
