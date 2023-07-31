@@ -63,7 +63,7 @@
                       type="text"
                       placeholder="Nombre"
                       class="form-control"
-                      required
+
                     />
                   </div>
                 </div>
@@ -83,7 +83,7 @@
                       type="text"
                       placeholder="Título"
                       class="form-control"
-                      required
+
                     />
                   </div>
                 </div>
@@ -102,7 +102,7 @@
                       v-model="formData.objectType"
                       maxlength="200"
                       type="text"
-                      required
+
                       class="form-control"
                     />
                   </div>
@@ -152,7 +152,7 @@
                       type="number"
                       placeholder="Ancho"
                       class="form-control"
-                      required
+
                     />
                   </div>
                 </div>
@@ -200,7 +200,7 @@
                       type="number"
                       placeholder="Alto"
                       class="form-control"
-                      required
+
                     />
                   </div>
                 </div>
@@ -248,7 +248,7 @@
                       type="number"
                       placeholder="Largo"
                       class="form-control"
-                      required
+
                     />
                   </div>
                 </div>
@@ -296,7 +296,7 @@
                       type="number"
                       placeholder="Diámetro"
                       class="form-control"
-                      required
+
                     />
                   </div>
                 </div>
@@ -347,7 +347,7 @@
                       type="number"
                       placeholder="Peso"
                       class="form-control"
-                      required
+
                     />
                   </div>
                 </div>
@@ -458,7 +458,7 @@
                       type="number"
                       placeholder="Valor"
                       class="form-control"
-                      required
+
                     />
                   </div>
                 </div>
@@ -508,7 +508,7 @@
                     type="text"
                     placeholder="Localización"
                     class="form-control"
-                    required
+
                   />
                 </div>
               </div>
@@ -652,7 +652,7 @@
                   type="text"
                   placeholder="Rasgos distintivos"
                   class="form-control"
-                  required
+
                 ></textarea>
               </div>
             </div>
@@ -674,7 +674,7 @@
                       type="text"
                       placeholder="Materiales"
                       class="form-control"
-                      required
+
                     />
                   </div>
                 </div>
@@ -694,7 +694,7 @@
                       type="text"
                       placeholder="Técnicas de manufactura"
                       class="form-control"
-                      required
+
                     />
                   </div>
                 </div>
@@ -714,7 +714,7 @@
                       type="text"
                       placeholder="Inscripción de marcas"
                       class="form-control"
-                      required
+
                     />
                   </div>
                 </div>
@@ -734,7 +734,7 @@
                       type="text"
                       placeholder="Antigüedad"
                       class="form-control"
-                      required
+
                     />
                   </div>
                 </div>
@@ -754,7 +754,7 @@
                   type="text"
                   placeholder="Historia"
                   class="form-control"
-                  required
+
                 ></textarea>
               </div>
             </div>

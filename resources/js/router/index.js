@@ -110,6 +110,12 @@ const routes = [
       import(/* webpackChunkName: "setting" */ '../views/User/Setting.vue'),
   },
   {
+    path: '/resources/index',
+    name: 'Resources',
+    component: () =>
+      import(/* webpackChunkName: "setting" */ '../views/Resources/Resources.vue'),
+  },
+  {
     path: '/restauration/index',
     name: 'RestaurationView',
     component: () =>
