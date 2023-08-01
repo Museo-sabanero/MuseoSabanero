@@ -811,6 +811,7 @@
 <script>
 import Articles from '../../services/ArticleService'
 import Histors from '../../services/HistoryService'
+import Bitacora from '../../services/BitacoraService'
 import Files from '../../services/FileService'
 import Donors from '../../services/Donor'
 import GoBack from '../../components/GoBack.vue'
