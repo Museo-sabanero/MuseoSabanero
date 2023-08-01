@@ -2,17 +2,17 @@
 
 return [
 
-    'name' => 'SGM',
+    'name' => 'Museo del sabanero',
     'manifest' => [
-        'name' => env('APP_NAME', 'Sistema de Gestión de Mensajería'),
-        'short_name' => 'SGM',
+        'name' => env('APP_NAME', 'MS'),
+        'short_name' => 'Museo del sabanero',
         'start_url' => '/',
         'background_color' => 'white',
-        'theme_color' => '#0baf9a',
+        'theme_color' => '#232B5D',
         'display' => 'standalone',
         'orientation'=> 'any',
         'status_bar'=> 'black',
-        'description' => 'SGM app',
+        'description' => 'MS app',
         'icons' => [
             '72x72' => [
                 'path' => '/images/icons/logo72.png',
@@ -65,8 +65,8 @@ return [
         ],
         'shortcuts' => [
             [
-                'name' => 'SGM',
-                'description' => 'Sistema de Gestión de Mensajería',
+                'name' => 'Museo del sabanero',
+                'description' => 'MUSEO DEL SABANERO',
                 'url' => '/shortcutlink1',
                 'icons' => [
                     "src" => "/images/icons/icon-72x72.png",
@@ -74,8 +74,8 @@ return [
                 ]
             ],
             [
-                'name' => 'SGM',
-                'description' => 'Sistema de Gestión de Mensajería',
+                'name' => 'Museo del sabanero',
+                'description' => 'MUSEO DEL SABANERO',
                 'url' => '/shortcutlink2'
             ]
         ],
