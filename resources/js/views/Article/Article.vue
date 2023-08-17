@@ -50,7 +50,13 @@
                   Detalles
                 </router-link>
               </div>
-              <span class="plus-minus">
+              <span
+                class="plus-minus"
+                style="
+                  border: 1px solid transparent;
+                  background-color: transparent;
+                "
+              >
                 <div
                   class="text-center"
                   style="max-width: 200px; margin: 0 auto border: 1px solid transparent;"
