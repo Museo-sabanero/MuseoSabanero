@@ -201,7 +201,11 @@ var _hoisted_17 = {
 var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 var _hoisted_20 = {
-  "class": "plus-minus"
+  "class": "plus-minus",
+  style: {
+    "border": "1px solid transparent",
+    "background-color": "transparent"
+  }
 };
 var _hoisted_21 = {
   "class": "text-center",
