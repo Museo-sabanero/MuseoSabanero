@@ -50,15 +50,21 @@
                   Detalles
                 </router-link>
               </div>
-              <span class="plus-minus">
+              <span
+                class="plus-minus"
+                style="
+                  border: 1px solid transparent;
+                  background-color: transparent;
+                "
+              >
                 <div
                   class="text-center"
-                  style="max-width: 200px; margin: 0 auto"
+                  style="max-width: 200px; margin: 0 auto border: 1px solid transparent;"
                 >
                   <img
                     :src="item.imageUrl"
                     class="d-block mx-auto rounded"
-                    style="max-width: 100%; height: auto; object-fit: cover"
+                    style="max-width: 75%; height: auto; object-fit: cover"
                     :alt="item.imageAlt"
                   />
                 </div>

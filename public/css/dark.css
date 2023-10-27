@@ -19420,3 +19420,7 @@ input:-webkit-autofill:focus {
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   background-color: #688ed9;
 }
+
+.card {
+  background-color: #22282c;
+}
