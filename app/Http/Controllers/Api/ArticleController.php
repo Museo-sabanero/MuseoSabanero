@@ -209,4 +209,5 @@ class ArticleController extends Controller
 
         return response()->json(new ArticleResource($article), 200);
     }
+    
 }

@@ -336,11 +336,11 @@
     <!-- Product Section Section End -->
 
     <!-- Product Review Section Start -->
-    <section class="product-review pb-0">
+    <section v-if="donor.length != 0" class="product-review pb-0">
       <div class="top-content">
         <h3 class="title-color">Donador</h3>
       </div>
-      <div class="review-wrap">
+      <div  class="review-wrap">
         <div class="review-box">
           <div class="media">
             <div v-if="donor.status == 'A'">
@@ -395,6 +395,8 @@ import Files from '../../services/FileService'
 import GoBack from '../../components/GoBack.vue'
 import Restaurations from '../../services/RestaurationService'
 import { saveAs } from 'file-saver'
+import Logout from '../../services/Logout.js'
+ 
 export default {
   name: 'ArticleDetails',
   components: {
@@ -455,21 +457,27 @@ export default {
       ListRestauration: [],
     }
   },
+  
   async mounted() {
-    await Articles.getArticles().then((data) => {
-      console.log(data)
-      this.List = data
-      this.originalList = this.List
-      console.log(this.originalList)
-    })
+
+    // await Articles.getArticles().then((data) => {
+    //   console.log(data)
+    //   this.List = data
+    //   this.originalList = this.List
+    //   console.log(this.originalList)
+    // })
     // Generamos el código QR con la dirección web actual
     const currentUrl = encodeURIComponent(window.location.href)
     this.qrCodeSrc = `https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${currentUrl}`
-
+    // await User.getUser().then((data) => {
+    //   console.log(data)
+      
+    // })
+    
     await Articles.getArticle(this.id).then((data) => {
       this.list = data
       var event = this.list[0]
-      console.log(data)
+      //console.log(data)
       ;(this.article.id = event.id),
         (this.article.numRefInter = event.numRefInter),
         (this.article.otherRef = event.otherRef),
@@ -499,7 +507,7 @@ export default {
     })
     await Histors.getHistoryByArticle(this.article.id).then((data) => {
       this.listHistory = data
-      console.log(data)
+      //console.log(data)
       var event = this.listHistory[0]
       ;(this.history.id = event.id),
         (this.history.materials = event.materials),
@@ -509,8 +517,10 @@ export default {
         (this.history.history = event.history),
         (this.history.itemId = event.itemId)
     })
-
-    console.log(this.article.cedulaDonor)
+    await Logout.getisAuth().then(async (data) => {
+      console.log(data);
+      if (data.isAuth){
+         console.log(this.article.cedulaDonor)
     await Donors.getDetailsByCedula(this.article.cedulaDonor).then((data) => {
       console.log(data)
       this.donor = data
@@ -523,9 +533,13 @@ export default {
       this.ListRestauration = data
     })
 
+      }
+    })
+    
+   
     await Files.getImageByIdArticle(this.id).then((data) => {
-      console.log('image')
-      console.log(data)
+      //console.log('image')
+      //console.log(data)
       if (data == 'null') {
         ;(this.imageUrl = '/images/museo/frontPage.png'), // Ruta relativa de la imagen desde la carpeta public
           (this.imageAlt = 'Imagen de muestra')

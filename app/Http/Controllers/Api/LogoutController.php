@@ -26,10 +26,20 @@ class LogoutController extends Controller
     
     public function userSession()
     {
-        $nickName = Auth::user()->nickname;
-        $name =  Auth::user()->name;
-        $role=  Auth::user()->role;
-        $isAdmin=  Auth::user()->isAdmin;
+        //dd(Auth::user());
+        if (Auth::user()==null) {
+            $nickName = 'public';
+            $name =  'public';
+            $role=  'public';
+            $isAdmin=  'public';
+        } else {
+            $nickName = Auth::user()->nickname;
+            $name =  Auth::user()->name;
+            $role=  Auth::user()->role;
+            $isAdmin=  Auth::user()->isAdmin;
+        }
+        
+       
         
         return response()->json([
             'user' => $nickName,
@@ -37,5 +47,17 @@ class LogoutController extends Controller
             'role'=> $role,
             'isAdmin' =>$isAdmin,
         ], 200);
+    }
+    public function isAuth()
+    {
+        if (Auth::user()==null) {
+            return response()->json([
+                'isAuth' => false
+            ], 200);
+        } else {
+            return response()->json([
+                'isAuth' => true
+            ], 200);
+        }
     }
 }

@@ -192,4 +192,5 @@ class UserController extends Controller
             return response($th->getMessage(), 500);
         }
     }
+    
 }
