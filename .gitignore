@@ -83,3 +83,9 @@ Homestead.json
 /vendor
 /public/.htacces
 node_modules
+
+/storage/framework/sessions
+/storage/framework/views
+/storage/framework/cache
+/storage/framework/testing
+.env

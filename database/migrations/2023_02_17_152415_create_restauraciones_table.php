@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('restauraciones', function (Blueprint $table) {
             $table->id();
-            $table->string('USUARIO_REGISTRA_ENVIO',150)->unsigned();
+            $table->string('USUARIO_REGISTRA_ENVIO',150);
             $table->bigInteger('USUARIO_AUTORIZA_ENVIO')->unsigned();
             $table->string('TIPO_ARTICULO',250);
             $table->string('FECHA_ENVIO',20);

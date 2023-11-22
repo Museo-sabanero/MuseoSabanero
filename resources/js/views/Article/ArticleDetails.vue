@@ -540,7 +540,9 @@ export default {
     downloadQRCode() {
       fetch(this.qrCodeSrc)
         .then((res) => res.blob())
-        .then((blob) => saveAs(blob, 'my-qr-code.png'))
+        .then((blob) =>
+          saveAs(blob, `${this.article.name} - ${this.article.numRefInter}.png`)
+        )
     },
     goBack() {
       this.$router.push({ name: 'ArticleView' })
@@ -548,3 +550,11 @@ export default {
   },
 }
 </script>
+
+<style>
+@@media print {
+  main * {
+    display: none !important;
+  }
+}
+</style>

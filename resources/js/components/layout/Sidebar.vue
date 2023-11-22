@@ -267,11 +267,13 @@ export default {
       })
     }
   },
-  async mounted() {
-    await Logout.getUser().then((data) => {
+  mounted() {
+    Logout.getUser().then((data) => {
       this.role = data.role
       this.name = data.name
       this.isAdmin = data.isAdmin
+
+      this.$store.dispatch('auth/login', data)
     })
   },
   beforeMount() {
