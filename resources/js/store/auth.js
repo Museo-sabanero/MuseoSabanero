@@ -24,9 +24,23 @@ export default {
     },
   },
   actions: {
+<<<<<<< HEAD
     login({ commit }, data) {
       commit('SET_USER', data)
       commit('SET_AUTHENTICATED', true)
+=======
+    async login({ commit }) {
+      try {
+        const { data } = await axios.get('/api/user')
+        console.log(data)
+        commit('SET_USER', data)
+        commit('SET_AUTHENTICATED', true)
+        router.push({ name: 'dashboard' })
+      } catch (error) {
+        commit('SET_USER', {})
+        commit('SET_AUTHENTICATED', false)
+      }
+>>>>>>> development
     },
     logout({ commit }) {
       commit('SET_USER', {})

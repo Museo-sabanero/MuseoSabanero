@@ -22,7 +22,7 @@
       </div>
 
       <!-- Navigation Start -->
-      <nav class="navigation">
+      <nav v-if="isAdmin != 'public'" class="navigation">
         <ul>
           <li>
             <router-link to="/event/index" class="nav-link title-color font-sm">
@@ -240,6 +240,7 @@ export default {
       isAdmin: null,
       showInstallButton: false,
       deferredPrompt: null,
+      hide: true,
     }
   },
   watch: {
@@ -267,14 +268,29 @@ export default {
       })
     }
   },
+<<<<<<< HEAD
   mounted() {
     Logout.getUser().then((data) => {
+=======
+  async mounted() {
+    await Logout.getisAuth().then((data) => {
+      this.hide=data.isAuth
+    })
+    if(this.hide){
+       await Logout.getUser().then((data) => {
+>>>>>>> development
       this.role = data.role
       this.name = data.name
       this.isAdmin = data.isAdmin
 
       this.$store.dispatch('auth/login', data)
     })
+    }else{
+      this.role = 'public'
+      this.name = 'public'
+      this.isAdmin = 'public'
+    }
+   
   },
   beforeMount() {
     document.querySelector('.dark-mode-styles').href = this.isDarkMode

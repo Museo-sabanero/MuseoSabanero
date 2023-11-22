@@ -84,8 +84,8 @@ Homestead.json
 /public/.htacces
 node_modules
 
+.env
 /storage/framework/sessions
 /storage/framework/views
 /storage/framework/cache
 /storage/framework/testing
-.env
