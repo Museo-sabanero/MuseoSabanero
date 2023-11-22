@@ -1,7 +1,6 @@
 const apiUrl = 'bitacora'
 
 export default {
-
   // Obtener todos la bitacora
   getBitacora() {
     return axios

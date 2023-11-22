@@ -6,11 +6,10 @@
     </div>
   </header>
   <main class="main-wrap product-page mb-xxl">
-
     <!-- Product Section Section Start -->
     <section class="product-section mt-1">
       <h1 class="font-md">Bitacora</h1>
-      
+
       <!-- Product Detail Start -->
       <div class="product-detail section-p-t">
         <div class="product-detail-box">
@@ -34,11 +33,14 @@
                 <strong>Creado por: </strong>
                 {{ bitacora.usuario }}
               </p>
-              
             </div>
             <div style="flex: 1">
-              <p v-if="bitacora.status == 'A'"><strong>Estado: </strong> Activo</p>
-              <p v-if="bitacora.status == 'I'"><strong>Estado: </strong> Inactivo</p>
+              <p v-if="bitacora.status == 'A'">
+                <strong>Estado: </strong> Activo
+              </p>
+              <p v-if="bitacora.status == 'I'">
+                <strong>Estado: </strong> Inactivo
+              </p>
               <p><strong>Fecha: </strong> {{ bitacora.fecha }}</p>
             </div>
           </div>
@@ -50,27 +52,31 @@
               <button
                 class="accordion-button"
                 type="button"
+                style="color: black; background-color: white"
                 @click="toggleAccordion"
-                style="color:black; background-color: white;"
               >
                 Record de Bitacora ({{ ListBitacora.length }})
               </button>
             </h2>
             <div v-if="isAccordionOpen" class="accordion-body">
-              <div style="justify-content: center;">
+              <div style="justify-content: center">
                 <div v-if="ListBitacora.length > 1" class="offer-section pt-0">
                   <div class="offer">
-                    <div v-for="item in ListBitacora" :key="item.id" class="offer-wrap">
+                    <div
+                      v-for="item in ListBitacora"
+                      :key="item.id"
+                      class="offer-wrap"
+                    >
                       <div class="row product-list media">
                         <div class="row">
                           <div>
-                            <div class="col-3 ">
+                            <div class="col-3">
                               Id de Bitacora: {{ item.id }}
                             </div>
-                            <div class="col-3 ">
+                            <div class="col-3">
                               Id de Artículo: {{ item.id_articulo }}
                             </div>
-                            <div class="col-6 ">
+                            <div class="col-6">
                               Artículo: {{ item.elemento }}
                             </div>
                           </div>
@@ -118,63 +124,63 @@
   </main>
   <!-- Main End -->
 </template>
-  <script>
-  import Bitacora from '../../services/BitacoraService'
-  import GoBack from '../../components/GoBack.vue'
-  export default {
-    name: 'DetailsBitacora',
-    components: {
-      GoBack,
+<script>
+import Bitacora from '../../services/BitacoraService'
+import GoBack from '../../components/GoBack.vue'
+export default {
+  name: 'DetailsBitacora',
+  components: {
+    GoBack,
+  },
+  props: {
+    id: {
+      type: Number,
+      required: true,
     },
-    props: {
-      id: {
-        type: Number,
-        required: true,
+  },
+  data() {
+    return {
+      isAccordionOpen: false,
+      List: [],
+      searchTerm: '',
+      originalList: [],
+      bitacora: {
+        id: '',
+        elemento: '',
+        usuario: '',
+        status: '',
+        nota: '',
+        fecha: '',
+        id_articulo: '',
       },
-    },
-    data() {
-      return {
-        isAccordionOpen: false,
-        List: [],
-        searchTerm: '',
-        originalList: [],
-        bitacora: {
-          id: '',
-          elemento: '',
-          usuario: '',
-          status: '',
-          nota: '',
-          fecha: '',
-          id_articulo: '',
-        },
-        ListBitacora: [],
-        
-      }
-    },
-    async mounted() {
-      await Bitacora.getDetails(this.id).then((data) => {
-        this.list = data
-        var datos = this.list[0];
-        (this.bitacora.id = datos.id),
+      ListBitacora: [],
+    }
+  },
+  async mounted() {
+    await Bitacora.getDetails(this.id).then((data) => {
+      this.list = data
+      var datos = this.list[0]
+      ;(this.bitacora.id = datos.id),
         (this.bitacora.elemento = datos.elemento),
         (this.bitacora.usuario = datos.usuario),
         (this.bitacora.status = datos.status),
         (this.bitacora.nota = datos.nota),
         (this.bitacora.fecha = datos.fecha),
         (this.bitacora.id_articulo = datos.id_articulo)
-      }),
-      await Bitacora.getBitacoraByIdArticulo(this.bitacora.id_articulo).then((data) => {
-        this.ListBitacora = data
-      })
+    }),
+      await Bitacora.getBitacoraByIdArticulo(this.bitacora.id_articulo).then(
+        (data) => {
+          this.ListBitacora = data
+        }
+      )
+  },
+  methods: {
+    goBack() {
+      this.$router.push({ name: 'IndexBitacora' })
     },
-    methods: {
-      goBack() {
-        this.$router.push({ name: 'IndexBitacora' })
-      },
-      toggleAccordion() {
-      this.isAccordionOpen = !this.isAccordionOpen;
-      },
+    toggleAccordion() {
+      this.isAccordionOpen = !this.isAccordionOpen
     },
-  }
-  </script>
-  
+  },
+}
+</script>

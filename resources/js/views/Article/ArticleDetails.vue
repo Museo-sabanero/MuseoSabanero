@@ -340,7 +340,7 @@
       <div class="top-content">
         <h3 class="title-color">Donador</h3>
       </div>
-      <div  class="review-wrap">
+      <div class="review-wrap">
         <div class="review-box">
           <div class="media">
             <div v-if="donor.status == 'A'">
@@ -396,7 +396,7 @@ import GoBack from '../../components/GoBack.vue'
 import Restaurations from '../../services/RestaurationService'
 import { saveAs } from 'file-saver'
 import Logout from '../../services/Logout.js'
- 
+
 export default {
   name: 'ArticleDetails',
   components: {
@@ -457,9 +457,8 @@ export default {
       ListRestauration: [],
     }
   },
-  
-  async mounted() {
 
+  async mounted() {
     // await Articles.getArticles().then((data) => {
     //   console.log(data)
     //   this.List = data
@@ -471,9 +470,9 @@ export default {
     this.qrCodeSrc = `https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${currentUrl}`
     // await User.getUser().then((data) => {
     //   console.log(data)
-      
+
     // })
-    
+
     await Articles.getArticle(this.id).then((data) => {
       this.list = data
       var event = this.list[0]
@@ -518,25 +517,25 @@ export default {
         (this.history.itemId = event.itemId)
     })
     await Logout.getisAuth().then(async (data) => {
-      console.log(data);
-      if (data.isAuth){
-         console.log(this.article.cedulaDonor)
-    await Donors.getDetailsByCedula(this.article.cedulaDonor).then((data) => {
       console.log(data)
-      this.donor = data
-    })
-    console.log(this.donor)
+      if (data.isAuth) {
+        console.log(this.article.cedulaDonor)
+        await Donors.getDetailsByCedula(this.article.cedulaDonor).then(
+          (data) => {
+            console.log(data)
+            this.donor = data
+          }
+        )
+        console.log(this.donor)
 
-    await Restaurations.getRestaurationsByArticle(this.id).then((data) => {
-      console.log('rest')
-      console.log(data)
-      this.ListRestauration = data
-    })
-
+        await Restaurations.getRestaurationsByArticle(this.id).then((data) => {
+          console.log('rest')
+          console.log(data)
+          this.ListRestauration = data
+        })
       }
     })
-    
-   
+
     await Files.getImageByIdArticle(this.id).then((data) => {
       //console.log('image')
       //console.log(data)

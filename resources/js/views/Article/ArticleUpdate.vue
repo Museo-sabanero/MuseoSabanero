@@ -23,7 +23,7 @@
                       type="text"
                       placeholder="Número de referencia"
                       class="form-control"
-                     required
+                      required
                     />
                   </div>
                 </div>
@@ -63,7 +63,6 @@
                       type="text"
                       placeholder="Nombre"
                       class="form-control"
-
                     />
                   </div>
                 </div>
@@ -83,7 +82,6 @@
                       type="text"
                       placeholder="Título"
                       class="form-control"
-
                     />
                   </div>
                 </div>
@@ -102,7 +100,6 @@
                       v-model="formData.objectType"
                       maxlength="200"
                       type="text"
-
                       class="form-control"
                     />
                   </div>
@@ -152,7 +149,6 @@
                       type="number"
                       placeholder="Ancho"
                       class="form-control"
-
                     />
                   </div>
                 </div>
@@ -200,7 +196,6 @@
                       type="number"
                       placeholder="Alto"
                       class="form-control"
-
                     />
                   </div>
                 </div>
@@ -248,7 +243,6 @@
                       type="number"
                       placeholder="Largo"
                       class="form-control"
-
                     />
                   </div>
                 </div>
@@ -296,7 +290,6 @@
                       type="number"
                       placeholder="Diámetro"
                       class="form-control"
-
                     />
                   </div>
                 </div>
@@ -347,7 +340,6 @@
                       type="number"
                       placeholder="Peso"
                       class="form-control"
-
                     />
                   </div>
                 </div>
@@ -458,7 +450,6 @@
                       type="number"
                       placeholder="Valor"
                       class="form-control"
-
                     />
                   </div>
                 </div>
@@ -509,7 +500,6 @@
                     type="text"
                     placeholder="Localización"
                     class="form-control"
-
                   />
                 </div>
               </div>
@@ -653,7 +643,6 @@
                   type="text"
                   placeholder="Rasgos distintivos"
                   class="form-control"
-
                 ></textarea>
               </div>
             </div>
@@ -675,7 +664,6 @@
                       type="text"
                       placeholder="Materiales"
                       class="form-control"
-
                     />
                   </div>
                 </div>
@@ -695,7 +683,6 @@
                       type="text"
                       placeholder="Técnicas de manufactura"
                       class="form-control"
-
                     />
                   </div>
                 </div>
@@ -715,7 +702,6 @@
                       type="text"
                       placeholder="Inscripción de marcas"
                       class="form-control"
-
                     />
                   </div>
                 </div>
@@ -735,7 +721,6 @@
                       type="text"
                       placeholder="Antigüedad"
                       class="form-control"
-
                     />
                   </div>
                 </div>
@@ -755,7 +740,6 @@
                   type="text"
                   placeholder="Historia"
                   class="form-control"
-
                 ></textarea>
               </div>
             </div>
@@ -763,34 +747,51 @@
         </div>
         <div class="col-md-12">
           <div>
-             <a class="btn-solid text-center" 
-              type="button" 
+            <a
+              class="btn-solid text-center"
+              type="button"
+              style="margin-top: 20px; width: 100%"
               @click="mostrarModal(1)"
-              style="margin-top: 20px; width: 100%;">
-              Guardar
-            </a>                
+            >
+              > Guardar
+            </a>
           </div>
         </div>
         <!-- Modal -->
         <div v-if="mostrar == true">
-            <div class="modalNota">
-              <div class="card text-center">
-                <div class="card-header">
-                  <p class="font-theme font-lg">Nota para Bitacora</p>
+          <div class="modalNota">
+            <div class="card text-center">
+              <div class="card-header">
+                <p class="font-theme font-lg">Nota para Bitacora</p>
+              </div>
+              <div class="card-content">
+                <textarea
+                  v-model="nota"
+                  rows="15"
+                  cols="40"
+                  placeholder="Escriba aquí..."
+                ></textarea>
+              </div>
+              <div v-if="tipoModal === 1" class="card-footer text-center">
+                <button type="submit" class="btn-solid w-100">Listo</button>
+                <div v-if="mostrarErrorNota" style="color: red">
+                  ¡El campo Nota es requerido!
                 </div>
-                <div class="card-content">
-                  <textarea v-model="nota" rows="15" cols="40" placeholder="Escriba aquí..."></textarea>
-                </div>
-                <div v-if="tipoModal === 1" class="card-footer text-center">
-                   <button type="submit" class="btn-solid w-100">Listo</button>                
-                   <div v-if="mostrarErrorNota" style="color: red">¡El campo Nota es requerido!</div>
-                </div>
-                <div v-if="tipoModal === 2" class="card-footer text-center">
-                   <button @click="deleteArticle" class="btn-solid w-100" style="background-color: red;">Listo</button> 
-                   <div v-if="mostrarErrorNota" style="color: red">¡El campo Nota es requerido!</div>           
+              </div>
+              <div v-if="tipoModal === 2" class="card-footer text-center">
+                <button
+                  class="btn-solid w-100"
+                  style="background-color: red"
+                  @click="deleteArticle"
+                >
+                  Listo
+                </button>
+                <div v-if="mostrarErrorNota" style="color: red">
+                  ¡El campo Nota es requerido!
                 </div>
               </div>
             </div>
+          </div>
         </div>
       </form>
       <div>
@@ -799,7 +800,7 @@
           class="btn btn-primary w-100"
           style="background-color: red; margin-top: 20px"
           @click="mostrarModal(2)"
-          >
+        >
           Inactivar Articulo
         </a>
       </div>
@@ -823,7 +824,7 @@ export default {
   props: {
     id: {
       type: Number,
-      required : true,
+      required: true,
     },
   },
   data() {
@@ -964,8 +965,8 @@ export default {
   },
   methods: {
     mostrarModal(tipo) {
-      this.tipoModal = tipo;
-      this.mostrar = true;
+      this.tipoModal = tipo
+      this.mostrar = true
     },
     handleSubmit() {
       if (!this.formData.acquisitionType) {
@@ -1066,8 +1067,8 @@ export default {
       }
 
       Bitacora.createBitacora(bitacora).then((dataBitacora) => {
-          console.log(dataBitacora)
-          console.log(bitacora)
+        console.log(dataBitacora)
+        console.log(bitacora)
       })
 
       if (this.file != null) {
@@ -1082,8 +1083,8 @@ export default {
           console.log(fileData)
         })
       }
-      this.tipoModal = 0;
-      this.mostrar = false;
+      this.tipoModal = 0
+      this.mostrar = false
       this.$router.push('/article/index')
     },
     deleteArticle() {
@@ -1101,8 +1102,8 @@ export default {
         id_articulo: this.formData.id,
       }
       Bitacora.createBitacora(bitacora).then((dataBitacora) => {
-          console.log(dataBitacora)
-          console.log(bitacora)
+        console.log(dataBitacora)
+        console.log(bitacora)
       })
       console.log(registro)
 
@@ -1155,4 +1156,3 @@ export default {
   align-items: center;
 }
 </style>
-
