@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_public_images_museo_fondo2_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.centrar {\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\n}\n.contenedor {\r\n        position: relative;\r\n        width: 100vw;\r\n        height: 80vh;\r\n        overflow: hidden;\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        background-position: center;\r\n        /* background-attachment: fixed;  */\n}\n.botones {\r\n        position: absolute;\r\n        top: 45%;\r\n        left: 50%;\r\n        transform: translate(-50%, -50%);\r\n        z-index: 1;\n}\n.boton {\r\n        display: block;\r\n        padding:1rem;\r\n        background-color: #0d2d6d;\r\n        color: #f0f0f0;\r\n        font-size: 16px;\r\n        border: none;\r\n        border-radius: 4px;\r\n        margin-bottom: 1rem;\n}\r\n  ", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.centrar {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.contenedor {\n  position: relative;\n  width: 100vw;\n  height: 80vh;\n  overflow: hidden;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  /* background-attachment: fixed;  */\n}\n.botones {\n  position: absolute;\n  top: 45%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 1;\n}\n.boton {\n  display: block;\n  padding: 1rem;\n  background-color: #0d2d6d;\n  color: #f0f0f0;\n  font-size: 16px;\n  border: none;\n  border-radius: 4px;\n  margin-bottom: 1rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -116,7 +116,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_public_images_museo_fondo2_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.centrar {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\n}\n.contenedor {\r\n  position: relative;\r\n  width: 100vw;\r\n  height: 80vh;\r\n  overflow: hidden;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  /* background-attachment: fixed;  */\n}\n.botones {\r\n  position: absolute;\r\n  top: 45%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  z-index: 1;\n}\n.boton {\r\n  display: block;\r\n  padding: 1rem;\r\n  background-color: #0d2d6d;\r\n  color: #f0f0f0;\r\n  font-size: 16px;\r\n  border: none;\r\n  border-radius: 4px;\r\n  margin-bottom: 1rem;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.centrar {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.contenedor {\n  position: relative;\n  width: 100vw;\n  height: 80vh;\n  overflow: hidden;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  /* background-attachment: fixed;  */\n}\n.botones {\n  position: absolute;\n  top: 45%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 1;\n}\n.boton {\n  display: block;\n  padding: 1rem;\n  background-color: #0d2d6d;\n  color: #f0f0f0;\n  font-size: 16px;\n  border: none;\n  border-radius: 4px;\n  margin-bottom: 1rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -605,7 +605,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Home_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js */ "./resources/js/views/Home.vue?vue&type=script&lang=js");
 /* harmony import */ var _Home_vue_vue_type_style_index_0_id_63cd6604_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Home.vue?vue&type=style&index=0&id=63cd6604&lang=css */ "./resources/js/views/Home.vue?vue&type=style&index=0&id=63cd6604&lang=css");
 /* harmony import */ var _Home_vue_vue_type_style_index_1_id_63cd6604_lang_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Home.vue?vue&type=style&index=1&id=63cd6604&lang=css */ "./resources/js/views/Home.vue?vue&type=style&index=1&id=63cd6604&lang=css");
-/* harmony import */ var C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -614,7 +614,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_Home_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Home_vue_vue_type_template_id_63cd6604__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Home.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_Home_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Home_vue_vue_type_template_id_63cd6604__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Home.vue"]])
 /* hot reload */
 if (false) {}
 

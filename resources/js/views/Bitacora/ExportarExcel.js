@@ -1,8 +1,8 @@
-import ExcelJS from 'exceljs';
+import ExcelJS from 'exceljs'
 
 export async function ExportarExcel(results) {
-  const workbook = new ExcelJS.Workbook();
-  const worksheet = workbook.addWorksheet('Bitacora');
+  const workbook = new ExcelJS.Workbook()
+  const worksheet = workbook.addWorksheet('Bitacora')
 
   worksheet.columns = [
     { header: 'Id', key: 'id', width: 10 },
@@ -12,11 +12,11 @@ export async function ExportarExcel(results) {
     { header: 'Status', key: 'status', width: 10 },
     { header: 'Nota', key: 'nota', width: 50 },
     { header: 'Fecha', key: 'fecha', width: 15 },
-  ];
+  ]
 
   results.forEach((result) => {
-    worksheet.addRow(result);
-  });
-  const excelBlob = await workbook.xlsx.writeBuffer();
-  return excelBlob;
+    worksheet.addRow(result)
+  })
+  const excelBlob = await workbook.xlsx.writeBuffer()
+  return excelBlob
 }

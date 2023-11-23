@@ -270,20 +270,21 @@ export default {
   },
   async mounted() {
     await Logout.getisAuth().then((data) => {
-      this.hide=data.isAuth
+      this.hide = data.isAuth
     })
-    if(this.hide){
-       await Logout.getUser().then((data) => {
-      this.role = data.role
-      this.name = data.name
-      this.isAdmin = data.isAdmin
-    })
-    }else{
+    if (this.hide) {
+      await Logout.getUser().then((data) => {
+        this.role = data.role
+        this.name = data.name
+        this.isAdmin = data.isAdmin
+
+        this.$store.dispatch('auth/login', data)
+      })
+    } else {
       this.role = 'public'
       this.name = 'public'
       this.isAdmin = 'public'
     }
-   
   },
   beforeMount() {
     document.querySelector('.dark-mode-styles').href = this.isDarkMode
