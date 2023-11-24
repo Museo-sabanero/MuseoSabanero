@@ -108,22 +108,30 @@
               <div class="accordion-body">
                 <div
                   class="banner"
-                  style="display: flex; justify-content: center"
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                  "
                 >
-                  <img
-                    :src="qrCodeSrc"
-                    alt="Código QR generado con la dirección web actual"
-                    style="width: 250px; height: 250px"
-                  />
-                </div>
-                <br />
-                <div style="text-align: center">
-                  <button
-                    class="btn-outline font-md text-center"
-                    @click="downloadQRCode"
-                  >
-                    Descargar QR
-                  </button>
+                  <div ref="qr-code" class="qr-code">
+                    <img
+                      :src="qrCodeSrc"
+                      alt="Código QR generado con la dirección web actual"
+                      style="width: 250px; height: 250px"
+                    />
+                    <p class="qr-text">{{ article.name }}</p>
+                  </div>
+                  <br />
+                  <div style="text-align: center">
+                    <button
+                      class="btn-outline font-md text-center"
+                      @click="downloadQRCode"
+                    >
+                      Descargar QR
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -396,6 +404,7 @@ import GoBack from '../../components/GoBack.vue'
 import Restaurations from '../../services/RestaurationService'
 import { saveAs } from 'file-saver'
 import Logout from '../../services/Logout.js'
+import html2canvas from 'html2canvas'
 
 export default {
   name: 'ArticleDetails',
@@ -477,6 +486,7 @@ export default {
       this.list = data
       var event = this.list[0]
       //console.log(data)
+      /*
       ;(this.article.id = event.id),
         (this.article.numRefInter = event.numRefInter),
         (this.article.otherRef = event.otherRef),
@@ -503,6 +513,14 @@ export default {
         (this.article.fragmented = event.fragmented),
         (this.article.replica = event.replica),
         (this.article.cedulaDonor = event.cedulaDonor)
+        */
+      //use destructuring instead
+      this.article = {
+        ...event,
+        acquisitionType: event.acquisitionTypeDescription,
+        conservationStatus: event.conservationStatusDescription,
+        legalStatus: event.legalStatusDescription,
+      }
     })
     await Histors.getHistoryByArticle(this.article.id).then((data) => {
       this.listHistory = data
@@ -551,11 +569,16 @@ export default {
   },
   methods: {
     downloadQRCode() {
-      fetch(this.qrCodeSrc)
-        .then((res) => res.blob())
-        .then((blob) =>
-          saveAs(blob, `${this.article.name} - ${this.article.numRefInter}.png`)
-        )
+      const qrCode = this.$refs['qr-code']
+      html2canvas(qrCode, { useCORS: true }).then((canvas) => {
+        canvas.toBlob((blob) => {
+          const file = new File([blob], `${this.article.name}.png`, {
+            type: 'image/png',
+            lastModified: Date.now(),
+          })
+          saveAs(file)
+        })
+      })
     },
     goBack() {
       this.$router.push({ name: 'ArticleView' })
@@ -565,9 +588,15 @@ export default {
 </script>
 
 <style>
-@@media print {
-  main * {
-    display: none !important;
-  }
+.qr-code {
+  width: 300px;
+  height: 330px;
+  padding: 20px;
+}
+
+.qr-text {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
 }
 </style>
