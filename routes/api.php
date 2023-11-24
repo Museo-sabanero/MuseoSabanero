@@ -15,6 +15,8 @@ use App\Http\Controllers\Api\HistoryController;
 use App\Http\Controllers\Api\FileController;
 use App\Http\Controllers\Api\RestaurationController;
 use App\Http\Controllers\Api\BitacoraController;
+use App\Http\Controllers\Api\ResourceController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -100,6 +102,13 @@ Route::group(['prefix' => 'files', 'as' => 'files'], function () {
     Route::post('store', [FileController::class, 'store'])->middleware(['auth:sanctum']);
     Route::post('update', [FileController::class, 'update'])->middleware(['auth:sanctum']);
     Route::get('getImageByIdArticle', [FileController::class, 'getImageByIdArticle']);
+});
+
+Route::group(['prefix' => 'resources', 'as' => 'resources'], function () {
+    Route::post('store', [ResourceController::class, 'store'])->middleware(['auth:sanctum']);
+    Route::post('update', [ResourceController::class, 'update'])->middleware(['auth:sanctum']);
+    Route::get('getResources', [ResourceController::class, 'getResources']);
+    Route::get('downloadResource', [ResourceController::class, 'downloadResource'])->name('downloadResource');
 });
 
 
