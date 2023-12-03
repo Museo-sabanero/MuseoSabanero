@@ -16,11 +16,7 @@ return new class extends Migration
         Schema::create('restauraciones', function (Blueprint $table) {
             $table->id();
             $table->string('USUARIO_REGISTRA_ENVIO',150);
-<<<<<<< HEAD
-            $table->bigInteger('USUARIO_AUTORIZA_ENVIO')->unsigned();
-=======
             $table->bigInteger('USUARIO_AUTORIZA_ENVIO');
->>>>>>> development
             $table->string('TIPO_ARTICULO',250);
             $table->string('FECHA_ENVIO',20);
             $table->string('FECHA_PREV_RECIBIDO_RESTAU',20)->nullable();
