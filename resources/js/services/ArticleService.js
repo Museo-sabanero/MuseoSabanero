@@ -17,14 +17,12 @@ export default {
   },
 
   getArticle($id) {
-    console.log($id)
     return axios
       .get(`${apiUrl}/getArticle?id=` + $id)
       .then((response) => response.data)
       .catch((error) => Promise.reject(error))
   },
   getTypeObject($id) {
-    console.log($id)
     return axios
       .get(`${apiUrl}/getTypeObject?id=` + $id)
       .then((response) => response.data)
@@ -32,7 +30,6 @@ export default {
   },
 
   getArticleById($id) {
-    console.log($id)
     return axios
       .get(`${apiUrl}/getArticleById?id=` + $id)
       .then((response) => response.data)
@@ -40,7 +37,6 @@ export default {
   },
 
   createArticle($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/store`, $data)
       .then((response) => response.data)
@@ -48,7 +44,6 @@ export default {
   },
 
   updateArticle($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/update`, $data)
       .then((response) => response.data)
@@ -56,7 +51,6 @@ export default {
   },
 
   deleteArticle($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/delete`, $data)
       .then((response) => response.data)

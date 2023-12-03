@@ -32,7 +32,6 @@ export default {
   },
 
   createBitacora($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/store`, $data)
       .then((response) => response.data)

@@ -8,17 +8,18 @@ export default {
       .then((response) => response.data)
       .catch((error) => Promise.reject(error))
   },
-  downloadResource(FILENAME,FILEPATH) {
+  downloadResource(FILENAME, FILEPATH) {
     return axios
-      .get(`${apiUrl}/downloadResource?filename=${FILENAME}&filepath=${FILEPATH}`)
+      .get(
+        `${apiUrl}/downloadResource?filename=${FILENAME}&filepath=${FILEPATH}`
+      )
       .then((response) => response.data)
       .catch((error) => Promise.reject(error))
   },
-createResource($data) {
-    console.log($data)
+  createResource($data) {
     return axios
       .post(`${apiUrl}/store`, $data)
       .then((response) => response.data)
-      //.catch((error) => Promise.reject(error))
+    //.catch((error) => Promise.reject(error))
   },
 }
