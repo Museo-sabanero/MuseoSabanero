@@ -228,9 +228,7 @@ export default {
   },
   async mounted() {
     await Articles.getArticles().then((data) => {
-      console.log(data)
       this.articles = data
-      console.log(this.articles)
     })
 
     this.articles.sort((a, b) => {
@@ -241,20 +239,15 @@ export default {
     this.articlesFilter = this.articles
 
     await Users.getUser().then((data) => {
-      console.log(data)
       this.users = data
-      console.log(this.users)
     })
 
     await Articles.getTypeObjects().then((data) => {
-      console.log(data)
       this.objects = data
     })
 
     await Restaurations.getRestauration(this.id).then((data) => {
       this.list = data
-      console.log('entro')
-      console.log(this.list)
       var rest = this.list[0]
       ;(this.formData.id = rest.id),
         (this.formData.userAutorizedSend = rest.userAutorizedSend),
@@ -276,7 +269,6 @@ export default {
       if (!this.formData.articleId) {
         return (this.showErrorArticleId = true)
       }
-      console.log(this.formData)
       const registro = {
         id: this.formData.id,
         userAutorizedSend: this.formData.userAutorizedSend,
@@ -289,10 +281,8 @@ export default {
         cost: this.formData.cost,
         detailsSend: this.formData.detailsSend,
       }
-      console.log(registro)
 
       Restaurations.updateRestauration(registro).then((data) => {
-        console.log(data)
         this.$router.push('/restauration/index')
       })
     },
@@ -304,8 +294,6 @@ export default {
       if (searchTerm === '') {
         this.articles = [...this.articlesFilter]
       } else {
-        console.log('entra a buscador ')
-        console.log(this.articlesFilter)
         const expression = new RegExp(searchTerm, 'i')
         this.articles = this.articlesFilter.filter(
           (item) =>

@@ -197,15 +197,11 @@ export default {
   },
   async mounted() {
     await Users.getUser().then((data) => {
-      console.log(data)
       this.users = data
-      console.log(this.users)
     })
 
     await Restaurations.getRestauration(this.id).then(async (data) => {
       this.list = data
-      console.log('entro')
-      console.log(this.list)
       var rest = this.list[0]
       ;(this.formData.id = rest.id),
         (this.formData.userAutorizedSend = rest.userAutorizedSend),

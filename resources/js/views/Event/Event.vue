@@ -80,7 +80,6 @@ export default {
   },
   async mounted() {
     await Events.getEvents().then((data) => {
-      console.log(data)
       this.List = data
       this.originalList = this.List
     })
