@@ -153,9 +153,7 @@ import DonorService from '../../services/Donor'
 
 export default {
   name: 'DonorRegister',
-  components: {
-    DonorService,
-  },
+  components: {},
   data() {
     return {
       name: null,

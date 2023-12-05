@@ -184,9 +184,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 export default {
   name: 'UserRegister',
-  components: {
-    UserService,
-  },
+  components: {},
   data() {
     return {
       name: null,
@@ -225,7 +223,6 @@ export default {
         token: token,
       }
       this.errorMessage = ''
-      console.log(datos)
 
       UserService.register(datos)
         .then((response) => {

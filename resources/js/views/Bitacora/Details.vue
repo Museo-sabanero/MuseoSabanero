@@ -157,22 +157,13 @@ export default {
     }
   },
   async mounted() {
-    await Bitacora.getDetails(this.id).then((data) => {
-      this.list = data
-      var datos = this.list[0]
-      ;(this.bitacora.id = datos.id),
-        (this.bitacora.elemento = datos.elemento),
-        (this.bitacora.usuario = datos.usuario),
-        (this.bitacora.status = datos.status),
-        (this.bitacora.nota = datos.nota),
-        (this.bitacora.fecha = datos.fecha),
-        (this.bitacora.id_articulo = datos.id_articulo)
-    }),
-      await Bitacora.getBitacoraByIdArticulo(this.bitacora.id_articulo).then(
-        (data) => {
-          this.ListBitacora = data
-        }
-      )
+    const data = await Bitacora.getDetails(this.id)
+    this.bitacora = { ...this.bitacora, ...data[0] }
+
+    const list = await Bitacora.getBitacoraByIdArticulo(
+      this.bitacora.id_articulo
+    )
+    this.ListBitacora = list
   },
   methods: {
     goBack() {

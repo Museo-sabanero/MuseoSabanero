@@ -8,6 +8,13 @@ export default {
       .then((response) => response.data)
       .catch((error) => Promise.reject(error))
   },
+
+  downloadResource(FILENAME, FILEPATH) {
+    return axios.get(
+      `${apiUrl}/downloadResource?filename=${FILENAME}&filepath=${FILEPATH}`
+    )
+  },
+
   // downloadResource(FILENAME,FILEPATH) {
   //   return axios
   //     .get(`${apiUrl}/downloadResource?filename=${FILENAME}&filepath=${FILEPATH}`)
@@ -21,8 +28,8 @@ export default {
       .then((response) => response.data)
     //.catch((error) => Promise.reject(error))
   },
+
   deleteResource($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/delete`, $data)
       .then((response) => response.data)
@@ -33,6 +40,6 @@ export default {
     return axios
       .post(`${apiUrl}/update`, $data)
       .then((response) => response.data)
-    //   .catch((error) => Promise.reject(error))
+    //.catch((error) => Promise.reject(error))
   },
 }

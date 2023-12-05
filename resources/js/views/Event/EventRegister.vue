@@ -150,7 +150,6 @@ export default {
   },
   methods: {
     handleSubmit() {
-      console.log(this.formData)
       const registro = {
         dateStart: this.formData.dateStart,
         dateEnd: this.formData.dateEnd,
@@ -160,10 +159,8 @@ export default {
         description: this.formData.description,
         maxPersons: this.formData.maxPersons,
       }
-      console.log(registro)
 
       Events.createEvent(registro).then((data) => {
-        console.log(data)
         this.$router.push('/event/index')
       })
     },

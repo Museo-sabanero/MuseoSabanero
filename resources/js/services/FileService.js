@@ -4,7 +4,6 @@ export default {
   // Obtener todos los donantes
 
   registerFile($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/store`, $data)
       .then((response) => response.data)
@@ -12,7 +11,6 @@ export default {
   },
 
   updateFile($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/update`, $data)
       .then((response) => response.data)

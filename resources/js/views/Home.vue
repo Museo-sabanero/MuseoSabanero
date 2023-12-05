@@ -30,7 +30,6 @@ export default {
   name: 'Home',
   async mounted() {
     await Logout.getisAuth().then((data) => {
-      console.log(data)
       if (!data.isAuth) {
         window.location.reload()
       }

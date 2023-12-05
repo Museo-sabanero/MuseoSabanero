@@ -262,7 +262,6 @@ export default {
   name: 'DetailsDonor',
   components: {
     GoBack,
-    Donor,
   },
   props: {
     id: {
@@ -290,7 +289,6 @@ export default {
   },
   async beforeMount() {
     await Donor.getDetails(this.id).then((data) => {
-      console.log(data)
       this.item = data.Donante
       this.articulo = data.Articulo
       this.phone = this.item.phone
@@ -316,7 +314,6 @@ export default {
       Donor.update(datos)
         .then((response) => {
           this.errorMessage = ''
-          console.log(response.data.status)
           if (response.data.status === 201) {
             this.goBack()
           }

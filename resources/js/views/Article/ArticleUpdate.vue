@@ -43,7 +43,6 @@
                       type="text"
                       placeholder="Otra Referencia"
                       class="form-control"
-                      required
                     />
                   </div>
                 </div>
@@ -63,6 +62,7 @@
                       type="text"
                       placeholder="Nombre"
                       class="form-control"
+                      required
                     />
                   </div>
                 </div>
@@ -915,52 +915,18 @@ export default {
   },
   async mounted() {
     await Donors.getDonors().then((data) => {
-      console.log(data)
       this.donors = data
     })
 
     await Articles.getArticle(this.id).then((data) => {
       this.list = data
       var event = this.list[0]
-      console.log(data)
-      ;(this.formData.id = event.id),
-        (this.formData.numRefInter = event.numRefInter),
-        (this.formData.otherRef = event.otherRef),
-        (this.formData.name = event.name),
-        (this.formData.title = event.title),
-        (this.formData.objectType = event.objectType),
-        (this.formData.acquisitionType = event.acquisitionType),
-        (this.formData.width = event.width),
-        (this.formData.measureWidth = event.measureWidth),
-        (this.formData.height = event.height),
-        (this.formData.measureHeight = event.measureHeight),
-        (this.formData.lenght = event.lenght),
-        (this.formData.measureLenght = event.measureLenght),
-        (this.formData.diameter = event.diameter),
-        (this.formData.measureDiameter = event.measureDiameter),
-        (this.formData.weight = event.weight),
-        (this.formData.measureWeight = event.measureWeight),
-        (this.formData.conservationStatus = event.conservationStatus),
-        (this.formData.legalStatus = event.legalStatus),
-        (this.formData.value = event.value),
-        (this.formData.typeCoin = event.typeCoin),
-        (this.formData.distinguishingFeature = event.distinguishingFeature),
-        (this.formData.location = event.location),
-        (this.formData.fragmented = event.fragmented),
-        (this.formData.replica = event.replica),
-        (this.formData.cedulaDonor = event.cedulaDonor)
+      this.formData = { ...this.formData, ...event }
     })
     await Histors.getHistoryByArticle(this.formData.id).then((data) => {
       this.listHistory = data
-      console.log(data)
       var event = this.listHistory[0]
-      ;(this.history.id = event.id),
-        (this.history.materials = event.materials),
-        (this.history.manufacturing = event.manufacturing),
-        (this.history.inscripsionMarcas = event.inscripsionMarcas),
-        (this.history.antiquity = event.antiquity),
-        (this.history.history = event.history),
-        (this.history.itemId = event.itemId)
+      this.history = { ...this.history, ...event }
     })
   },
   methods: {
@@ -969,46 +935,9 @@ export default {
       this.mostrar = true
     },
     handleSubmit() {
-      if (!this.formData.acquisitionType) {
-        return (this.showErrorAcquisitionType = true)
-      }
-      if (!this.formData.conservationStatus) {
-        return (this.showErrorConservationStatus = true)
-      }
-      if (!this.formData.legalStatus) {
-        return (this.showErrorLegalStatus = true)
-      }
-      if (!this.formData.fragmented) {
-        return (this.showErrorFragmented = true)
-      }
-      if (!this.formData.replica) {
-        return (this.showErrorReplica = true)
-      }
-      if (!this.formData.cedulaDonor) {
-        return (this.showErrorDonor = true)
-      }
-      if (!this.formData.measureWidth) {
-        return (this.showErrorWidth = true)
-      }
-      if (!this.formData.measureHeight) {
-        return (this.showErrorHeight = true)
-      }
-      if (!this.formData.measureLenght) {
-        return (this.showErrorLenght = true)
-      }
-      if (!this.formData.measureDiameter) {
-        return (this.showErrorDiameter = true)
-      }
-      if (!this.formData.measureWeight) {
-        return (this.showErrorWeight = true)
-      }
-      if (!this.formData.typeCoin) {
-        return (this.showErrorCurrency = true)
-      }
       if (this.nota.trim() === '') {
         return (this.mostrarErrorNota = true)
       }
-      console.log(this.formData)
       const article = {
         id: this.formData.id,
         numRefInter: this.formData.numRefInter,
@@ -1038,10 +967,7 @@ export default {
         cedulaDonor: this.formData.cedulaDonor,
       }
 
-      console.log(article)
-      Articles.updateArticle(article).then((data) => {
-        console.log(data)
-      })
+      Articles.updateArticle(article)
       const histo = {
         id: this.history.id,
         materials: this.history.materials,
@@ -1052,12 +978,7 @@ export default {
         itemId: this.history.itemId,
       }
 
-      console.log(histo)
-      Histors.updateHistory(histo).then((dataHisto) => {
-        console.log(dataHisto)
-        console.log(histo)
-        // this.$router.push('/article/index')
-      })
+      Histors.updateHistory(histo)
 
       const bitacora = {
         name: this.formData.name,
@@ -1066,22 +987,13 @@ export default {
         id_articulo: this.formData.id,
       }
 
-      Bitacora.createBitacora(bitacora).then((dataBitacora) => {
-        console.log(dataBitacora)
-        console.log(bitacora)
-      })
+      Bitacora.createBitacora(bitacora)
 
       if (this.file != null) {
         const fileData = new FormData()
         fileData.append('file', this.file)
         fileData.append('elementId', this.formData.id)
-
-        console.log('data')
-        console.log(fileData)
-        Files.updateFile(fileData).then((dataFile) => {
-          console.log(dataFile)
-          console.log(fileData)
-        })
+        Files.updateFile(fileData)
       }
       this.tipoModal = 0
       this.mostrar = false
@@ -1091,7 +1003,7 @@ export default {
       if (this.nota.trim() === '') {
         return (this.mostrarErrorNota = true)
       }
-      console.log(this.formData)
+
       const registro = {
         id: this.formData.id,
       }
@@ -1101,14 +1013,9 @@ export default {
         nota: this.nota,
         id_articulo: this.formData.id,
       }
-      Bitacora.createBitacora(bitacora).then((dataBitacora) => {
-        console.log(dataBitacora)
-        console.log(bitacora)
-      })
-      console.log(registro)
+      Bitacora.createBitacora(bitacora)
 
       Articles.deleteArticle(registro).then((data) => {
-        console.log(data)
         this.$router.push('/article/index')
       })
       this.mostrar = false
@@ -1129,7 +1036,6 @@ export default {
       this.previewImage()
     },
     openFileInput() {
-      //this.$refs.fileInput.click()
       ;(this.file = null), (this.imageUrl = null)
     },
     previewImage() {

@@ -210,9 +210,7 @@ export default {
   },
   async mounted() {
     await Articles.getArticles().then((data) => {
-      console.log(data)
       this.articles = data
-      console.log(this.articles)
     })
 
     this.articles.sort((a, b) => {
@@ -223,13 +221,10 @@ export default {
     this.articlesFilter = this.articles
 
     await Users.getUser().then((data) => {
-      console.log(data)
       this.users = data
-      console.log(this.users)
     })
 
     await Articles.getTypeObjects().then((data) => {
-      console.log(data)
       this.objects = data
     })
   },
@@ -241,7 +236,6 @@ export default {
       if (!this.formData.articleId) {
         return (this.showErrorArticleId = true)
       }
-      console.log(this.formData)
       const registro = {
         userAutorizedSend: this.formData.userAutorizedSend,
         typeArticle: this.formData.typeArticle,
@@ -253,10 +247,8 @@ export default {
         cost: this.formData.cost,
         detailsSend: this.formData.detailsSend,
       }
-      console.log(registro)
 
       Restaurations.createRestauration(registro).then((data) => {
-        console.log(data)
         this.$router.push('/restauration/index')
       })
     },
@@ -270,8 +262,6 @@ export default {
       if (searchTerm === '') {
         this.articles = [...this.articlesFilter]
       } else {
-        console.log('entra a buscador ')
-        console.log(this.articlesFilter)
         const expression = new RegExp(searchTerm, 'i')
         this.articles = this.articlesFilter.filter(
           (item) =>

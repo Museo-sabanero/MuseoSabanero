@@ -176,19 +176,15 @@ export default {
       console.log(registro)
 
       Events.updateEvent(registro).then((data) => {
-        console.log(data)
         this.$router.push('/event/index')
       })
     },
     deleteEvent() {
-      console.log(this.formData)
       const registro = {
         id: this.formData.id,
       }
-      console.log(registro)
 
       Events.deleteEvent(registro).then((data) => {
-        console.log(data)
         this.$router.push('/event/index')
       })
     },
