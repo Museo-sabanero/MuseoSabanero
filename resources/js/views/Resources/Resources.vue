@@ -5,7 +5,7 @@
         <form class="custom-form" @submit.prevent="handleSubmit">
           <div class="steps-wrap">
             <div class="steps-box">
-              <span> <i class="bx bx-image"></i></span>
+              <span> <i class="ri-archive-line"></i></span>
               <div class="content">
                 <h4 class="title-color font-sm">agregar recurso:</h4>
                 <div class="input-box mt-3">
@@ -82,42 +82,80 @@
             </tr>
           </tbody>
         </table> -->
-        <table>
-          <thead>
-            <tr>
-              <th>Nombre del Recurso</th>
-              <th>Tipo de Archivo</th>
-              <th>Fecha de creacion</th>
-              <th>Descargar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item, index) in this.resourcesdata" :key="index">
-              <th>{{ item.FILENAME }}</th>
-              <th>{{ item.TIPO }}</th>
-              <th>{{ item.created_at }}</th>
-              <th>
-                <div class="row">
-                  <!-- <div class="col-6">
-                    <a :href="manualTecnico" target="_blank">
-                      <i class="iconly-Show icli boton"></i>
-                    </a>
-                  </div> -->
-                  <div class="col-6">
-                    <!-- <a href="downloadResource?filename="+{{ item.FILENAME }} target="_blank">
-                      <i class="iconly-Show icli boton"></i>
-                    </a>
-                    <button @click="descargar(item.FILENAME, item.FILEPATH)">
-                      <i class="iconly-Download icli boton"></i>
-                    </button> -->
-
-                    <!-- <DescargarGoogleDrive :enlace="manualTecnico" /> -->
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre del Recurso</th>
+                <th>Tipo de Archivo</th>
+                <th style="width: 9rem">Fecha de creacion</th>
+                <th colspan="2" style="text-align: center !important">
+                  Accion
+                </th>
+                <!-- <th>Descargar</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, index) in resourcesdata" :key="index">
+                <th>{{ item.fileName }}</th>
+                <th>{{ item.type }}</th>
+                <th>{{ item.dateCreated }}</th>
+                <th>
+                  <div class="row">
+                    <div class="col-4" style="padding-right: 1.9rem">
+                      <div>
+                    <button @click="showModal(item.id,item.fileName)">
+                      <i class="iconly-Delete icli boton"></i>
+                    </button>
+                      </div>
                   </div>
-                </div>
-              </th>
-            </tr>
-          </tbody>
-        </table>
+                  
+                  <div class="col-4">
+                    <div>
+                      <router-link :to="{name: 'ResourceUpdate', params: { id: item.id },}"><i class="iconly-Edit icli boton"></i></router-link>
+                    
+                    </div>
+
+                  </div>
+                  
+                  <br/>
+                  </div>
+                </th>
+                <th>
+                  <div class="row">
+                    
+                    <div class="col-6">
+                      <a :href="item.url +'?filename=' + item.fileName +'&' +'filepath=' +item.filePath" target="_blank">
+                        <i class="iconly-Download icli boton"></i>
+                      </a>
+                      
+                    </div>
+                  </div>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!------------------modal------------------------>
+          <div id="Modal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Esta seguro de eliminar recurso</h5>
+          <button @click="closeModal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+        </div>
+        <div class="modal-body">
+          <p>Recurso id:<span id="identifier"></span></p>
+          <p>Nombre del recurso:<span id="resourceName"></span></p>
+        </div>
+        <div class="modal-footer">
+          <button @click="closeModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button @click="deleteResource" type="button" class="btn btn-danger">eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+          <!----------------------------------------------->
       </div>
     </div>
   </div>
@@ -145,7 +183,7 @@ export default {
   async mounted() {
     await ResourcesService.getResources().then((data) => {
       //console.log(data.resource)
-      this.resourcesdata = data.resource
+      this.resourcesdata = data
       console.log(this.resourcesdata)
     })
   },
@@ -155,10 +193,12 @@ export default {
       if (this.file != null) {
         const fileData = new FormData()
         fileData.append('file', this.file)
-        ResourcesService.createResource(fileData).then((dataFile) => {
-          console.log(dataFile)
-        }).finally(() => {
-          window.location.reload()
+        ResourcesService.createResource(fileData)
+          .then((dataFile) => {
+            console.log(dataFile)
+          })
+          .finally(() => {
+            window.location.reload()
         })
       } else {
         this.showErrorResource = true
@@ -167,13 +207,52 @@ export default {
     handleFileInput() {
       this.file = this.$refs.fileInput.files[0]
     },
-    descargar(FILENAME, FILEPATH) {
-      ResourcesService.downloadResource(FILENAME, FILEPATH).then((dataFile) => {
-        //console.log(dataFile)
-      })
+    showModal(id, filename) {
+      var modal = document.getElementById('Modal')
+      var idtext = document.getElementById('identifier')
+      var filenametext = document.getElementById('resourceName')
+      console.log(idtext, filenametext)
+      idtext.innerText = id
+      filenametext.innerText = filename
+      modal.style.display = 'block'
+        
+        
+    },
+    closeModal() {
+      var modal = document.getElementById('Modal')
+      var idtext = document.getElementById('identifier')
+      var filenametext = document.getElementById('resourceName')
+      console.log(idtext, filenametext)
+      idtext.innerText = ''
+      filenametext.innerText = ''
+      modal.style.display = 'none'
+        
+        
+    },
+    async deleteResource() {
+      var modal = document.getElementById('Modal')
+      var idtext = document.getElementById('identifier')
+      var filenametext = document.getElementById('resourceName')
+      let data = {
+        id: idtext.innerText,
+      }
+      await ResourcesService.deleteResource(data).then((dataFile) => {
+            this.resourcesdata = dataFile
+            console.log(dataFile)
+          })
+          .finally(() => {
+            //window.location.reload()
+        })
+      idtext.innerText = ''
+      filenametext.innerText = ''
+      modal.style.display = 'none'
+        
+        
     },
   },
 }
+
+
 </script>
 
 <style>

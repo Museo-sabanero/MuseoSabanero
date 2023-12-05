@@ -107,8 +107,9 @@ Route::group(['prefix' => 'files', 'as' => 'files'], function () {
 Route::group(['prefix' => 'resources', 'as' => 'resources'], function () {
     Route::post('store', [ResourceController::class, 'store'])->middleware(['auth:sanctum']);
     Route::post('update', [ResourceController::class, 'update'])->middleware(['auth:sanctum']);
+    Route::post('delete', [ResourceController::class, 'deleteResources'])->middleware(['auth:sanctum']);
     Route::get('getResources', [ResourceController::class, 'getResources']);
-    Route::get('downloadResource', [ResourceController::class, 'downloadResource'])->name('downloadResource');
+    Route::get('downloadResource', [ResourceController::class, 'downloadResource'])->name('.downloadResource');
 });
 
 

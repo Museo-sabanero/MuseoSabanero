@@ -193,6 +193,17 @@ const routes = [
         /* webpackChunkName: "ResourcesView" */ '../views/Resources/Resources.vue'
       ),
   },
+  {
+    path: '/resource/update/:id',
+    name: 'ResourceUpdate',
+    component: () =>
+      import(
+        /* webpackChunkName: "ResourceUpdate" */ '../views/Resources/ResourceUpdate.vue'
+      ),
+    props: (route) => ({
+      id: route.params.id,
+    }),
+  },
 ]
 const router = createRouter({
   history: createWebHistory(),

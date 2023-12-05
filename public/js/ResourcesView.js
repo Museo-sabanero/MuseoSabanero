@@ -73,7 +73,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _context.next = 2;
             return _services_ResourceService__WEBPACK_IMPORTED_MODULE_0__["default"].getResources().then(function (data) {
               //console.log(data.resource)
-              _this.resourcesdata = data.resource;
+              _this.resourcesdata = data;
               console.log(_this.resourcesdata);
             });
           case 2:
@@ -101,10 +101,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     handleFileInput: function handleFileInput() {
       this.file = this.$refs.fileInput.files[0];
     },
-    descargar: function descargar(FILENAME, FILEPATH) {
-      _services_ResourceService__WEBPACK_IMPORTED_MODULE_0__["default"].downloadResource(FILENAME, FILEPATH).then(function (dataFile) {
-        //console.log(dataFile)
-      });
+    showModal: function showModal(id, filename) {
+      var modal = document.getElementById('Modal');
+      var idtext = document.getElementById('identifier');
+      var filenametext = document.getElementById('resourceName');
+      console.log(idtext, filenametext);
+      idtext.innerText = id;
+      filenametext.innerText = filename;
+      modal.style.display = 'block';
+    },
+    closeModal: function closeModal() {
+      var modal = document.getElementById('Modal');
+      var idtext = document.getElementById('identifier');
+      var filenametext = document.getElementById('resourceName');
+      console.log(idtext, filenametext);
+      idtext.innerText = '';
+      filenametext.innerText = '';
+      modal.style.display = 'none';
+    },
+    deleteResource: function deleteResource() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var modal, idtext, filenametext, data;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              modal = document.getElementById('Modal');
+              idtext = document.getElementById('identifier');
+              filenametext = document.getElementById('resourceName');
+              data = {
+                id: idtext.innerText
+              };
+              _context2.next = 6;
+              return _services_ResourceService__WEBPACK_IMPORTED_MODULE_0__["default"].deleteResource(data).then(function (dataFile) {
+                _this2.resourcesdata = dataFile;
+                console.log(dataFile);
+              })["finally"](function () {
+                //window.location.reload()
+              });
+            case 6:
+              idtext.innerText = '';
+              filenametext.innerText = '';
+              modal.style.display = 'none';
+            case 9:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
     }
   }
 });
@@ -162,7 +206,7 @@ var _hoisted_4 = {
   "class": "steps-box"
 };
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "bx bx-image"
+  "class": "ri-archive-line"
 })], -1 /* HOISTED */);
 var _hoisted_6 = {
   "class": "content"
@@ -188,14 +232,80 @@ var _hoisted_11 = {
   }
 };
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1 /* HOISTED */);
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Nombre del Recurso"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Tipo de Archivo"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Fecha de creacion"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Descargar")])], -1 /* HOISTED */);
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_13 = {
+  "class": "table-responsive"
+};
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Nombre del Recurso"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "Tipo de Archivo"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  style: {
+    "width": "9rem"
+  }
+}, "Fecha de creacion"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  colspan: "2",
+  style: {
+    "text-align": "center !important"
+  }
+}, " Accion "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <th>Descargar</th> ")])], -1 /* HOISTED */);
+var _hoisted_15 = {
   "class": "row"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"col-6\">\r\n                    <a :href=\"manualTecnico\" target=\"_blank\">\r\n                      <i class=\"iconly-Show icli boton\"></i>\r\n                    </a>\r\n                  </div> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_16 = {
+  "class": "col-4",
+  style: {
+    "padding-right": "1.9rem"
+  }
+};
+var _hoisted_17 = ["onClick"];
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "iconly-Delete icli boton"
+}, null, -1 /* HOISTED */);
+var _hoisted_19 = [_hoisted_18];
+var _hoisted_20 = {
+  "class": "col-4"
+};
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "iconly-Edit icli boton"
+}, null, -1 /* HOISTED */);
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
+var _hoisted_23 = {
+  "class": "row"
+};
+var _hoisted_24 = {
   "class": "col-6"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a href=\"downloadResource?filename=\"+{{ item.FILENAME }} target=\"_blank\">\r\n                      <i class=\"iconly-Show icli boton\"></i>\r\n                    </a>\r\n                    <button @click=\"descargar(item.FILENAME, item.FILEPATH)\">\r\n                      <i class=\"iconly-Download icli boton\"></i>\r\n                    </button> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <DescargarGoogleDrive :enlace=\"manualTecnico\" /> ")])])], -1 /* HOISTED */);
-
+};
+var _hoisted_25 = ["href"];
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "iconly-Download icli boton"
+}, null, -1 /* HOISTED */);
+var _hoisted_27 = [_hoisted_26];
+var _hoisted_28 = {
+  id: "Modal",
+  "class": "modal",
+  tabindex: "-1"
+};
+var _hoisted_29 = {
+  "class": "modal-dialog"
+};
+var _hoisted_30 = {
+  "class": "modal-content"
+};
+var _hoisted_31 = {
+  "class": "modal-header"
+};
+var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "modal-title"
+}, "Esta seguro de eliminar recurso", -1 /* HOISTED */);
+var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "modal-body"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Recurso id:"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  id: "identifier"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Nombre del recurso:"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  id: "resourceName"
+})])], -1 /* HOISTED */);
+var _hoisted_34 = {
+  "class": "modal-footer"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     "class": "custom-form",
     onSubmit: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
@@ -210,11 +320,51 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onChange: _cache[0] || (_cache[0] = function () {
       return $options.handleFileInput && $options.handleFileInput.apply($options, arguments);
     })
-  }, null, 544 /* HYDRATE_EVENTS, NEED_PATCH */), _hoisted_10]), $data.showErrorResource ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_11, " *Debe seleccionar un archivo para agregar el recurso ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])], 32 /* HYDRATE_EVENTS */), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table>\r\n          <thead>\r\n            <tr>\r\n              <th>Nombre del Recurso</th>\r\n              <th>Medio</th>\r\n              <th></th>\r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr>\r\n              <td>Manual de Usuario</td>\r\n              <td>\r\n                <label> Google Drive </label>\r\n              </td>\r\n              <td>\r\n                <div class=\"row\">\r\n                  <div class=\"col-6\">\r\n                    <a :href=\"manualUsuario\" target=\"_blank\">\r\n                      <i class=\"iconly-Show icli boton\"></i>\r\n                    </a>\r\n                  </div>\r\n                  <div class=\"col-6\">\r\n                    <DescargarGoogleDrive :enlace=\"manualUsuario\" />\r\n                  </div>\r\n                </div>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>Manual Técnico</td>\r\n              <td>\r\n                <label> Google Drive </label>\r\n              </td>\r\n              <td>\r\n                <div class=\"row\">\r\n                  <div class=\"col-6\">\r\n                    <a :href=\"manualTecnico\" target=\"_blank\">\r\n                      <i class=\"iconly-Show icli boton\"></i>\r\n                    </a>\r\n                  </div>\r\n                  <div class=\"col-6\">\r\n                    <DescargarGoogleDrive :enlace=\"manualTecnico\" />\r\n                  </div>\r\n                </div>\r\n              </td>\r\n            </tr>\r\n          </tbody>\r\n        </table> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", null, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(this.resourcesdata, function (item, index) {
+  }, null, 544 /* HYDRATE_EVENTS, NEED_PATCH */), _hoisted_10]), $data.showErrorResource ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_11, " *Debe seleccionar un archivo para agregar el recurso ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])], 32 /* HYDRATE_EVENTS */), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table>\n          <thead>\n            <tr>\n              <th>Nombre del Recurso</th>\n              <th>Medio</th>\n              <th></th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>Manual de Usuario</td>\n              <td>\n                <label> Google Drive </label>\n              </td>\n              <td>\n                <div class=\"row\">\n                  <div class=\"col-6\">\n                    <a :href=\"manualUsuario\" target=\"_blank\">\n                      <i class=\"iconly-Show icli boton\"></i>\n                    </a>\n                  </div>\n                  <div class=\"col-6\">\n                    <DescargarGoogleDrive :enlace=\"manualUsuario\" />\n                  </div>\n                </div>\n              </td>\n            </tr>\n            <tr>\n              <td>Manual Técnico</td>\n              <td>\n                <label> Google Drive </label>\n              </td>\n              <td>\n                <div class=\"row\">\n                  <div class=\"col-6\">\n                    <a :href=\"manualTecnico\" target=\"_blank\">\n                      <i class=\"iconly-Show icli boton\"></i>\n                    </a>\n                  </div>\n                  <div class=\"col-6\">\n                    <DescargarGoogleDrive :enlace=\"manualTecnico\" />\n                  </div>\n                </div>\n              </td>\n            </tr>\n          </tbody>\n        </table> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", null, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.resourcesdata, function (item, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       key: index
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.FILENAME), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.TIPO), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.created_at), 1 /* TEXT */), _hoisted_14]);
-  }), 128 /* KEYED_FRAGMENT */))])])])])]);
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.fileName), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.type), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.dateCreated), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      onClick: function onClick($event) {
+        return $options.showModal(item.id, item.fileName);
+      }
+    }, _hoisted_19, 8 /* PROPS */, _hoisted_17)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      to: {
+        name: 'ResourceUpdate',
+        params: {
+          id: item.id
+        }
+      }
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [_hoisted_21];
+      }),
+      _: 2 /* DYNAMIC */
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"])])]), _hoisted_22])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      href: item.url + '?filename=' + item.fileName + '&' + 'filepath=' + item.filePath,
+      target: "_blank"
+    }, _hoisted_27, 8 /* PROPS */, _hoisted_25)])])])]);
+  }), 128 /* KEYED_FRAGMENT */))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("----------------modal----------------------"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [_hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[2] || (_cache[2] = function () {
+      return $options.closeModal && $options.closeModal.apply($options, arguments);
+    }),
+    type: "button",
+    "class": "btn-close",
+    "data-bs-dismiss": "modal",
+    "aria-label": "Close"
+  })]), _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[3] || (_cache[3] = function () {
+      return $options.closeModal && $options.closeModal.apply($options, arguments);
+    }),
+    type: "button",
+    "class": "btn btn-secondary",
+    "data-bs-dismiss": "modal"
+  }, "Cancelar"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[4] || (_cache[4] = function () {
+      return $options.deleteResource && $options.deleteResource.apply($options, arguments);
+    }),
+    type: "button",
+    "class": "btn btn-danger"
+  }, "eliminar")])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("-------------------------------------------")])])]);
 }
 
 /***/ }),
@@ -239,19 +389,32 @@ var apiUrl = 'resources';
       return Promise.reject(error);
     });
   },
-  downloadResource: function downloadResource(FILENAME, FILEPATH) {
-    return axios.get("".concat(apiUrl, "/downloadResource?filename=").concat(FILENAME, "&filepath=").concat(FILEPATH)).then(function (response) {
-      return response.data;
-    })["catch"](function (error) {
-      return Promise.reject(error);
-    });
-  },
+  // downloadResource(FILENAME,FILEPATH) {
+  //   return axios
+  //     .get(`${apiUrl}/downloadResource?filename=${FILENAME}&filepath=${FILEPATH}`)
+  //     .then((response) => response.data)
+  //     .catch((error) => Promise.reject(error))
+  // },
   createResource: function createResource($data) {
     console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //.catch((error) => Promise.reject(error))
+  },
+  deleteResource: function deleteResource($data) {
+    console.log($data);
+    return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
+      return response.data;
+    });
+    //   .catch((error) => Promise.reject(error))
+  },
+  updateResource: function updateResource($data) {
+    console.log($data);
+    return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
+      return response.data;
+    });
+    //   .catch((error) => Promise.reject(error))
   }
 });
 
@@ -674,13 +837,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _DescargarGoogleDrive_vue_vue_type_template_id_846777f8__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DescargarGoogleDrive.vue?vue&type=template&id=846777f8 */ "./resources/js/views/Resources/DescargarGoogleDrive.vue?vue&type=template&id=846777f8");
 /* harmony import */ var _DescargarGoogleDrive_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DescargarGoogleDrive.vue?vue&type=script&lang=js */ "./resources/js/views/Resources/DescargarGoogleDrive.vue?vue&type=script&lang=js");
-/* harmony import */ var D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_DescargarGoogleDrive_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DescargarGoogleDrive_vue_vue_type_template_id_846777f8__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Resources/DescargarGoogleDrive.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_DescargarGoogleDrive_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DescargarGoogleDrive_vue_vue_type_template_id_846777f8__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Resources/DescargarGoogleDrive.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -702,7 +865,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Resources_vue_vue_type_template_id_7b683068__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Resources.vue?vue&type=template&id=7b683068 */ "./resources/js/views/Resources/Resources.vue?vue&type=template&id=7b683068");
 /* harmony import */ var _Resources_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Resources.vue?vue&type=script&lang=js */ "./resources/js/views/Resources/Resources.vue?vue&type=script&lang=js");
 /* harmony import */ var _Resources_vue_vue_type_style_index_0_id_7b683068_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Resources.vue?vue&type=style&index=0&id=7b683068&lang=css */ "./resources/js/views/Resources/Resources.vue?vue&type=style&index=0&id=7b683068&lang=css");
-/* harmony import */ var D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -710,7 +873,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Resources_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Resources_vue_vue_type_template_id_7b683068__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Resources/Resources.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Resources_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Resources_vue_vue_type_template_id_7b683068__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Resources/Resources.vue"]])
 /* hot reload */
 if (false) {}
 

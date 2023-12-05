@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Donante;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class RecursoResource extends JsonResource
+class FilesResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -25,7 +25,6 @@ class RecursoResource extends JsonResource
             "elementId"=> $this->ELEMENTO_ID,
             "user"=>$this->USUARIO,
             "dateCreated" => $this->getFormatDate(),
-            "url"=
         ];
     }
 }
