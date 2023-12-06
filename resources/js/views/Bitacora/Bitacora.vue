@@ -23,22 +23,20 @@
         <!-- Order Box Start -->
         <div class="order-box">
           <div>
-            <a href="javascript:void(0)" >
+            <a href="javascript:void(0)">
               <div class="row d-flex justify-content-between">
                 <div class="col-3">
                   <h4 class="title-color font-sm">
                     #
-                    <span class="content-color font-theme"
-                      >{{ item.id }}
-                    </span>
+                    <span class="content-color font-theme">{{ item.id }} </span>
                   </h4>
                 </div>
                 <div class="col-6">
                   <h4 class="title-color font-sm">
                     <span
                       class="font-sm color-title d-inline-block text-truncate"
-                      style="max-width: 250px; white-space: nowrap;"
-                      >Fecha: <span class="font-theme">{{ item.fecha }}</span> 
+                      style="max-width: 250px; white-space: nowrap"
+                      >Fecha: <span class="font-theme">{{ item.fecha }}</span>
                     </span>
                   </h4>
                 </div>
@@ -58,26 +56,24 @@
                   <span
                     class="font-sm color-title d-inline-block text-truncate"
                     style="max-width: 250px; white-space: nowrap"
-                    >Articulo #{{ (item.id_articulo) }}: {{ item.elemento }}
+                    >Articulo #{{ item.id_articulo }}: {{ item.elemento }}
                   </span>
                 </h4>
               </div>
 
               <div class="row d-flex justify-content-between">
                 <div class="col-4">
-                  <p class="font-xs content-color">Usuario: {{ item.usuario }}</p>
+                  <p class="font-xs content-color">
+                    Usuario: {{ item.usuario }}
+                  </p>
                 </div>
                 <div class="col-4">
                   <span
                     class="content-color font-xs d-inline-block text-truncate"
                     style="max-width: 190px; white-space: nowrap"
-                    >
-                    <span v-if="item.status == 'A'">
-                      Estado: Activo
-                    </span>
-                    <span v-if="item.status == 'I'">
-                      Estado: Inactivo
-                    </span>
+                  >
+                    <span v-if="item.status == 'A'"> Estado: Activo </span>
+                    <span v-if="item.status == 'I'"> Estado: Inactivo </span>
                   </span>
                 </div>
                 <div class="col-4">
@@ -97,11 +93,10 @@
   </main>
   <br /><br /><br /><br />
 </template>
-  
-<script>
-import Bitacora from '../../services/BitacoraService';
-import { ExportarExcel } from './ExportarExcel';
 
+<script>
+import Bitacora from '../../services/BitacoraService'
+import { ExportarExcel } from './ExportarExcel'
 
 export default {
   name: 'Bitacora',
@@ -131,28 +126,31 @@ export default {
         const expression = new RegExp(searchTerm, 'i')
         this.List = this.originalList.filter(
           (item) =>
-            expression.test(item.elemento) || expression.test(`#${item.id}`) || expression.test(`#${item.id_articulo}`) || expression.test(item.fecha)
+            expression.test(item.elemento) ||
+            expression.test(`#${item.id}`) ||
+            expression.test(`#${item.id_articulo}`) ||
+            expression.test(item.fecha)
         )
       }
     },
     async downloadExcel() {
       try {
-      const excelBlob = await ExportarExcel(this.List);
-      const blob = new Blob([excelBlob], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', 'Bitacora.xlsx');
-      document.body.appendChild(link);
-      link.click();
-      URL.revokeObjectURL(url);
-      document.body.removeChild(link);
+        const excelBlob = await ExportarExcel(this.List)
+        const blob = new Blob([excelBlob], {
+          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        })
+        const url = URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href = url
+        link.setAttribute('download', 'Bitacora.xlsx')
+        document.body.appendChild(link)
+        link.click()
+        URL.revokeObjectURL(url)
+        document.body.removeChild(link)
       } catch (error) {
-        console.error('Error en la función downloadExcel:', error);
+        console.error('Error en la función downloadExcel:', error)
       }
-      
     },
   },
 }
 </script>
-  

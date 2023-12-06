@@ -20,6 +20,7 @@
     "/js/BitacoraView.js": "/js/BitacoraView.js",
     "/js/detailsBitacora.js": "/js/detailsBitacora.js",
     "/js/ResourcesView.js": "/js/ResourcesView.js",
+    "/js/ResourceUpdate.js": "/js/ResourceUpdate.js",
     "/css/dark.css": "/css/dark.css",
     "/css/app.css": "/css/app.css"
 }

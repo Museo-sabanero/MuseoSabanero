@@ -1,7 +1,6 @@
 const apiUrl = 'bitacora'
 
 export default {
-
   // Obtener todos la bitacora
   getBitacora() {
     return axios
@@ -33,7 +32,6 @@ export default {
   },
 
   createBitacora($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/store`, $data)
       .then((response) => response.data)

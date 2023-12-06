@@ -15,6 +15,8 @@ use App\Http\Controllers\Api\HistoryController;
 use App\Http\Controllers\Api\FileController;
 use App\Http\Controllers\Api\RestaurationController;
 use App\Http\Controllers\Api\BitacoraController;
+use App\Http\Controllers\Api\ResourceController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,7 +31,7 @@ use App\Http\Controllers\Api\BitacoraController;
 Route::group(['prefix' => 'logouts', 'as' => 'logouts', 'middleware' => ['auth:sanctum']], function () {
     Route::get('userSession', [LogoutController::class, 'userSession']);
 });
-
+Route::get('logouts/isAuth',  [LogoutController::class, 'isAuth']);
 Route::delete('/logout', [LogoutController::class, 'logout']);
 
 
@@ -68,25 +70,25 @@ Route::group(['prefix' => 'restaurations', 'as' => 'restaurations', 'middleware'
 });
 
 
-Route::group(['prefix' => 'articles', 'as' => 'articles', 'middleware' => ['auth:sanctum']], function () {
-    Route::get('getArticles', [ArticleController::class, 'getArticles']);
-    Route::get('getTypeObjects', [ArticleController::class, 'getTypeObjects']);
+Route::group(['prefix' => 'articles', 'as' => 'articles'], function () {
+    Route::get('getArticles', [ArticleController::class, 'getArticles'])->middleware(['auth:sanctum']) ;
+    Route::get('getTypeObjects', [ArticleController::class, 'getTypeObjects'])->middleware(['auth:sanctum']);
     Route::get('getArticle', [ArticleController::class, 'getArticle']);
     Route::get('getArticleById', [ArticleController::class, 'getArticleById']);
-    Route::get('getTypeObject', [ArticleController::class, 'getTypeObject']);
-    Route::post('store', [ArticleController::class, 'store']);
-    Route::post('update', [ArticleController::class, 'update']);
-    Route::post('delete', [ArticleController::class, 'delete']);
+    Route::get('getTypeObject', [ArticleController::class, 'getTypeObject'])->middleware(['auth:sanctum']);
+    Route::post('store', [ArticleController::class, 'store'])->middleware(['auth:sanctum']);
+    Route::post('update', [ArticleController::class, 'update'])->middleware(['auth:sanctum']);
+    Route::post('delete', [ArticleController::class, 'delete'])->middleware(['auth:sanctum']);
 });
 
 
-Route::group(['prefix' => 'histories', 'as' => 'histories', 'middleware' => ['auth:sanctum']], function () {
-    Route::get('getHistories', [HistoryController::class, 'getHistories']);
-    Route::get('getHistory', [HistoryController::class, 'getHistory']);
+Route::group(['prefix' => 'histories', 'as' => 'histories'], function () {
+    Route::get('getHistories', [HistoryController::class, 'getHistories'])->middleware(['auth:sanctum']);
+    Route::get('getHistory', [HistoryController::class, 'getHistory'])->middleware(['auth:sanctum']);
     Route::get('getHistoryByArticle', [HistoryController::class, 'getHistoryByArticle']);
-    Route::post('store', [HistoryController::class, 'store']);
-    Route::post('update', [HistoryController::class, 'update']);
-    Route::post('delete', [HistoryController::class, 'delete']);
+    Route::post('store', [HistoryController::class, 'store'])->middleware(['auth:sanctum']);
+    Route::post('update', [HistoryController::class, 'update'])->middleware(['auth:sanctum']);
+    Route::post('delete', [HistoryController::class, 'delete'])->middleware(['auth:sanctum']);
 });
 
 Route::group(['prefix' => 'bitacora', 'as' => 'bitacora', 'middleware' => ['auth:sanctum']], function () {
@@ -96,10 +98,18 @@ Route::group(['prefix' => 'bitacora', 'as' => 'bitacora', 'middleware' => ['auth
     Route::post('/store', [BitacoraController::class, 'store']);
 });
 
-Route::group(['prefix' => 'files', 'as' => 'files', 'middleware' => ['auth:sanctum']], function () {
-    Route::post('store', [FileController::class, 'store']);
-    Route::post('update', [FileController::class, 'update']);
+Route::group(['prefix' => 'files', 'as' => 'files'], function () {
+    Route::post('store', [FileController::class, 'store'])->middleware(['auth:sanctum']);
+    Route::post('update', [FileController::class, 'update'])->middleware(['auth:sanctum']);
     Route::get('getImageByIdArticle', [FileController::class, 'getImageByIdArticle']);
+});
+
+Route::group(['prefix' => 'resources', 'as' => 'resources'], function () {
+    Route::post('store', [ResourceController::class, 'store'])->middleware(['auth:sanctum']);
+    Route::post('update', [ResourceController::class, 'update'])->middleware(['auth:sanctum']);
+    Route::post('delete', [ResourceController::class, 'deleteResources'])->middleware(['auth:sanctum']);
+    Route::get('getResources', [ResourceController::class, 'getResources']);
+    Route::get('downloadResource', [ResourceController::class, 'downloadResource'])->name('.downloadResource');
 });
 
 

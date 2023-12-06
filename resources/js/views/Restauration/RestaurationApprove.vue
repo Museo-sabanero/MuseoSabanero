@@ -102,9 +102,7 @@ export default {
   },
   async mounted() {
     await Users.getUser().then((data) => {
-      console.log(data)
       this.users = data
-      console.log(this.users)
     })
 
     this.formData.id = this.id
@@ -114,17 +112,14 @@ export default {
       if (!this.formData.userAutorizedReceived) {
         return (this.showErroruserAutorizedReceived = true)
       }
-      console.log(this.formData)
       const registro = {
         id: this.formData.id,
         userAutorizedReceived: this.formData.userAutorizedReceived,
         dateReceived: this.formData.dateReceived,
         detailsReceived: this.formData.detailsReceived,
       }
-      console.log(registro)
 
       Restaurations.approveRestauration(registro).then((data) => {
-        console.log(data)
         this.$router.push('/restauration/index')
       })
     },

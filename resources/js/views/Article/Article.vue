@@ -92,7 +92,6 @@ export default {
   },
   async mounted() {
     await Articles.getArticles().then(async (data) => {
-      console.log(data)
       this.List = data.map((item) => {
         return {
           ...item,

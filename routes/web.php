@@ -24,9 +24,27 @@ Route::group([
     'as' => 'subject.',
     'namespace' => 'subject',
     'middleware' => ['auth:sanctum'],
-    'where' => ['subject' => 'home|donor/index|donor/details|donor/register|event/index|event/register|event/update|article/register|article/update|article/index|article/details|restauration/register|restauration/update|restauration/index|restauration/aprrove|restauration/details|user/register|user/setting|resources/index|bitacora/index|bitacora/register|bitacora/details']
+    'where' => ['subject' => '/|/home|home|donor/index|donor/details|donor/register|event/index|event/register|event/update|article/register|article/update|article/index|restauration/register|restauration/update|restauration/index|restauration/aprrove|restauration/details|user/register|user/setting|resources/index|bitacora/index|bitacora/register|bitacora/details|resource/update']
 ], function () {
     Route::view('/{any?}', 'app')->name('subject')->where('any', '.*');
 });
 
+// Route::group([
+//     'prefix' => '{subjectpublic?}',
+//     'as' => 'subjectpublic.',
+//     'namespace' => 'subjectpublic',
+    
+//     'where' => ['subjectpublic' => 'article/details']
+// ], function () {
+//     Route::view('/article/details/{id}', 'app')->name('subjectpublic');
+// });
+Route::get('/article/details/{id}', function () {
+    return view('app');
+});
+Route::get('/home', function () {
+    return view('app');
+})->middleware(['auth:sanctum']);
+Route::get('/', function () {
+    return view('app');
+})->middleware(['auth:sanctum']);
 

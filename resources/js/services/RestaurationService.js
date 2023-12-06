@@ -10,7 +10,6 @@ export default {
   },
 
   getRestauration($id) {
-    console.log($id)
     return axios
       .get(`${apiUrl}/getRestauration?id=` + $id)
       .then((response) => response.data)
@@ -18,7 +17,6 @@ export default {
   },
 
   getRestaurationsByArticle($id) {
-    console.log($id)
     return axios
       .get(`${apiUrl}/getRestaurationsByArticle?id=` + $id)
       .then((response) => response.data)
@@ -26,7 +24,6 @@ export default {
   },
 
   createRestauration($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/store`, $data)
       .then((response) => response.data)
@@ -34,7 +31,6 @@ export default {
   },
 
   updateRestauration($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/update`, $data)
       .then((response) => response.data)
@@ -42,7 +38,6 @@ export default {
   },
 
   approveRestauration($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/approve`, $data)
       .then((response) => response.data)

@@ -108,22 +108,30 @@
               <div class="accordion-body">
                 <div
                   class="banner"
-                  style="display: flex; justify-content: center"
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                  "
                 >
-                  <img
-                    :src="qrCodeSrc"
-                    alt="Código QR generado con la dirección web actual"
-                    style="width: 250px; height: 250px"
-                  />
-                </div>
-                <br />
-                <div style="text-align: center">
-                  <button
-                    class="btn-outline font-md text-center"
-                    @click="downloadQRCode"
-                  >
-                    Descargar QR
-                  </button>
+                  <div ref="qr-code" class="qr-code">
+                    <img
+                      :src="qrCodeSrc"
+                      alt="Código QR generado con la dirección web actual"
+                      style="width: 250px; height: 250px"
+                    />
+                    <p class="qr-text">{{ article.name }}</p>
+                  </div>
+                  <br />
+                  <div style="text-align: center">
+                    <button
+                      class="btn-outline font-md text-center"
+                      @click="downloadQRCode"
+                    >
+                      Descargar QR
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -336,7 +344,7 @@
     <!-- Product Section Section End -->
 
     <!-- Product Review Section Start -->
-    <section class="product-review pb-0">
+    <section v-if="donor.length != 0" class="product-review pb-0">
       <div class="top-content">
         <h3 class="title-color">Donador</h3>
       </div>
@@ -395,6 +403,9 @@ import Files from '../../services/FileService'
 import GoBack from '../../components/GoBack.vue'
 import Restaurations from '../../services/RestaurationService'
 import { saveAs } from 'file-saver'
+import Logout from '../../services/Logout.js'
+import html2canvas from 'html2canvas'
+
 export default {
   name: 'ArticleDetails',
   components: {
@@ -455,96 +466,85 @@ export default {
       ListRestauration: [],
     }
   },
+
   async mounted() {
-    await Articles.getArticles().then((data) => {
-      console.log(data)
-      this.List = data
-      this.originalList = this.List
-      console.log(this.originalList)
-    })
-    // Generamos el código QR con la dirección web actual
-    const currentUrl = encodeURIComponent(window.location.href)
-    this.qrCodeSrc = `https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${currentUrl}`
-
-    await Articles.getArticle(this.id).then((data) => {
-      this.list = data
-      var event = this.list[0]
-      console.log(data)
-      ;(this.article.id = event.id),
-        (this.article.numRefInter = event.numRefInter),
-        (this.article.otherRef = event.otherRef),
-        (this.article.name = event.name),
-        (this.article.title = event.title),
-        (this.article.objectType = event.objectType),
-        (this.article.acquisitionType = event.acquisitionTypeDescription),
-        (this.article.width = event.width),
-        (this.article.measureWidth = event.measureWidth),
-        (this.article.height = event.height),
-        (this.article.measureHeight = event.measureHeight),
-        (this.article.lenght = event.lenght),
-        (this.article.measureLenght = event.measureLenght),
-        (this.article.diameter = event.diameter),
-        (this.article.measureDiameter = event.measureDiameter),
-        (this.article.weight = event.weight),
-        (this.article.measureWeight = event.measureWeight),
-        (this.article.conservationStatus = event.conservationStatusDescription),
-        (this.article.legalStatus = event.legalStatusDescription),
-        (this.article.value = event.value),
-        (this.article.typeCoin = event.typeCoin),
-        (this.article.distinguishingFeature = event.distinguishingFeature),
-        (this.article.location = event.location),
-        (this.article.fragmented = event.fragmented),
-        (this.article.replica = event.replica),
-        (this.article.cedulaDonor = event.cedulaDonor)
-    })
-    await Histors.getHistoryByArticle(this.article.id).then((data) => {
-      this.listHistory = data
-      console.log(data)
-      var event = this.listHistory[0]
-      ;(this.history.id = event.id),
-        (this.history.materials = event.materials),
-        (this.history.manufacturing = event.manufacturing),
-        (this.history.inscripsionMarcas = event.inscripsionMarcas),
-        (this.history.antiquity = event.antiquity),
-        (this.history.history = event.history),
-        (this.history.itemId = event.itemId)
-    })
-
-    console.log(this.article.cedulaDonor)
-    await Donors.getDetailsByCedula(this.article.cedulaDonor).then((data) => {
-      console.log(data)
-      this.donor = data
-    })
-    console.log(this.donor)
-
-    await Restaurations.getRestaurationsByArticle(this.id).then((data) => {
-      console.log('rest')
-      console.log(data)
-      this.ListRestauration = data
-    })
-
-    await Files.getImageByIdArticle(this.id).then((data) => {
-      console.log('image')
-      console.log(data)
-      if (data == 'null') {
-        ;(this.imageUrl = '/images/museo/frontPage.png'), // Ruta relativa de la imagen desde la carpeta public
-          (this.imageAlt = 'Imagen de muestra')
-      } else {
-        ;(this.imageUrl = '/' + data.filePath), (this.imageAlt = data.fileName)
-      }
-
-      console.log(this.imageUrl)
-    })
+    try {
+      await this.getArticle()
+      await this.getQr()
+      await this.getHistory()
+      await this.getAuthentication()
+      await this.getImages()
+    } catch (error) {
+      console.error(error)
+    }
   },
   methods: {
     downloadQRCode() {
-      fetch(this.qrCodeSrc)
-        .then((res) => res.blob())
-        .then((blob) => saveAs(blob, 'my-qr-code.png'))
+      const qrCode = this.$refs['qr-code']
+      html2canvas(qrCode, { useCORS: true }).then((canvas) => {
+        canvas.toBlob((blob) => {
+          const file = new File([blob], `${this.article.name}.png`, {
+            type: 'image/png',
+            lastModified: Date.now(),
+          })
+          saveAs(file)
+        })
+      })
     },
     goBack() {
       this.$router.push({ name: 'ArticleView' })
     },
+    async getArticle() {
+      const article = await Articles.getArticle(this.id)
+      this.list = article[0]
+      this.article = {
+        ...this.list,
+        acquisitionType: event.acquisitionTypeDescription,
+        conservationStatus: event.conservationStatusDescription,
+        legalStatus: event.legalStatusDescription,
+      }
+    },
+    async getQr() {
+      const currentUrl = encodeURIComponent(window.location.href)
+      this.qrCodeSrc = `https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${currentUrl}`
+    },
+
+    async getHistory() {
+      const history = await Histors.getHistoryByArticle(this.article.id)
+      this.listHistory = history
+      const listHistory = this.listHistory[0]
+      this.history = { ...listHistory }
+    },
+
+    async getAuthentication() {
+      const data = await Logout.getisAuth()
+      if (data.isAuth) {
+        const donor = await Donors.getDetailsByCedula(this.article.cedulaDonor)
+        this.donor = donor
+        const list = await Restaurations.getRestaurationsByArticle(this.id)
+        this.ListRestauration = list
+      }
+    },
+    async getImages() {
+      const img = await Files.getImageByIdArticle(this.id)
+      const frontpageStr = '/images/museo/frontPage.png'
+      this.imageUrl = img === 'null' ? frontpageStr : '/' + img.filePath
+      this.imageAlt = img === 'null' ? 'Imagen de muestra' : img.fileName
+    },
   },
 }
 </script>
+
+<style>
+.qr-code {
+  width: 300px;
+  height: 330px;
+  padding: 20px;
+}
+
+.qr-text {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+</style>

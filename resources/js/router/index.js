@@ -72,7 +72,7 @@ const routes = [
     name: 'ArticleRegister',
     component: () =>
       import(
-        /* webpackChunkName: "articleRegister" */ '../views/Article/ArticleRegister.vue'
+        /* webpackChunkName: "articleRegister" */ '../views/Article/ArticleRegister/ArticleRegister.vue'
       ),
   },
   {
@@ -113,7 +113,9 @@ const routes = [
     path: '/resources/index',
     name: 'Resources',
     component: () =>
-      import(/* webpackChunkName: "setting" */ '../views/Resources/Resources.vue'),
+      import(
+        /* webpackChunkName: "setting" */ '../views/Resources/Resources.vue'
+      ),
   },
   {
     path: '/restauration/index',
@@ -190,6 +192,17 @@ const routes = [
       import(
         /* webpackChunkName: "ResourcesView" */ '../views/Resources/Resources.vue'
       ),
+  },
+  {
+    path: '/resource/update/:id',
+    name: 'ResourceUpdate',
+    component: () =>
+      import(
+        /* webpackChunkName: "ResourceUpdate" */ '../views/Resources/ResourceUpdate.vue'
+      ),
+    props: (route) => ({
+      id: route.params.id,
+    }),
   },
 ]
 const router = createRouter({

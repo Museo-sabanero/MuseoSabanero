@@ -10,7 +10,6 @@ export default {
   },
 
   getEvent($id) {
-    console.log($id)
     return axios
       .get(`${apiUrl}/getEvent?id=` + $id)
       .then((response) => response.data)
@@ -18,7 +17,6 @@ export default {
   },
 
   createEvent($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/store`, $data)
       .then((response) => response.data)
@@ -26,7 +24,6 @@ export default {
   },
 
   updateEvent($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/update`, $data)
       .then((response) => response.data)
@@ -34,7 +31,6 @@ export default {
   },
 
   deleteEvent($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/delete`, $data)
       .then((response) => response.data)

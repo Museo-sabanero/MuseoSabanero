@@ -113,7 +113,6 @@ export default {
   },
   async mounted() {
     await Restaurations.getRestaurations().then(async (data) => {
-      console.log(data)
       this.List = data
       this.List = data.map((item) => {
         return {
@@ -135,8 +134,6 @@ export default {
       if (searchTerm === '') {
         this.List = [...this.originalList]
       } else {
-        console.log('entra a buscador ')
-        console.log(this.originalList)
         const expression = new RegExp(searchTerm, 'i')
         this.List = this.originalList.filter(
           (item) =>

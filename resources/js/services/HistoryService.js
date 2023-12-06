@@ -10,7 +10,6 @@ export default {
   },
 
   getHistory($id) {
-    console.log($id)
     return axios
       .get(`${apiUrl}/getHistory?id=` + $id)
       .then((response) => response.data)
@@ -18,7 +17,6 @@ export default {
   },
 
   getHistoryByArticle($id) {
-    console.log($id)
     return axios
       .get(`${apiUrl}/getHistoryByArticle?id=` + $id)
       .then((response) => response.data)
@@ -26,7 +24,6 @@ export default {
   },
 
   createHistory($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/store`, $data)
       .then((response) => response.data)
@@ -34,7 +31,6 @@ export default {
   },
 
   updateHistory($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/update`, $data)
       .then((response) => response.data)
@@ -42,7 +38,6 @@ export default {
   },
 
   deleteHistory($data) {
-    console.log($data)
     return axios
       .post(`${apiUrl}/delete`, $data)
       .then((response) => response.data)

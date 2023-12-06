@@ -136,7 +136,6 @@ import GoBack from '../../components/GoBack.vue'
 export default {
   name: 'UserSetting',
   components: {
-    UserService,
     GoBack,
   },
   data() {
@@ -171,7 +170,6 @@ export default {
       this.email = this.item.email
       this.password = this.item.password
       this.roleSelect = this.item.role
-      console.log(this.item)
     })
   },
   methods: {
@@ -196,7 +194,6 @@ export default {
       UserService.update(datos)
         .then((response) => {
           this.errorMessage = ''
-          console.log(response.data.status)
           if (response.data.status === 201) {
             this.goBack()
           }

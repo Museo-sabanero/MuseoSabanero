@@ -24,18 +24,9 @@ export default {
     },
   },
   actions: {
-    login({ commit }) {
-      return axios
-        .get('/api/user')
-        .then(({ data }) => {
-          commit('SET_USER', data)
-          commit('SET_AUTHENTICATED', true)
-          router.push({ name: 'dashboard' })
-        })
-        .catch(({ response: { data } }) => {
-          commit('SET_USER', {})
-          commit('SET_AUTHENTICATED', false)
-        })
+    login({ commit }, data) {
+      commit('SET_USER', data)
+      commit('SET_AUTHENTICATED', true)
     },
     logout({ commit }) {
       commit('SET_USER', {})
