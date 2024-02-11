@@ -19,9 +19,9 @@
                       @change="handleFileInput"
                     />
                     <button
+                      id="inputGroupFileAddon04"
                       type="submit"
                       class="btn btn-outline-secondary"
-                      id="inputGroupFileAddon04"
                     >
                       agregar
                     </button>
@@ -104,31 +104,43 @@
                   <div class="row">
                     <div class="col-4" style="padding-right: 1.9rem">
                       <div>
-                    <button @click="showModal(item.id,item.fileName)">
-                      <i class="iconly-Delete icli boton"></i>
-                    </button>
+                        <button @click="showModal(item.id, item.fileName)">
+                          <i class="iconly-Delete icli boton"></i>
+                        </button>
                       </div>
-                  </div>
-                  
-                  <div class="col-4">
-                    <div>
-                      <router-link :to="{name: 'ResourceUpdate', params: { id: item.id },}"><i class="iconly-Edit icli boton"></i></router-link>
-                    
                     </div>
 
-                  </div>
-                  
-                  <br/>
+                    <div class="col-4">
+                      <div>
+                        <router-link
+                          :to="{
+                            name: 'ResourceUpdate',
+                            params: { id: item.id },
+                          }"
+                          ><i class="iconly-Edit icli boton"></i
+                        ></router-link>
+                      </div>
+                    </div>
+
+                    <br />
                   </div>
                 </th>
                 <th>
                   <div class="row">
-                    
                     <div class="col-6">
-                      <a :href="item.url +'?filename=' + item.fileName +'&' +'filepath=' +item.filePath" target="_blank">
+                      <a
+                        :href="
+                          item.url +
+                          '?filename=' +
+                          item.fileName +
+                          '&' +
+                          'filepath=' +
+                          item.filePath
+                        "
+                        target="_blank"
+                      >
                         <i class="iconly-Download icli boton"></i>
                       </a>
-                      
                     </div>
                   </div>
                 </th>
@@ -137,25 +149,44 @@
           </table>
         </div>
         <!------------------modal------------------------>
-          <div id="Modal" class="modal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Esta seguro de eliminar recurso</h5>
-          <button @click="closeModal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+        <div id="Modal" class="modal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Esta seguro de eliminar recurso</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  @click="closeModal"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>Recurso id:<span id="identifier"></span></p>
+                <p>Nombre del recurso:<span id="resourceName"></span></p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                  @click="closeModal"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  @click="deleteResource"
+                >
+                  eliminar
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="modal-body">
-          <p>Recurso id:<span id="identifier"></span></p>
-          <p>Nombre del recurso:<span id="resourceName"></span></p>
-        </div>
-        <div class="modal-footer">
-          <button @click="closeModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button @click="deleteResource" type="button" class="btn btn-danger">eliminar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-          <!----------------------------------------------->
+        <!----------------------------------------------->
       </div>
     </div>
   </div>
@@ -182,27 +213,20 @@ export default {
   },
   async mounted() {
     await ResourcesService.getResources().then((data) => {
-      //console.log(data.resource)
       this.resourcesdata = data
-      console.log(this.resourcesdata)
     })
   },
   methods: {
-    handleSubmit() {
-      console.log('Submit')
-      if (this.file != null) {
-        const fileData = new FormData()
-        fileData.append('file', this.file)
-        ResourcesService.createResource(fileData)
-          .then((dataFile) => {
-            console.log(dataFile)
-          })
-          .finally(() => {
-            window.location.reload()
-        })
-      } else {
+    async handleSubmit() {
+      if (this.file == null) {
         this.showErrorResource = true
+        return
       }
+
+      const fileData = new FormData()
+      fileData.append('file', this.file)
+      await ResourcesService.createResource(fileData)
+      window.location.reload()
     },
     handleFileInput() {
       this.file = this.$refs.fileInput.files[0]
@@ -215,8 +239,6 @@ export default {
       idtext.innerText = id
       filenametext.innerText = filename
       modal.style.display = 'block'
-        
-        
     },
     closeModal() {
       var modal = document.getElementById('Modal')
@@ -226,8 +248,6 @@ export default {
       idtext.innerText = ''
       filenametext.innerText = ''
       modal.style.display = 'none'
-        
-        
     },
     async deleteResource() {
       var modal = document.getElementById('Modal')
@@ -237,22 +257,14 @@ export default {
         id: idtext.innerText,
       }
       await ResourcesService.deleteResource(data).then((dataFile) => {
-            this.resourcesdata = dataFile
-            console.log(dataFile)
-          })
-          .finally(() => {
-            //window.location.reload()
-        })
+        this.resourcesdata = dataFile
+      })
       idtext.innerText = ''
       filenametext.innerText = ''
       modal.style.display = 'none'
-        
-        
     },
   },
 }
-
-
 </script>
 
 <style>

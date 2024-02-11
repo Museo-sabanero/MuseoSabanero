@@ -84,9 +84,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           case 0:
             _context.next = 2;
             return _services_ArticleService__WEBPACK_IMPORTED_MODULE_1__["default"].getArticles().then(function (data) {
-              console.log(data);
               _this.articles = data;
-              console.log(_this.articles);
             });
           case 2:
             _this.articles.sort(function (a, b) {
@@ -96,14 +94,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _this.articlesFilter = _this.articles;
             _context.next = 6;
             return _services_User__WEBPACK_IMPORTED_MODULE_2__["default"].getUser().then(function (data) {
-              console.log(data);
               _this.users = data;
-              console.log(_this.users);
             });
           case 6:
             _context.next = 8;
             return _services_ArticleService__WEBPACK_IMPORTED_MODULE_1__["default"].getTypeObjects().then(function (data) {
-              console.log(data);
               _this.objects = data;
             });
           case 8:
@@ -122,7 +117,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (!this.formData.articleId) {
         return this.showErrorArticleId = true;
       }
-      console.log(this.formData);
       var registro = {
         userAutorizedSend: this.formData.userAutorizedSend,
         typeArticle: this.formData.typeArticle,
@@ -134,9 +128,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         cost: this.formData.cost,
         detailsSend: this.formData.detailsSend
       };
-      console.log(registro);
       _services_RestaurationService__WEBPACK_IMPORTED_MODULE_0__["default"].createRestauration(registro).then(function (data) {
-        console.log(data);
         _this2.$router.push('/restauration/index');
       });
     },
@@ -150,8 +142,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (searchTerm === '') {
         this.articles = _toConsumableArray(this.articlesFilter);
       } else {
-        console.log('entra a buscador ');
-        console.log(this.articlesFilter);
         var expression = new RegExp(searchTerm, 'i');
         this.articles = this.articlesFilter.filter(function (item) {
           return expression.test(item.name) || expression.test(item.numRefInter);
@@ -444,7 +434,6 @@ var apiUrl = 'articles';
     });
   },
   getArticle: function getArticle($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -452,7 +441,6 @@ var apiUrl = 'articles';
     });
   },
   getTypeObject: function getTypeObject($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getTypeObject?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -460,7 +448,6 @@ var apiUrl = 'articles';
     });
   },
   getArticleById: function getArticleById($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getArticleById?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -468,21 +455,18 @@ var apiUrl = 'articles';
     });
   },
   createArticle: function createArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     // .catch((error) => Promise.reject(error))
   },
   updateArticle: function updateArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   deleteArticle: function deleteArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });
@@ -515,7 +499,6 @@ var apiUrl = 'restaurations';
     });
   },
   getRestauration: function getRestauration($id) {
-    console.log($id);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestauration?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -523,7 +506,6 @@ var apiUrl = 'restaurations';
     });
   },
   getRestaurationsByArticle: function getRestaurationsByArticle($id) {
-    console.log($id);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestaurationsByArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -531,21 +513,18 @@ var apiUrl = 'restaurations';
     });
   },
   createRestauration: function createRestauration($data) {
-    console.log($data);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //.catch((error) => Promise.reject(error))
   },
   updateRestauration: function updateRestauration($data) {
-    console.log($data);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   approveRestauration: function approveRestauration($data) {
-    console.log($data);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/approve"), $data).then(function (response) {
       return response.data;
     });
@@ -630,13 +609,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GoBack.vue?vue&type=template&id=e0041ecc */ "./resources/js/components/GoBack.vue?vue&type=template&id=e0041ecc");
 /* harmony import */ var _GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GoBack.vue?vue&type=script&lang=js */ "./resources/js/components/GoBack.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/GoBack.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/GoBack.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -657,13 +636,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _RestaurationRegister_vue_vue_type_template_id_ac062d3a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RestaurationRegister.vue?vue&type=template&id=ac062d3a */ "./resources/js/views/Restauration/RestaurationRegister.vue?vue&type=template&id=ac062d3a");
 /* harmony import */ var _RestaurationRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RestaurationRegister.vue?vue&type=script&lang=js */ "./resources/js/views/Restauration/RestaurationRegister.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_RestaurationRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_RestaurationRegister_vue_vue_type_template_id_ac062d3a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Restauration/RestaurationRegister.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_RestaurationRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_RestaurationRegister_vue_vue_type_template_id_ac062d3a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Restauration/RestaurationRegister.vue"]])
 /* hot reload */
 if (false) {}
 

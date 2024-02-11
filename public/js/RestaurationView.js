@@ -53,7 +53,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _regeneratorRuntime().wrap(function _callee$(_context2) {
                   while (1) switch (_context2.prev = _context2.next) {
                     case 0:
-                      console.log(data);
                       _this.List = data;
                       _this.List = data.map(function (item) {
                         return _objectSpread(_objectSpread({}, item), {}, {
@@ -61,7 +60,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         });
                       });
                       _iterator = _createForOfIteratorHelper(_this.List);
-                      _context2.prev = 4;
+                      _context2.prev = 3;
                       _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop() {
                         var item;
                         return _regeneratorRuntime().wrap(function _loop$(_context) {
@@ -79,33 +78,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         }, _loop);
                       });
                       _iterator.s();
-                    case 7:
+                    case 6:
                       if ((_step = _iterator.n()).done) {
-                        _context2.next = 11;
+                        _context2.next = 10;
                         break;
                       }
-                      return _context2.delegateYield(_loop(), "t0", 9);
-                    case 9:
-                      _context2.next = 7;
+                      return _context2.delegateYield(_loop(), "t0", 8);
+                    case 8:
+                      _context2.next = 6;
                       break;
-                    case 11:
-                      _context2.next = 16;
+                    case 10:
+                      _context2.next = 15;
                       break;
-                    case 13:
-                      _context2.prev = 13;
-                      _context2.t1 = _context2["catch"](4);
+                    case 12:
+                      _context2.prev = 12;
+                      _context2.t1 = _context2["catch"](3);
                       _iterator.e(_context2.t1);
-                    case 16:
-                      _context2.prev = 16;
+                    case 15:
+                      _context2.prev = 15;
                       _iterator.f();
-                      return _context2.finish(16);
-                    case 19:
+                      return _context2.finish(15);
+                    case 18:
                       _this.originalList = _this.List;
-                    case 20:
+                    case 19:
                     case "end":
                       return _context2.stop();
                   }
-                }, _callee, null, [[4, 13, 16, 19]]);
+                }, _callee, null, [[3, 12, 15, 18]]);
               }));
               return function (_x) {
                 return _ref.apply(this, arguments);
@@ -124,8 +123,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (searchTerm === '') {
         this.List = _toConsumableArray(this.originalList);
       } else {
-        console.log('entra a buscador ');
-        console.log(this.originalList);
         var expression = new RegExp(searchTerm, 'i');
         this.List = this.originalList.filter(function (item) {
           return expression.test(item.articles.name) || expression.test(item.detailsSend);
@@ -316,7 +313,6 @@ var apiUrl = 'restaurations';
     });
   },
   getRestauration: function getRestauration($id) {
-    console.log($id);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestauration?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -324,7 +320,6 @@ var apiUrl = 'restaurations';
     });
   },
   getRestaurationsByArticle: function getRestaurationsByArticle($id) {
-    console.log($id);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestaurationsByArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -332,21 +327,18 @@ var apiUrl = 'restaurations';
     });
   },
   createRestauration: function createRestauration($data) {
-    console.log($data);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //.catch((error) => Promise.reject(error))
   },
   updateRestauration: function updateRestauration($data) {
-    console.log($data);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   approveRestauration: function approveRestauration($data) {
-    console.log($data);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/approve"), $data).then(function (response) {
       return response.data;
     });
@@ -431,13 +423,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Restauration_vue_vue_type_template_id_3e5d7820__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Restauration.vue?vue&type=template&id=3e5d7820 */ "./resources/js/views/Restauration/Restauration.vue?vue&type=template&id=3e5d7820");
 /* harmony import */ var _Restauration_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Restauration.vue?vue&type=script&lang=js */ "./resources/js/views/Restauration/Restauration.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Restauration_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Restauration_vue_vue_type_template_id_3e5d7820__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Restauration/Restauration.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Restauration_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Restauration_vue_vue_type_template_id_3e5d7820__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Restauration/Restauration.vue"]])
 /* hot reload */
 if (false) {}
 
