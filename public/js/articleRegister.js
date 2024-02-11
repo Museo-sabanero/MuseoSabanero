@@ -1097,7 +1097,6 @@ var apiUrl = 'articles';
     });
   },
   getArticle: function getArticle($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -1105,7 +1104,6 @@ var apiUrl = 'articles';
     });
   },
   getTypeObject: function getTypeObject($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getTypeObject?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -1113,7 +1111,6 @@ var apiUrl = 'articles';
     });
   },
   getArticleById: function getArticleById($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getArticleById?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -1121,21 +1118,18 @@ var apiUrl = 'articles';
     });
   },
   createArticle: function createArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     // .catch((error) => Promise.reject(error))
   },
   updateArticle: function updateArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   deleteArticle: function deleteArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });
@@ -1188,7 +1182,6 @@ var apiUrl = 'bitacora';
     });
   },
   createBitacora: function createBitacora($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
@@ -1289,14 +1282,12 @@ var apiUrl = 'files';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Obtener todos los donantes
   registerFile: function registerFile($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   updateFile: function updateFile($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
@@ -1414,7 +1405,6 @@ var apiUrl = 'histories';
     });
   },
   getHistory: function getHistory($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getHistory?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -1422,7 +1412,6 @@ var apiUrl = 'histories';
     });
   },
   getHistoryByArticle: function getHistoryByArticle($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getHistoryByArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -1430,21 +1419,18 @@ var apiUrl = 'histories';
     });
   },
   createHistory: function createHistory($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   updateHistory: function updateHistory($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   deleteHistory: function deleteHistory($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });
@@ -1677,13 +1663,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GoBack.vue?vue&type=template&id=e0041ecc */ "./resources/js/components/GoBack.vue?vue&type=template&id=e0041ecc");
 /* harmony import */ var _GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GoBack.vue?vue&type=script&lang=js */ "./resources/js/components/GoBack.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/GoBack.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_GoBack_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_GoBack_vue_vue_type_template_id_e0041ecc__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/GoBack.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -1704,13 +1690,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _ArticleRegister_vue_vue_type_template_id_6043f73b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ArticleRegister.vue?vue&type=template&id=6043f73b */ "./resources/js/views/Article/ArticleRegister/ArticleRegister.vue?vue&type=template&id=6043f73b");
 /* harmony import */ var _ArticleRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ArticleRegister.vue?vue&type=script&lang=js */ "./resources/js/views/Article/ArticleRegister/ArticleRegister.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_ArticleRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ArticleRegister_vue_vue_type_template_id_6043f73b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Article/ArticleRegister/ArticleRegister.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_ArticleRegister_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ArticleRegister_vue_vue_type_template_id_6043f73b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Article/ArticleRegister/ArticleRegister.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -1731,13 +1717,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _InputArticleForm_vue_vue_type_template_id_62ff591e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputArticleForm.vue?vue&type=template&id=62ff591e */ "./resources/js/views/Article/ArticleRegister/InputArticleForm.vue?vue&type=template&id=62ff591e");
 /* harmony import */ var _InputArticleForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InputArticleForm.vue?vue&type=script&lang=js */ "./resources/js/views/Article/ArticleRegister/InputArticleForm.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_InputArticleForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_InputArticleForm_vue_vue_type_template_id_62ff591e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Article/ArticleRegister/InputArticleForm.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_InputArticleForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_InputArticleForm_vue_vue_type_template_id_62ff591e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Article/ArticleRegister/InputArticleForm.vue"]])
 /* hot reload */
 if (false) {}
 

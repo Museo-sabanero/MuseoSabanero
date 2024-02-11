@@ -94,9 +94,6 @@ import Donors from '../../services/Donor'
 
 export default {
   name: 'IndexDonor',
-  components: {
-    Donors,
-  },
   data() {
     return {
       List: [],
@@ -106,7 +103,6 @@ export default {
   },
   async mounted() {
     await Donors.getDonors().then((data) => {
-      console.log(data)
       this.List = data
       this.originalList = this.List
     })
