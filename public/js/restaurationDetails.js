@@ -95,9 +95,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           case 0:
             _context2.next = 2;
             return _services_User__WEBPACK_IMPORTED_MODULE_3__["default"].getUser().then(function (data) {
-              console.log(data);
               _this.users = data;
-              console.log(_this.users);
             });
           case 2:
             _context2.next = 4;
@@ -108,8 +106,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   while (1) switch (_context.prev = _context.next) {
                     case 0:
                       _this.list = data;
-                      console.log('entro');
-                      console.log(_this.list);
                       rest = _this.list[0];
                       _this.formData.id = rest.id;
                       _this.formData.userAutorizedSend = rest.userAutorizedSend;
@@ -127,20 +123,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                       _this.formData.userAutorizedReceived = rest.userAutorizedReceived;
                       _this.formData.dateReceived = rest.dateReceived;
                       _this.formData.detailsReceived = rest.detailsReceived;
-                      _context.next = 22;
+                      _context.next = 20;
                       return _services_User__WEBPACK_IMPORTED_MODULE_3__["default"].getUserbyId(_this.formData.userAutorizedSend).then(function (userData) {
                         _this.formData.userAutorizedSendName = userData.name;
                       });
-                    case 22:
+                    case 20:
                       if (!(_this.formData.status == 'A')) {
-                        _context.next = 25;
+                        _context.next = 23;
                         break;
                       }
-                      _context.next = 25;
+                      _context.next = 23;
                       return _services_User__WEBPACK_IMPORTED_MODULE_3__["default"].getUserbyId(_this.formData.userAutorizedReceived).then(function (userDataRece) {
                         _this.formData.userAutorizedReceivedName = userDataRece.name;
                       });
-                    case 25:
+                    case 23:
                     case "end":
                       return _context.stop();
                   }
@@ -410,7 +406,6 @@ var apiUrl = 'articles';
     });
   },
   getArticle: function getArticle($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -418,7 +413,6 @@ var apiUrl = 'articles';
     });
   },
   getTypeObject: function getTypeObject($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getTypeObject?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -426,7 +420,6 @@ var apiUrl = 'articles';
     });
   },
   getArticleById: function getArticleById($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getArticleById?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -434,21 +427,18 @@ var apiUrl = 'articles';
     });
   },
   createArticle: function createArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     // .catch((error) => Promise.reject(error))
   },
   updateArticle: function updateArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   deleteArticle: function deleteArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });
@@ -481,7 +471,6 @@ var apiUrl = 'restaurations';
     });
   },
   getRestauration: function getRestauration($id) {
-    console.log($id);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestauration?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -489,7 +478,6 @@ var apiUrl = 'restaurations';
     });
   },
   getRestaurationsByArticle: function getRestaurationsByArticle($id) {
-    console.log($id);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestaurationsByArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -497,21 +485,18 @@ var apiUrl = 'restaurations';
     });
   },
   createRestauration: function createRestauration($data) {
-    console.log($data);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //.catch((error) => Promise.reject(error))
   },
   updateRestauration: function updateRestauration($data) {
-    console.log($data);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   approveRestauration: function approveRestauration($data) {
-    console.log($data);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/approve"), $data).then(function (response) {
       return response.data;
     });

@@ -9,9 +9,19 @@
         placeholder="Buscar por nombre o cédula"
         @input="filterData()"
       />
-      <i class="iconly-Voice icli mic"></i>
+      
     </div>
+    
   </div>
+  <button
+          type="button"
+          class="btn btn-solid"
+          style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+          @click="exportex"
+        >
+          <span class="btn-label"><i class="ri-file-excel-2-line"></i></span>
+          Exportar
+        </button>
   <br />
   <main
     v-for="item in List"
@@ -91,7 +101,7 @@
 </template>
 <script>
 import Donors from '../../services/Donor'
-
+import { exportExcel } from '../../exportExcel'
 export default {
   name: 'IndexDonor',
   components: {
@@ -102,11 +112,13 @@ export default {
       List: [],
       originalList: [],
       searchTerm: '',
+      items: null,
     }
   },
   async mounted() {
     await Donors.getDonors().then((data) => {
-      console.log(data)
+      
+      this.items = data;
       this.List = data
       this.originalList = this.List
     })
@@ -124,6 +136,19 @@ export default {
             expression.test(item.name) || expression.test(item.identification)
         )
       }
+    },
+    exportex() {
+      const Headers = [
+        ]
+      // const columnsToExport = this.items.map(
+      //   ({ legalStatusDescription, codQR, user, ...rest }) => rest
+      // )
+      exportExcel(
+        'Donadores del museo del sabanero',
+        'Donadores',
+        this.items,
+        Headers
+      )
     },
   },
 }

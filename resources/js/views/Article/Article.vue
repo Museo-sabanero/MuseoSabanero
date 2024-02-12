@@ -1,6 +1,6 @@
 <template>
   <main class="main-wrap index-page mb-xxl">
-    <!-- Search Box Start -->
+     <!-- earch Box Start-->
     <div class="search-box">
       <i class="iconly-Search icli search"></i>
       <input
@@ -11,6 +11,15 @@
         @input="filterData()"
       />
     </div>
+    <button
+          type="button"
+          class="btn btn-solid"
+          style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+          @click="exportex"
+        >
+          <span class="btn-label"><i class="ri-file-excel-2-line"></i></span>
+          Exportar
+        </button>
     <!-- Search Box End -->
     <br /><br />
     <section class="offer-section pt-0">
@@ -80,6 +89,7 @@
 <script>
 import Articles from '../../services/ArticleService'
 import Files from '../../services/FileService'
+import { exportExcel } from '../../exportExcel'
 
 export default {
   name: 'ArticleView',
@@ -88,10 +98,13 @@ export default {
       List: [],
       searchTerm: '',
       originalList: [],
+      items: null,
     }
   },
   async mounted() {
     await Articles.getArticles().then(async (data) => {
+      
+      this.items = data;
       this.List = data.map((item) => {
         return {
           ...item,
@@ -127,6 +140,44 @@ export default {
             expression.test(item.numRefInter)
         )
       }
+    },
+    exportex() {
+      const Headers = [
+        'Id',
+        'Numero de referencia',
+        'Otra referencia',
+        'Nombre',
+        'Titulo',
+        'Tipo de objeto',
+        'Tipo de adquicision',
+        'Ancho',
+        'Medida del ancho',
+        'Altura',
+        'Medida de altura',
+        'Largo',
+        'Medida del largo',
+        'Diametro',
+        'Medida del diametro',
+        'Estado',
+        'Peso',
+        'Medida del peso',
+        'Estado de conservacion',
+        'Estado legal',
+        'valor',
+        'Tipo de moneda', 
+        'característica distintiva',
+        'Localizacion','Ced donador',
+        'Fecha de registro'
+        ]
+      const columnsToExport = this.items.map(
+        ({ legalStatusDescription, codQR, user,acquisitionType, ...rest }) => rest
+      )
+      exportExcel(
+        'Articulos del museo del sabanero',
+        'Articulos',
+        columnsToExport,
+        Headers
+      )
     },
   },
 }

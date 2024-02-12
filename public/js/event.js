@@ -40,7 +40,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           case 0:
             _context.next = 2;
             return _services_EventService__WEBPACK_IMPORTED_MODULE_0__["default"].getEvents().then(function (data) {
-              console.log(data);
               _this.List = data;
               _this.originalList = _this.List;
             });
@@ -204,7 +203,6 @@ var apiUrl = 'events';
     });
   },
   getEvent: function getEvent($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getEvent?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -212,21 +210,18 @@ var apiUrl = 'events';
     });
   },
   createEvent: function createEvent($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   updateEvent: function updateEvent($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   deleteEvent: function deleteEvent($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });

@@ -42,8 +42,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'DetailsDonor',
   components: {
-    GoBack: _components_GoBack_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Donor: _services_Donor__WEBPACK_IMPORTED_MODULE_0__["default"]
+    GoBack: _components_GoBack_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
     id: {
@@ -77,7 +76,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           case 0:
             _context.next = 2;
             return _services_Donor__WEBPACK_IMPORTED_MODULE_0__["default"].getDetails(_this.id).then(function (data) {
-              console.log(data);
               _this.item = data.Donante;
               _this.articulo = data.Articulo;
               _this.phone = _this.item.phone;
@@ -108,7 +106,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.errorMessage = '';
       _services_Donor__WEBPACK_IMPORTED_MODULE_0__["default"].update(datos).then(function (response) {
         _this2.errorMessage = '';
-        console.log(response.data.status);
         if (response.data.status === 201) {
           _this2.goBack();
         }

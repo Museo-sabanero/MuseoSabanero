@@ -57,7 +57,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     handleSubmit: function handleSubmit() {
       var _this = this;
-      console.log(this.formData);
       var registro = {
         dateStart: this.formData.dateStart,
         dateEnd: this.formData.dateEnd,
@@ -67,9 +66,7 @@ __webpack_require__.r(__webpack_exports__);
         description: this.formData.description,
         maxPersons: this.formData.maxPersons
       };
-      console.log(registro);
       _services_EventService__WEBPACK_IMPORTED_MODULE_0__["default"].createEvent(registro).then(function (data) {
-        console.log(data);
         _this.$router.push('/event/index');
       });
     },
@@ -241,7 +238,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "date",
     "class": "form-control",
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.dateEnd]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), _hoisted_13], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Form End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"togglePopup\">Mostrar/Ocultar Popup</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Section End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\n    id=\"offcanvas\"\n    :class=\"{\n      'offcanvas offcanvas-bottom addtohome-popup show': showPopup,\n      'offcanvas offcanvas-bottom addtohome-popup': !showPopup,\n    }\"\n    tabindex=\"-1\"\n  >\n    <div class=\"offcanvas-body small\">\n      <div class=\"app-info\">\n        <img src=\"assets/images/logo/logo48.png\" class=\"img-fluid\" alt=\"\" />\n        <div class=\"content\">\n          <h3>\n            Fastkart App <i data-feather=\"x\" data-bs-dismiss=\"offcanvas\"></i>\n          </h3>\n          <a href=\"#\">www.fastkart-app.com</a>\n        </div>\n      </div>\n      <button id=\"installApp\" class=\"btn-solid install-app\">\n        Add to home screen\n      </button>\n    </div>\n  </div> ")], 64 /* STABLE_FRAGMENT */);
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.formData.dateEnd]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Email Input End "), _hoisted_13], 32 /* HYDRATE_EVENTS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Form End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"togglePopup\">Mostrar/Ocultar Popup</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login Section End ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\r\n    id=\"offcanvas\"\r\n    :class=\"{\r\n      'offcanvas offcanvas-bottom addtohome-popup show': showPopup,\r\n      'offcanvas offcanvas-bottom addtohome-popup': !showPopup,\r\n    }\"\r\n    tabindex=\"-1\"\r\n  >\r\n    <div class=\"offcanvas-body small\">\r\n      <div class=\"app-info\">\r\n        <img src=\"assets/images/logo/logo48.png\" class=\"img-fluid\" alt=\"\" />\r\n        <div class=\"content\">\r\n          <h3>\r\n            Fastkart App <i data-feather=\"x\" data-bs-dismiss=\"offcanvas\"></i>\r\n          </h3>\r\n          <a href=\"#\">www.fastkart-app.com</a>\r\n        </div>\r\n      </div>\r\n      <button id=\"installApp\" class=\"btn-solid install-app\">\r\n        Add to home screen\r\n      </button>\r\n    </div>\r\n  </div> ")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -267,7 +264,6 @@ var apiUrl = 'events';
     });
   },
   getEvent: function getEvent($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getEvent?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -275,21 +271,18 @@ var apiUrl = 'events';
     });
   },
   createEvent: function createEvent($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   updateEvent: function updateEvent($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   deleteEvent: function deleteEvent($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });

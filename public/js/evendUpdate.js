@@ -99,19 +99,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
       console.log(registro);
       _services_EventService__WEBPACK_IMPORTED_MODULE_0__["default"].updateEvent(registro).then(function (data) {
-        console.log(data);
         _this2.$router.push('/event/index');
       });
     },
     deleteEvent: function deleteEvent() {
       var _this3 = this;
-      console.log(this.formData);
       var registro = {
         id: this.formData.id
       };
-      console.log(registro);
       _services_EventService__WEBPACK_IMPORTED_MODULE_0__["default"].deleteEvent(registro).then(function (data) {
-        console.log(data);
         _this3.$router.push('/event/index');
       });
     },
@@ -326,7 +322,6 @@ var apiUrl = 'events';
     });
   },
   getEvent: function getEvent($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getEvent?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -334,21 +329,18 @@ var apiUrl = 'events';
     });
   },
   createEvent: function createEvent($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   updateEvent: function updateEvent($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   deleteEvent: function deleteEvent($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });

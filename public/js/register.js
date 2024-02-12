@@ -17,9 +17,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'UserRegister',
-  components: {
-    UserService: _services_User__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
+  components: {},
   data: function data() {
     return {
       name: null,
@@ -58,7 +56,6 @@ __webpack_require__.r(__webpack_exports__);
         token: token
       };
       this.errorMessage = '';
-      console.log(datos);
       _services_User__WEBPACK_IMPORTED_MODULE_0__["default"].register(datos).then(function (response) {
         _this.errorMessage = '';
         _this.goBack();

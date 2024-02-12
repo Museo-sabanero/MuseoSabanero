@@ -312,7 +312,6 @@ var apiUrl = 'bitacora';
     });
   },
   createBitacora: function createBitacora($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });

@@ -196,7 +196,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'UserSetting',
   components: {
-    UserService: _services_User__WEBPACK_IMPORTED_MODULE_0__["default"],
     GoBack: _components_GoBack_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
@@ -237,7 +236,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               _this.email = _this.item.email;
               _this.password = _this.item.password;
               _this.roleSelect = _this.item.role;
-              console.log(_this.item);
             });
           case 2:
           case "end":
@@ -267,7 +265,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.errorMessage = '';
       _services_User__WEBPACK_IMPORTED_MODULE_0__["default"].update(datos).then(function (response) {
         _this2.errorMessage = '';
-        console.log(response.data.status);
         if (response.data.status === 201) {
           _this2.goBack();
         }
@@ -697,7 +694,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Ingrese el email",
     required: "",
     "class": "form-control"
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]]), $data.showErrorMessageEmail ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_19, " Correo es requerido. ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"input-box\">\n        <i class=\"iconly-Call icli\"></i>\n        <input\n          type=\"number\"\n          placeholder=\"9876543210\"\n          class=\"form-control\"\n          required\n        />\n      </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]]), $data.showErrorMessageEmail ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_19, " Correo es requerido. ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"input-box\">\r\n        <i class=\"iconly-Call icli\"></i>\r\n        <input\r\n          type=\"number\"\r\n          placeholder=\"9876543210\"\r\n          class=\"form-control\"\r\n          required\r\n        />\r\n      </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     id: "role",
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $data.roleSelect = $event;
@@ -753,6 +750,9 @@ var apiUrl = 'resources';
       return Promise.reject(error);
     });
   },
+  downloadResource: function downloadResource(FILENAME, FILEPATH) {
+    return axios.get("".concat(apiUrl, "/downloadResource?filename=").concat(FILENAME, "&filepath=").concat(FILEPATH));
+  },
   // downloadResource(FILENAME,FILEPATH) {
   //   return axios
   //     .get(`${apiUrl}/downloadResource?filename=${FILENAME}&filepath=${FILEPATH}`)
@@ -767,7 +767,6 @@ var apiUrl = 'resources';
     //.catch((error) => Promise.reject(error))
   },
   deleteResource: function deleteResource($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });
@@ -778,7 +777,7 @@ var apiUrl = 'resources';
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
-    //   .catch((error) => Promise.reject(error))
+    //.catch((error) => Promise.reject(error))
   }
 });
 

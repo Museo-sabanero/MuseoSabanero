@@ -79,6 +79,7 @@ Route::group(['prefix' => 'articles', 'as' => 'articles'], function () {
     Route::post('store', [ArticleController::class, 'store'])->middleware(['auth:sanctum']);
     Route::post('update', [ArticleController::class, 'update'])->middleware(['auth:sanctum']);
     Route::post('delete', [ArticleController::class, 'delete'])->middleware(['auth:sanctum']);
+    Route::get('exportPDFArticles', [ArticleController::class, 'exportPDFArticles'])->middleware(['auth:sanctum']) ;
 });
 
 

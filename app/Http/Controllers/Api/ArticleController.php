@@ -14,7 +14,7 @@ use App\Models\Estado;
 use App\Models\Article;
 use App\Models\History;
 use App\Models\TypeObject;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Collection;
@@ -44,6 +44,22 @@ class ArticleController extends Controller
         return response()->json(ArticleResource::collection($articles), 200);
     }
 
+    public function exportPDFArticles(){
+
+        $articles = new Collection();
+
+        $article = Article::on('mysql')
+            ->selectRaw("articulo.*",)
+            ->where("articulo.ESTADO", "A")
+            ->orderByDesc('id')
+            ->get();
+
+        $articles = $articles->concat($article);
+        // DD($articles);
+        $pdf = Pdf::loadView('templatePDFArticulos', ['articlesList' => $articles])->setPaper('a4', 'landscape');
+            return $pdf->download('reporte.pdf');
+           
+    }
     public function getTypeObjects()
     {
         $object = new Collection();

@@ -389,6 +389,9 @@ var apiUrl = 'resources';
       return Promise.reject(error);
     });
   },
+  downloadResource: function downloadResource(FILENAME, FILEPATH) {
+    return axios.get("".concat(apiUrl, "/downloadResource?filename=").concat(FILENAME, "&filepath=").concat(FILEPATH));
+  },
   // downloadResource(FILENAME,FILEPATH) {
   //   return axios
   //     .get(`${apiUrl}/downloadResource?filename=${FILENAME}&filepath=${FILEPATH}`)
@@ -403,7 +406,6 @@ var apiUrl = 'resources';
     //.catch((error) => Promise.reject(error))
   },
   deleteResource: function deleteResource($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });
@@ -414,7 +416,7 @@ var apiUrl = 'resources';
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
-    //   .catch((error) => Promise.reject(error))
+    //.catch((error) => Promise.reject(error))
   }
 });
 

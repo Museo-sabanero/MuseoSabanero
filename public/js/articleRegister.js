@@ -1097,7 +1097,6 @@ var apiUrl = 'articles';
     });
   },
   getArticle: function getArticle($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -1105,7 +1104,6 @@ var apiUrl = 'articles';
     });
   },
   getTypeObject: function getTypeObject($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getTypeObject?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -1113,7 +1111,6 @@ var apiUrl = 'articles';
     });
   },
   getArticleById: function getArticleById($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getArticleById?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -1121,21 +1118,18 @@ var apiUrl = 'articles';
     });
   },
   createArticle: function createArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     // .catch((error) => Promise.reject(error))
   },
   updateArticle: function updateArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   deleteArticle: function deleteArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });
@@ -1188,7 +1182,6 @@ var apiUrl = 'bitacora';
     });
   },
   createBitacora: function createBitacora($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
@@ -1289,14 +1282,12 @@ var apiUrl = 'files';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // Obtener todos los donantes
   registerFile: function registerFile($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   updateFile: function updateFile($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
@@ -1414,7 +1405,6 @@ var apiUrl = 'histories';
     });
   },
   getHistory: function getHistory($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getHistory?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -1422,7 +1412,6 @@ var apiUrl = 'histories';
     });
   },
   getHistoryByArticle: function getHistoryByArticle($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getHistoryByArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -1430,21 +1419,18 @@ var apiUrl = 'histories';
     });
   },
   createHistory: function createHistory($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   updateHistory: function updateHistory($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   deleteHistory: function deleteHistory($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });
