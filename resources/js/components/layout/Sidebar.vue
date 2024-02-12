@@ -298,13 +298,13 @@ export default {
         if (this.deferredPrompt) {
           this.deferredPrompt.prompt()
           this.deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-              console.log('La aplicación ha sido instalada como PWA')
-            } else {
-              console.log(
-                'El usuario ha cancelado la instalación de la aplicación como PWA'
-              )
-            }
+            // if (choiceResult.outcome === 'accepted') {
+            //   console.log('La aplicación ha sido instalada como PWA')
+            // } else {
+            //   console.log(
+            //     'El usuario ha cancelado la instalación de la aplicación como PWA'
+            //   )
+            // }
             this.deferredPrompt = null
             this.showInstallButton = false
           })

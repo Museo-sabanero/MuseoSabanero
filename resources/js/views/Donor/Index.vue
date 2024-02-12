@@ -104,9 +104,6 @@ import Donors from '../../services/Donor'
 import { exportExcel } from '../../exportExcel'
 export default {
   name: 'IndexDonor',
-  components: {
-    Donors,
-  },
   data() {
     return {
       List: [],

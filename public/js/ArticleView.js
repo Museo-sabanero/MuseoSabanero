@@ -59,7 +59,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _regeneratorRuntime().wrap(function _callee$(_context2) {
                   while (1) switch (_context2.prev = _context2.next) {
                     case 0:
-                      _this.items = data;
+                      console.log(data);
                       _this.List = data.map(function (item) {
                         return _objectSpread(_objectSpread({}, item), {}, {
                           imageUrl: null,
@@ -67,7 +67,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         });
                       });
                       _iterator = _createForOfIteratorHelper(_this.List);
-                      _context2.prev = 3;
+                      _context2.prev = 2;
                       _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop() {
                         var item;
                         return _regeneratorRuntime().wrap(function _loop$(_context) {
@@ -93,33 +93,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         }, _loop);
                       });
                       _iterator.s();
-                    case 6:
+                    case 5:
                       if ((_step = _iterator.n()).done) {
-                        _context2.next = 10;
+                        _context2.next = 9;
                         break;
                       }
-                      return _context2.delegateYield(_loop(), "t0", 8);
-                    case 8:
-                      _context2.next = 6;
+                      return _context2.delegateYield(_loop(), "t0", 7);
+                    case 7:
+                      _context2.next = 5;
                       break;
-                    case 10:
-                      _context2.next = 15;
+                    case 9:
+                      _context2.next = 14;
                       break;
-                    case 12:
-                      _context2.prev = 12;
-                      _context2.t1 = _context2["catch"](3);
+                    case 11:
+                      _context2.prev = 11;
+                      _context2.t1 = _context2["catch"](2);
                       _iterator.e(_context2.t1);
-                    case 15:
-                      _context2.prev = 15;
+                    case 14:
+                      _context2.prev = 14;
                       _iterator.f();
-                      return _context2.finish(15);
-                    case 18:
+                      return _context2.finish(14);
+                    case 17:
                       _this.originalList = _this.List;
-                    case 19:
+                    case 18:
                     case "end":
                       return _context2.stop();
                   }
-                }, _callee, null, [[3, 12, 15, 18]]);
+                }, _callee, null, [[2, 11, 14, 17]]);
               }));
               return function (_x) {
                 return _ref.apply(this, arguments);
@@ -543,13 +543,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Article_vue_vue_type_template_id_34d25d6e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Article.vue?vue&type=template&id=34d25d6e */ "./resources/js/views/Article/Article.vue?vue&type=template&id=34d25d6e");
 /* harmony import */ var _Article_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Article.vue?vue&type=script&lang=js */ "./resources/js/views/Article/Article.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Article_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Article_vue_vue_type_template_id_34d25d6e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Article/Article.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Article_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Article_vue_vue_type_template_id_34d25d6e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Article/Article.vue"]])
 /* hot reload */
 if (false) {}
 

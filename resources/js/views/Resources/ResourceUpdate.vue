@@ -12,7 +12,9 @@
             <div class="steps-box">
               <span> <i class="ri-archive-line"></i></span>
               <div class="content">
-                <h4 class="title-color font-sm">agregar recurso a actualizar:</h4>
+                <h4 class="title-color font-sm">
+                  agregar recurso a actualizar:
+                </h4>
                 <div class="input-box mt-3">
                   <div class="input-group">
                     <input
@@ -24,9 +26,9 @@
                       @change="handleFileInput"
                     />
                     <button
+                      id="inputGroupFileAddon04"
                       type="submit"
                       class="btn btn-outline-secondary"
-                      id="inputGroupFileAddon04"
                     >
                       agregar
                     </button>
