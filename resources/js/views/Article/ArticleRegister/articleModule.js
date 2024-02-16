@@ -162,8 +162,9 @@ export async function handleSubmit() {
   }
 
   const fileData = new FormData()
-    .append('file', this.file)
-    .append('elementId', this.itemId)
+
+  fileData.append('file', this.file)
+  fileData.append('elementId', this.itemId)
 
   await Files.registerFile(fileData)
   this.clearData()
