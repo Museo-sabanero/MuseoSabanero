@@ -56,8 +56,8 @@ class ArticleController extends Controller
 
         $articles = $articles->concat($article);
         // DD($articles);
-        $pdf = Pdf::loadView('templatePDFArticulos', ['articlesList' => $articles])->setPaper('a4', 'landscape');
-            return $pdf->download('reporte.pdf');
+        $pdf = Pdf::loadView('templatePDF.templatePDFArticulos', ['articlesList' => $articles])->setPaper('a4', 'landscape');
+            return $pdf->download('Articulos del museo del sabanero.pdf');
            
     }
     public function getTypeObjects()

@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('DETALLE_RECIBIDO',200)->nullable();
             $table->string('FECHA_RECIBIDO',20)->nullable();
             $table->string('USUARIO_RECIBE',150)->nullable();
-            $table->bigInteger('USUARIO_AUTORIZA_RECIBIDO')->unsigned();
+            $table->bigInteger('USUARIO_AUTORIZA_RECIBIDO')->unsigned()->nullable();
             $table->timestamps();
         });
     }

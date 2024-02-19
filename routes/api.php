@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\FileController;
 use App\Http\Controllers\Api\RestaurationController;
 use App\Http\Controllers\Api\BitacoraController;
 use App\Http\Controllers\Api\ResourceController;
+use App\Http\Controllers\Api\VersionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,7 +80,7 @@ Route::group(['prefix' => 'articles', 'as' => 'articles'], function () {
     Route::post('store', [ArticleController::class, 'store'])->middleware(['auth:sanctum']);
     Route::post('update', [ArticleController::class, 'update'])->middleware(['auth:sanctum']);
     Route::post('delete', [ArticleController::class, 'delete'])->middleware(['auth:sanctum']);
-    Route::get('exportPDFArticles', [ArticleController::class, 'exportPDFArticles'])->middleware(['auth:sanctum']) ;
+    //Route::get('exportPDFArticles', [ArticleController::class, 'exportPDFArticles'])->middleware(['auth:sanctum'])->name('.downloadPDFArticles');
 });
 
 
@@ -111,6 +112,10 @@ Route::group(['prefix' => 'resources', 'as' => 'resources'], function () {
     Route::post('delete', [ResourceController::class, 'deleteResources'])->middleware(['auth:sanctum']);
     Route::get('getResources', [ResourceController::class, 'getResources']);
     Route::get('downloadResource', [ResourceController::class, 'downloadResource'])->name('.downloadResource');
+});
+Route::group(['prefix' => 'version', 'as' => 'version', 'middleware' => ['auth:sanctum']], function () {
+    Route::get('checkUpdate', [VersionController::class, 'checkUpdate']);
+    Route::get('getVersion', [VersionController::class, 'getVersion']);
 });
 
 

@@ -59,7 +59,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _regeneratorRuntime().wrap(function _callee$(_context2) {
                   while (1) switch (_context2.prev = _context2.next) {
                     case 0:
-                      console.log(data);
+                      _this.items = data;
                       _this.List = data.map(function (item) {
                         return _objectSpread(_objectSpread({}, item), {}, {
                           imageUrl: null,
@@ -67,7 +67,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         });
                       });
                       _iterator = _createForOfIteratorHelper(_this.List);
-                      _context2.prev = 2;
+                      _context2.prev = 3;
                       _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop() {
                         var item;
                         return _regeneratorRuntime().wrap(function _loop$(_context) {
@@ -93,33 +93,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         }, _loop);
                       });
                       _iterator.s();
-                    case 5:
+                    case 6:
                       if ((_step = _iterator.n()).done) {
-                        _context2.next = 9;
+                        _context2.next = 10;
                         break;
                       }
-                      return _context2.delegateYield(_loop(), "t0", 7);
-                    case 7:
-                      _context2.next = 5;
+                      return _context2.delegateYield(_loop(), "t0", 8);
+                    case 8:
+                      _context2.next = 6;
                       break;
-                    case 9:
-                      _context2.next = 14;
+                    case 10:
+                      _context2.next = 15;
                       break;
-                    case 11:
-                      _context2.prev = 11;
-                      _context2.t1 = _context2["catch"](2);
+                    case 12:
+                      _context2.prev = 12;
+                      _context2.t1 = _context2["catch"](3);
                       _iterator.e(_context2.t1);
-                    case 14:
-                      _context2.prev = 14;
+                    case 15:
+                      _context2.prev = 15;
                       _iterator.f();
-                      return _context2.finish(14);
-                    case 17:
-                      _this.originalList = _this.List;
+                      return _context2.finish(15);
                     case 18:
+                      _this.originalList = _this.List;
+                    case 19:
                     case "end":
                       return _context2.stop();
                   }
-                }, _callee, null, [[2, 11, 14, 17]]);
+                }, _callee, null, [[3, 12, 15, 18]]);
               }));
               return function (_x) {
                 return _ref.apply(this, arguments);
@@ -183,11 +183,17 @@ var _hoisted_2 = {
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "iconly-Search icli search"
 }, null, -1 /* HOISTED */);
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "btn btn-solid",
+  href: "exportPDFArticles",
+  style: {
+    "padding": "0.5rem 0.3rem 0.5rem 0.3rem"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "btn-label"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "ri-file-excel-2-line"
-})], -1 /* HOISTED */);
+  "class": "bx bxs-file-pdf"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Exportar pdf ")], -1 /* HOISTED */);
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 var _hoisted_7 = {
@@ -243,7 +249,7 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" earch Box Start"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" earch Box Start"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $data.searchTerm = $event;
     }),
@@ -253,16 +259,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[1] || (_cache[1] = function ($event) {
       return $options.filterData();
     })
-  }, null, 544 /* HYDRATE_EVENTS, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.searchTerm]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    "class": "btn btn-solid",
-    style: {
-      "padding": "0.5rem 0.3rem 0.5rem 0.3rem"
-    },
-    onClick: _cache[2] || (_cache[2] = function () {
-      return $options.exportex && $options.exportex.apply($options, arguments);
-    })
-  }, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Exportar ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Search Box End "), _hoisted_5, _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  }, null, 544 /* HYDRATE_EVENTS, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.searchTerm]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button\r\n          type=\"button\"\r\n          class=\"btn btn-solid\"\r\n          style=\"padding: 0.5rem 0.3rem 0.5rem 0.3rem\"\r\n          @click=\"exportex\"\r\n        >\r\n          <span class=\"btn-label\"><i class=\"ri-file-excel-2-line\"></i></span>\r\n          Exportar Excel\r\n        </button> "), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Search Box End "), _hoisted_5, _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/article/register",
     "class": "font-theme"
   }, {
@@ -543,13 +540,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Article_vue_vue_type_template_id_34d25d6e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Article.vue?vue&type=template&id=34d25d6e */ "./resources/js/views/Article/Article.vue?vue&type=template&id=34d25d6e");
 /* harmony import */ var _Article_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Article.vue?vue&type=script&lang=js */ "./resources/js/views/Article/Article.vue?vue&type=script&lang=js");
-/* harmony import */ var D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_xamp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Article_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Article_vue_vue_type_template_id_34d25d6e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Article/Article.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Article_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Article_vue_vue_type_template_id_34d25d6e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/Article/Article.vue"]])
 /* hot reload */
 if (false) {}
 

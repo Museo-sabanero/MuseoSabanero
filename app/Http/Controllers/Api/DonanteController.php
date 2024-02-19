@@ -3,16 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use Carbon\Carbon;
+use App\Models\Estado;
+use App\Models\Article;
+use App\Models\Donante;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\DonanteRecursos;
-use App\Models\Estado;
-use App\Http\Resources\ArticleResource;
-use App\Models\Article;
-use App\Models\Donante;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\ArticleResource;
+use App\Http\Resources\DonanteRecursos;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -38,7 +39,18 @@ class DonanteController extends Controller
 
         return response()->json(DonanteRecursos::collection($donores), 200);
     }
+    public function exportPDFdonors(){
+        $donores = new Collection();
+        $donor = Donante::on('mysql')
+            ->selectRaw("donante.*",)
+            ->orderByDesc('ID')
+            ->get();
 
+        $donores = $donores->concat($donor);
+
+        $pdf = Pdf::loadView('templatePDF.templatePDFDonadores', ['donorsList' => $donores]);
+            return $pdf->download('Donadores del museo del sabanero.pdf');
+    }
 
     public function detailsDonor($id)
     {

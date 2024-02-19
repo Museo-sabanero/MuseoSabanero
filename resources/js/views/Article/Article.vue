@@ -1,7 +1,9 @@
 <template>
   <main class="main-wrap index-page mb-xxl">
+    
      <!-- earch Box Start-->
     <div class="search-box">
+      <div>
       <i class="iconly-Search icli search"></i>
       <input
         v-model="searchTerm"
@@ -10,16 +12,26 @@
         placeholder="Buscar por nombre o descripción"
         @input="filterData()"
       />
+      </div>
+      
     </div>
-    <button
+    <!-- <button
           type="button"
           class="btn btn-solid"
           style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
           @click="exportex"
         >
           <span class="btn-label"><i class="ri-file-excel-2-line"></i></span>
-          Exportar
-        </button>
+          Exportar Excel
+        </button> -->
+        <a
+        class="btn btn-solid"
+        href="exportPDFArticles"
+        style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+        >
+          <span class="btn-label"><i class='bx bxs-file-pdf'></i></span>
+          Exportar pdf
+        </a>
     <!-- Search Box End -->
     <br /><br />
     <section class="offer-section pt-0">
@@ -179,6 +191,7 @@ export default {
         Headers
       )
     },
+    
   },
 }
 </script>
