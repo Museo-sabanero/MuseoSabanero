@@ -75,9 +75,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           case 0:
             _context.next = 2;
             return _services_User__WEBPACK_IMPORTED_MODULE_3__["default"].getUser().then(function (data) {
-              console.log(data);
               _this.users = data;
-              console.log(_this.users);
             });
           case 2:
             _this.formData.id = _this.id;
@@ -94,16 +92,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (!this.formData.userAutorizedReceived) {
         return this.showErroruserAutorizedReceived = true;
       }
-      console.log(this.formData);
       var registro = {
         id: this.formData.id,
         userAutorizedReceived: this.formData.userAutorizedReceived,
         dateReceived: this.formData.dateReceived,
         detailsReceived: this.formData.detailsReceived
       };
-      console.log(registro);
       _services_RestaurationService__WEBPACK_IMPORTED_MODULE_0__["default"].approveRestauration(registro).then(function (data) {
-        console.log(data);
         _this2.$router.push('/restauration/index');
       });
     },
@@ -277,7 +272,6 @@ var apiUrl = 'articles';
     });
   },
   getArticle: function getArticle($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -285,7 +279,6 @@ var apiUrl = 'articles';
     });
   },
   getTypeObject: function getTypeObject($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getTypeObject?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -293,7 +286,6 @@ var apiUrl = 'articles';
     });
   },
   getArticleById: function getArticleById($id) {
-    console.log($id);
     return axios.get("".concat(apiUrl, "/getArticleById?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -301,21 +293,18 @@ var apiUrl = 'articles';
     });
   },
   createArticle: function createArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     // .catch((error) => Promise.reject(error))
   },
   updateArticle: function updateArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   deleteArticle: function deleteArticle($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });
@@ -348,7 +337,6 @@ var apiUrl = 'restaurations';
     });
   },
   getRestauration: function getRestauration($id) {
-    console.log($id);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestauration?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -356,7 +344,6 @@ var apiUrl = 'restaurations';
     });
   },
   getRestaurationsByArticle: function getRestaurationsByArticle($id) {
-    console.log($id);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(apiUrl, "/getRestaurationsByArticle?id=") + $id).then(function (response) {
       return response.data;
     })["catch"](function (error) {
@@ -364,21 +351,18 @@ var apiUrl = 'restaurations';
     });
   },
   createRestauration: function createRestauration($data) {
-    console.log($data);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
     //.catch((error) => Promise.reject(error))
   },
   updateRestauration: function updateRestauration($data) {
-    console.log($data);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
     //   .catch((error) => Promise.reject(error))
   },
   approveRestauration: function approveRestauration($data) {
-    console.log($data);
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/approve"), $data).then(function (response) {
       return response.data;
     });

@@ -92,9 +92,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           case 0:
             _context.next = 2;
             return _services_ResourceService__WEBPACK_IMPORTED_MODULE_0__["default"].getResources().then(function (data) {
-              //console.log(data.resource)
               _this.resourcesdata = data;
-              console.log(_this.resourcesdata);
             });
           case 2:
           case "end":
@@ -105,18 +103,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     handleSubmit: function handleSubmit() {
-      console.log('Submit');
-      if (this.file != null) {
-        var fileData = new FormData();
-        fileData.append('file', this.file);
-        _services_ResourceService__WEBPACK_IMPORTED_MODULE_0__["default"].createResource(fileData).then(function (dataFile) {
-          console.log(dataFile);
-        })["finally"](function () {
-          window.location.reload();
-        });
-      } else {
-        this.showErrorResource = true;
-      }
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var fileData;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              if (!(_this2.file == null)) {
+                _context2.next = 3;
+                break;
+              }
+              _this2.showErrorResource = true;
+              return _context2.abrupt("return");
+            case 3:
+              fileData = new FormData();
+              fileData.append('file', _this2.file);
+              _context2.next = 7;
+              return _services_ResourceService__WEBPACK_IMPORTED_MODULE_0__["default"].createResource(fileData);
+            case 7:
+              window.location.reload();
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
     },
     handleFileInput: function handleFileInput() {
       this.file = this.$refs.fileInput.files[0];
@@ -140,11 +151,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       modal.style.display = 'none';
     },
     deleteResource: function deleteResource() {
-      var _this2 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
         var modal, idtext, filenametext, data;
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-          while (1) switch (_context2.prev = _context2.next) {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
             case 0:
               modal = document.getElementById('Modal');
               idtext = document.getElementById('identifier');
@@ -152,12 +163,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               data = {
                 id: idtext.innerText
               };
-              _context2.next = 6;
+              _context3.next = 6;
               return _services_ResourceService__WEBPACK_IMPORTED_MODULE_0__["default"].deleteResource(data).then(function (dataFile) {
-                _this2.resourcesdata = dataFile;
-                console.log(dataFile);
-              })["finally"](function () {
-                //window.location.reload()
+                _this3.resourcesdata = dataFile;
               });
             case 6:
               idtext.innerText = '';
@@ -165,9 +173,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               modal.style.display = 'none';
             case 9:
             case "end":
-              return _context2.stop();
+              return _context3.stop();
           }
-        }, _callee2);
+        }, _callee3);
       }))();
     }
   }
@@ -196,7 +204,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'UserSetting',
   components: {
-    UserService: _services_User__WEBPACK_IMPORTED_MODULE_0__["default"],
     GoBack: _components_GoBack_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
@@ -237,7 +244,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               _this.email = _this.item.email;
               _this.password = _this.item.password;
               _this.roleSelect = _this.item.role;
-              console.log(_this.item);
             });
           case 2:
           case "end":
@@ -267,7 +273,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.errorMessage = '';
       _services_User__WEBPACK_IMPORTED_MODULE_0__["default"].update(datos).then(function (response) {
         _this2.errorMessage = '';
-        console.log(response.data.status);
         if (response.data.status === 201) {
           _this2.goBack();
         }
@@ -409,9 +414,9 @@ var _hoisted_9 = {
   "class": "input-group"
 };
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  id: "inputGroupFileAddon04",
   type: "submit",
-  "class": "btn btn-outline-secondary",
-  id: "inputGroupFileAddon04"
+  "class": "btn btn-outline-secondary"
 }, " agregar ", -1 /* HOISTED */);
 var _hoisted_11 = {
   key: 0,
@@ -508,7 +513,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onChange: _cache[0] || (_cache[0] = function () {
       return $options.handleFileInput && $options.handleFileInput.apply($options, arguments);
     })
-  }, null, 544 /* HYDRATE_EVENTS, NEED_PATCH */), _hoisted_10]), $data.showErrorResource ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_11, " *Debe seleccionar un archivo para agregar el recurso ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])], 32 /* HYDRATE_EVENTS */), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table>\n          <thead>\n            <tr>\n              <th>Nombre del Recurso</th>\n              <th>Medio</th>\n              <th></th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>Manual de Usuario</td>\n              <td>\n                <label> Google Drive </label>\n              </td>\n              <td>\n                <div class=\"row\">\n                  <div class=\"col-6\">\n                    <a :href=\"manualUsuario\" target=\"_blank\">\n                      <i class=\"iconly-Show icli boton\"></i>\n                    </a>\n                  </div>\n                  <div class=\"col-6\">\n                    <DescargarGoogleDrive :enlace=\"manualUsuario\" />\n                  </div>\n                </div>\n              </td>\n            </tr>\n            <tr>\n              <td>Manual Técnico</td>\n              <td>\n                <label> Google Drive </label>\n              </td>\n              <td>\n                <div class=\"row\">\n                  <div class=\"col-6\">\n                    <a :href=\"manualTecnico\" target=\"_blank\">\n                      <i class=\"iconly-Show icli boton\"></i>\n                    </a>\n                  </div>\n                  <div class=\"col-6\">\n                    <DescargarGoogleDrive :enlace=\"manualTecnico\" />\n                  </div>\n                </div>\n              </td>\n            </tr>\n          </tbody>\n        </table> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", null, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.resourcesdata, function (item, index) {
+  }, null, 544 /* HYDRATE_EVENTS, NEED_PATCH */), _hoisted_10]), $data.showErrorResource ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_11, " *Debe seleccionar un archivo para agregar el recurso ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])], 32 /* HYDRATE_EVENTS */), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <table>\r\n          <thead>\r\n            <tr>\r\n              <th>Nombre del Recurso</th>\r\n              <th>Medio</th>\r\n              <th></th>\r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr>\r\n              <td>Manual de Usuario</td>\r\n              <td>\r\n                <label> Google Drive </label>\r\n              </td>\r\n              <td>\r\n                <div class=\"row\">\r\n                  <div class=\"col-6\">\r\n                    <a :href=\"manualUsuario\" target=\"_blank\">\r\n                      <i class=\"iconly-Show icli boton\"></i>\r\n                    </a>\r\n                  </div>\r\n                  <div class=\"col-6\">\r\n                    <DescargarGoogleDrive :enlace=\"manualUsuario\" />\r\n                  </div>\r\n                </div>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>Manual Técnico</td>\r\n              <td>\r\n                <label> Google Drive </label>\r\n              </td>\r\n              <td>\r\n                <div class=\"row\">\r\n                  <div class=\"col-6\">\r\n                    <a :href=\"manualTecnico\" target=\"_blank\">\r\n                      <i class=\"iconly-Show icli boton\"></i>\r\n                    </a>\r\n                  </div>\r\n                  <div class=\"col-6\">\r\n                    <DescargarGoogleDrive :enlace=\"manualTecnico\" />\r\n                  </div>\r\n                </div>\r\n              </td>\r\n            </tr>\r\n          </tbody>\r\n        </table> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", null, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.resourcesdata, function (item, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       key: index
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.fileName), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.type), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.dateCreated), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -532,27 +537,27 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       target: "_blank"
     }, _hoisted_27, 8 /* PROPS */, _hoisted_25)])])])]);
   }), 128 /* KEYED_FRAGMENT */))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("----------------modal----------------------"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [_hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[2] || (_cache[2] = function () {
-      return $options.closeModal && $options.closeModal.apply($options, arguments);
-    }),
     type: "button",
     "class": "btn-close",
     "data-bs-dismiss": "modal",
-    "aria-label": "Close"
-  })]), _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[3] || (_cache[3] = function () {
+    "aria-label": "Close",
+    onClick: _cache[2] || (_cache[2] = function () {
       return $options.closeModal && $options.closeModal.apply($options, arguments);
-    }),
+    })
+  })]), _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     "class": "btn btn-secondary",
-    "data-bs-dismiss": "modal"
-  }, "Cancelar"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "data-bs-dismiss": "modal",
+    onClick: _cache[3] || (_cache[3] = function () {
+      return $options.closeModal && $options.closeModal.apply($options, arguments);
+    })
+  }, " Cancelar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "class": "btn btn-danger",
     onClick: _cache[4] || (_cache[4] = function () {
       return $options.deleteResource && $options.deleteResource.apply($options, arguments);
-    }),
-    type: "button",
-    "class": "btn btn-danger"
-  }, "eliminar")])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("-------------------------------------------")])])]);
+    })
+  }, " eliminar ")])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("-------------------------------------------")])])]);
 }
 
 /***/ }),
@@ -697,7 +702,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Ingrese el email",
     required: "",
     "class": "form-control"
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]]), $data.showErrorMessageEmail ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_19, " Correo es requerido. ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"input-box\">\n        <i class=\"iconly-Call icli\"></i>\n        <input\n          type=\"number\"\n          placeholder=\"9876543210\"\n          class=\"form-control\"\n          required\n        />\n      </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]]), $data.showErrorMessageEmail ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_19, " Correo es requerido. ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"input-box\">\r\n        <i class=\"iconly-Call icli\"></i>\r\n        <input\r\n          type=\"number\"\r\n          placeholder=\"9876543210\"\r\n          class=\"form-control\"\r\n          required\r\n        />\r\n      </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     id: "role",
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $data.roleSelect = $event;
@@ -753,6 +758,9 @@ var apiUrl = 'resources';
       return Promise.reject(error);
     });
   },
+  downloadResource: function downloadResource(FILENAME, FILEPATH) {
+    return axios.get("".concat(apiUrl, "/downloadResource?filename=").concat(FILENAME, "&filepath=").concat(FILEPATH));
+  },
   // downloadResource(FILENAME,FILEPATH) {
   //   return axios
   //     .get(`${apiUrl}/downloadResource?filename=${FILENAME}&filepath=${FILEPATH}`)
@@ -767,7 +775,6 @@ var apiUrl = 'resources';
     //.catch((error) => Promise.reject(error))
   },
   deleteResource: function deleteResource($data) {
-    console.log($data);
     return axios.post("".concat(apiUrl, "/delete"), $data).then(function (response) {
       return response.data;
     });
@@ -778,7 +785,7 @@ var apiUrl = 'resources';
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });
-    //   .catch((error) => Promise.reject(error))
+    //.catch((error) => Promise.reject(error))
   }
 });
 
@@ -857,7 +864,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ntable {\n  width: 100%;\n  border-collapse: collapse;\n}\nth,\ntd {\n  padding: 1rem;\n  text-align: left;\n  border-bottom: 1px solid #ddd;\n}\nth {\n  background-color: #f0f0f0;\n  color: #0d2d6d;\n}\n.boton {\n  background-color: #0d2d6d;\n  color: #f0f0f0;\n  padding: 0.5rem;\n  border: none;\n  border-radius: 4px;\n  align-items: center;\n  font-size: medium;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ntable {\r\n  width: 100%;\r\n  border-collapse: collapse;\n}\nth,\r\ntd {\r\n  padding: 1rem;\r\n  text-align: left;\r\n  border-bottom: 1px solid #ddd;\n}\nth {\r\n  background-color: #f0f0f0;\r\n  color: #0d2d6d;\n}\n.boton {\r\n  background-color: #0d2d6d;\r\n  color: #f0f0f0;\r\n  padding: 0.5rem;\r\n  border: none;\r\n  border-radius: 4px;\r\n  align-items: center;\r\n  font-size: medium;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

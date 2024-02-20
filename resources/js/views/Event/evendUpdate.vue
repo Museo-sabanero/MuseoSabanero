@@ -173,8 +173,6 @@ export default {
         description: this.formData.description,
         maxPersons: this.formData.maxPersons,
       }
-      console.log(registro)
-
       Events.updateEvent(registro).then((data) => {
         this.$router.push('/event/index')
       })

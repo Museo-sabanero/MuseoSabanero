@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use Carbon\Carbon;
+use App\Models\Bitacora;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\BitacoraResource;
-use App\Models\Bitacora;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\BitacoraResource;
 use Illuminate\Database\Eloquent\Collection;
 
 class BitacoraController extends Controller
@@ -33,6 +34,20 @@ class BitacoraController extends Controller
 
 
         return response()->json(BitacoraResource::collection($bitacoras), 200);
+    }
+    public function exportPDFBitacora(){
+
+        $bitacoras = new Collection();
+        $bitacora = Bitacora::on('mysql')
+            ->selectRaw("bitacora.*",)
+            ->orderByDesc('id')
+            ->get();
+
+        $bitacoras = $bitacoras->concat($bitacora);
+        // dd($bitacoras);
+        $pdf = Pdf::loadView('templatePDF.templatePDFBitacora', ['bitacoraList' => $bitacoras]);
+            return $pdf->download('bitacora del museo del sabanero.pdf');
+           
     }
     
     public function detailsBitacora($id)

@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use Carbon\Carbon;
+use App\Models\Event;
+use App\Models\Estado;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\EventResource;
-use App\Models\Estado;
-use App\Models\Event;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\EventResource;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -37,6 +38,22 @@ class EventController extends Controller
 
 
         return response()->json(EventResource::collection($events), 200);
+    }
+    public function exportPDFEvents(){
+
+        $events = new Collection();
+
+            $event = Event::on('mysql')
+                ->selectRaw( "evento.*",)
+                ->where("evento.ESTADO", "A")
+                ->orderByDesc('id')
+                ->get();
+
+            $events = $events->concat($event);
+        
+        $pdf = Pdf::loadView('templatePDF.templatePDFEvents', ['eventsList' => $events]);
+            return $pdf->download('Eventos del museo del sabanero.pdf');
+           
     }
     public function getEvent(Request $request)
     {

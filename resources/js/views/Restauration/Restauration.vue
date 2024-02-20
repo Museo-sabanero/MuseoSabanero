@@ -11,6 +11,23 @@
         @input="filterData()"
       />
     </div>
+    <button
+          type="button"
+          class="btn btn-solid"
+          style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+          @click="exportex"
+        >
+          <span class="btn-label"><i class="ri-file-excel-2-line"></i></span>
+          Exportar Excel
+        </button>
+        <a
+        class="btn btn-solid"
+        href="exportPDFRestaurations"
+        style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+        >
+          <span class="btn-label"><i class='bx bxs-file-pdf'></i></span>
+          Exportar pdf
+        </a>
     <!-- Search Box End -->
     <br /><br />
     <section class="offer-section pt-0">
@@ -101,7 +118,7 @@
 <script>
 import Restaurations from '../../services/RestaurationService'
 import User from '../../services/User'
-
+import { exportExcel } from '../../exportExcel'
 export default {
   name: 'RestaurationView',
   data() {
@@ -109,11 +126,19 @@ export default {
       List: [],
       searchTerm: '',
       originalList: [],
+      items: null,
     }
   },
   async mounted() {
     await Restaurations.getRestaurations().then(async (data) => {
       this.List = data
+      this.items = data;
+      
+      this.items.forEach(element => {
+       
+       element.articlesnumRefInter=element.articles.numRefInter;
+      });
+      console.log(this.items)
       this.List = data.map((item) => {
         return {
           ...item,
@@ -141,6 +166,21 @@ export default {
             expression.test(item.detailsSend)
         )
       }
+    },
+    exportex() {
+      const Headers = [
+      'ID','Usuario que registra','Usuario que autoriza','Tipo de cambio','Fecha de envio','Fecha de prevista','Encargado de la restauracion','lugar de la restauración',
+      'Detalles de envio','Coste', 'Estado', 'detalles de recibido','Usuario qu recibe','Usuario que autoriza','Fecha de registro','# de referencia del articulo'
+        ]
+      const columnsToExport = this.items.map(
+        ({ articles, status,objectTypeDescription, ...rest }) => rest
+      )
+      exportExcel(
+        'restauraciones del museo del sabanero',
+        'restauraciones',
+        columnsToExport ,
+        Headers
+      )
     },
   },
 }

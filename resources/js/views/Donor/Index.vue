@@ -9,9 +9,27 @@
         placeholder="Buscar por nombre o cédula"
         @input="filterData()"
       />
-      <i class="iconly-Voice icli mic"></i>
+      
     </div>
+    
   </div>
+  <button
+          type="button"
+          class="btn btn-solid"
+          style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+          @click="exportex"
+        >
+          <span class="btn-label"><i class="ri-file-excel-2-line"></i></span>
+          Exportar Excel
+        </button>
+        <a
+        class="btn btn-solid"
+        href="exportPDFdonors"
+        style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+        >
+          <span class="btn-label"><i class='bx bxs-file-pdf'></i></span>
+          Exportar pdf
+        </a>
   <br />
   <main
     v-for="item in List"
@@ -91,22 +109,21 @@
 </template>
 <script>
 import Donors from '../../services/Donor'
-
+import { exportExcel } from '../../exportExcel'
 export default {
   name: 'IndexDonor',
-  components: {
-    Donors,
-  },
   data() {
     return {
       List: [],
       originalList: [],
       searchTerm: '',
+      items: null,
     }
   },
   async mounted() {
     await Donors.getDonors().then((data) => {
-      console.log(data)
+      
+      this.items = data;
       this.List = data
       this.originalList = this.List
     })
@@ -124,6 +141,20 @@ export default {
             expression.test(item.name) || expression.test(item.identification)
         )
       }
+    },
+    exportex() {
+      const Headers = [
+        'ID', 'Nombre', 'Telefono','Correo', 'Identificacion','Direccion', 'Estado', 'Descripcion de estado','Fecha de registro'
+        ]
+      // const columnsToExport = this.items.map(
+      //   ({ legalStatusDescription, codQR, user, ...rest }) => rest
+      // )
+      exportExcel(
+        'Donadores del museo del sabanero',
+        'Donadores',
+        this.items,
+        Headers
+      )
     },
   },
 }
