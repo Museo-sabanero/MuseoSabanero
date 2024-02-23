@@ -45,7 +45,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _context.next = 4;
             return _services_VersionPWA__WEBPACK_IMPORTED_MODULE_1__["default"].checkVersion().then(function (data) {
               _this.newVersion = data.Version;
-              console.log(data);
+              //console.log(data)
             })["finally"](function () {
               _this.isLoading = false;
             });

@@ -15,7 +15,7 @@
       </div>
       
     </div>
-    <!-- <button
+    <button
           type="button"
           class="btn btn-solid"
           style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
@@ -23,7 +23,7 @@
         >
           <span class="btn-label"><i class="ri-file-excel-2-line"></i></span>
           Exportar Excel
-        </button> -->
+        </button>
         <a
         class="btn btn-solid"
         href="exportPDFArticles"

@@ -94,7 +94,7 @@ export default {
     await VersionPWA.checkVersion().then((data) => {
       
       this.newVersion = data.Version
-      console.log(data)
+      //console.log(data)
     }).finally(() => {
       this.isLoading = false
     });

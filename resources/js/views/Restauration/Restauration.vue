@@ -138,7 +138,7 @@ export default {
        
        element.articlesnumRefInter=element.articles.numRefInter;
       });
-      console.log(this.items)
+      //console.log(this.items)
       this.List = data.map((item) => {
         return {
           ...item,
