@@ -55,8 +55,8 @@
                         <th scope="col">Nota</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Fecha </th>
-                        <th scope="col">Fecha inicio</th>
-                        <th scope="col">Fecha de registro</th>
+                        {{-- <th scope="col">Fecha inicio</th>
+                        <th scope="col">Fecha de registro</th> --}}
                         
                     </tr>
                 </thead>

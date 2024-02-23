@@ -235,7 +235,7 @@ export default {
       var modal = document.getElementById('Modal')
       var idtext = document.getElementById('identifier')
       var filenametext = document.getElementById('resourceName')
-      console.log(idtext, filenametext)
+      //console.log(idtext, filenametext)
       idtext.innerText = id
       filenametext.innerText = filename
       modal.style.display = 'block'
@@ -244,7 +244,7 @@ export default {
       var modal = document.getElementById('Modal')
       var idtext = document.getElementById('identifier')
       var filenametext = document.getElementById('resourceName')
-      console.log(idtext, filenametext)
+      //console.log(idtext, filenametext)
       idtext.innerText = ''
       filenametext.innerText = ''
       modal.style.display = 'none'
