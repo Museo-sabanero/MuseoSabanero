@@ -139,10 +139,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             return _this.getHistory();
           case 7:
             _context.next = 9;
-            return _this.getAuthentication();
+            return _this.getImages();
           case 9:
             _context.next = 11;
-            return _this.getImages();
+            return _this.getAuthentication();
           case 11:
             _context.next = 16;
             break;
@@ -195,6 +195,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 conservationStatus: event.conservationStatusDescription,
                 legalStatus: event.legalStatusDescription
               });
+              //console.log(this.article.cedulaDonor)
             case 5:
             case "end":
               return _context2.stop();
@@ -251,20 +252,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 2:
               data = _context5.sent;
               if (!data.isAuth) {
-                _context5.next = 12;
+                _context5.next = 13;
                 break;
               }
-              _context5.next = 6;
+              if (!(_this6.article.cedulaDonor != null)) {
+                _context5.next = 13;
+                break;
+              }
+              _context5.next = 7;
               return _services_Donor__WEBPACK_IMPORTED_MODULE_2__["default"].getDetailsByCedula(_this6.article.cedulaDonor);
-            case 6:
+            case 7:
               donor = _context5.sent;
               _this6.donor = donor;
-              _context5.next = 10;
+              _context5.next = 11;
               return _services_RestaurationService__WEBPACK_IMPORTED_MODULE_5__["default"].getRestaurationsByArticle(_this6.id);
-            case 10:
+            case 11:
               list = _context5.sent;
               _this6.ListRestauration = list;
-            case 12:
+            case 13:
             case "end":
               return _context5.stop();
           }

@@ -472,8 +472,8 @@ export default {
       await this.getArticle()
       await this.getQr()
       await this.getHistory()
-      await this.getAuthentication()
       await this.getImages()
+      await this.getAuthentication()
     } catch (error) {
       console.error(error)
     }
@@ -503,6 +503,7 @@ export default {
         conservationStatus: event.conservationStatusDescription,
         legalStatus: event.legalStatusDescription,
       }
+      //console.log(this.article.cedulaDonor)
     },
     async getQr() {
       const currentUrl = encodeURIComponent(window.location.href)
@@ -517,12 +518,17 @@ export default {
     },
 
     async getAuthentication() {
+      
       const data = await Logout.getisAuth()
       if (data.isAuth) {
+        if (this.article.cedulaDonor != null) {
+        //console.log(data.isAuth)
         const donor = await Donors.getDetailsByCedula(this.article.cedulaDonor)
         this.donor = donor
         const list = await Restaurations.getRestaurationsByArticle(this.id)
         this.ListRestauration = list
+        }
+        
       }
     },
     async getImages() {
