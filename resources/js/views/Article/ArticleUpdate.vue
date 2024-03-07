@@ -287,7 +287,7 @@
                     <input
                       id="diameter"
                       v-model="formData.diameter"
-                      type="number"
+                      
                       placeholder="Diámetro"
                       class="form-control"
                     />
