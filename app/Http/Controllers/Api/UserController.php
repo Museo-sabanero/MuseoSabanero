@@ -26,6 +26,7 @@ class UserController extends Controller
 
     public function showUser()
     {
+
         $useres = new Collection();
         $user = User::on('mysql')
             ->selectRaw("usuarios.*",)
@@ -106,19 +107,20 @@ class UserController extends Controller
             $user->contrasena = $password;
             $user->ROL_ID = $role;
             $user->remember_token = $token;
-
+            $user->Estado = 'A';
+            $user->created_at = $now;
             $user->setConnection('mysql');
             $user->save();
 
-            $email =$user->email;
+            $email = $user->email;
             $url = url('/');
             $subject = "Envio de credenciales";
             $emailBody = "<h4>Estimado/a {$user->nombre},</h4>"
-            . "<p>Su usuario es: <strong>{$user->login}</strong></p>"
-            . "<p>Su contraseña es: <strong>{$user->contrasena}</strong></p>"
-            . "<p>Le invitamos a iniciar sesión.</p>"
-            . "<p><a href=\"{$url}\">MUSEO SABANERO</a></p>"
-            . "<h4>¡Saludos!</h4>";
+                . "<p>Su usuario es: <strong>{$user->login}</strong></p>"
+                . "<p>Su contraseña es: <strong>{$user->contrasena}</strong></p>"
+                . "<p>Le invitamos a iniciar sesión.</p>"
+                . "<p><a href=\"{$url}\">MUSEO SABANERO</a></p>"
+                . "<h4>¡Saludos!</h4>";
 
             Mail::to($email)->send(new EmailNotification($subject, $emailBody));
 
@@ -145,7 +147,7 @@ class UserController extends Controller
             'password' => 'required|max:20',
             'role' => 'required',
             'email' => 'required|max:50',
-            'id'=> 'required',
+            'id' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -192,5 +194,26 @@ class UserController extends Controller
             return response($th->getMessage(), 500);
         }
     }
-    
+    public function delete(Request $request)
+    {
+
+
+        if (auth::user()->getRoleAttribute() == 'Administrador') {
+            $user = User::on('mysql')->find($request->id);
+            if ($user == null) {
+                $error = "No existe este usuario";
+                return response()->json(['errorMessage' => $error], 400);
+            }
+            if ($request->status == 'A') {
+                $user->Estado = 'I';
+                $user->save();
+            } else {
+                $user->Estado = 'A';
+                $user->save();
+            }
+
+            return response()->json(['message' => 'success'], 200);
+        }
+        return response()->json([], 401);
+    }
 }
