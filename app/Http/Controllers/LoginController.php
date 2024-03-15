@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Utils\EmailHelper;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\EmailNotification;
 use App\Models\User;
+use Illuminate\Http\Request;
+use App\Mail\EmailNotification;
+use App\Models\Utils\EmailHelper;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class LoginController extends Controller
 {
@@ -23,10 +24,11 @@ class LoginController extends Controller
             'login' => ['required'],
             'password' => ['required'],
         ]);
-
+        $credentials['Estado']= 'A';
+        
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
+            
             return redirect()->intended('/home');
         }
 
@@ -34,7 +36,7 @@ class LoginController extends Controller
             'login' => 'Usuario o contraseña son incorrectos',
         ])->onlyInput('login');
     }
-
+    
     public function login()
     {
         if (Auth::check()) {

@@ -45,6 +45,18 @@
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>
+          <li v-if="isAdmin">
+            <router-link
+              to="/users/index"
+              class="nav-link title-color font-sm"
+            >
+              <i class="iconly-User2"></i>
+              <span>usuarios</span>
+            </router-link>
+            <router-link class="arrow" to="/user/register"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
           <li>
             <router-link
               to="/donor/register"
