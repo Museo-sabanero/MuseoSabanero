@@ -3,21 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use Carbon\Carbon;
+use App\Models\Estado;
+use App\Models\Article;
+use App\Models\Restauration;
 use Illuminate\Http\Request;
+use App\Models\ArtRestauration;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ArtRestaurationResource;
-use App\Http\Resources\ArticleResource;
-use App\Http\Resources\RestaurationResource;
-use App\Http\Resources\HistoryResource;
-use App\Models\Article;
-use App\Models\ArtRestauration;
-use App\Models\Estado;
-use App\Models\Restauration;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\ArticleResource;
+use App\Http\Resources\HistoryResource;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\RestaurationResource;
 use Illuminate\Database\Eloquent\Collection;
+use App\Http\Resources\ArtRestaurationResource;
 
 class RestaurationController extends Controller
 {
@@ -56,6 +57,37 @@ class RestaurationController extends Controller
         }
 
         return response()->json($restaurationsWithArticles, 200);
+    }
+    public function exportPDFRestaurations(){
+
+        $restaurationsWithArticles = collect();
+
+        $artRestauration = ArtRestauration::on('mysql')
+        ->orderByDesc('id')
+        ->get();
+
+        foreach ($artRestauration as $art){
+
+            $restaurations = Restauration::on('mysql')
+            ->where('restauraciones.id', $art->ID_RESTAURACION)
+            ->first();
+
+            $article = Article::on('mysql')
+                ->where("articulo.id", $art->ID_ARTICULO)
+                ->first();
+
+            $articlesResource = new ArticleResource($article);
+
+            $restaurationWithArticles = new RestaurationResource($restaurations);
+            $restaurationWithArticles->articles = $articlesResource;
+
+            $restaurationsWithArticles->push($restaurationWithArticles);
+
+        }
+       //dd($restaurationsWithArticles);
+        $pdf = Pdf::loadView('templatePDF.templatePDFRestaurations', ['restaurationsList' => $restaurationsWithArticles])->setPaper('a4', 'landscape');
+            return $pdf->download('Restauraciones del museo del sabanero.pdf');
+           
     }
 
     public function getRestaurationsByArticle(Request $request)

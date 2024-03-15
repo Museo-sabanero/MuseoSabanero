@@ -204,6 +204,20 @@ const routes = [
       id: route.params.id,
     }),
   },
+  {
+    path: '/updateapp/index',
+    name: 'UpdateApp',
+    component: () =>
+      import(
+        /* webpackChunkName: "UpdateApp" */ '../views/UpdatePWA/Index.vue'
+      ),
+  },
+  {
+    path: '/Users/index',
+    name: 'UsersShow',
+    component: () =>
+      import(/* webpackChunkName: "UsersShow" */ '../views/User/Users.vue'),
+  },
 ]
 const router = createRouter({
   history: createWebHistory(),

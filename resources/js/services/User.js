@@ -39,4 +39,10 @@ export default {
       .then((response) => response.data)
       .catch((error) => Promise.reject(error))
   },
+  delete($data) {
+    return axios
+      .post(`${apiUrl}/delete`, $data)
+      .then((response) => response.data)
+    //   .catch((error) => Promise.reject(error))
+  },
 }

@@ -11,6 +11,23 @@
         @input="filterData()"
       />
     </div>
+    <button
+          type="button"
+          class="btn btn-solid"
+          style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+          @click="exportex"
+        >
+          <span class="btn-label"><i class="ri-file-excel-2-line"></i></span>
+          Exportar Excel
+        </button>
+        <a
+        class="btn btn-solid"
+        href="exportPDFEvents"
+        style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+        >
+          <span class="btn-label"><i class='bx bxs-file-pdf'></i></span>
+          Exportar pdf
+        </a>
     <!-- Search Box End -->
     <br /><br />
     <section class="offer-section pt-0">
@@ -68,7 +85,7 @@
 </template>
 <script>
 import Events from '../../services/EventService'
-
+import { exportExcel } from '../../exportExcel'
 export default {
   name: 'EventView',
   data() {
@@ -76,10 +93,12 @@ export default {
       List: [],
       searchTerm: '',
       originalList: [],
+      items: null,
     }
   },
   async mounted() {
     await Events.getEvents().then((data) => {
+      this.items = data;
       this.List = data
       this.originalList = this.List
     })
@@ -96,6 +115,20 @@ export default {
             expression.test(item.name) || expression.test(item.description)
         )
       }
+    },
+    exportex() {
+      const Headers = [
+        'ID', 'Fecha de inicio', 'Fecha final', 'Hora','Nombre', 'Costo', 'Costo actualizado','Descripcion', 'Maximo de personas', 'Estado','Fecha de registro'
+        ]
+      const columnsToExport = this.items.map(
+        ({ statusDescription, ...rest }) => rest
+      )
+      exportExcel(
+        'Eventos del museo del sabanero',
+        'eventos',
+        columnsToExport,
+        Headers
+      )
     },
   },
 }

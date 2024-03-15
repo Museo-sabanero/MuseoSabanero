@@ -1,7 +1,9 @@
 <template>
   <main class="main-wrap index-page mb-xxl">
-    <!-- Search Box Start -->
+    
+     <!-- earch Box Start-->
     <div class="search-box">
+      <div>
       <i class="iconly-Search icli search"></i>
       <input
         v-model="searchTerm"
@@ -10,7 +12,26 @@
         placeholder="Buscar por nombre o descripción"
         @input="filterData()"
       />
+      </div>
+      
     </div>
+    <button
+          type="button"
+          class="btn btn-solid"
+          style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+          @click="exportex"
+        >
+          <span class="btn-label"><i class="ri-file-excel-2-line"></i></span>
+          Exportar Excel
+        </button>
+        <a
+        class="btn btn-solid"
+        href="exportPDFArticles"
+        style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+        >
+          <span class="btn-label"><i class='bx bxs-file-pdf'></i></span>
+          Exportar pdf
+        </a>
     <!-- Search Box End -->
     <br /><br />
     <section class="offer-section pt-0">
@@ -59,12 +80,17 @@
               >
                 <div
                   class="text-center"
-                  style="max-width: 200px; margin: 0 auto border: 1px solid transparent;"
+                  style="max-width: 200px; margin: 0 auto; border: 1px solid transparent;"
                 >
                   <img
                     :src="item.imageUrl"
                     class="d-block mx-auto rounded"
-                    style="max-width: 75%; height: auto; object-fit: cover"
+                    style="max-width: 75%; 
+                    object-fit: contain;
+    display: block;
+    height: 150px;
+    width: 200px;
+    object-position: center center;"
                     :alt="item.imageAlt"
                   />
                 </div>
@@ -80,6 +106,7 @@
 <script>
 import Articles from '../../services/ArticleService'
 import Files from '../../services/FileService'
+import { exportExcel } from '../../exportExcel'
 
 export default {
   name: 'ArticleView',
@@ -88,10 +115,13 @@ export default {
       List: [],
       searchTerm: '',
       originalList: [],
+      items: null,
     }
   },
   async mounted() {
     await Articles.getArticles().then(async (data) => {
+      
+      this.items = data;
       this.List = data.map((item) => {
         return {
           ...item,
@@ -128,6 +158,45 @@ export default {
         )
       }
     },
+    exportex() {
+      const Headers = [
+        'Id',
+        'Numero de referencia',
+        'Otra referencia',
+        'Nombre',
+        'Titulo',
+        'Tipo de objeto',
+        'Tipo de adquicision',
+        'Ancho',
+        'Medida del ancho',
+        'Altura',
+        'Medida de altura',
+        'Largo',
+        'Medida del largo',
+        'Diametro',
+        'Medida del diametro',
+        'Estado',
+        'Peso',
+        'Medida del peso',
+        'Estado de conservacion',
+        'Estado legal',
+        'valor',
+        'Tipo de moneda', 
+        'característica distintiva',
+        'Localizacion','Ced donador',
+        'Fecha de registro'
+        ]
+      const columnsToExport = this.items.map(
+        ({ legalStatusDescription, codQR, user,acquisitionType, ...rest }) => rest
+      )
+      exportExcel(
+        'Articulos del museo del sabanero',
+        'Articulos',
+        columnsToExport,
+        Headers
+      )
+    },
+    
   },
 }
 </script>

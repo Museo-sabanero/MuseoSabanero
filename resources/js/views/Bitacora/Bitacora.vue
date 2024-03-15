@@ -9,9 +9,26 @@
         placeholder="Buscar por nombre, #id o fecha"
         @input="filterData()"
       />
-      <i class="iconly-Download icli mic" @click="downloadExcel"></i>
+      <!-- <i class="iconly-Download icli mic" @click="downloadExcel"></i> -->
     </div>
   </div>
+  <button
+          type="button"
+          class="btn btn-solid"
+          style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+          @click="downloadExcel"
+        >
+          <span class="btn-label"><i class="ri-file-excel-2-line"></i></span>
+          Exportar Excel
+        </button>
+        <a
+        class="btn btn-solid"
+        href="exportPDFBitacora"
+        style="padding: 0.5rem 0.3rem 0.5rem 0.3rem"
+        >
+          <span class="btn-label"><i class='bx bxs-file-pdf'></i></span>
+          Exportar pdf
+        </a>
   <br />
   <main
     v-for="item in List"

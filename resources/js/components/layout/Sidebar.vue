@@ -45,6 +45,18 @@
               ><i class="bx bxs-chevron-right"></i
             ></router-link>
           </li>
+          <li v-if="isAdmin">
+            <router-link
+              to="/users/index"
+              class="nav-link title-color font-sm"
+            >
+              <i class="iconly-User2"></i>
+              <span>usuarios</span>
+            </router-link>
+            <router-link class="arrow" to="/user/register"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
           <li>
             <router-link
               to="/donor/register"
@@ -149,6 +161,18 @@
           </li>
           <li>
             <router-link
+              to="/updateapp/index"
+              class="nav-link title-color font-sm"
+            >
+            <i class="ri-refresh-line"></i><span>Actualizar aplicación</span>
+            </router-link>
+            <router-link class="arrow" to="/resources/index"
+              ><i class="bx bxs-chevron-right"></i
+            ></router-link>
+          </li>
+          
+          <li>
+            <router-link
               to="/user/setting"
               class="nav-link title-color font-sm"
             >
@@ -223,6 +247,7 @@
 <script>
 import axios from 'axios'
 import Logout from '../../services/Logout.js'
+import VersionPWA from '../../services/VersionPWA'
 export default {
   name: 'Sidebar',
   components: {
@@ -297,7 +322,7 @@ export default {
       try {
         if (this.deferredPrompt) {
           this.deferredPrompt.prompt()
-          this.deferredPrompt.userChoice.then((choiceResult) => {
+          this.deferredPrompt.userChoice.then(async (choiceResult) => {
             // if (choiceResult.outcome === 'accepted') {
             //   console.log('La aplicación ha sido instalada como PWA')
             // } else {
@@ -307,6 +332,10 @@ export default {
             // }
             this.deferredPrompt = null
             this.showInstallButton = false
+            await VersionPWA.getVersion().then((data) => {
+            localStorage.setItem('Version', data.Version);
+      })
+           
           })
         }
       } catch (error) {

@@ -24,6 +24,7 @@ class UserResources extends JsonResource
             "token"=> $this->remember_token,
             "role" => $this->ROL_ID,
             "roleDescription" => $this->role,
+            "status" => $this->Estado,
         ];
     }
 }
