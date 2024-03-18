@@ -125,7 +125,7 @@
     async mounted() {
       
       await UserService.getUser().then((data) => {
-        console.log(data);
+        
         this.items = data;
         this.List = data
         this.originalList = this.List
@@ -150,7 +150,7 @@
         id: id,
         status:status,
       }
-      console.log(identification)
+      
       UserService.delete(identification).then(async (data) => {
         await UserService.getUser().then((data) => {
         

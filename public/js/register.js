@@ -83,7 +83,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     goBack: function goBack() {
       this.$router.push({
-        name: 'IndexDonor'
+        name: 'UsersShow'
       });
     }
   }

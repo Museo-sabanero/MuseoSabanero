@@ -46,7 +46,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           case 0:
             _context.next = 2;
             return _services_User__WEBPACK_IMPORTED_MODULE_0__["default"].getUser().then(function (data) {
-              console.log(data);
               _this.items = data;
               _this.List = data;
               _this.originalList = _this.List;
@@ -77,7 +76,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         id: id,
         status: status
       };
-      console.log(identification);
       _services_User__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"](identification).then( /*#__PURE__*/function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(data) {
           return _regeneratorRuntime().wrap(function _callee2$(_context2) {

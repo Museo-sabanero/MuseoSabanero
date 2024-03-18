@@ -24335,7 +24335,7 @@ var routes = [{
     return __webpack_require__.e(/*! import() | UpdateApp */ "UpdateApp").then(__webpack_require__.bind(__webpack_require__, /*! ../views/UpdatePWA/Index.vue */ "./resources/js/views/UpdatePWA/Index.vue"));
   }
 }, {
-  path: '/Users/index',
+  path: '/users/index',
   name: 'UsersShow',
   component: function component() {
     return __webpack_require__.e(/*! import() | UsersShow */ "UsersShow").then(__webpack_require__.bind(__webpack_require__, /*! ../views/User/Users.vue */ "./resources/js/views/User/Users.vue"));
