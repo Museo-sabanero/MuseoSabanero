@@ -83,7 +83,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     goBack: function goBack() {
       this.$router.push({
-        name: 'IndexDonor'
+        name: 'UsersShow'
       });
     }
   }
@@ -423,6 +423,12 @@ var apiUrl = 'users';
     })["catch"](function (error) {
       return Promise.reject(error);
     });
+  },
+  "delete": function _delete($data) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/delete"), $data).then(function (response) {
+      return response.data;
+    });
+    //   .catch((error) => Promise.reject(error))
   }
 });
 

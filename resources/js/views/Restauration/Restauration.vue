@@ -133,7 +133,7 @@ export default {
     await Restaurations.getRestaurations().then(async (data) => {
       this.List = data
       this.items = data;
-      
+      //console.log(data);
       this.items.forEach(element => {
        
        element.articlesnumRefInter=element.articles.numRefInter;

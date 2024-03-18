@@ -42,6 +42,7 @@ Route::group(['prefix' => 'users', 'as' => 'users', 'middleware' => ['auth:sanct
     Route::get('/detailsUser', [UserController::class, 'detailsUser']);
     Route::get('/showUser', [UserController::class, 'showUser']);
     Route::get('/detailsUserById', [UserController::class, 'detailsUserById']);
+    Route::post('/delete', [UserController::class, 'delete']);
 });
 
 Route::group(['prefix' => 'donores', 'as' => 'donores', 'middleware' => ['auth:sanctum']], function () {
