@@ -40,9 +40,11 @@ class LoginController extends Controller
             } catch (DecryptException $e) {
                 $isValid = false;
             }
-        } 
+        }
         
-        if ($isValid && Auth::attempt($credentials)) {
+        
+        if ($isValid && $user['Estado'] == 'A') {
+            Auth::login($user);
             $request->session()->regenerate();
             return redirect()->intended('/home');
         }
