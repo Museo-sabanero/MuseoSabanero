@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EmailNotification;
+use Illuminate\Support\Facades\Crypt;
+
 
 class UserController extends Controller
 {
@@ -89,7 +91,7 @@ class UserController extends Controller
         }
 
         $name = $request->input('name');
-        $password = $request->input('password');
+        $password = Crypt::encryptString($request->input('password'));
         $nameUser = $request->input('nameUser');
         $email = $request->input('email');
         $role = $request->input('role');
@@ -111,13 +113,13 @@ class UserController extends Controller
             $user->created_at = $now;
             $user->setConnection('mysql');
             $user->save();
-
             $email = $user->email;
             $url = url('/');
+            $plainPassword = Crypt::decryptString($user->contrasena);
             $subject = "Envio de credenciales";
             $emailBody = "<h4>Estimado/a {$user->nombre},</h4>"
                 . "<p>Su usuario es: <strong>{$user->login}</strong></p>"
-                . "<p>Su contraseña es: <strong>{$user->contrasena}</strong></p>"
+                . "<p>Su contraseña es: <strong>{$plainPassword}</strong></p>"
                 . "<p>Le invitamos a iniciar sesión.</p>"
                 . "<p><a href=\"{$url}\">MUSEO SABANERO</a></p>"
                 . "<h4>¡Saludos!</h4>";
@@ -155,7 +157,7 @@ class UserController extends Controller
         }
 
         $name = $request->input('name');
-        $password = $request->input('password');
+        $password = Crypt::encryptString($request->input('password'));
         $nameUser = $request->input('nameUser');
         $email = $request->input('email');
         $role = $request->input('role');
