@@ -61,6 +61,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     case 0:
                       _this.List = data;
                       _this.items = data;
+                      console.log(data);
                       _this.items.forEach(function (element) {
                         element.articlesnumRefInter = element.articles.numRefInter;
                       });
@@ -71,7 +72,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         });
                       });
                       _iterator = _createForOfIteratorHelper(_this.List);
-                      _context2.prev = 5;
+                      _context2.prev = 6;
                       _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop() {
                         var item;
                         return _regeneratorRuntime().wrap(function _loop$(_context) {
@@ -89,33 +90,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         }, _loop);
                       });
                       _iterator.s();
-                    case 8:
+                    case 9:
                       if ((_step = _iterator.n()).done) {
-                        _context2.next = 12;
+                        _context2.next = 13;
                         break;
                       }
-                      return _context2.delegateYield(_loop(), "t0", 10);
-                    case 10:
-                      _context2.next = 8;
+                      return _context2.delegateYield(_loop(), "t0", 11);
+                    case 11:
+                      _context2.next = 9;
                       break;
-                    case 12:
-                      _context2.next = 17;
+                    case 13:
+                      _context2.next = 18;
                       break;
-                    case 14:
-                      _context2.prev = 14;
-                      _context2.t1 = _context2["catch"](5);
+                    case 15:
+                      _context2.prev = 15;
+                      _context2.t1 = _context2["catch"](6);
                       _iterator.e(_context2.t1);
-                    case 17:
-                      _context2.prev = 17;
+                    case 18:
+                      _context2.prev = 18;
                       _iterator.f();
-                      return _context2.finish(17);
-                    case 20:
-                      _this.originalList = _this.List;
+                      return _context2.finish(18);
                     case 21:
+                      _this.originalList = _this.List;
+                    case 22:
                     case "end":
                       return _context2.stop();
                   }
-                }, _callee, null, [[5, 14, 17, 20]]);
+                }, _callee, null, [[6, 15, 18, 21]]);
               }));
               return function (_x) {
                 return _ref.apply(this, arguments);
@@ -480,6 +481,12 @@ var apiUrl = 'users';
     })["catch"](function (error) {
       return Promise.reject(error);
     });
+  },
+  "delete": function _delete($data) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat(apiUrl, "/delete"), $data).then(function (response) {
+      return response.data;
+    });
+    //   .catch((error) => Promise.reject(error))
   }
 });
 

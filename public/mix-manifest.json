@@ -22,6 +22,7 @@
     "/js/ResourcesView.js": "/js/ResourcesView.js",
     "/js/ResourceUpdate.js": "/js/ResourceUpdate.js",
     "/js/UpdateApp.js": "/js/UpdateApp.js",
+    "/js/UsersShow.js": "/js/UsersShow.js",
     "/css/dark.css": "/css/dark.css",
     "/css/app.css": "/css/app.css"
 }
