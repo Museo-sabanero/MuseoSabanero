@@ -6,9 +6,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Mail\EmailNotification;
 use App\Models\Utils\EmailHelper;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Crypt;
+use PhpParser\Node\Stmt\TryCatch;
+
+
 
 class LoginController extends Controller
 {
@@ -24,11 +29,23 @@ class LoginController extends Controller
             'login' => ['required'],
             'password' => ['required'],
         ]);
+    
+        $isValid = false;
+        $user = User::where('login', $credentials['login'])->first();
         $credentials['Estado']= 'A';
         
-        if (Auth::attempt($credentials)) {
+        if ($user){
+            try {
+                $isValid = $credentials['password'] === Crypt::decryptString($user->getAuthPassword());
+            } catch (DecryptException $e) {
+                $isValid = false;
+            }
+        }
+        
+        
+        if ($isValid && $user['Estado'] == 'A') {
+            Auth::login($user);
             $request->session()->regenerate();
-            
             return redirect()->intended('/home');
         }
 
@@ -75,9 +92,10 @@ class LoginController extends Controller
             ->first();
         
         $subject = "Envio de contraseña";
+        $plainPassword = Crypt::decryptString($user->contrasena);
         $emailBody = "<h4>Estimado/a {$user->nombre},</h4>"
         . "<p>Su usuario es: <strong>{$user->login}</strong></p>"
-        . "<p>Su contraseña es: <strong>{$user->contrasena}</strong></p>"
+        . "<p>Su contraseña es: <strong>{$plainPassword}</strong></p>"
         . "<p>Le invitamos a iniciar sesión.</p>"
         . "<p><a href=\"{$url}\">MUSEO SABANERO</a></p>"
         . "<h4>¡Saludos!</h4>";
