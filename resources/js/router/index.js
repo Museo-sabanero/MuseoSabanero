@@ -213,7 +213,7 @@ const routes = [
       ),
   },
   {
-    path: '/Users/index',
+    path: '/users/index',
     name: 'UsersShow',
     component: () =>
       import(/* webpackChunkName: "UsersShow" */ '../views/User/Users.vue'),

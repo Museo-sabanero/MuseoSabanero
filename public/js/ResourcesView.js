@@ -407,7 +407,7 @@ var apiUrl = 'resources';
   //     .catch((error) => Promise.reject(error))
   // },
   createResource: function createResource($data) {
-    console.log($data);
+    //console.log($data);
     return axios.post("".concat(apiUrl, "/store"), $data).then(function (response) {
       return response.data;
     });
@@ -420,7 +420,7 @@ var apiUrl = 'resources';
     //   .catch((error) => Promise.reject(error))
   },
   updateResource: function updateResource($data) {
-    console.log($data);
+    //console.log($data);
     return axios.post("".concat(apiUrl, "/update"), $data).then(function (response) {
       return response.data;
     });

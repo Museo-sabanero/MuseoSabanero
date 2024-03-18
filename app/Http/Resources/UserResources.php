@@ -25,6 +25,7 @@ class UserResources extends JsonResource
             "role" => $this->ROL_ID,
             "roleDescription" => $this->role,
             "status" => $this->Estado,
+            "dateCreated"=> $this->created_at,
         ];
     }
 }

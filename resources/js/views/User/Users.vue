@@ -150,7 +150,7 @@
         id: id,
         status:status,
       }
-      console.log(identification)
+      
       UserService.delete(identification).then(async (data) => {
         await UserService.getUser().then((data) => {
         

@@ -31,6 +31,7 @@ class User extends Authenticatable
         'contrasena',
         'ROL_ID',
         'remember_token',
+        'created_at',
     ];
 
     /**
@@ -59,7 +60,9 @@ class User extends Authenticatable
         'password' => 'contrasena',
         'remember_token' => 'token_recordarme',
         'email_verified_at' => 'email_verificado',
-        'idRol' => 'ROL_ID'
+        'idRol' => 'ROL_ID',
+        'dateCreated'=> 'created_at',
+
     ];
 
     /**

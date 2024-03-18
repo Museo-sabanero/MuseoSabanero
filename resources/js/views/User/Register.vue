@@ -253,7 +253,7 @@ export default {
     },
     goBack() {
       this.$router.push({
-        name: 'IndexDonor',
+        name: 'UsersShow',
       })
     },
   },

@@ -246,7 +246,8 @@ var _hoisted_23 = {
   "class": "text-center",
   style: {
     "max-width": "200px",
-    "margin": "0 auto border: 1px solid transparent"
+    "margin": "0 auto",
+    "border": "1px solid transparent"
   }
 };
 var _hoisted_24 = ["src", "alt"];
@@ -319,8 +320,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "d-block mx-auto rounded",
       style: {
         "max-width": "75%",
-        "height": "auto",
-        "object-fit": "cover"
+        "object-fit": "contain",
+        "display": "block",
+        "height": "150px",
+        "width": "200px",
+        "object-position": "center center"
       },
       alt: item.imageAlt
     }, null, 8 /* PROPS */, _hoisted_24)])])])]), _hoisted_25]);
