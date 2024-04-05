@@ -1,7 +1,7 @@
 <template>
   <main class="main-wrap index-page mb-xxl">
     
-     <!-- earch Box Start-->
+     
     <div class="search-box">
       <div>
       <i class="iconly-Search icli search"></i>
@@ -180,9 +180,9 @@ export default {
         'Medida del peso',
         'Estado de conservacion',
         'Estado legal',
-        'valor',
+        'Valor',
         'Tipo de moneda', 
-        'característica distintiva',
+        'Característica distintiva',
         'Localizacion','Ced donador',
         'Fecha de registro'
         ]

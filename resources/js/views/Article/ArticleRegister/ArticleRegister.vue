@@ -49,6 +49,34 @@
               :required="false"
             />
           </div>
+          <!-- <div class="col-md-6">
+            <InputArticleForm
+              id="description"
+              v-model="formData.description"
+              title="Descripcion"
+              placeholder="Descripcion"
+              icon="bx bxs-rename"
+              :required="true"
+            />
+          </div> -->
+          <div class="steps-wrap">
+          <div class="steps-box">
+            <span> <i class="bx bxs-rename"></i></span>
+            <div class="content">
+              <h4 class="title-color font-sm">Descripción:</h4>
+              <div class="input-box mt-3">
+                <textarea
+                id="description"
+              v-model="formData.description"
+                  type="text"
+                  placeholder="Descripcion"
+                  class="form-control"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
           <div class="col-md-6">
             <InputArticleForm
               id="objectType"

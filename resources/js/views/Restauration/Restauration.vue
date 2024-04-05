@@ -169,14 +169,14 @@ export default {
     },
     exportex() {
       const Headers = [
-      'ID','Usuario que registra','Usuario que autoriza','Tipo de cambio','Fecha de envio','Fecha de prevista','Encargado de la restauracion','lugar de la restauración',
+      'ID','Usuario que registra','Usuario que autoriza','Tipo de cambio','Fecha de envio','Fecha de prevista','Encargado de la restauracion','Lugar de la restauración',
       'Detalles de envio','Coste', 'Estado', 'detalles de recibido','Usuario qu recibe','Usuario que autoriza','Fecha de registro','# de referencia del articulo'
         ]
       const columnsToExport = this.items.map(
         ({ articles, status,objectTypeDescription, ...rest }) => rest
       )
       exportExcel(
-        'restauraciones del museo del sabanero',
+        'Restauraciones del museo del sabanero',
         'restauraciones',
         columnsToExport ,
         Headers

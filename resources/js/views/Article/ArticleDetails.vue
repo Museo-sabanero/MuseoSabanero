@@ -45,8 +45,13 @@
         <div class="product-detail-box">
           <h2 class="title-color">Detalles del artículo</h2>
           <br />
+          <p>
+                <strong>Descripción: </strong>
+                {{ article.description }}
+              </p>
           <div style="display: flex; flex-wrap: wrap">
             <div style="flex: 1">
+              
               <p>
                 <strong>Número de referencia: </strong>
                 {{ article.numRefInter }}
@@ -431,6 +436,7 @@ export default {
         otherRef: '',
         name: '',
         title: '',
+        description: '',
         objectType: '',
         acquisitionType: '',
         width: '',

@@ -88,6 +88,24 @@
               </div>
             </div>
           </div>
+          <div class="steps-wrap">
+          <div class="steps-box">
+            <span> <i class="bx bxs-rename"></i></span>
+            <div class="content">
+              <h4 class="title-color font-sm">Descripción:</h4>
+              <div class="input-box mt-3">
+                <textarea
+                id="description"
+              v-model="formData.description"
+                  type="text"
+                  placeholder="Descripcion"
+                  class="form-control"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
           <div class="col-md-6">
             <div class="steps-wrap">
               <div class="steps-box">
@@ -753,7 +771,7 @@
               style="margin-top: 20px; width: 100%"
               @click="mostrarModal(1)"
             >
-              > Guardar
+              Guardar
             </a>
           </div>
         </div>
@@ -839,6 +857,7 @@ export default {
         otherRef: '',
         name: '',
         title: '',
+        description: '',
         objectType: '',
         acquisitionType: '',
         width: '',
@@ -944,6 +963,7 @@ export default {
         otherRef: this.formData.otherRef,
         name: this.formData.name,
         title: this.formData.title,
+        description: this.formData.description,
         objectType: this.formData.objectType,
         acquisitionType: this.formData.acquisitionType,
         width: this.formData.width,

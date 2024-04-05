@@ -134,6 +134,7 @@ class ArticleController extends Controller
         $article->OTRA_REF = $request->input('otherRef');
         $article->NOMBRE = $request->input('name');
         $article->TITULO = $request->input('title');
+        $article->DESCRIPCION = $request->input('description');
         $article->TIPO_OBJETO = $request->input('objectType');
         $article->TIPO_ADQUISICION = $request->input('acquisitionType');
         $article->ANCHO = $request->input('width');
@@ -180,6 +181,7 @@ class ArticleController extends Controller
         $article->OTRA_REF = $request->input('otherRef');
         $article->NOMBRE = $request->input('name');
         $article->TITULO = $request->input('title');
+        $article->DESCRIPCION = $request->input('description');
         $article->TIPO_OBJETO = $request->input('objectType');
         $article->TIPO_ADQUISICION = $request->input('acquisitionType');
         $article->ANCHO = $request->input('width');

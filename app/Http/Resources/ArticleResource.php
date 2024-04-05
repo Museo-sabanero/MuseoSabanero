@@ -21,6 +21,7 @@ class ArticleResource extends JsonResource
             "otherRef"  => $this->OTRA_REF,
             "name" => $this->NOMBRE,
             "title" => $this->TITULO,
+            "description" => $this->DESCRIPCION,
             "objectType" => $this->TIPO_OBJETO,
             //"objectTypeDescription" => $this->getObjectType($this->TIPO_OBJETO),
             "acquisitionType" => $this->TIPO_ADQUISICION,
