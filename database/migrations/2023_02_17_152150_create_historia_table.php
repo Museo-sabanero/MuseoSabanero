@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('MATERIAS',100);
             $table->string('MANUFACTURACION',200)->nullable();
             $table->string('INSCRIPCION_MARCAS',200)->nullable();
-            $table->string('ANTIGUEDAD',20);
-            $table->string('HISTORIA',200);
+            $table->string('ANTIGUEDAD',20)->nullable();
+            $table->string('HISTORIA',1000)->nullable();
             $table->integer('ID_ARTICULO');
             // $table->foreign('articulo_id')->references('id')->on('articulos');
              $table->timestamps();
