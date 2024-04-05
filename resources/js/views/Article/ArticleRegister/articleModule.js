@@ -4,6 +4,7 @@ export const data = {
     otherRef: '',
     name: '',
     title: '',
+    description: '',
     objectType: '',
     acquisitionType: '',
     width: '',
@@ -72,6 +73,7 @@ const buildArticle = (form) => ({
   otherRef: form.otherRef,
   name: form.name,
   title: form.title,
+  description: form.description,
   objectType: form.objectType,
   acquisitionType: form.acquisitionType,
   width: form.width,
@@ -118,6 +120,7 @@ export function clearData() {
   form.otherRef = ''
   form.name = ''
   form.title = ''
+  form.description = ''
   form.objectType = ''
   form.acquisitionType = ''
   form.width = ''

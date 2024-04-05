@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('NUM_REF_INTER',20);
             $table->string('OTRA_REF',20)->nullable();
-            $table->string('NOMBRE',30)->nullable();
+            $table->string('NOMBRE',200)->nullable();
             $table->string('TITULO',20)->nullable();
             $table->string('TIPO_OBJETO',250)->nullable();
             $table->string('TIPO_ADQUISICION',20)->nullable();

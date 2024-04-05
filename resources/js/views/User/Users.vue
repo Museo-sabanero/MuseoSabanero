@@ -9,7 +9,7 @@
        v-model="searchTerm"
        class="form-control"
        type="search"
-       placeholder="Buscar por nombre o descripción"
+       placeholder="Buscar por nombre "
        @input="filterData()"
      />
      </div>
@@ -141,7 +141,7 @@
           const expression = new RegExp(searchTerm, 'i')
           this.List = this.originalList.filter(
             (item) =>
-              expression.test(item.name) || expression.test(item.identification)
+              expression.test(item.name)
           )
         }
       },
