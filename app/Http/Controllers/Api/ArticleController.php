@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Collection;
 
-
 class ArticleController extends Controller
 {
     /**
@@ -34,7 +33,7 @@ class ArticleController extends Controller
 
         $article = Article::on('mysql')
             ->selectRaw("articulo.*",)
-            ->where("articulo.ESTADO", "A")
+            ->where("articulo.ESTADO", Estado::ACTIVO)
             ->orderByDesc('id')
             ->get();
 
@@ -50,7 +49,7 @@ class ArticleController extends Controller
 
         $article = Article::on('mysql')
             ->selectRaw("articulo.*",)
-            ->where("articulo.ESTADO", "A")
+            ->where("articulo.ESTADO", Estado::ACTIVO)
             ->orderByDesc('id')
             ->get();
 

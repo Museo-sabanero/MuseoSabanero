@@ -255,7 +255,7 @@ class RestaurationController extends Controller
         $restauration->FECHA_RECIBIDO = $request->input('dateReceived');
         $restauration->USUARIO_RECIBE = Auth::user()->name;
         $restauration->USUARIO_AUTORIZA_RECIBIDO = $request->input('userAutorizedReceived');
-        $restauration->ESTADO = 'A';
+        $restauration->ESTADO = Estado::ACTIVO;
         $restauration->save();
 
         $data = [

@@ -15,7 +15,8 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EmailNotification;
 use Illuminate\Support\Facades\Crypt;
-
+use App\Http\Controllers\Constants\Constants;
+use App\Models\Estado;
 
 class UserController extends Controller
 {
@@ -109,7 +110,7 @@ class UserController extends Controller
             $user->contrasena = $password;
             $user->ROL_ID = $role;
             $user->remember_token = $token;
-            $user->Estado = 'A';
+            $user->Estado = Estado::ACTIVO;
             $user->created_at = $now;
             $user->setConnection('mysql');
             $user->save();
@@ -206,11 +207,11 @@ class UserController extends Controller
                 $error = "No existe este usuario";
                 return response()->json(['errorMessage' => $error], 400);
             }
-            if ($request->status == 'A') {
-                $user->Estado = 'I';
+            if ($request->status == Estado::ACTIVO) {
+                $user->Estado = Estado::INACTIVO;
                 $user->save();
             } else {
-                $user->Estado = 'A';
+                $user->Estado = Estado::ACTIVO;
                 $user->save();
             }
 

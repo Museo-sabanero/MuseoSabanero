@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\EventResource;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Collection;
+use App\Models\Estado;
 
 
 class EventController extends Controller
@@ -30,7 +31,7 @@ class EventController extends Controller
 
             $event = Event::on('mysql')
                 ->selectRaw( "evento.*",)
-                ->where("evento.ESTADO", "A")
+                ->where("evento.ESTADO", Estado::ACTIVO)
                 ->orderByDesc('id')
                 ->get();
 
@@ -45,7 +46,7 @@ class EventController extends Controller
 
             $event = Event::on('mysql')
                 ->selectRaw( "evento.*",)
-                ->where("evento.ESTADO", "A")
+                ->where("evento.ESTADO", Estado::ACTIVO)
                 ->orderByDesc('id')
                 ->get();
 

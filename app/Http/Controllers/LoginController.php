@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Crypt;
 use PhpParser\Node\Stmt\TryCatch;
+use App\Models\Estado;
 
 
 
@@ -32,7 +33,7 @@ class LoginController extends Controller
     
         $isValid = false;
         $user = User::where('login', $credentials['login'])->first();
-        $credentials['Estado']= 'A';
+        $credentials['Estado']= Estado::ACTIVO;;
         
         if ($user){
             try {
@@ -43,7 +44,7 @@ class LoginController extends Controller
         }
         
         
-        if ($isValid && $user['Estado'] == 'A') {
+        if ($isValid && $user->Estado == Estado::ACTIVO) {
             Auth::login($user);
             $request->session()->regenerate();
             return redirect()->intended('/home');
