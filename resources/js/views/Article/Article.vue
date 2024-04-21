@@ -127,13 +127,7 @@ export default {
     const data = await Articles.getArticles()
       
       this.items = data;
-      this.List = data.map((item) => {
-        return {
-          ...item,
-          imageUrl: null,
-          imageAlt: null,
-        }
-      })
+      this.List = data.map((item) => ( {...item,imageUrl: null, imageAlt: null}))
       const promies = this.List.map((item) => Files.getImageByIdArticle(item.id))
       const images = await Promise.allSettled(promies)
       for(const item of images)this.imageMapId[item.value.elementId] = item.value
