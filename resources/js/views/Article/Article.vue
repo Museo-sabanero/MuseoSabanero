@@ -55,7 +55,7 @@
               <a class="font-sm">
                 Número de referencia: {{ item.numRefInter }}
               </a>
-              <br /><br />
+              <br />
               <div class="btn-group">
                 <router-link
                   class="btn btn-outline font-md d-inline-block"
@@ -77,7 +77,8 @@
                   background-color: transparent;
                 "
               >
-                <div  v-if="item.imageUrl"
+                <div 
+                  v-if="item.imageUrl"
                   class="text-center"
                   style="max-width: 200px; margin: 0 auto; border: 1px solid transparent;"
                 >
@@ -239,6 +240,17 @@ export default {
     justify-content: center;
     flex-direction: column;
   }
+}
+
+@media (min-width: 768px) {
+
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 75%;
+  }
+  
 }
 
 
