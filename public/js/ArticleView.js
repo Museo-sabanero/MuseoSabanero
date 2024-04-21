@@ -43,93 +43,70 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       List: [],
       searchTerm: '',
       originalList: [],
+      imageMapId: {},
       items: null
     };
   },
   mounted: function mounted() {
     var _this = this;
-    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-      return _regeneratorRuntime().wrap(function _callee2$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      var data, promies, images, _iterator, _step, item, _iterator2, _step2, _item, image;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
           case 0:
-            _context3.next = 2;
-            return _services_ArticleService__WEBPACK_IMPORTED_MODULE_0__["default"].getArticles().then( /*#__PURE__*/function () {
-              var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(data) {
-                var _iterator, _step, _loop;
-                return _regeneratorRuntime().wrap(function _callee$(_context2) {
-                  while (1) switch (_context2.prev = _context2.next) {
-                    case 0:
-                      _this.items = data;
-                      _this.List = data.map(function (item) {
-                        return _objectSpread(_objectSpread({}, item), {}, {
-                          imageUrl: null,
-                          imageAlt: null
-                        });
-                      });
-                      _iterator = _createForOfIteratorHelper(_this.List);
-                      _context2.prev = 3;
-                      _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop() {
-                        var item;
-                        return _regeneratorRuntime().wrap(function _loop$(_context) {
-                          while (1) switch (_context.prev = _context.next) {
-                            case 0:
-                              item = _step.value;
-                              _context.next = 3;
-                              return _services_FileService__WEBPACK_IMPORTED_MODULE_1__["default"].getImageByIdArticle(item.id).then(function (data) {
-                                if (data == 'null') {
-                                  ;
-                                  item.imageUrl = '/images/museo/frontPage.png',
-                                  // Ruta relativa de la imagen desde la carpeta public
-                                  item.imageAlt = 'Imagen de muestra';
-                                } else {
-                                  ;
-                                  item.imageUrl = '/' + data.filePath, item.imageAlt = data.fileName;
-                                }
-                              });
-                            case 3:
-                            case "end":
-                              return _context.stop();
-                          }
-                        }, _loop);
-                      });
-                      _iterator.s();
-                    case 6:
-                      if ((_step = _iterator.n()).done) {
-                        _context2.next = 10;
-                        break;
-                      }
-                      return _context2.delegateYield(_loop(), "t0", 8);
-                    case 8:
-                      _context2.next = 6;
-                      break;
-                    case 10:
-                      _context2.next = 15;
-                      break;
-                    case 12:
-                      _context2.prev = 12;
-                      _context2.t1 = _context2["catch"](3);
-                      _iterator.e(_context2.t1);
-                    case 15:
-                      _context2.prev = 15;
-                      _iterator.f();
-                      return _context2.finish(15);
-                    case 18:
-                      _this.originalList = _this.List;
-                    case 19:
-                    case "end":
-                      return _context2.stop();
-                  }
-                }, _callee, null, [[3, 12, 15, 18]]);
-              }));
-              return function (_x) {
-                return _ref.apply(this, arguments);
-              };
-            }());
+            _context.next = 2;
+            return _services_ArticleService__WEBPACK_IMPORTED_MODULE_0__["default"].getArticles();
           case 2:
+            data = _context.sent;
+            _this.items = data;
+            _this.List = data.map(function (item) {
+              return _objectSpread(_objectSpread({}, item), {}, {
+                imageUrl: null,
+                imageAlt: null
+              });
+            });
+            promies = _this.List.map(function (item) {
+              return _services_FileService__WEBPACK_IMPORTED_MODULE_1__["default"].getImageByIdArticle(item.id);
+            });
+            _context.next = 8;
+            return Promise.allSettled(promies);
+          case 8:
+            images = _context.sent;
+            _iterator = _createForOfIteratorHelper(images);
+            try {
+              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                item = _step.value;
+                _this.imageMapId[item.value.elementId] = item.value;
+              }
+            } catch (err) {
+              _iterator.e(err);
+            } finally {
+              _iterator.f();
+            }
+            _iterator2 = _createForOfIteratorHelper(_this.List);
+            try {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                _item = _step2.value;
+                image = _this.imageMapId[_item.id];
+                if (!image) {
+                  _item.imageUrl = '/images/museo/frontPage.png';
+                  _item.imageAlt = 'Imagen de muestra';
+                } else {
+                  _item.imageUrl = '/' + image.filePath;
+                  _item.imageAlt = image.fileName;
+                }
+              }
+            } catch (err) {
+              _iterator2.e(err);
+            } finally {
+              _iterator2.f();
+            }
+            _this.originalList = _this.List;
+          case 14:
           case "end":
-            return _context3.stop();
+            return _context.stop();
         }
-      }, _callee2);
+      }, _callee);
     }))();
   },
   methods: {
@@ -146,12 +123,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     exportex: function exportex() {
       var Headers = ['Id', 'Numero de referencia', 'Otra referencia', 'Nombre', 'Titulo', 'Tipo de objeto', 'Tipo de adquicision', 'Ancho', 'Medida del ancho', 'Altura', 'Medida de altura', 'Largo', 'Medida del largo', 'Diametro', 'Medida del diametro', 'Estado', 'Peso', 'Medida del peso', 'Estado de conservacion', 'Estado legal', 'Valor', 'Tipo de moneda', 'Característica distintiva', 'Localizacion', 'Ced donador', 'Fecha de registro'];
-      var columnsToExport = this.items.map(function (_ref2) {
-        var legalStatusDescription = _ref2.legalStatusDescription,
-          codQR = _ref2.codQR,
-          user = _ref2.user,
-          acquisitionType = _ref2.acquisitionType,
-          rest = _objectWithoutProperties(_ref2, _excluded);
+      var columnsToExport = this.items.map(function (_ref) {
+        var legalStatusDescription = _ref.legalStatusDescription,
+          codQR = _ref.codQR,
+          user = _ref.user,
+          acquisitionType = _ref.acquisitionType,
+          rest = _objectWithoutProperties(_ref, _excluded);
         return rest;
       });
       (0,_exportExcel__WEBPACK_IMPORTED_MODULE_2__.exportExcel)('Articulos del museo del sabanero', 'Articulos', columnsToExport, Headers);

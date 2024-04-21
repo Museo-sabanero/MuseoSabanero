@@ -86,11 +86,11 @@
                     :src="item.imageUrl"
                     class="d-block mx-auto rounded"
                     style="max-width: 75%; 
-                    object-fit: contain;
-    display: block;
-    height: 150px;
-    width: 200px;
-    object-position: center center;"
+                      object-fit: contain;
+                      display: block;
+                      height: 150px;  
+                      width: 200px;
+                      object-position: center center;"
                     :alt="item.imageAlt"
                   />
                 </div>
@@ -115,11 +115,12 @@ export default {
       List: [],
       searchTerm: '',
       originalList: [],
+      imageMapId: {},
       items: null,
     }
   },
   async mounted() {
-    await Articles.getArticles().then(async (data) => {
+    const data = await Articles.getArticles()
       
       this.items = data;
       this.List = data.map((item) => {
@@ -129,19 +130,21 @@ export default {
           imageAlt: null,
         }
       })
-      for (const item of this.List) {
-        await Files.getImageByIdArticle(item.id).then((data) => {
-          if (data == 'null') {
-            ;(item.imageUrl = '/images/museo/frontPage.png'), // Ruta relativa de la imagen desde la carpeta public
-              (item.imageAlt = 'Imagen de muestra')
-          } else {
-            ;(item.imageUrl = '/' + data.filePath),
-              (item.imageAlt = data.fileName)
-          }
-        })
+      const promies = this.List.map((item) => Files.getImageByIdArticle(item.id))
+      const images = await Promise.allSettled(promies)
+      for(const item of images)this.imageMapId[item.value.elementId] = item.value
+        
+      for(let item of this.List){
+        const image = this.imageMapId[item.id]
+        if(!image){
+          item.imageUrl = '/images/museo/frontPage.png'
+          item.imageAlt = 'Imagen de muestra'
+        }else{
+          item.imageUrl = '/' + image.filePath;
+          item.imageAlt = image.fileName
+        }
       }
       this.originalList = this.List
-    })
   },
   methods: {
     filterData() {
