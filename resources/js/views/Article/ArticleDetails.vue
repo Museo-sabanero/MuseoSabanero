@@ -504,7 +504,6 @@ export default {
       qr.make();
       const imdTag =  qr.createImgTag(7, 4, 4);
       const name = this.article.name;
-      console.log(imdTag)
       const img = document.createElement('img');
       const nameTag = document.createElement('p');
       nameTag.className = 'qr-text';
