@@ -121,12 +121,8 @@
                   "
                 >
                   <div ref="qr-code" class="qr-code">
-                    <img
-                      :src="qrCodeSrc"
-                      alt="Código QR generado con la dirección web actual"
-                      style="width: 250px; height: 250px"
-                    />
-                    <p class="qr-text">{{ article.name }}</p>
+
+         
                   </div>
                   <br />
                   <div style="text-align: center">
@@ -410,6 +406,8 @@ import Restaurations from '../../services/RestaurationService'
 import { saveAs } from 'file-saver'
 import Logout from '../../services/Logout.js'
 import html2canvas from 'html2canvas'
+import qrcode from 'qrcode-generator'
+
 
 export default {
   name: 'ArticleDetails',
@@ -476,7 +474,8 @@ export default {
   async mounted() {
     try {
       await this.getArticle()
-      await this.getQr()
+      //await this.getQr()
+      this.renderQRCode()
       await this.getHistory()
       await this.getImages()
       await this.getAuthentication()
@@ -497,6 +496,34 @@ export default {
         })
       })
     },
+
+    renderQRCode() {
+      var typeNumber = 4;
+      var errorCorrectionLevel = 'L';
+      var qr = qrcode(typeNumber, errorCorrectionLevel);
+      qr.addData(window.location.href);
+
+      qr.make();
+      // 250 x 250
+      const imdTag =  qr.createImgTag(7, 4, 4);
+      const name = this.article.name;
+      console.log(imdTag)
+      const img = document.createElement('img');
+      const nameTag = document.createElement('p');
+      nameTag.className = 'qr-text';
+
+      nameTag.textContent = name;
+      img.src = imdTag;
+      img.alt = `QR del artículo ${name}`;
+      img.width = 250;
+      img.height = 250;
+
+
+      this.$refs['qr-code'].innerHTML = imdTag
+      this.$refs['qr-code'].appendChild(nameTag);
+      //document.getElementById('placeHolder').innerHTML = html;
+    },
+
     goBack() {
       this.$router.push({ name: 'ArticleView' })
     },
@@ -505,16 +532,13 @@ export default {
       this.list = article[0]
       this.article = {
         ...this.list,
-        acquisitionType: event.acquisitionTypeDescription,
-        conservationStatus: event.conservationStatusDescription,
-        legalStatus: event.legalStatusDescription,
+        acquisitionType: article.acquisitionTypeDescription,
+        conservationStatus: article.conservationStatusDescription,
+        legalStatus: article.legalStatusDescription,
       }
-      //console.log(this.article.cedulaDonor)
     },
-    async getQr() {
-      const currentUrl = encodeURIComponent(window.location.href)
-      this.qrCodeSrc = `https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${currentUrl}`
-    },
+
+
 
     async getHistory() {
       const history = await Histors.getHistoryByArticle(this.article.id)
@@ -523,18 +547,15 @@ export default {
       this.history = { ...listHistory }
     },
 
-    async getAuthentication() {
-      
+    async getAuthentication() {      
       const data = await Logout.getisAuth()
       if (data.isAuth) {
         if (this.article.cedulaDonor != null) {
-        //console.log(data.isAuth)
         const donor = await Donors.getDetailsByCedula(this.article.cedulaDonor)
         this.donor = donor
         const list = await Restaurations.getRestaurationsByArticle(this.id)
         this.ListRestauration = list
         }
-        
       }
     },
     async getImages() {
@@ -550,8 +571,13 @@ export default {
 <style>
 .qr-code {
   width: 300px;
-  height: 330px;
-  padding: 20px;
+    height: 330px;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .qr-text {

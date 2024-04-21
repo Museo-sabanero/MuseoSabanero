@@ -39,6 +39,7 @@
     "html2canvas": "1.4.1",
     "moment": "^2.29.4",
     "pouchdb-browser": "^8.0.1",
+    "qrcode-generator": "^1.4.4",
     "signature_pad": "^4.1.5",
     "uuid": "^9.0.0",
     "vue-chartjs": "^5.2.0",

@@ -42,7 +42,7 @@ class LoginController extends Controller
                 $isValid = false;
             }
         }
-        
+
         
         if ($isValid && $user->Estado == Estado::ACTIVO) {
             Auth::login($user);

@@ -66,7 +66,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       } else {
         var expression = new RegExp(searchTerm, 'i');
         this.List = this.originalList.filter(function (item) {
-          return expression.test(item.name) || expression.test(item.identification);
+          return expression.test(item.name);
         });
       }
     },
@@ -230,7 +230,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     "class": "form-control",
     type: "search",
-    placeholder: "Buscar por nombre o descripción",
+    placeholder: "Buscar por nombre ",
     onInput: _cache[1] || (_cache[1] = function ($event) {
       return $options.filterData();
     })
@@ -363,13 +363,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Users_vue_vue_type_template_id_4266d703__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Users.vue?vue&type=template&id=4266d703 */ "./resources/js/views/User/Users.vue?vue&type=template&id=4266d703");
 /* harmony import */ var _Users_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Users.vue?vue&type=script&lang=js */ "./resources/js/views/User/Users.vue?vue&type=script&lang=js");
-/* harmony import */ var C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var D_xamp2_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Users_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Users_vue_vue_type_template_id_4266d703__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/User/Users.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_xamp2_htdocs_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Users_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Users_vue_vue_type_template_id_4266d703__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/views/User/Users.vue"]])
 /* hot reload */
 if (false) {}
 
