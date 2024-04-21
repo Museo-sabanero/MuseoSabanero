@@ -142,7 +142,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             _context.next = 3;
             return _this.getArticle();
           case 3:
-            //await this.getQr()
             _this.renderQRCode();
             _context.next = 6;
             return _this.getHistory();
@@ -189,11 +188,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var qr = qrcode_generator__WEBPACK_IMPORTED_MODULE_9___default()(typeNumber, errorCorrectionLevel);
       qr.addData(window.location.href);
       qr.make();
-      // 250 x 250
       var imdTag = qr.createImgTag(7, 4, 4);
       var name = this.article.name;
       /* eslint-disable */
-      (_console = console).log.apply(_console, _toConsumableArray(oo_oo("210581873_510_6_510_25_4", imdTag)));
+      (_console = console).log.apply(_console, _toConsumableArray(oo_oo("4222392719_507_6_507_25_4", imdTag)));
       var img = document.createElement('img');
       var nameTag = document.createElement('p');
       nameTag.className = 'qr-text';
@@ -204,7 +202,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       img.height = 250;
       this.$refs['qr-code'].innerHTML = imdTag;
       this.$refs['qr-code'].appendChild(nameTag);
-      //document.getElementById('placeHolder').innerHTML = html;
     },
     goBack: function goBack() {
       this.$router.push({

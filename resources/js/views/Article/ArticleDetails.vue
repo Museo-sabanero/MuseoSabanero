@@ -474,7 +474,6 @@ export default {
   async mounted() {
     try {
       await this.getArticle()
-      //await this.getQr()
       this.renderQRCode()
       await this.getHistory()
       await this.getImages()
@@ -502,9 +501,7 @@ export default {
       var errorCorrectionLevel = 'L';
       var qr = qrcode(typeNumber, errorCorrectionLevel);
       qr.addData(window.location.href);
-
       qr.make();
-      // 250 x 250
       const imdTag =  qr.createImgTag(7, 4, 4);
       const name = this.article.name;
       console.log(imdTag)
@@ -518,10 +515,8 @@ export default {
       img.width = 250;
       img.height = 250;
 
-
       this.$refs['qr-code'].innerHTML = imdTag
       this.$refs['qr-code'].appendChild(nameTag);
-      //document.getElementById('placeHolder').innerHTML = html;
     },
 
     goBack() {
