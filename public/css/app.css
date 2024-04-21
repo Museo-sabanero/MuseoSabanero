@@ -12195,9 +12195,10 @@ input:-webkit-autofill:focus {
   background-color: #ffffff;
   border-radius: 9px;
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 575px) {
   .product-list.media {
     align-items: flex-start;
+    justify-content: center;
   }
 }
 .product-list.media:not(:first-of-type) {
@@ -12221,9 +12222,9 @@ input:-webkit-autofill:focus {
 .product-list.media .media-body {
   width: calc(100% - 170px);
 }
-@media (max-width: 375px) {
+@media (max-width: 575px) {
   .product-list.media .media-body {
-    width: calc(100% - 70px);
+    width: 100%;
   }
 }
 .product-list.media .media-body a {
@@ -12241,7 +12242,7 @@ input:-webkit-autofill:focus {
   left: calc(15px + 10 * (100vw - 320px) / 1600);
   right: unset;
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 575px) {
   .product-list.media .plus-minus {
     position: relative;
     bottom: unset;

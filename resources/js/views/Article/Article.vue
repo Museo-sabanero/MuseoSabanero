@@ -56,11 +56,10 @@
                 Número de referencia: {{ item.numRefInter }}
               </a>
               <br /><br />
-              <div>
+              <div class="btn-group">
                 <router-link
                   class="btn btn-outline font-md d-inline-block"
                   :to="{ name: 'ArticleUpdate', params: { id: item.id } }"
-                  style="margin-right: 10px"
                 >
                   Editar
                 </router-link>
@@ -78,22 +77,26 @@
                   background-color: transparent;
                 "
               >
-                <div
+                <div  v-if="item.imageUrl"
                   class="text-center"
                   style="max-width: 200px; margin: 0 auto; border: 1px solid transparent;"
                 >
                   <img
                     :src="item.imageUrl"
                     class="d-block mx-auto rounded"
-                    style="max-width: 75%; 
-                      object-fit: contain;
+                    style="max-width: 200px; 
+                      object-fit: cover;
                       display: block;
                       height: 150px;  
                       width: 200px;
                       object-position: center center;"
                     :alt="item.imageAlt"
                   />
+
                 </div>
+                <div v-else class="text-center">
+                    <div class="skeleton d-block mx-auto rounded" style="height: 150px; width: 200px;"></div>
+                  </div>
               </span>
             </div>
           </div>
@@ -203,3 +206,40 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+@media (max-width: 768px) {
+  .articles-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+
+</style>

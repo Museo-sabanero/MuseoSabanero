@@ -18,6 +18,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Collection;
+use PhpParser\Node\Stmt\TryCatch;
 
 class ArticleController extends Controller
 {
@@ -159,7 +160,12 @@ class ArticleController extends Controller
         $article->COD_QR = 'No tiene';
         $article->USUARIO = Auth::user()->name;
 
-        $article->save();
+       try {
+            $article->save();
+        } catch (\Exception $e) {
+            $error = $e->getMessage();
+            return response()->json(['errorMessage' => $error], 404);
+        }
 
         $findArticle = Article::latest()->first();
 

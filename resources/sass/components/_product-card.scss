@@ -164,8 +164,9 @@
     padding: calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320)));
     background-color: $white;
     border-radius: 9px;
-    @media only screen and (max-width: 375px) {
+    @media only screen and (max-width: 575px) {
       align-items: flex-start;
+      justify-content: center;
     }
     &:not(:first-of-type) {
       margin-top: calc(15px + (20 - 15) * ((100vw - 320px) / (1920 - 320)));
@@ -187,8 +188,8 @@
     }
     .media-body {
       width: calc(100% - 170px);
-      @media (max-width: 375px) {
-        width: calc(100% - 70px);
+      @media (max-width: 575px) {
+        width: calc(100%);
       }
       a {
         display: -webkit-box;
@@ -205,7 +206,7 @@
         left: calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320)));
         right: unset;
       }
-      @media only screen and (max-width: 375px) {
+      @media only screen and (max-width: 575px) {
         position: relative;
         bottom: unset;
         right: unset;
