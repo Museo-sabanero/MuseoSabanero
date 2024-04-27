@@ -1,29 +1,52 @@
-# README
+# Museo sabanero Liberia
 
-This README would normally document whatever steps are necessary to get your application up and running.
 
-### What is this repository for?
 
-- Quick summary
-- Version
-- [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+![Logo](https://i.ibb.co/5vZjVgC/logo-w.png)
 
-### How do I get set up?
+## Desarrollo
 
-- Summary of set up
-- Configuration
-- Dependencies
-- Database configuration
-- How to run tests
-- Deployment instructions
+- Descargar la rama llamda Development, no confundir con la rama developer
 
-### Contribution guidelines
+- Conocimiento a tener encuenta para el desarrollo del proyecto
 
-- Writing tests
-- Code review
-- Other guidelines
+```bash
+  Git
+  GitHub
+  Laravel
+  Vue
+  Node
+  Xampp
+  Php
+  Mysql
+  Composer
+  Npm
+```
 
-### Who do I talk to?
+- Instalar node 14.21.3 o similar, ejecutar los comandos
 
-- Repo owner or admin
-- Other community or team contact
+
+```bash
+  npm run install
+  npm run watch
+
+  composer install  
+```
+
+
+Tener instalado Xampp colocar todas las carpetas del proyecto en la carpeta htdocs
+
+```bash
+php artisan migrate
+```
+
+- Configurar las variables de entorno en el archivo .env
+- Importar la base de datos de desarollo con el administrador de preferencia
+- Ingresar a la ruta localhost desde el navegador
+
+
+## Despliegue
+
+- Se utiliza la developer, no confundir con development
+- Todos los cambios que se deseen agregar se tiene que ingresar en la rama developer mediante un pullrequest desde sus cuentas de github.
+- Una vez la rama tenga los cambios dirigirse al hosting y actualizarlo a los ultimos cambios, se recomienda hacer una copia antes de este paso para evitar perdidas o errores.
